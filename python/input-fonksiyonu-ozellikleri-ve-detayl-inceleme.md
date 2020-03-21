@@ -1,4 +1,4 @@
-![python](https://www.coogger.com/media/images/python.jpg?style=center)
+# Input Fonksiyonu, Özellikleri Ve Detaylı İnceleme
 
 ## Input fonksiyonu?
 Daha önceki içeriklerimde python'da fonksiyonlar konusuna bir giriş yapmış hatta **type()**, **print()** gibi işe yarar fonksiyonlarıda anlatmıştım şimdi ise kullanıcılardan bilgi ( girdi ) almamızı sağlayan **input()** fonksiyonunu göreceğiz.

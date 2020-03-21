@@ -1,3 +1,5 @@
+# Python'da Hata Yönetimi
+
 ## Python'da Hata Yakalama
 
 Şimdiye kadar anlattığım konularda hiç hatalardan, onları nasıl yakalayabileceğimizden, ve gelen hataya göre nasıl işlemlerimizi devam ettirebileceğimizden hiç bahsetmemiştim ama bu konu oldukça önemli bir konudur ve burda bunları öğreneceksiniz.

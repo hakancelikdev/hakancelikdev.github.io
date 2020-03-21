@@ -1,4 +1,4 @@
-![python-str.png](https://www.coogger.com/media/images/python-str.png)
+# Str Nesnesinin Methodları Ve Method Operasyonları ( Method, Method-Wrapper )
 
 ### Giriş
 Yukarıdaki resimde **str** tipinin aslında bir python nesnesi ve altında bir çok method ( nesneye ait fonksiyon) ve method-wrapper olduğunu görebiliyoruz, sizlere bu yazımda anlatmak istediklerim resimde gördüğünüz herşeydir.

@@ -1,6 +1,4 @@
-<img gnrl="center br-4" src="https://www.coogger.com/media/images/python.jpg">
-<center><sub>[Kaynak](http://alikara.com)</sub></center>
-
+# Sözlük Veri Tipini Python Nesnesine Dönüştürme
 
 ### Neler öğreneceğiz ?
 - python sınıf yapısı ( class )

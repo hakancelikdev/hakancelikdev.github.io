@@ -1,4 +1,5 @@
-![](https://www.coogger.com/media/images/python.jpg?style=center)
+# Python'a Giriş, Anaconda, Atom Ve Pip Kurulumu
+
 Herkese merhaba bu gün yeni bir tutorial serisine başlamaya karar verdim, python'ı baştan sona anlatan bir kaynak olacak, normalde [Python](https://www.coogger.com/python/@hakancelik96/) konusu altında yeni öğrendiğim konuları yazıyordum fakat baştan sona bir python serisi olmadığı için içimden yazmak gelmiyordu, ek olarak gaziantep üniversitesinde arkadaşlarımız arasında yazılım öğrenmek ve uygulamak adına bir ekip oluşturduk onlar içinde ek kaynak olmasını istediğim için <img general="width:40" class="pull-right" src="https://www.egitimsistem.com/d/news/13286.jpg"></img> umarım güzel bir şekilde devamını getireceğim orada işlenecek olan başlıkları bir hafta öncesinde burda anlatmayı planlıyorum ( Gereken yerlerde sık sık düzenlemeler yapacağım ), hatalı yerleri görürseniz lütfen yorum yapın veya aşağıdaki adreslerden bana ulaşarak bildirin, sizde katkıda bulunun.
 
 ### [Anaconda Nedir](https://www.anaconda.com/what-is-anaconda/) ?

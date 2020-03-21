@@ -1,4 +1,4 @@
-<img gnrl="center" src="https://www.coogger.com/media/images/instagram-python.jpg">
+# Instagram Botu
 
 ### Neler Öğreneceğiz ;
 

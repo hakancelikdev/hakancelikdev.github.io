@@ -1,4 +1,4 @@
-<center>![](https://www.coogger.com/media/images/python.jpg)</center>
+# Fonksiyonlara Giriş, Type Fonksiyonu, Değişkenler Ve Türleri, Yorum Satırı
 
 ## Fonksiyon
 Yazılım dillerindeki fonksiyonlar bildiğimiz matematik deki fonksiyonlar ile aynıdır, aslında genel olarak bakıldığında matematik ile yazılım zaten aynı şeydir, bilgisayar denen makinenin bir matematik ürünü olduğunu unutmamak gerekiyor.

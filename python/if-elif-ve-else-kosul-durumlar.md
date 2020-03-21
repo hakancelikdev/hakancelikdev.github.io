@@ -1,4 +1,4 @@
-![python](https://www.coogger.com/media/images/python.jpg)
+# If, Elif Ve Else Koşul Durumları
 
 Bu konunun anlaşılması için yazmış olduğum işleçler konusunda bulunan **Karşılaştırma işleçleri**'nin öğrenilmesi gerekiyor, isterseniz hemen işleçler konusunu tekrar edin ve tekrardan bu konuya gelin, bunun için size link bırakıyorum [@hakancelik/islecler-ve-print-fonksiyonu](https://www.coogger.com/@hakancelik/islecler-print-ve-input-fonksiyonlar-kacs-dizileri/)
 

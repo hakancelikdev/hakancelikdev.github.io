@@ -1,4 +1,4 @@
-![python](https://www.coogger.com/media/images/python.jpg?style=center)
+# Tipler Ve Dönüşümleri - <Class 'Type'>
 
 #### Hatırlatma
 Öncelikle python'da hangi veri tipleri vardı onları hatırlayalım, aşağıda python'da var olan veri tiplerinin listesi ve örnekler yazılmıştır bu konunun daha iyi anlaşılması için lütfen dikkatli inceleyiniz.

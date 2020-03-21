@@ -1,4 +1,4 @@
-<center>![](https://www.coogger.com/media/images/python.jpg)</center>
+# İşleçler Ve Print Fonksiyonu
 
 ### Neler Öğreneceğiz?
 - İşleçler ( *, /, -, +, %)

@@ -1,3 +1,5 @@
+# Context Processors Fonksiyonları Ve Kodlanması
+
 ## Nedir ?
 **context_processors**, template render edildiğinde bağlamı doldurmak için kullanılan, çağrılabilir bir python yolu listesidir. Bu çağrılabilirler, *request* nesnesini argüman olarak alır ve bağlama birleştirilerek itemler dict olarak döndürülür.
 

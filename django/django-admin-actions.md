@@ -1,3 +1,5 @@
+# Django Admin Actions
+
 Admin action kısaca seçilen nesneler ile toplu iş uygulayabilme olayıdır, seçili bütün kullanıcıları silmek gibi, aşağıda ki resim hangi konudan bahsettiğimizi anlatır niteliktedir.
 
 ![admin-actions](https://www.coogger.com/media/images/admin-actions.png?style=center)

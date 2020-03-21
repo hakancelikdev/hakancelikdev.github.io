@@ -1,3 +1,5 @@
+# Django Ile Site Haritası Oluşturma
+
 ### Site Haritası Nedir?
 
 Site haritaları google gibi arama motorlarının sizin sitenizi'deki içeriklerin botları ile daha hızlı ve pratik bir şekilde tarama yapıp indexlemesini sağlayan .xml uzantılı bir dosyadır seo yani arama motoru optimizasyonu için oldukça önemli olup neredeyse her sitede bulunur, örneğin coogger'ın içerikler için kullandığı [/sitemap/content.xml/](https://www.coogger.com/sitemap/content.xml/) adresine tıklayarak inceleyebilirsiniz.

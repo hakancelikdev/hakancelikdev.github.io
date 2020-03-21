@@ -1,3 +1,5 @@
+# User Modelini Genişletmek
+
 Merhaba arkadaşlar bildiğiniz gibi django da belirli özelliklere sahip bir user modelimiz var bu model'de isim,soy isim,email,şifre vb bilgiler mevcut bu bilgiler çoğu zaman hayat kurtarsada bazı durumlarda yeterli olmuyor ve bizlerin yapmakta olduğu projeye göre  kullanıcların daha fazla özelliklere sahip olması gerekiyor işte burda yapmak istediğimiz olayı kullanıcı modelini genişleterek elde edeceğiz bu olayada genişletme ( extend ) deniyor hadi başlayalım
 
 ### Nedir ?

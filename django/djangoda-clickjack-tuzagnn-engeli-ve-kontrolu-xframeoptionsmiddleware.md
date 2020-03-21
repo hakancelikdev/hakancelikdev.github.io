@@ -1,4 +1,6 @@
-**Clickjack** nedir ve nasıl korunulur, önlemleri nelerdir gibi daha fazla bilgiye ihtiyaç duyuyorsanız [clickjacking adındaki listeme göz atabilirsiniz.](https://www.coogger.com/clickjacking/@hakancelik/)
+# Django'da Clickjack Tuzağının Engeli Ve Kontrolu - Xframeoptionsmiddleware
+
+**Clickjack** nedir ve nasıl korunulur, önlemleri nelerdir gibi daha fazla bilgiye ihtiyaç duyuyorsanız [clickjacking adındaki listeme göz atabilirsiniz.](/clickjacking)
 
  -------
 

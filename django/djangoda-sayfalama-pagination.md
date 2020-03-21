@@ -1,3 +1,5 @@
+# Django'da Sayfalama - Pagination
+
 ## Sayfalamaya neden ihtiyaç var ?
 
 Verilerin çokluğundan doğan bir ihtihaç sayfalama mantığını getirmiştir, bütün veriler tek bir sayfada olmuş olsaydı

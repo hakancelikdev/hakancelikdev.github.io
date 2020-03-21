@@ -1,3 +1,5 @@
+# Django Sinyalleri Nasıl Oluşturulur ( Django Signals )
+
 ## Nedir
 
 Sinyaller'ler kısacası bir model ve istekler ( request, response ) ile yapılan bir işlem sırasında bunu yakalamanız ve ona göre işlem yapmanızı sağlar, örneğin yeni bir user modeliniz var ve yeni bir kullanıcı kaydı olduğunda sizin user modelinizede kayıt olsun istiyorsunuz bunu sinyalleri kullanarak yapabilirsiniz.

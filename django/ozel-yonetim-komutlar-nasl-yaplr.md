@@ -1,4 +1,4 @@
-![django-manage-command.PNG](https://www.coogger.com/media/images/django-manage.PNG?style=center)
+# Özel Yönetim Komutları Nasıl Yapılır
 
 ## Giriş
 

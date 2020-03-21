@@ -1,3 +1,5 @@
+# Görüntülerle İlgili Temel İşlemler
+
 ### Hedefler
 - Piksel değerlerine erişme ve bunları değiştirme
 - Resim özelliklerine erişme

@@ -1,3 +1,5 @@
+# Morfolojik Dönüşümler
+
 ## Hedef
 Bu bölümde,
 - Erozyon, Dilatasyon, Açılış, Kapanış gibi farklı morfolojik işlemleri öğreneceğiz. ( Erosion, Dilation, Opening, Closing )

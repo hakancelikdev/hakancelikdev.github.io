@@ -1,3 +1,5 @@
+# Görüntülerde Aritmetik İşlemler
+
 ## Hedefler
 
 Görüntüler üzerinde **toplama**, **çıkarma**, **bitdüzeyi** işlemleri gibi birkaç aritmetik işlemleri öğreneceğiz.

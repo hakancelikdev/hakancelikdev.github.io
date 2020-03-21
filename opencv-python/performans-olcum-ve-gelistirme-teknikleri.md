@@ -1,3 +1,5 @@
+# Performans Ölçüm Ve Geliştirme Teknikleri
+
 Herkese merhaba arkadaşlar bu bölümde opencv'de yaptığımız çalışmaları nasıl daha permormanslı yani daha hızlı vb olayları öğrenmeye çalışacağız.Biliyor olmanız gerektiği gibi opencv gibi teknolojilerle kodlama yaparken bir çok sayıda işlem yapılıyor bizim genel hedefimiz amacımıza uygun olarak doğru sonucu bulmak oluyor fakat en hızlı ve en güvenilir sekilde bu doğru sonucu elde etmek biz yazılımcıların çalışma sistemi olması gerek neyse konuya geçelim.
 
 ## Hedefler

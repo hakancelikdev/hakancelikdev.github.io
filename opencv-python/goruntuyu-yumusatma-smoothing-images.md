@@ -1,3 +1,5 @@
+# Görüntüyü Yumuşatma - ( Smoothing Images )
+
 **Smoothing Images** olarak geçer.
 ## Hedefler
 

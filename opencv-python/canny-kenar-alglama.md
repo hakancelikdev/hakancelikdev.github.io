@@ -1,3 +1,5 @@
+# Canny Kenar Algılama
+
 ## Hedefler
 - Canny kenar algılama kavramı
 - Bunun işlem için OpenCV fonksiyonlarından : `cv2.Canny()`

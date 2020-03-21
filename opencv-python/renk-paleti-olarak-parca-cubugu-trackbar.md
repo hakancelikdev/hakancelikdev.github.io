@@ -1,3 +1,5 @@
+# Renk Paleti Olarak Parça Çubuğu ( Trackbar )
+
 ### Hedefler
 
 - **Trackbar'ı** OpenCV pencerelerine bağlamayı öğreneceğiz

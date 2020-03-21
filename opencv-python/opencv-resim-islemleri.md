@@ -1,3 +1,5 @@
+# Opencv Resim Işlemleri
+
 ## Resim dosyasını okuma
 
 Resim dosyasını okumak için **cv2.imread()** fonksiyon kullanılır ve iki arguman alır.

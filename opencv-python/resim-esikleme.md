@@ -1,3 +1,5 @@
+# Resim Eşikleme
+
 > **Image Thresholding**
 
 ## Hedefler

@@ -1,3 +1,5 @@
+# Histogramlar
+
 ## Histogramlar - 1: Find, Plot, Analyze
 >( Histograms - 1 : Find, Plot, Analyze )
 ### Hedefler

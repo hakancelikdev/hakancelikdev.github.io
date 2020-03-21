@@ -1,3 +1,5 @@
+# Konturler ( Contours )
+
 ## Konturlar: Başlarken
 ### Hedefler
 - Konturlerin ne olduğunu anlayacağız.

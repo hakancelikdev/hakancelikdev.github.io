@@ -1,3 +1,5 @@
+# Görüntü Piramitleri
+
 > Image Pyramids
 
 ## Hedef

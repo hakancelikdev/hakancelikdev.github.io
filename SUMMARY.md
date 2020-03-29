@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Hakan Çelik](README.md)
+* [Hakan Çelik'ın Bloğu](README.md)
 * [Git](git/README.md)
   * [Git Nedir Kurulumu ve Özgür Yazılım](git/git-nedir-kurulumu-ve-ozgur-yazlm.md)
   * [Git Komutları](git/git-komutlar.md)

@@ -6,7 +6,3 @@ description: >-
 
 # Django
 
-[Telegram ](https://telegram.org/)kullanıcısı değilseniz indirmenizi, kullanmanızı ve grubumuza gelmenizi tavsiye ederim.
-
-[https://t.me/django\_turkey](https://t.me/django_turkey)
-

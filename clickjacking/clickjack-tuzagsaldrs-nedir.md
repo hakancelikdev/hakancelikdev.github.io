@@ -1,4 +1,4 @@
-# clickjack-tuzagsaldrs-nedir
+# Clickjack Tuzagı Saldırısı Nedir
 
 Bu tür bir saldırı kötü niyetli site bir kullanıcıyı gizli bir çerçeveye \( frame \) veya **iframe**'e yükledikleri başka bir sitenin gizli bir öğesine tıklamaya zorladığında oluşur.
 

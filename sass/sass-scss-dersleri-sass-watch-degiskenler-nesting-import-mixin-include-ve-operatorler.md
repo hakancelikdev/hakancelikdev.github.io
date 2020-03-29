@@ -1,4 +1,4 @@
-# sass-scss-dersleri-sass-watch-degiskenler-nesting-import-mixin-include-ve-operatorler
+# Sass Watch, Degişkenler Nesting, Import, Mixin, Include ve Operatorler
 
 Merhaba arkadaşlar [sass](https://www.coogger.com/sass/@hakancelik/) listemde **Sass** yerine **css** yapısına daha çok benzediği ve kolay öğrenilmesi açısından daha hızlı olacağını düşündüğüm **Scss** yapısını ele alarak devam edeceğim, belki ilerleyen zamanlarda zaman bulursam syntax olarak bu içeriklere **Sass** syntax'ınıda dahil ederim, zaten Syntax hariç geri kalan herşey aynı.
 

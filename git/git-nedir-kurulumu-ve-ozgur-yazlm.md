@@ -1,4 +1,4 @@
-# git-nedir-kurulumu-ve-ozgur-yazlm
+# Git Nedir Kurulumu ve Özgür Yazılım
 
 ## Git Nedir ?
 

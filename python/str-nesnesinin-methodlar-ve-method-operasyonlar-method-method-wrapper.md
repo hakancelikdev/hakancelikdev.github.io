@@ -1,4 +1,8 @@
-# str-nesnesinin-methodlar-ve-method-operasyonlar-method-method-wrapper
+---
+description: Method Operasyonları = Method Wrapper
+---
+
+# String Nesnesinin Methodları ve Method Operasyonları
 
 ## Str Nesnesinin Methodları Ve Method Operasyonları \( Method, Method-Wrapper \)
 
@@ -26,8 +30,6 @@ Genellikle farkına varmadan kullanırız bu methodları örnek vermek gerekirse
 ```
 
 Bu gibi işlemleri yapmamızı sağlarlar.
-
-\[========\]
 
 ## Method-Wrappers
 

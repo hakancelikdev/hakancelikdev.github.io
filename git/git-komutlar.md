@@ -1,4 +1,4 @@
-# git-komutlar
+# Git Komutları
 
 Git'i kurduk konfigürasyon ayarlarımızı yaptık şimdi git komutlarını öğrenme zamanı geldi.
 

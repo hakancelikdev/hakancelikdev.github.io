@@ -1,8 +1,4 @@
----
-description: Syntactically awesome stylesheets
----
-
-# Sass ve Scss Nedir ?
+# sass-ve-scss-nedir-syntactically-awesome-stylesheets
 
 Sass/Scss daha hızlı anlaşılır ve fonksiyonel css yazmamızı sağlayan bir şablon programlama dilidir, Proje adresi [http://sass-lang.com](http://sass-lang.com) olup gerekli tüm bilgileri buradan edinebilirsiniz.
 

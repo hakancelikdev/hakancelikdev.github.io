@@ -42,5 +42,5 @@ Alternatif olarak, daha yeni sürümlerde:
 
 * `http-response set-header X-Frame-Options sameorigin`
 
-Konu ile alakalı başka bir yazı, bu korumayı django kütüphanesini kullanarak nasıl yapıldığını öğrenin, [Django ile Clickjack Tuzağının Engellenmesi ve Kontol Edilmesi](https://hakancelik.gitbook.io/blog/django/djangoda-clickjack-tuzagnn-engeli-ve-kontrolu-xframeoptionsmiddleware) adlı yazıyıda bir göz atın.
+Konu ile alakalı başka bir yazı, bu korumayı django kütüphanesini kullanarak nasıl yapıldığını öğrenin, [Django'da Clickjack Tuzağının Engeli Ve Kontrolu - Xframeoptionsmiddleware](../django/djangoda-clickjack-tuzagnn-engeli-ve-kontrolu-xframeoptionsmiddleware.md) adlı yazıyıda bir göz atın.
 

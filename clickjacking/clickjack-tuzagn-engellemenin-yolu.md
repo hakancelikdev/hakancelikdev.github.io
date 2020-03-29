@@ -1,4 +1,4 @@
-# Clickjack Tuzagını Engellemenin Yolu
+# clickjack-tuzagn-engellemenin-yolu
 
 Araştırdığım zaman bu açığın bir kaç satır javascript kodu ile de engellenebildiğini ve sağlıklı olmadığını okudum.
 

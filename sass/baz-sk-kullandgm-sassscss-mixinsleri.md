@@ -1,4 +1,6 @@
-# Bazı Sık Kullandığım Sass Mixinsleri
+# baz-sk-kullandgm-sassscss-mixinsleri
+
+![sass](https://www.coogger.com/media/images/sass_Grw7XMo.png)
 
 ### Konunun Anlaşılması İçin Bilinmesi Gereken Konular
 

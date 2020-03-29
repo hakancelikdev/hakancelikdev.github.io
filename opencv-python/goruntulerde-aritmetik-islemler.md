@@ -2,11 +2,11 @@
 
 ## Hedefler
 
-Görüntüler üzerinde **toplama**, **çıkarma**, **bitdüzeyi** işlemleri gibi birkaç aritmetik işlemleri öğreneceğiz.
-Bu fonksiyonları öğreneceksiniz : **cv2.add()**, **cv2.addWeighted()** vb.
+Görüntüler üzerinde **toplama**, **çıkarma**, **bitdüzeyi** işlemleri gibi birkaç aritmetik işlemleri öğreneceğiz. Bu fonksiyonları öğreneceksiniz : **cv2.add\(\)**, **cv2.addWeighted\(\)** vb.
 
 ## Resim ekleme
-Opencv fonksiyonu,  **cv2.add()** veya **numpy** işlemleri,  **res = img1 + img2** ile iki resim ekleyebilirsiniz. Her iki görüntü de aynı derinlik ve türe sahip olmalı veya ikinci görüntü yalnızca skalar değerinde olabilir.
+
+Opencv fonksiyonu, **cv2.add\(\)** veya **numpy** işlemleri, **res = img1 + img2** ile iki resim ekleyebilirsiniz. Her iki görüntü de aynı derinlik ve türe sahip olmalı veya ikinci görüntü yalnızca skalar değerinde olabilir.
 
 **Not ;**
 
@@ -27,13 +27,9 @@ OpenCV eklemesi ile Numpy eklemesi arasında bir fark vardır. OpenCV eklemesi d
 
 ## Görüntü Karıştırma
 
-Bu aynı zamanda görüntü eklemesidir, ancak farklı ağırlıklar görüntülere verilir, böylece harmanlama veya şeffaflık hissi verir. Resimler aşağıdaki denkleme göre eklenir:
-![](https://steemitimages.com/0X0/http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/8086cd5f33e2aed7d185e1f55fc31ceab4433c2b.png)
-![](https://steemitimages.com/0X0/http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/e8b0946e02b57d6440cad75c8e0666f071d5ab3c.png)'e değişen ![](https://steemitimages.com/0X0/http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/ad59b6e24a4a00ac621801f8d7513d68be654ab5.png) bir görüntü arasında diğerine serin bir geçiş yapabilirsiniz. Burada onları bir araya getirmek için iki görüntü aldım.
+Bu aynı zamanda görüntü eklemesidir, ancak farklı ağırlıklar görüntülere verilir, böylece harmanlama veya şeffaflık hissi verir. Resimler aşağıdaki denkleme göre eklenir: ![](https://steemitimages.com/0X0/http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/8086cd5f33e2aed7d185e1f55fc31ceab4433c2b.png) ![](https://steemitimages.com/0X0/http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/e8b0946e02b57d6440cad75c8e0666f071d5ab3c.png)'e değişen ![](https://steemitimages.com/0X0/http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/ad59b6e24a4a00ac621801f8d7513d68be654ab5.png) bir görüntü arasında diğerine serin bir geçiş yapabilirsiniz. Burada onları bir araya getirmek için iki görüntü aldım.
 
-İlk resme 0.7 ağırlık ve ikinci resme 0.3 verilir. **cv2.addWeighted()**, aşağıdaki denklemi görüntüye uygular.
-![](https://steemitimages.com/0X0/http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/ce1ee966236689be38f566b9fb6bc92812bbd54d.png)
-
+İlk resme 0.7 ağırlık ve ikinci resme 0.3 verilir. **cv2.addWeighted\(\)**, aşağıdaki denklemi görüntüye uygular. ![](https://steemitimages.com/0X0/http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/ce1ee966236689be38f566b9fb6bc92812bbd54d.png)
 
 Burada ![](https://steemitimages.com/0X0/http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/0ebb67342b546ca42a1c634b1ef03c893c4cdedb.png) sıfır olarak alınır.
 
@@ -46,13 +42,13 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-**sonuç  ;**
+**sonuç ;**
 
-<img general="center br-4" src="https://www.coogger.com/media/images/opencv_YfZ6eAZ.jpg">
+![](https://www.coogger.com/media/images/opencv_YfZ6eAZ.jpg)
 
-## Bitwise Operations ( Bit düzeyi işlemleri )
+## Bitwise Operations \( Bit düzeyi işlemleri \)
 
-Bu bitwise **AND**, **OR**, **NOT** ve **XOR** işlemlerini içerir. Resmin herhangi bir bölümünü çıkartırken (ilerleyen bölümlerde de göreceğimiz gibi) dikdörtgen olmayan ROI vb. Ile tanımlama ve çalışma yaparken son derece faydalı olacaklar.
+Bu bitwise **AND**, **OR**, **NOT** ve **XOR** işlemlerini içerir. Resmin herhangi bir bölümünü çıkartırken \(ilerleyen bölümlerde de göreceğimiz gibi\) dikdörtgen olmayan ROI vb. Ile tanımlama ve çalışma yaparken son derece faydalı olacaklar.
 
 Aşağıda, resmin belirli bir bölümünü nasıl değiştireceğinize ilişkin bir örnek göreceğiz.
 
@@ -89,4 +85,5 @@ cv2.destroyAllWindows()
 
 Aşağıdaki sonuca bakın, Sol resim imal ettiğimiz maskeyi gösterir, Sağ görüntü ise sen son oluşan sonucu gösterir.
 
-<img general="center b-4" src="https://www.coogger.com/media/images/opencv_LAvFMC7.jpg">
+![](https://www.coogger.com/media/images/opencv_LAvFMC7.jpg)
+

@@ -1,7 +1,8 @@
 # Context Processors Fonksiyonları Ve Kodlanması
 
 ## Nedir ?
-**context_processors**, template render edildiğinde bağlamı doldurmak için kullanılan, çağrılabilir bir python yolu listesidir. Bu çağrılabilirler, *request* nesnesini argüman olarak alır ve bağlama birleştirilerek itemler dict olarak döndürülür.
+
+**context\_processors**, template render edildiğinde bağlamı doldurmak için kullanılan, çağrılabilir bir python yolu listesidir. Bu çağrılabilirler, _request_ nesnesini argüman olarak alır ve bağlama birleştirilerek itemler dict olarak döndürülür.
 
 ## Settings.py Dosyamızdaki Context Processors'ler
 
@@ -16,26 +17,31 @@ context_processors=[
 ],
 ```
 
-yukarıda gördüğünüz 4 tane **context_processors** vardır, öncelikle bunların ne işe yaradıklarından bahsedelim zaten django kodlayan biri kesinlikle yukarıdaki **context_processors**'leri kullanmış ve ne işe yaradığını biliyordur, biz kısaca bahsedip geçelim ve daha sonra bir tane de biz yazalım.
+yukarıda gördüğünüz 4 tane **context\_processors** vardır, öncelikle bunların ne işe yaradıklarından bahsedelim zaten django kodlayan biri kesinlikle yukarıdaki **context\_processors**'leri kullanmış ve ne işe yaradığını biliyordur, biz kısaca bahsedip geçelim ve daha sonra bir tane de biz yazalım.
 
 ### Request
+
 Yapılan isteklere ait bilgileri döndürür, bir HttpRequest nesnesidir.
 
 Her **RequestContext** içinde request değişkeni bulunur zaten buda anlık **HttpRequest** nesnesidir.
 
 ### Debug
+
 Hata ayıklamak için yardımcı bağlam değişlenlerini döndürür, sadece `DEBUG = TRUE` iken çalışır.
 
 ### Auth
+
 Template içinde kullanıcı bilgilerine erişmemizi sağlar, örneğin;
 
-```html
+```markup
 {{ user.username }}
 ```
+
 kullanıcı eğer bilinmeyen bir kullanıcı ise `AnonymousUser` döndürür.
 
 ### Messages
-Bir mesaj listesidir ve djangonun mesajlar ( messages ) framework aracılığı ile gönderilir.
+
+Bir mesaj listesidir ve djangonun mesajlar \( messages \) framework aracılığı ile gönderilir.
 
 Aşağıdaki işlemleri yaparak kullanıcılara mesaj vermemizi sağlar.
 
@@ -51,7 +57,8 @@ messages.error(request, 'Document deleted.')
 ```
 
 **Template içinde**
-```html
+
+```markup
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
@@ -63,15 +70,13 @@ messages.error(request, 'Document deleted.')
 
 şeklinde kullanmamızı sağlar.
 
-ilgili döküman; https://docs.djangoproject.com/en/2.2/ref/contrib/messages/
-
---------
+ilgili döküman; [https://docs.djangoproject.com/en/2.2/ref/contrib/messages/](https://docs.djangoproject.com/en/2.2/ref/contrib/messages/)
 
 ## Context Processors Kaynak Kodları
 
-Yukarıdaki **context_processors**'lerin içinde iki tane *debug* ve *request*'in kodlarına bakalım bir.
+Yukarıdaki **context\_processors**'lerin içinde iki tane _debug_ ve _request_'in kodlarına bakalım bir.
 
-**django.template.context_processors'ın kaynak kodları**
+**django.template.context\_processors'ın kaynak kodları**
 
 ```python
 import itertools
@@ -97,15 +102,15 @@ def request(request):
     return {'request': request}
 ```
 
-Gördüğünüz gibi yukarıda iki tane *context_processors* fonksiyonumuz var bunlar django'nun kendi *context_processors* lerinden bazıları, yukarıdaki kodlara bakınca aslında bir *context_processors* nasıl yazılır onuda görmüş ve öğrenmiş oluyoruz, normal bir fonksiyondan farkı yok, fonksiyonunuzu yazıyor, parametre olarak sadece request ( HttpRequest ) nesnesini alıyor, ve dict tipinden döndürüyor ( döndürme eylemi dict tipinde olmalı ) ve yazdığınız *context_processors*'ın konumunu **settings.py** de bulunan *context_processors* listesine ekliyorsunuz bitti artık sizde herhangi bir yerde yazdığınız *context_processors*'e erişip kullanabilirsiniz bu kadar.
+Gördüğünüz gibi yukarıda iki tane _context\_processors_ fonksiyonumuz var bunlar django'nun kendi _context\_processors_ lerinden bazıları, yukarıdaki kodlara bakınca aslında bir _context\_processors_ nasıl yazılır onuda görmüş ve öğrenmiş oluyoruz, normal bir fonksiyondan farkı yok, fonksiyonunuzu yazıyor, parametre olarak sadece request \( HttpRequest \) nesnesini alıyor, ve dict tipinden döndürüyor \( döndürme eylemi dict tipinde olmalı \) ve yazdığınız _context\_processors_'ın konumunu **settings.py** de bulunan _context\_processors_ listesine ekliyorsunuz bitti artık sizde herhangi bir yerde yazdığınız _context\_processors_'e erişip kullanabilirsiniz bu kadar.
 
 ## Kendi Context Processors Fonksiyonumuzu Yazalım
 
-**/myapp/contenxt_processors/hello.py**
+**/myapp/contenxt\_processors/hello.py**
 
 ```python
 def say_hello(request):
-	return dict(hello="hello")
+    return dict(hello="hello")
 ```
 
 fonksiyonumuz basit'te olsa yazsık, şimdi sırada **settings.py** dosyamıza bunun yolunu eklemek.
@@ -118,12 +123,13 @@ context_processors=[
     'django.template.context_processors.request',
     'django.contrib.auth.context_processors.auth',
     'django.contrib.messages.context_processors.messages',
-	"myapp.contenxt_processors.hello.say_hello"
+    "myapp.contenxt_processors.hello.say_hello"
 ],
 ```
 
 bu kadar şimdi aşağıdaki gibi yaparak bunu her templatimizde gösterebiliriz.
 
-```html
+```markup
 {{ say_hello }}
 ```
+

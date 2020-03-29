@@ -18,19 +18,23 @@ class IPModel(models.Model):
     ban = models.BooleanField(default=0)
 ```
 
-### Action Fonsiyonu Yazımı
+## Action Fonsiyonu Yazımı
+
 Action fonksiyonu normal fonksiyon olup 3 tane parametre alır bunlar
-- ModelAdmin
-- HttpRequest
-- QuerySet
+
+* ModelAdmin
+* HttpRequest
+* QuerySet
 
 Bu fonksiyonumuz **ModelAdmin** ve **HttpRequest** 'i kullanmayacağız bunlar django için gerekli parametreler biz **QuerySet**'i kullanacağız.
 
 örneğin
+
 ```python
 def remove_ban(modeladmin, request, queryset):
     queryset.update(ban=False)
 ```
+
 Bu şekilde yazım performanslı yazımdır tabi isterseniz
 
 ```python
@@ -46,12 +50,11 @@ def remove_ban(modeladmin, request, queryset):
 remove_ban.short_description = 'Remove Ban'
 ```
 
-Burada `remove_ban` fonksiyonumuza **short_description** adında bir atama yapıldığını görünüyorz bunun amacı django bu değişkeni admin panelde **list_display** olarak kullanıyor, aşağıdaki resimde nerede kullanıldığı görülmektedir.
+Burada `remove_ban` fonksiyonumuza **short\_description** adında bir atama yapıldığını görünüyorz bunun amacı django bu değişkeni admin panelde **list\_display** olarak kullanıyor, aşağıdaki resimde nerede kullanıldığı görülmektedir.
 
-![django_ban_admin_action](https://www.coogger.com/media/images/django_ban_admin_action.PNG?style=center)
+![django\_ban\_admin\_action](https://www.coogger.com/media/images/django_ban_admin_action.PNG?style=center)
 
-Şimdi modelim için admin tarafını yazalım.
-**/admin.py**
+Şimdi modelim için admin tarafını yazalım. **/admin.py**
 
 ```python
 from django.contrib.admin import ModelAdmin, site
@@ -80,6 +83,8 @@ class IPAdmin(ModelAdmin):
 
 site.register(IPModel,IPAdmin)
 ```
-Yukarıdaki **admin.py** dosyamda iki tane admin action fonksiyonu yazdım ve **modeladmin** sınıfıma bu actionları **actions = [remove_ban, banned]** şeklinde yazdım, django artık **IPAdmin** nesnemde iki tane action olduğunu ve bunların görevlerini biliyor.
+
+Yukarıdaki **admin.py** dosyamda iki tane admin action fonksiyonu yazdım ve **modeladmin** sınıfıma bu actionları **actions = \[remove\_ban, banned\]** şeklinde yazdım, django artık **IPAdmin** nesnemde iki tane action olduğunu ve bunların görevlerini biliyor.
 
 şimdi admin sayfama gidip birden fazla ip adresi seçip bunları toplu olarak banlayabilirim veya banını kaldırabilirim.
+

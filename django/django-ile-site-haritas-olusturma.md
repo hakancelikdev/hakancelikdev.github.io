@@ -6,13 +6,13 @@ Site haritaları google gibi arama motorlarının sizin sitenizi'deki içerikler
 
 ## Hadi Projemiz için Site Haritası Yapalım
 
-Önce projenizin **settings.py** bölümünü açın ve  [INSTALLED_APP](https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-INSTALLED_APPS) kısmına django'da bulunan sitemap uygulamasının yolunu yazalım; `django.contrib.sitemaps`
+Önce projenizin **settings.py** bölümünü açın ve [INSTALLED\_APP](https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-INSTALLED_APPS) kısmına django'da bulunan sitemap uygulamasının yolunu yazalım; `django.contrib.sitemaps`
 
 [sites framework](https://docs.djangoproject.com/en/1.11/ref/contrib/sites/#module-django.contrib.sites)'ün yüklü olduğundan emin olun.
 
 Daha sonra projenizin **myapp/templates** dizini içerisine **sitemap.xml** olarak bir dosya açalım ve içine şu satırları yazalım;
 
-```html
+```markup
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
   xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
@@ -30,11 +30,11 @@ Daha sonra projenizin **myapp/templates** dizini içerisine **sitemap.xml** olar
 </urlset>
 ```
 
-bu dosya bizim sitemap temamız ( template ) dır.
+bu dosya bizim sitemap temamız \( template \) dır.
 
 eğer siteniz bir haber sitesi ise **sitemap** temanız aşağıdaki gibi olmalıdır.
 
-```html
+```markup
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
   xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
@@ -115,11 +115,13 @@ urlpatterns = [
 ]
 ```
 
-şimdi  projenizden /sitemap.xml şeklinde ki adrese giderek site haritanızı görüntüleyebilirsiniz.
-
+şimdi projenizden /sitemap.xml şeklinde ki adrese giderek site haritanızı görüntüleyebilirsiniz.
 
 ## Not
+
 Seo için **robots.txt** dosyanıza site haritalarının adreslerini koymayı unutmayın
 
 #### Kaynak
-- https://docs.djangoproject.com/en/2.2/ref/contrib/sitemaps/
+
+* [https://docs.djangoproject.com/en/2.2/ref/contrib/sitemaps/](https://docs.djangoproject.com/en/2.2/ref/contrib/sitemaps/)
+

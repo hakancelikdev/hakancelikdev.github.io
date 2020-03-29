@@ -3,9 +3,10 @@
 Bu konunun anlaşılması için yazmış olduğum işleçler konusunda bulunan **Karşılaştırma işleçleri**'nin öğrenilmesi gerekiyor, isterseniz hemen işleçler konusunu tekrar edin ve tekrardan bu konuya gelin, bunun için size link bırakıyorum [@hakancelik/islecler-ve-print-fonksiyonu](https://www.coogger.com/@hakancelik/islecler-print-ve-input-fonksiyonlar-kacs-dizileri/)
 
 ### Koşullu Durumlar Nedir?
+
 Her programlama dilinde bulunan ve kod yazım sırasında bir durumun çalışması için başka bir durumu kontrol etmemizi sağlayan kod bloklarıdır, bunları sözlü bir şekilde algoritmik olarak örneklersek şu mantık ile çalışır.
 
-```flow
+```text
 st=>start: Yükün ağırlığını ölç
 cond=>condition: Yük 30 kg'dan büyük mü?
 single=>end: Git yardım çağır
@@ -20,24 +21,24 @@ Yukarıda görüldüğü gibi **yes, no** şeklinde ayrılan ve gelen cevaba gö
 
 Python'da koşul durumları 3 tane olup aşağıya yazmış olduğum durum kodlarıdır.
 
-- **if**
-- **elif**
-	- elif diğer programlama dillerinde **else if** olarak geçer, python bunun kısa halini kullanır.
-- **else**
+* **if**
+* **elif**
+  * elif diğer programlama dillerinde **else if** olarak geçer, python bunun kısa halini kullanır.
+* **else**
 
-[=====================]
+\[=====================\]
 
 ## If Koşul Durumu
 
 Hatırlarsanız [@hakancelik96/islecler-ve-print-fonksiyonu](https://www.coogger.com/@hakancelik96/islecler-print-ve-input-fonksiyonlar-kacs-dizileri/) bu içerikte python'da bulunan her nesnenin bir **bool** değeri yani **True** ve **False** değeri olduğunu söylemiştik işte bu konuda şimdi bu bilgiyi kullanacağız, ama nasıl? Aslında **koşul durumlarının önemsediği tek şey onlara şart olarak verilen nesnenin doğru olup olmadığıdır** bütün mesele budur.
 
-Örnek vermek gerekirse **if "hakan" ** şeklinde yazdığımızda python **if** koşul durumuna verilen şartın ( yani "hakan" nesnesinin )sadece doğru olup olmadığına bakar ve eğer şart doğru ise **if** durumu çalışır, yanlış ise çalışmaz.
+Örnek vermek gerekirse **if "hakan"**  şeklinde yazdığımızda python **if** koşul durumuna verilen şartın \( yani "hakan" nesnesinin \)sadece doğru olup olmadığına bakar ve eğer şart doğru ise **if** durumu çalışır, yanlış ise çalışmaz.
 
 Aşağıdaki kodları inceleyerek daha iyi anlayabiliriz.
 
 ```python
 if True: # koşul durumundaki şart doğru ( True )
-	print("if koşul durumdaki koşul doğru") # bu yüzden kod çalışır
+    print("if koşul durumdaki koşul doğru") # bu yüzden kod çalışır
 print("bu kısım if durumunun dışında kalan kısımdır.")
 ```
 
@@ -47,7 +48,7 @@ print("bu kısım if durumunun dışında kalan kısımdır.")
 
 ```python
 if False: # koşul durumdaki şart yanlış ( False )
-	print("if koşul durumdaki koşul yanlış") # bu yüzden bu kod çalışmaz
+    print("if koşul durumdaki koşul yanlış") # bu yüzden bu kod çalışmaz
 ```
 
 Yukarıdaki script'in herhangi bir çıktısı olmaz çünkü koşul olarak verilen durum False'dur
@@ -56,8 +57,8 @@ Ek olarak fark etmiş olmalısınız ki **if** durumunun altındaki kod bloğunu
 
 ```c
 if (true){
-	// bu bölüm if durumu doğru ise çalışacak bölüm
-	cout<<"if koşul durumdaki koşul doğru"<<endl;
+    // bu bölüm if durumu doğru ise çalışacak bölüm
+    cout<<"if koşul durumdaki koşul doğru"<<endl;
 }
 // bu bölüm ise if doğru olsada olmasa çalışacak olan bölüm, if durumunun dışında kalan bölüm
 ```
@@ -68,17 +69,16 @@ if koşul durumu her daim kontrol edilen bir durumdur, bu ne demek diyorsanız e
 
 ```python
 if True:
-	print("ilk true")
+    print("ilk true")
 if False:
-	print("Çalışmayan satır")
+    print("Çalışmayan satır")
 if True:
-	print("ikinci doğru")
+    print("ikinci doğru")
 if False:
-	print("çalışmayan ikinci satır.")
-
+    print("çalışmayan ikinci satır.")
 ```
 
-yukarıda 4 tane if durumu var ve python bu script'i yukarıdan aşağıya doğru okurken gördüğü her if koşul durumuna verilen koşulun True mu oksa False mı olduğuna bakar ve True olan her durumu çalıştırır ( bu durum elif ve else de farklı ) bu yüzden çıktımız aşağıdaki gibi olacaktır.
+yukarıda 4 tane if durumu var ve python bu script'i yukarıdan aşağıya doğru okurken gördüğü her if koşul durumuna verilen koşulun True mu oksa False mı olduğuna bakar ve True olan her durumu çalıştırır \( bu durum elif ve else de farklı \) bu yüzden çıktımız aşağıdaki gibi olacaktır.
 
 ```python
 "ilk true"
@@ -86,37 +86,38 @@ yukarıda 4 tane if durumu var ve python bu script'i yukarıdan aşağıya doğr
 ```
 
 ## Elif Koşul Durumu
+
 **elif** koşul durumunun **if** koşul durumundan çok az farkı vardır, bu fark da sözlü olarak şudur eğer **if** koşul durumuna verilen koşul **False** ise bir sonraki **elif** koşul durumuna bak ve koşul olarak verilen nesne **True** ise çalıştır, eğer elif çalışırsa bir sonraki elif'e bakma çalışmaz ise bir sonraki elif' durumuna bak, kodlar ile anlatayım.
 
 ```python
 if False:
-	print("çalışmayacak")
+    print("çalışmayacak")
 elif True:
-	print("elif çalıştı")
+    print("elif çalıştı")
 elif True:
-	print("ikinci elif çalışmadı çünkü zaten bir tane elif çalıştı.")
+    print("ikinci elif çalışmadı çünkü zaten bir tane elif çalıştı.")
 ```
 
 Sonuç ise `"elif çalıştı"` olacaktır, olayı tam kavrayamadınız ise bir sonrakine bakın.
 
 ```python
 if True:
-	print("elifler çalışmayacak sadece bu çalışacak")
+    print("elifler çalışmayacak sadece bu çalışacak")
 elif True:
-	print("elif çalışmayacak çünkü if durumu doğru")
+    print("elif çalışmayacak çünkü if durumu doğru")
 elif True:
-	print("elif çalışmayacak çünkü if durumu doğru")
+    print("elif çalışmayacak çünkü if durumu doğru")
 ```
 
 çıktımız `"elifler çalışmayacak sadece bu çalışacak"` olacaktır çünkü dediği gibi if durumu doğru bu yüzden python bir sonraki elif durumlarına bakmayacak bile, son bir örnek daha
 
 ```python
 if False:
-	print("çalışmaz")
+    print("çalışmaz")
 elif False:
-	print("False olduğu için buda çalışmaz")
+    print("False olduğu için buda çalışmaz")
 elif True:
-	print("çalışır")
+    print("çalışır")
 if True:
     print("bu başka bir if buda çalışır, hatırlarsanız python her if'i kontrol eder ve koşul True ise çalıştırır demiştim")
 ```
@@ -124,16 +125,17 @@ if True:
 İf konusunu anlatırken yazdığım not şimdi anlaşılmıştır umarım.
 
 ## Else Koşul Durumu
-- **else** koşul durumu **if** çalışmadığında yani if'durumu **False** olduğunda ve koşul durumlarının hiç biri çalışmadığında çalışan koşul durumudur.
-- if ve elif de olduğu gibi önüne şart nesnesi almaz çünkü **else** koşul durumunun çalışma şartı bir üste yazdığım şarttır, bundan dolayı ek olarak belirtilmez ve python buna izin vermez.
+
+* **else** koşul durumu **if** çalışmadığında yani if'durumu **False** olduğunda ve koşul durumlarının hiç biri çalışmadığında çalışan koşul durumudur.
+* if ve elif de olduğu gibi önüne şart nesnesi almaz çünkü **else** koşul durumunun çalışma şartı bir üste yazdığım şarttır, bundan dolayı ek olarak belirtilmez ve python buna izin vermez.
 
 ```python
 if False:
-	print("çalışmaz")
+    print("çalışmaz")
 elif False:
-	print("çalışmaz")
+    print("çalışmaz")
 elif False:
-	print("çalışmaz")
+    print("çalışmaz")
 else:
     print("else çalışır")
 ```
@@ -142,7 +144,7 @@ Hiç bir şart çalışmadığı için else koşul durumu çalıştı.
 
 ```python
 if False:
-	print("çalışmaz")
+    print("çalışmaz")
 else:
     print("else çalışır")
 ```
@@ -167,3 +169,4 @@ if 0:
 else:
     print("0 nesnesinin bool değeri", bool(0), "dur")
 ```
+

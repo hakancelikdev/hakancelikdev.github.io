@@ -3,25 +3,29 @@
 > Image Gradients
 
 ## Hedefler
+
 Bu konuda şunları öğreneceğiz.
-- Görüntü geçişlerini ve kenar bulma
-- ve bu fonksiyonlar `cv2.Sobel()`, `cv2.Scharr()`, `cv2.Laplacian()` vb
+
+* Görüntü geçişlerini ve kenar bulma
+* ve bu fonksiyonlar `cv2.Sobel()`, `cv2.Scharr()`, `cv2.Laplacian()` vb
 
 ## Teori
+
 Opencv 3 çeşit geçiş filtresi veya yüksek geçiş filtreleri sağlar. Bunların her birini göreceğiz.
 
 ### 1. Sobel ve Scharr Türevleri
 
 Sobel işlemleri ortak bir Gausssian yumuşatma artı türev işlemleridir, yani bu kadar kirliliğe karşı daha dayanıklıdır.
 
-Alınacak olan türevin yönünü belirleyebilirsiniz, yata veya dikey ( argüman olarak, sırası ile **yorder** ve **xorder** )
+Alınacak olan türevin yönünü belirleyebilirsiniz, yata veya dikey \( argüman olarak, sırası ile **yorder** ve **xorder** \)
 
 Ayrıca argümanın **ksize** tarafından çekirdek boyutunu belirleyebilirsiniz. If ksize = -1, bir 3x3 Sobel filtreden daha iyi sonuç veren 3 x 3 Scharr filtre kullanılır.
 
 Lütfen kullanılan çekirdekler için dokümanlara bakın.
 
 ### 2. Laplacian Türevleri
-İlişki tarafından verilen görüntünün Laplacian ni hesaplar  $$\Delta src = \frac{\partial ^2{src}}{\partial x^2} + \frac{\partial ^2{src}}{\partial y^2}$$    her türev Sobel türev yardımıyla bulunur. If ksize = 1 ( ksize 1 ise ) o zaman çekirdek aşağıdaki filtreleme için kullanılır:
+
+İlişki tarafından verilen görüntünün Laplacian ni hesaplar $$\Delta src = \frac{\partial ^2{src}}{\partial x^2} + \frac{\partial ^2{src}}{\partial y^2}$$ her türev Sobel türev yardımıyla bulunur. If ksize = 1 \( ksize 1 ise \) o zaman çekirdek aşağıdaki filtreleme için kullanılır:
 
 ![](https://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/2e4e208edcbed72b60c09a9e8eb8c00c4b21dbd6.png?style=center)
 
@@ -49,15 +53,16 @@ plt.subplot(2,2,4),plt.imshow(sobely,cmap = 'gray')
 plt.title('Sobel Y'), plt.xticks([]), plt.yticks([])
 plt.show()
 ```
+
 Sonuç:
 
 ![Image Gradients](https://opencv-python-tutroals.readthedocs.io/en/latest/_images/gradients.jpg?style=center)
 
 ## Önemli Bir Konu!
 
-Bizim son örneğimizde, çıkış data türü `cv2.CV_8U` veya `np.uint8`'di. Fakat bunun ile ilgili ufak bir problem var. White-to-Black ( beyazdan siyaha ) geçişler negatif slope alırken  Black-to-White   ( siyahtan beyaza ) geçiş pozitif slope olarak alır ( bu pozitif bir değerdir ). Yani data türünü `np.uint8`'ye dönüştürdüğünüzde, Bütün negatig slope'lar (slopes) ( bütün slope değerleri ) 0 yapılmalıdır.
+Bizim son örneğimizde, çıkış data türü `cv2.CV_8U` veya `np.uint8`'di. Fakat bunun ile ilgili ufak bir problem var. White-to-Black \( beyazdan siyaha \) geçişler negatif slope alırken Black-to-White \( siyahtan beyaza \) geçiş pozitif slope olarak alır \( bu pozitif bir değerdir \). Yani data türünü `np.uint8`'ye dönüştürdüğünüzde, Bütün negatig slope'lar \(slopes\) \( bütün slope değerleri \) 0 yapılmalıdır.
 
-basit bir değiş ile bu kenardan kaçarsın. Her iki kenarları tespit etmek istiyorsanız, biraz daha yüksek formlar, `cv2.CV_16S`, `cv2.CV_64F` gibi çıkan veri türleri  tutmak daha iyi bir seçenektir.
+basit bir değiş ile bu kenardan kaçarsın. Her iki kenarları tespit etmek istiyorsanız, biraz daha yüksek formlar, `cv2.CV_16S`, `cv2.CV_64F` gibi çıkan veri türleri tutmak daha iyi bir seçenektir.
 
 Eğer mutlak değeri almak ve sonra `cv2.CV_8U` den geriye dönersen, bu prosedür yatay sobel filtresi için ve sonuçların içindeki farkları aşağıdaki kod ile gösterir.
 
@@ -80,6 +85,8 @@ plt.subplot(1,3,3),plt.imshow(sobel_8u,cmap = 'gray')
 plt.title('Sobel abs(CV_64F)'), plt.xticks([]), plt.yticks([])
 plt.show()
 ```
+
 Sonucu kontrol edin :
 
 ![Double Edges](https://opencv-python-tutroals.readthedocs.io/en/latest/_images/double_edge.jpg?style=center)
+

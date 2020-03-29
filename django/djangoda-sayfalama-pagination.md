@@ -4,19 +4,19 @@
 
 Verilerin çokluğundan doğan bir ihtihaç sayfalama mantığını getirmiştir, bütün veriler tek bir sayfada olmuş olsaydı
 
-- sayfa geç yüklenir
-- kullanıcılar uzun süre beklemek durumun da kalır
-- sunucumuz fazla iş yapmış ve yorulmuş olur
-- internet'de aynı zaman da fazla dan harcanmış olur
-- tasarım açısından da pek hoş görünmez di.
+* sayfa geç yüklenir
+* kullanıcılar uzun süre beklemek durumun da kalır
+* sunucumuz fazla iş yapmış ve yorulmuş olur
+* internet'de aynı zaman da fazla dan harcanmış olur
+* tasarım açısından da pek hoş görünmez di.
 
 bunların sonucunda ise kullanıcılar web sitelerinde uzun süre kalmaz ve ayrılırlar büyük ihtimalle
 
-Bu yüzden bu gün django'da bulunan ( from django.core.paginator import Paginator ) paginator fonksiyonunu kullanmayı öğreneceğiz.
+Bu yüzden bu gün django'da bulunan \( from django.core.paginator import Paginator \) paginator fonksiyonunu kullanmayı öğreneceğiz.
 
 bence bu fonksiyonu tools.py adında bir dosya açıp paginator adında bir fonksiyon yazın ve gerekli olan bütün yerlerde bu fonksiyonu çağırarak kullanın bu sayede hız kazanmış olursunuz.
 
-## Django ile sayfalama ( Pagination ) - Mantığını Anlamak
+## Django ile sayfalama \( Pagination \) - Mantığını Anlamak
 
 Öncelikle Paginator fonksiyonunu projemize dahil edelim,
 
@@ -38,20 +38,19 @@ p adında bir değişken oluşturduk ve objects listesini birinci argüman olara
 p.count
 ```
 
-
-**count** ile p içindeki toplam nesne sayısını öğrenebiliriz burada çıktı olarak **4**  verecektir.
+**count** ile p içindeki toplam nesne sayısını öğrenebiliriz burada çıktı olarak **4** verecektir.
 
 ```python
 p.num_pages
 ```
 
-num_pages ile p değişkeninde bulunan verileri toplamda kaç sayfada göstereceğimiz bilgisine ulaşabiliriz burada Paginator fonksiyonunun ikinci değişkenine 2 yazdığımız için ve objects nesnesi 4 öğeden oluştuğu için toplam gösterilecek sayfa sayısı 4/2 = 2 dir yanı p.num_pages bize 2 çıktısını verecektir.
+num\_pages ile p değişkeninde bulunan verileri toplamda kaç sayfada göstereceğimiz bilgisine ulaşabiliriz burada Paginator fonksiyonunun ikinci değişkenine 2 yazdığımız için ve objects nesnesi 4 öğeden oluştuğu için toplam gösterilecek sayfa sayısı 4/2 = 2 dir yanı p.num\_pages bize 2 çıktısını verecektir.
 
 ```python
 p.page(1)
 ```
 
-sayfa getirmek istersek **page()** fonksiyonunu kullanıyoruz bu fonksiyon sadece bir parametre alır oda getirmek istenilen sayfanın sayısıdır, çıktı olarak bize `<Page 1 of 2> ` bunu verecektir, getirdiğiniz sayfada bulunan verileri almak isterseniz, **object_list** methodunu kullanmanız gerekir yanı sonuc olarak şöyle yapmanız gerek.
+sayfa getirmek istersek **page\(\)** fonksiyonunu kullanıyoruz bu fonksiyon sadece bir parametre alır oda getirmek istenilen sayfanın sayısıdır, çıktı olarak bize `<Page 1 of 2>` bunu verecektir, getirdiğiniz sayfada bulunan verileri almak isterseniz, **object\_list** methodunu kullanmanız gerekir yanı sonuc olarak şöyle yapmanız gerek.
 
 ```python
 page1 = p.page(1) # <Page 1 of 2>
@@ -60,7 +59,7 @@ page2 = p.page(2)
 page2.object_list  # ['george', 'ringo'] ikinci sayfadaki veriler
 ```
 
-sayfaları tek tek çağırmak yerine sırayla bir sonraki sayfayı çağırmak için  **has_next()** fonksiyonunu kullanmak gerek ,bir önceki sayfayı çağırmak yanı verilerine erişmek için ise **has_previous()**
+sayfaları tek tek çağırmak yerine sırayla bir sonraki sayfayı çağırmak için **has\_next\(\)** fonksiyonunu kullanmak gerek ,bir önceki sayfayı çağırmak yanı verilerine erişmek için ise **has\_previous\(\)**
 
 bunlar eğer bir sonraki veya bir önceki sayfa mevcut ise True eğer çağrılan sayfalar yok ise False değeri döndürür.
 
@@ -69,7 +68,7 @@ page2.has_next()     #   False 3. sayfa olmadığı için False
 page2.has_previous() #  True 2 den bir önceki sayfa yani 1.sayfa oldugu için True
 ```
 
-verisi gelen sayfanın ilk verinin numarasını öğrenmek için **start_index()** , gelen verinin sonundaki veri numarasını öğrenmek için ise **end_index()** fonksiyonu kullanılır
+verisi gelen sayfanın ilk verinin numarasını öğrenmek için **start\_index\(\)** , gelen verinin sonundaki veri numarasını öğrenmek için ise **end\_index\(\)** fonksiyonu kullanılır
 
 ### Örnek
 
@@ -107,7 +106,7 @@ def paginator(request,queryset,hmany=20):
     return contacts
 ```
 
-şimdi 3 tane parametre alıyor birincisi gelen istekler olan request, ikincisi sayfalamak istediğimiz verimiz ( bu veriler veri tabanından aldıgımız verilerdir ) üçüncüsü bir sayfada kaç tane veri görünmesi gerektiği.
+şimdi 3 tane parametre alıyor birincisi gelen istekler olan request, ikincisi sayfalamak istediğimiz verimiz \( bu veriler veri tabanından aldıgımız verilerdir \) üçüncüsü bir sayfada kaç tane veri görünmesi gerektiği.
 
 try ve except ile hataları yakalıyoruz , eğer gelen sayfa isteği sayı değil ise birinci sayfanın verilerini veriyoruz , eğer gelen sayfa isteği bulunan sayfa sayısı dışında ise son sayfayı veriyoruz.
 
@@ -143,7 +142,7 @@ blogs = tools.paginator(request,queryset)
 return render(request,"blog/blogs.html",{"blogs":blogs})
 ```
 
-burada Blog nesnesinden ( veri tabanından ) bütün verileri çektik çekilen verileri tools.py modulumuzdeki **paginator** adlı fonksiyonun 2. paremetresine attık ,1 .parametreye gelen istekler olan request i verdik ve sayfamızda 20 tane içerik görünmesini istediğimiz için 3. parametreyi tekrar yazma ihtiyacı duymadık
+burada Blog nesnesinden \( veri tabanından \) bütün verileri çektik çekilen verileri tools.py modulumuzdeki **paginator** adlı fonksiyonun 2. paremetresine attık ,1 .parametreye gelen istekler olan request i verdik ve sayfamızda 20 tane içerik görünmesini istediğimiz için 3. parametreyi tekrar yazma ihtiyacı duymadık
 
 **paginator** fonksiyonu bize sayfaladı ve veriyi çıktı olarak verip blogs değişkenine attı bizde onu blogs.html adlı temamıza blogs ismi ile yolladık.
 
@@ -168,7 +167,7 @@ def paginator(request,queryset,hmany=20):
 
 **blogs.html**
 
-```html
+```markup
 {% include 'home/head.html' %} {% include 'home/header.html' %} {% include 'home/nav.html' %} {% if blog %}
 <div class="blogs">
     <div class="main-blog-cards">
@@ -176,7 +175,6 @@ def paginator(request,queryset,hmany=20):
     </div>
 </div>
 {% include "home/paginator.html" %} {% endif %}
-
 ```
 
 blogs.html içinde paginator.html ı dahil ediyoruz
@@ -223,3 +221,4 @@ blogs.html içinde paginator.html ı dahil ediyoruz
     border-radius: 6px;
 }
 ```
+

@@ -1,21 +1,21 @@
-# Renk Paleti Olarak Parça Çubuğu ( Trackbar )
+# Renk Paleti Olarak Parça Çubuğu \( Trackbar \)
 
-### Hedefler
+## Hedefler
 
-- **Trackbar'ı** OpenCV pencerelerine bağlamayı öğreneceğiz
-- Şu fonksiyonları öğreneceğiz ;  **cv2.getTrackbarPos ()**, **cv2.createTrackbar()** vb.
+* **Trackbar'ı** OpenCV pencerelerine bağlamayı öğreneceğiz
+* Şu fonksiyonları öğreneceğiz ;  **cv2.getTrackbarPos \(\)**, **cv2.createTrackbar\(\)** vb.
 
-### Demo
+## Demo
 
 Burada belirttiğiniz rengi gösteren basit bir uygulama oluşturacağız.B, G ve R renklerinin her birini belirtmek için rengi ve üç trackbarı gösteren bir pencereniz var.İz çubuğunu kaydırırsınız ve buna karşılık gelen renk pençerede değişir.Varsayılan olarak, başlangıç rengi Siyah olarak ayarlanacaktır.
 
-**Cv2.getTrackbarPos()** işlevi için
+**Cv2.getTrackbarPos\(\)** işlevi için
 
-- ilk argüman trackbar ismidir
-- ikincisi bağlı olduğu pencere adıdır
-- Üçüncü argüman varsayılan değerdir
-- dördüncüsü ise maksimum değerdir
-- beşincisi, trackbar değerinin her değiştiğinde çalıştırılan geri çağırma fonksiyonudur.
+* ilk argüman trackbar ismidir
+* ikincisi bağlı olduğu pencere adıdır
+* Üçüncü argüman varsayılan değerdir
+* dördüncüsü ise maksimum değerdir
+* beşincisi, trackbar değerinin her değiştiğinde çalıştırılan geri çağırma fonksiyonudur.
 
 Geri çağırma fonksiyonu her zaman trackbar konumu olan bir varsayılan argümana sahiptir.Bizim durumumuzda, işleve hiçbir şey yapmaz, bu nedenle pas geçeriz.
 
@@ -24,7 +24,6 @@ trackbar'ın bir diğer önemli uygulaması, onu bir düğme veya anahtar olarak
 Bu yüzden bu tür işlemler için trackbar'ı kullanabilirsiniz.Uygulamamızda, uygulamanın yalnızca anahtar AÇIK olduğu durumda çalıştığı bir anahtar oluşturduk, aksi halde ekran her zaman siyahtır.
 
 ```python
-
 import cv2
 import numpy as np
 
@@ -57,9 +56,9 @@ while(1):
     else:
         img[:] = [b,g,r]
 cv2.destroyAllWindows()
-
 ```
 
 Ekran görüntüsü ;
 
-<img general="center br-4" src="https://www.coogger.com/media/images/opencv_3JcB3OU.jpg">
+![](https://www.coogger.com/media/images/opencv_3JcB3OU.jpg)
+

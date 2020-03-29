@@ -1,15 +1,17 @@
 # Boya Fırçası Olarak Fare
 
 ### Hedefler
-- OpenCV de fare olaylarını işlemeyi öğreneceğiz
-- Bu fonksiyonu öğreneceğiz : ***cv2.setMouseCallback()***
+
+* OpenCV de fare olaylarını işlemeyi öğreneceğiz
+* Bu fonksiyonu öğreneceğiz : _**cv2.setMouseCallback\(\)**_
 
 ## Basit Demo
+
 Resim üzerinde iki defa tıkladığımız herhangi bir yere çember çizen basit bir uygulama oluşturacağız.
 
 İlk olarak bir fare olayı gerçekleştiğinde, bu olayı yakalamak için bir geri dönüş fonksiyonu oluşturacağız. Bu olaylar herhangi bir fare ile ilgili olabilir örneğin; sol düğme aşağı, sol düğme yukarı, sol düğme çift tıklama.
 
-Her fare olayı için (x,y) kordinat noktalarını vermeliyiz, bu olaylar ve kordinat bilgisi ile istediğimiz herşeyi yapabiliriz.
+Her fare olayı için \(x,y\) kordinat noktalarını vermeliyiz, bu olaylar ve kordinat bilgisi ile istediğimiz herşeyi yapabiliriz.
 
 Mevcut tüm olayları listelemek için, Python terminalinde aşağıdaki kodu çalıştırın;
 
@@ -44,11 +46,10 @@ cv2.destroyAllWindows()
 ```
 
 ## Daha Fazla Gelişmiş Demo
-Şimdi daha iyi bir uygulama yapacağız.Burada, dikdörtgen veya daireler çizeceğiz (seçtiğimiz modele bağlı olarak), Paint uygulamasında yaptığımız gibi fareyi sürükleyerek yapacağız.Yani fare geri cağırma fonksiyonu ( mouse callback function ) olarak iki part mevcut.
 
-Birincisi dikdörtgen çizmek için
-İkincisi çember çizmek için
-Bu özel örnek, nesne izleme, resim parçalama gibi bazı etkileşimli uygulamaları oluşturma ve anlama konusunda gerçekten yardımcı olacaktır.
+Şimdi daha iyi bir uygulama yapacağız.Burada, dikdörtgen veya daireler çizeceğiz \(seçtiğimiz modele bağlı olarak\), Paint uygulamasında yaptığımız gibi fareyi sürükleyerek yapacağız.Yani fare geri cağırma fonksiyonu \( mouse callback function \) olarak iki part mevcut.
+
+Birincisi dikdörtgen çizmek için İkincisi çember çizmek için Bu özel örnek, nesne izleme, resim parçalama gibi bazı etkileşimli uygulamaları oluşturma ve anlama konusunda gerçekten yardımcı olacaktır.
 
 ```python
 import cv2
@@ -98,3 +99,4 @@ while(1):
 
 cv2.destroyAllWindows()
 ```
+

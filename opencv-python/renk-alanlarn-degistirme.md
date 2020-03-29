@@ -2,15 +2,15 @@
 
 ## Hedefler
 
-- Bu yazıda, BGR  Gray, BGR  HSV vb. Gibi görüntüleri bir renk alanından diğerine dönüştürmeyi öğreneceğiz.
-- Buna ek olarak, bir videoda renkli bir nesne çıkarmayı sağlayan bir uygulama oluşturacağız
-- Bu fonksiyonları öğreneceğöğreneceğiziz cv2.cvtColor(), cv2.inRange() vb.
+* Bu yazıda, BGR  Gray, BGR  HSV vb. Gibi görüntüleri bir renk alanından diğerine dönüştürmeyi öğreneceğiz.
+* Buna ek olarak, bir videoda renkli bir nesne çıkarmayı sağlayan bir uygulama oluşturacağız
+* Bu fonksiyonları öğreneceğöğreneceğiziz cv2.cvtColor\(\), cv2.inRange\(\) vb.
 
 ## Renk Alanını Değiştirme
 
-OpenCV'de 150'den fazla renk alanı dönüştürme yöntemi bulunmaktadır, fakat biz bunların en çok kullanılan bu ikisine bakacağız BGR <-> Gray, BGR <->  HSV .
+OpenCV'de 150'den fazla renk alanı dönüştürme yöntemi bulunmaktadır, fakat biz bunların en çok kullanılan bu ikisine bakacağız BGR &lt;-&gt; Gray, BGR &lt;-&gt; HSV .
 
-Renk dönüştürmek için `cv2.cvtColor(input_image, flag)` fonksiyonunu kullanacağız, buradaki flag renk dönüşüm türünü belirler. **BGR** için gri **(Gray)** dönüşümü flag patametresine `cv2.COLOR_BGR2GRAY` girilir, benzer olarak HSV dönüşümü için flag parametresine `cv2.COLOR_BGR2HSV` girilir.
+Renk dönüştürmek için `cv2.cvtColor(input_image, flag)` fonksiyonunu kullanacağız, buradaki flag renk dönüşüm türünü belirler. **BGR** için gri **\(Gray\)** dönüşümü flag patametresine `cv2.COLOR_BGR2GRAY` girilir, benzer olarak HSV dönüşümü için flag parametresine `cv2.COLOR_BGR2HSV` girilir.
 
 Az önce bahsettiğim 150'den fazla renk dönüşümü yani frag'ın alacağı bütün parametrelerin listesine erişmek isterseniz python konsoluna şu kodları yazmanız yeterli olacaktır.
 
@@ -21,16 +21,17 @@ print(flags)
 ```
 
 ### Not;
-HSV için Hue aralığı [0,179], Doygunluk aralığı [0,255] ve Değer aralığı [0,255] 'dir. Farklı yazılımlar farklı ölçekler kullanır. Dolayısıyla OpenCV değerlerini onlarla karşılaştırıyorsanız, bu aralıkları normalleştirmeniz gerekir.
+
+HSV için Hue aralığı \[0,179\], Doygunluk aralığı \[0,255\] ve Değer aralığı \[0,255\] 'dir. Farklı yazılımlar farklı ölçekler kullanır. Dolayısıyla OpenCV değerlerini onlarla karşılaştırıyorsanız, bu aralıkları normalleştirmeniz gerekir.
 
 ## Nesne İzleme
 
 Şimdi BGR görüntüsünü HSV'ye nasıl dönüştüreceğimizi biliyoruz, bunu renkli bir nesne çıkarmak için kullanabiliriz. HSV'de bir rengi RGB renk alanından sunmak daha kolay dır. Uygulamamızda, mavi renkli bir cisim çıkarmaya çalışacağız. İşte yöntem şu:
 
-- Videonun her karesini al
-- BGR'den HSV renk uzayına dönüştür
-- Bir dizi mavi renk için HSV görüntüsünü eşleştir
-- Şimdi mavi nesneyi tek başına çıkartın, istediğimiz görüntü üzerinde ne olursa olsun yapabiliriz.
+* Videonun her karesini al
+* BGR'den HSV renk uzayına dönüştür
+* Bir dizi mavi renk için HSV görüntüsünü eşleştir
+* Şimdi mavi nesneyi tek başına çıkartın, istediğimiz görüntü üzerinde ne olursa olsun yapabiliriz.
 
 kodlar ve açıklamlar ;
 
@@ -75,3 +76,4 @@ Bu, stackoverflow.com tarafından sorulan yaygın bir sorudur, `cv2.cvtColor()` 
 >>> print(hsv_green)
 [[[ 60 255 255]]]
 ```
+

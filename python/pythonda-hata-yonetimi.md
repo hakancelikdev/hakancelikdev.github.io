@@ -65,6 +65,7 @@ except ValueError as error:
    # ValueError hatasu yakalanırsa error adında alıyorum ve print ediyorum
    print(error)
 ```
+
 #### Genel Yapısı 2
 
 ```python
@@ -88,8 +89,8 @@ except:
    # herhangi bir hata yakalanırsa çalışacak kodlarım
    pass
 else:
-	# hata olmaz ise çalışacak kodlarım.
-	pass
+    # hata olmaz ise çalışacak kodlarım.
+    pass
 ```
 
 ### Try, Except, Else, Finally
@@ -104,11 +105,11 @@ except:
    # herhangi bir hata yakalanırsa çalışacak kodlarım
    pass
 else:
-	# hata olmaz ise çalışacak kodlarım.
-	pass
+    # hata olmaz ise çalışacak kodlarım.
+    pass
 finally:
-	# hata olsada olmasada çalışacak kodlarım
-	pass
+    # hata olsada olmasada çalışacak kodlarım
+    pass
 ```
 
 ## Kendi Hata Sınıfımızı Oluşturup Hata Verelim
@@ -116,6 +117,7 @@ finally:
 Bunu yapmak için `Exception` sınıfını ve `raise` keyword'ünü kullanacağız.
 
 ### Raise
+
 `raise` herhangi bir hata sınıfını ayağa kaldırmak için kullanılan bir keyword'dür.
 
 Şimdi en başta verdiğimiz örneği tekrar yapalım.
@@ -142,7 +144,8 @@ if input_ == 0:
 ```
 
 **Sonuç**
-```
+
+```text
 Traceback (most recent call last):
   File "myapp.py", line 28, in <module>
     raise InputError(input_, "0 yazmayın")
@@ -183,25 +186,24 @@ else:
 
 **Sonuç**
 
-```
+```text
 0 hariç bir sayı girin >> 0
 (0.0, '0 yazmayın')
 ```
 
-
 ## Python Built-in Exceptions
 
-|  Exception | Cause of Error  |
-| ------------ | ------------ |
-| AssertionError | `Assert` ifadesi ( statement ) başarısız olduğunda yükselir ( raise eder ).  |
-| AttributeError | Özellik ataması veya referans başarısız olduğunda yükselir ( raise eder ). |
-| EOFError | `İnput ()` fonksiyonu dosya sonu durumuna geldiğinde ortaya çıkar ( raise eder ). |
-|FloatingPointError  | floating-point işlemi başarısız olduğunda raise eder. |
+| Exception | Cause of Error |
+| :--- | :--- |
+| AssertionError | `Assert` ifadesi \( statement \) başarısız olduğunda yükselir \( raise eder \). |
+| AttributeError | Özellik ataması veya referans başarısız olduğunda yükselir \( raise eder \). |
+| EOFError | `İnput ()` fonksiyonu dosya sonu durumuna geldiğinde ortaya çıkar \( raise eder \). |
+| FloatingPointError | floating-point işlemi başarısız olduğunda raise eder. |
 | GeneratorExit | Generator'ün `close()` methodu çağrıldığında raise eder |
 | ImportError | İmport edilen modül bulunamadığında raise eder. |
 | IndexError | İndex dizi dışında olduğunda raise eder. |
 | KeyError | Raised when a key is not found in a dictionary. |
-| KeyboardInterrupt | Raised when the user hits interrupt key (Ctrl+c or delete). |
+| KeyboardInterrupt | Raised when the user hits interrupt key \(Ctrl+c or delete\). |
 | MemoryError | Raised when an operation runs out of memory. |
 | NameError | Raised when a variable is not found in local or global scope. |
 | NotImplementedError | Raised by abstract methods. |
@@ -224,11 +226,9 @@ else:
 | ValueError | Raised when a function gets argument of correct type but improper value. |
 | ZeroDivisionError | Raised when second operand of division or modulo operation is zero. |
 
--------------------
-
 Aşağıdaki ağaç yapısında hangi hata nesnesinin hangi nesneden türetildiği açıkça görünüyor.
 
-```
+```text
 BaseException
  +-- SystemExit
  +-- KeyboardInterrupt
@@ -296,8 +296,10 @@ BaseException
 ```
 
 ## Yararlanılan Kaynaklar
-- https://docs.python.org/3/library/exceptions.html
-- https://belgeler.yazbel.com/python-istihza/hata_yakalama.html
-- https://docs.python.org/3/tutorial/errors.html
-- https://www.programiz.com/python-programming/exceptions
-- https://realpython.com/python-exceptions/
+
+* [https://docs.python.org/3/library/exceptions.html](https://docs.python.org/3/library/exceptions.html)
+* [https://belgeler.yazbel.com/python-istihza/hata\_yakalama.html](https://belgeler.yazbel.com/python-istihza/hata_yakalama.html)
+* [https://docs.python.org/3/tutorial/errors.html](https://docs.python.org/3/tutorial/errors.html)
+* [https://www.programiz.com/python-programming/exceptions](https://www.programiz.com/python-programming/exceptions)
+* [https://realpython.com/python-exceptions/](https://realpython.com/python-exceptions/)
+

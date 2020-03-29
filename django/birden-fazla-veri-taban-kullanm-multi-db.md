@@ -1,4 +1,4 @@
-# Birden Fazla Veri Tabanı Kullanımı - ( Multi Db )
+# Birden Fazla Veri Tabanı Kullanımı - \( Multi Db \)
 
 Birden fazla veri tabanı kullanmak için öncelikle projemizin settings.py dosyasına eklemeler yaparak bu veri tabanlarını tanımlamamız gerekiyor örnek olarak aşağıda bir postgresql ve mysql veri tabanları için settings.py ayarı var birden fazla ve aynı olmayan tür olmayan veri tabanlarınıda kullanabiliyoruz.
 
@@ -50,7 +50,7 @@ $ ./manage.py migrate --database=users # erişme ismi users olan veri tabanı se
 
 Bu da bir diğer örnek varsayılanı boş yaptığımız için
 
-```
+```text
 $ ./manage.py migrate --database=users
 $ ./manage.py migrate --database=customers
 ```
@@ -59,11 +59,11 @@ $ ./manage.py migrate --database=customers
 
 Veritabanı ile etkileşim kuran diğer çoğu django-admin komutu, taşıdıkça çalışır; yalnızca bir defada yalnızca bir veritabanında çalışır; kullanılan veritabanı denetiminde —database kullanılır.
 
-Bu kuralın bir istisnası makemigrations komutudur. Yeni geçişler oluşturmadan önce varolan taşıma dosyalarıyla (bunları düzenlemeyle oluşabilecek) sorunları yakalamak için veritabanlarındaki geçiş geçmişini doğrular. Varsayılan olarak, yalnızca varsayılan veritabanını denetler, ancak varsa yönlendiricilerin allow_migrate () yöntemini inceler.
+Bu kuralın bir istisnası makemigrations komutudur. Yeni geçişler oluşturmadan önce varolan taşıma dosyalarıyla \(bunları düzenlemeyle oluşabilecek\) sorunları yakalamak için veritabanlarındaki geçiş geçmişini doğrular. Varsayılan olarak, yalnızca varsayılan veritabanını denetler, ancak varsa yönlendiricilerin allow\_migrate \(\) yöntemini inceler.
 
-## Otomatik Veritabanı Yönlendirme ( Routing )
+## Otomatik Veritabanı Yönlendirme \( Routing \)
 
-Birden çok veritabanını kullanmanın en kolay yolu, bir veritabanı yönlendirme şeması oluşturmaktır. Varsayılan yönlendirme şeması, nesnelerin orijinal veritabanına 'yapışkan' kalmasını sağlar (yani, foo veritabanından alınan bir nesne aynı veritabanına kaydedilir). Varsayılan yönlendirme şeması, bir veritabanı belirtilmemişse, tüm sorgular varsayılan veritabanına geri dönmesini sağlar.
+Birden çok veritabanını kullanmanın en kolay yolu, bir veritabanı yönlendirme şeması oluşturmaktır. Varsayılan yönlendirme şeması, nesnelerin orijinal veritabanına 'yapışkan' kalmasını sağlar \(yani, foo veritabanından alınan bir nesne aynı veritabanına kaydedilir\). Varsayılan yönlendirme şeması, bir veritabanı belirtilmemişse, tüm sorgular varsayılan veritabanına geri dönmesini sağlar.
 
 Varsayılan yönlendirme şemasını etkinleştirmek için herhangi bir şey yapmak zorunda değilsiniz - her Django projesinde 'kutunun dışında' sağlanmaktadır. Bununla birlikte, daha ilginç veritabanı tahsis davranışlarını uygulamak isterseniz, kendi veritabanı yönlendiricilerinizi tanımlayabilir ve kurabilirsiniz.
 
@@ -71,7 +71,8 @@ Varsayılan yönlendirme şemasını etkinleştirmek için herhangi bir şey yap
 
 Bir veri tabanı Yönlendirici, dört method sağlayan bir sınıftır: Buralar teknik bilgi çok takılmayın daha aşağıda kodlarla örneklenecektir daha iyi anlarsınız
 
-#### db_for_read (model, **hints)
+#### db\_for\_read \(model, \*\*hints\)
+
 > okuma işlemleri için
 
 Model tipli nesneleri okuma işlemleri için kullanılması gereken veritabanını bildirin
@@ -80,7 +81,8 @@ Bir veritabanı işlemi, bir veritabanını seçmede yardımcı olabilecek herha
 
 Herhangi bir öneri yoksa **None** döndürür.
 
-#### db_for_write (model, **hints)
+#### db\_for\_write \(model, \*\*hints\)
+
 > yazma işlemleri için
 
 Model modelindeki nesnelerin yazımında kullanılması gereken veritabanını bildirir3
@@ -89,7 +91,8 @@ Bir veritabanı işlemi, bir veritabanını seçmede yardımcı olabilecek herha
 
 Herhangi bir öneri yoksa **None** döndürür.
 
-#### allow_relation (obj1, obj2, **hints)
+#### allow\_relation \(obj1, obj2, \*\*hints\)
+
 > veri tabanındaki nesne arasındaki ilişkiler için
 
 **Obj1** ve **obj2** arasındaki bir ilişkiye izin verilirse `True` değerini döndürür,
@@ -98,28 +101,29 @@ Herhangi bir öneri yoksa **None** döndürür.
 
 Bu yanlızca bir doğrulama işlemi dir, **foreign** key ve **many to many** İki nesne arasında bir ilişki olup olmadığının belirlenmesi sağlar.
 
-#### allow_migrate(db, app_label, model_name=None, **hints)
-> ( migrate ) taşıma işlemleri için
+#### allow\_migrate\(db, app\_label, model\_name=None, \*\*hints\)
 
-Geçiş işleminin, takma ad ( db ) veritabanı ile veritabanında çalışmasına izin verilip verilmeyeceğini belirler. İşlemi çalıştırması gerekiyorsa `True`, aksi halde çalışmaması durumunda `False` veya yönlendiricinin ( router ) fikri yoksa `None` döndürür.
+> \( migrate \) taşıma işlemleri için
 
-**app_label** konumsal argümanı, taşınan ( migrated yapılan )  uygulamanın etiketidir.
+Geçiş işleminin, takma ad \( db \) veritabanı ile veritabanında çalışmasına izin verilip verilmeyeceğini belirler. İşlemi çalıştırması gerekiyorsa `True`, aksi halde çalışmaması durumunda `False` veya yönlendiricinin \( router \) fikri yoksa `None` döndürür.
 
-> modelname  çoğu taşıma ( migrations ) işlemi tarafından taşınan modelin model._meta.model_name (model_name 'in küçük harfli versiyonu) değerine ayarlanır .
+**app\_label** konumsal argümanı, taşınan \( migrated yapılan \) uygulamanın etiketidir.
 
-İpuçlarını ( hints ) kullanmadığı sürece, **RunPython** ve **RunSQL** işlemleri için `None` değerini döndürür.
+> modelname çoğu taşıma \( migrations \) işlemi tarafından taşınan modelin model.\_meta.model\_name \(model\_name 'in küçük harfli versiyonu\) değerine ayarlanır .
 
-ipuçları ( hints ) yönlendiriciye ek bilgi iletmek için bazı işlemler tarafından kullanılır.
+İpuçlarını \( hints \) kullanmadığı sürece, **RunPython** ve **RunSQL** işlemleri için `None` değerini döndürür.
 
-Model_name ayarlı olduğunda, ipuçları normalde 'model' anahtarının altındaki model sınıfını içerir. Tarihsel bir model olabileceğini ve bu nedenle herhangi bir özel nitelik, yöntem veya yöneticinin olmadığını unutmayın. Sadece _meta'ya güvenmelisin.
+ipuçları \( hints \) yönlendiriciye ek bilgi iletmek için bazı işlemler tarafından kullanılır.
+
+Model\_name ayarlı olduğunda, ipuçları normalde 'model' anahtarının altındaki model sınıfını içerir. Tarihsel bir model olabileceğini ve bu nedenle herhangi bir özel nitelik, yöntem veya yöneticinin olmadığını unutmayın. Sadece \_meta'ya güvenmelisin.
 
 Bu yöntem, belirli bir veritabanında bir modelin kullanılabilirliğini belirlemek için de kullanılabilir.
 
-`makemigrations` her zaman model değişiklikleri için geçişler oluşturur, ancak `allow_migrate()` yanlış döndürürse, db için geçiş işlemi gerçekleştirilirken model_name için yapılan tüm taşıma işlemleri sessizce atlanır. Zaten geçiş götüren modeller için `allow_migrate()` işlevinin değiştirilmesi, yabancı anahtarların, ek tabloların veya eksik tabloların kopmasına neden olabilir. Makemigrations, geçiş geçmişini doğruladığında hiçbir uygulamanın geçiş yapmasına izin verilmeyen veritabanlarını atlar.
+`makemigrations` her zaman model değişiklikleri için geçişler oluşturur, ancak `allow_migrate()` yanlış döndürürse, db için geçiş işlemi gerçekleştirilirken model\_name için yapılan tüm taşıma işlemleri sessizce atlanır. Zaten geçiş götüren modeller için `allow_migrate()` işlevinin değiştirilmesi, yabancı anahtarların, ek tabloların veya eksik tabloların kopmasına neden olabilir. Makemigrations, geçiş geçmişini doğruladığında hiçbir uygulamanın geçiş yapmasına izin verilmeyen veritabanlarını atlar.
 
 Yönelticinin tüm bu yöntemleri sunması gerekmez - bir veya daha fazlasını atlayabilir. Yöntemlerden biri atlanırsa, Django ilgili denetimi yaparken bu yönlendirici atlayacaktır.
 
-#### Hints ( İpuçlar)
+#### Hints \( İpuçlar\)
 
 Veritabanı yönlendiricisi tarafından alınan ipuçları, hangi veritabanının belirli bir isteği alması gerektiğine karar vermek için kullanılabilir.
 
@@ -129,7 +133,7 @@ Veritabanı yönlendiricisi tarafından alınan ipuçları, hangi veritabanını
 
 Veritabanı yönlendiricileri, `DATABASE_ROUTERS` ayarı kullanılarak yüklenir **settings.py** de ayarlanması gerekir. Bu ayar, her biri ana yönlendirici `(django.db.router)` tarafından kullanılmak üzere bir yönlendirici belirterek sınıf adlarının bir listesini tanımlar.
 
-Ana yönlendirici, veritabanı kullanımını tahsis etmek için Django'nun veritabanı işlemleri tarafından kullanılır. Bir sorgu hangi veritabanını kullanacağını bilmeye ihtiyaç duyduğunda, bir model ve bir ipucu (varsa) sağlayarak ana yönlendirici çağırır. Django, daha sonra bir veritabanı önerisi bulunana kadar her yönlendiriciyi dener. Hiçbir öneri bulunamazsa, ipucu örneğinin geçerli _state.db dosyasını dener. Bir ipucu örneği sağlanmazsa veya örnek şu anda veritabanı durumuna sahip değilse, ana yönlendirici varsayılan veritabanını tahsis edecektir.
+Ana yönlendirici, veritabanı kullanımını tahsis etmek için Django'nun veritabanı işlemleri tarafından kullanılır. Bir sorgu hangi veritabanını kullanacağını bilmeye ihtiyaç duyduğunda, bir model ve bir ipucu \(varsa\) sağlayarak ana yönlendirici çağırır. Django, daha sonra bir veritabanı önerisi bulunana kadar her yönlendiriciyi dener. Hiçbir öneri bulunamazsa, ipucu örneğinin geçerli \_state.db dosyasını dener. Bir ipucu örneği sağlanmazsa veya örnek şu anda veritabanı durumuna sahip değilse, ana yönlendirici varsayılan veritabanını tahsis edecektir.
 
 #### Settings.py
 
@@ -167,7 +171,7 @@ DATABASES = {
 }
 ```
 
-Şimdi rota ayarlamamız gerekiyor. İlk önce, auth uygulaması için sorgular gönderilmesini bilen bir router'ı **auth_db** için ayarlayacağız.
+Şimdi rota ayarlamamız gerekiyor. İlk önce, auth uygulaması için sorgular gönderilmesini bilen bir router'ı **auth\_db** için ayarlayacağız.
 
 ```python
 class AuthRouter(object):
@@ -240,13 +244,13 @@ class PrimaryReplicaRouter(object):
         return True
 ```
 
-Diğer veri tabanlarını içinde rauter tanımladığımıza göre son olarak, ayarlar dosyasında aşağıdakileri ekliyebiliriz  (yönlendiricilerin tanımlandığı modüllere / noktalara gerçek Python yolunu değiştirerek):
+Diğer veri tabanlarını içinde rauter tanımladığımıza göre son olarak, ayarlar dosyasında aşağıdakileri ekliyebiliriz \(yönlendiricilerin tanımlandığı modüllere / noktalara gerçek Python yolunu değiştirerek\):
 
 ```python
 DATABASE_ROUTERS = ['path.to.AuthRouter', 'path.to.PrimaryReplicaRouter']
 ```
 
-sınıf isimlerini veriyoruz burası önem li çünkü yanlış girerseniz django sınıf yolunu bulamaz (yönlendiricilerin tanımlandığı modüllere / noktalara gerçek Python yolunu değiştirerek)yazın
+sınıf isimlerini veriyoruz burası önem li çünkü yanlış girerseniz django sınıf yolunu bulamaz \(yönlendiricilerin tanımlandığı modüllere / noktalara gerçek Python yolunu değiştirerek\)yazın
 
 ## Veritabanı El İle Seçme
 
@@ -265,7 +269,7 @@ Bunun için `using()` fonksiyonunu kullancağız, örnek olarak
 >>> Author.objects.using('other').all()
 ```
 
-veri tabanlarına yeni veriyi kayıt etmek içinde using() kullanılır örnek
+veri tabanlarına yeni veriyi kayıt etmek içinde using\(\) kullanılır örnek
 
 ```python
 my_object.save(using='legacy_users')
@@ -336,3 +340,4 @@ othersite.register(Publisher, MultiDBModelAdmin)
 ```
 
 #### [Source](https://docs.djangoproject.com/en/1.11/topics/db/multi-db/)
+

@@ -1,25 +1,22 @@
 # Django'da Clickjack Tuzağının Engeli Ve Kontrolu - Xframeoptionsmiddleware
 
-**Clickjack** nedir ve nasıl korunulur, önlemleri nelerdir gibi daha fazla bilgiye ihtiyaç duyuyorsanız [clickjacking adındaki listeme göz atabilirsiniz.](/clickjacking)
+**Clickjack** nedir ve nasıl korunulur, önlemleri nelerdir gibi daha fazla bilgiye ihtiyaç duyuyorsanız [clickjacking adındaki listeme göz atabilirsiniz.](https://github.com/hakancelik96/blog/tree/a2daa68f9fcf2b6e6dae3f9d0e8b8bfc6369c349/clickjacking/README.md)
 
- -------
+**Django** kütüphanesinde bulunan clickjack middleware \( ara katman \) ve dekoratörler **clickjack**'e karşı kullanımı kolay koruma sağlar.
 
-**Django** kütüphanesinde bulunan clickjack middleware ( ara katman ) ve dekoratörler **clickjack**'e karşı kullanımı kolay koruma sağlar.
-
-<img src="https://cdn.steemitimages.com/DQmTxbMupXoHhMSTNk6ydzYgTEDCu83f5fGHVqNsgJxebDc" general="w-100 br-2 center">
+![](https://cdn.steemitimages.com/DQmTxbMupXoHhMSTNk6ydzYgTEDCu83f5fGHVqNsgJxebDc)
 
 Django uygulamanızda **MIDDLEWARE** listesine ellemediyseniz zaten uygulamanız şuan bu açığa karşı koruma durumunda, bunu korumayı `django.middleware.clickjacking.XFrameOptionsMiddleware` Middlewar'i ile yapıyor, eğer bilmeyerek sildiyseniz hemen bunu kopyalayarak **MIDDLEWARE** bölümüne eklemelisiniz.
 
-Varsayılan olarak **X-Frame-Options** header'i **middleware**'de **SAMEORIGIN** olarak ayarlanmış durumda olacaktır bütün Http yanıtlarında (HttpResponse), fakat eğer isterseniz bunu değiştirebilirsiniz.
+Varsayılan olarak **X-Frame-Options** header'i **middleware**'de **SAMEORIGIN** olarak ayarlanmış durumda olacaktır bütün Http yanıtlarında \(HttpResponse\), fakat eğer isterseniz bunu değiştirebilirsiniz.
 
-**/settings.py**
-`X_FRAME_OPTIONS = 'DENY'` Yazarak gelen bütün istekleri reddedebilirsiniz.
+**/settings.py** `X_FRAME_OPTIONS = 'DENY'` Yazarak gelen bütün istekleri reddedebilirsiniz.
 
 Daha da iyisi siz sadece bazı durumlarda bütün isteklere izin versin istiyorsanız yapmanız gereken, **/views.py** dosyanızda bulunan izin vermek istediğiniz view fonksiyon veya sınıfınızda djangonun bu işlem için kullanılan dekoratörü kullanmalısınız.
 
-### Fonksiyonel View'de Clickjacking Korumasına Müdahale Etmek.
-Çok kolay **/views.py** dosyamıza `from django.views.decorators.clickjacking import xframe_options_exempt` **xframe_options_exempt** adlı dekoratörü dahil ediyoruz ve izin verdiğimiz fonksiyonda kullanıyoruz aşağıda bir örnek bulunmaktadır.
+## Fonksiyonel View'de Clickjacking Korumasına Müdahale Etmek.
 
+Çok kolay **/views.py** dosyamıza `from django.views.decorators.clickjacking import xframe_options_exempt` **xframe\_options\_exempt** adlı dekoratörü dahil ediyoruz ve izin verdiğimiz fonksiyonda kullanıyoruz aşağıda bir örnek bulunmaktadır.
 
 ```python
 from django.http import HttpResponse
@@ -39,10 +36,9 @@ from django.views.decorators.clickjacking import xframe_options_deny, xframe_opt
 # @xframe_options_exempt hepsine izin verir
 ```
 
-### Sınıfsal ( class based ) View'de Clickjacking Korumasına Müdahale Etmek.
+## Sınıfsal \( class based \) View'de Clickjacking Korumasına Müdahale Etmek.
 
-Burada yukarıdake ek olarak **X-Frame-Options** için yapılmış dekoretörleri kullanabilmek için `method_decorator` adında bir dekoratörü projemize dahil etmemiz gerekiyor `from django.utils.decorators import method_decorator`.
- bu dekoratörün amacı bütün dekoratörleri class based ( sınıfsal ) view ile kodladığımızda da kullanabilelim.
+Burada yukarıdake ek olarak **X-Frame-Options** için yapılmış dekoretörleri kullanabilmek için `method_decorator` adında bir dekoratörü projemize dahil etmemiz gerekiyor `from django.utils.decorators import method_decorator`. bu dekoratörün amacı bütün dekoratörleri class based \( sınıfsal \) view ile kodladığımızda da kullanabilelim.
 
 ```python
 # django class based
@@ -65,15 +61,14 @@ Dekoratörü **/views.py**'in **url** adresini artık diğer siteler kullanabili
 
 Aşağıdaki kodu bir siteye yazdığımda youtube video gömmede olduğu gibi src kısmında yazan adresi yani içeriği gömmüş olacağım.
 
-```html
+```markup
 <iframe scrolling="yes" frameborder="0" height="300px" width="100%" src="https://www.coogger.com/embed/@hakancelik96/clickjack-tuzagsaldrs-nedir/"></iframe>
 ```
 
 Sonuç ;
 
-<iframe scrolling="yes" frameborder="0" height="300px" width="100%" src="https://www.coogger.com/embed/@hakancelik96/clickjack-tuzagsaldrs-nedir/"></iframe>
+### Yararlanılan Kaynaklar
 
-#### Yararlanılan Kaynaklar
+* [Clickjacking - docs.djangoproject.com](https://docs.djangoproject.com/en/2.1/ref/clickjacking/)
+* [Class based Clickjacking -  coogger \| github](https://github.com/coogger/coogger/blob/7b0b6ee13f417a16bb196366287135bb9ab1cf1e/coogger/cooggerapp/views/detail.py)
 
-- [Clickjacking - docs.djangoproject.com](https://docs.djangoproject.com/en/2.1/ref/clickjacking/)
-- [Class based Clickjacking -  coogger | github](https://github.com/coogger/coogger/blob/7b0b6ee13f417a16bb196366287135bb9ab1cf1e/coogger/cooggerapp/views/detail.py)

@@ -1,9 +1,11 @@
 # Morfolojik Dönüşümler
 
 ## Hedef
+
 Bu bölümde,
-- Erozyon, Dilatasyon, Açılış, Kapanış gibi farklı morfolojik işlemleri öğreneceğiz. ( Erosion, Dilation, Opening, Closing )
-- Farklı işlevleri şöyle göreceğiz: `cv2.erode()`, `cv2.dilate()`, `cv2.morphologyEx()` vb.
+
+* Erozyon, Dilatasyon, Açılış, Kapanış gibi farklı morfolojik işlemleri öğreneceğiz. \( Erosion, Dilation, Opening, Closing \)
+* Farklı işlevleri şöyle göreceğiz: `cv2.erode()`, `cv2.dilate()`, `cv2.morphologyEx()` vb.
 
 ## Teori
 
@@ -13,9 +15,9 @@ Morfolojik dönüşümler, görüntü şekline dayanan bazı basit işlemlerdir.
 
 ## 1. Erozyon
 
-Erozyonun temel fikri şudur, toprak erozyonu gibidir, ön plandaki nesnenin sınırlarını aşındırır (Daima ön plandaki beyazı tutmaya çalışın). Peki ne yapar? Çekirdek, görüntü boyunca slaytlar (2B kıvrımında olduğu gibi). Orijinal resimdeki (1 veya 0) bir piksel, yalnızca çekirdek altındaki tüm piksellerin 1 olması halinde 1 kabul edilir, aksi halde aşınır (sıfıra yapılır).
+Erozyonun temel fikri şudur, toprak erozyonu gibidir, ön plandaki nesnenin sınırlarını aşındırır \(Daima ön plandaki beyazı tutmaya çalışın\). Peki ne yapar? Çekirdek, görüntü boyunca slaytlar \(2B kıvrımında olduğu gibi\). Orijinal resimdeki \(1 veya 0\) bir piksel, yalnızca çekirdek altındaki tüm piksellerin 1 olması halinde 1 kabul edilir, aksi halde aşınır \(sıfıra yapılır\).
 
-Öyleyse ne oluyor, sınırın yakınındaki bütün pikseller çekirdeğin boyutuna bağlı olarak yok olacak. Böylece ön plan nesnesinin kalınlığı veya boyutu düşer veya resimde beyaz bölge azalır. Küçük beyaz kirliliği kaldırılır (renk alan bölümünde gördüğümüz gibi), birbirine bağlı iki nesneyi ayırmak vb. Için yararlıdır.
+Öyleyse ne oluyor, sınırın yakınındaki bütün pikseller çekirdeğin boyutuna bağlı olarak yok olacak. Böylece ön plan nesnesinin kalınlığı veya boyutu düşer veya resimde beyaz bölge azalır. Küçük beyaz kirliliği kaldırılır \(renk alan bölümünde gördüğümüz gibi\), birbirine bağlı iki nesneyi ayırmak vb. Için yararlıdır.
 
 Burada örnek olarak, 5x5 çekirdeği ile dolu bir çekirdek kullanacağım. Nasıl çalıştığını görelim:
 
@@ -118,3 +120,4 @@ array([[0, 0, 1, 0, 0],
        [0, 0, 1, 0, 0],
        [0, 0, 1, 0, 0]], dtype=uint8)
 ```
+

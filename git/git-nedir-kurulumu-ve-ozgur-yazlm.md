@@ -1,4 +1,4 @@
-# git-nedir-kurulumu-ve-ozgur-yazlm
+# Git Nedir Kurulumu ve Özgür Yazılım
 
 ## Git Nedir ?
 
@@ -134,11 +134,17 @@ $ git config --global user.email "hakancelik96@outlook.com"
 
 Git paketleri **yum** ve **dnf** de tanımlıdır. Shell'inizden git'i dnf'i kullanarak indirebilirsiniz \( Fedora'nın daha eski sürümlerinde yum'ı \)
 
-`$ sudo dnf install git`
+```text
+sudo dnf install git
+```
 
 veya
 
-`$ sudo yum install git` kurulumun başarılı olup olmadıgını kontrol edelim.
+```text
+sudo yum install git
+```
+
+kurulumun başarılı olup olmadıgını kontrol edelim.
 
 ```text
 $ git --version

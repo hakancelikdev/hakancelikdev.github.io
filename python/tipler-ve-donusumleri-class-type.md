@@ -1,4 +1,4 @@
-# Tipler Ve Dönüşümleri -
+# Tipler Ve Dönüşümleri
 
 #### Hatırlatma
 

@@ -16,11 +16,7 @@ Adreslerim;
 
 {% page-ref page="python/" %}
 
-{% page-ref page="django/" %}
-
 {% page-ref page="clickjacking/" %}
-
-{% page-ref page="opencv-python/" %}
 
 {% page-ref page="sass/" %}
 

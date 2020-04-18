@@ -17,7 +17,7 @@ description: >-
 
 ### Cpython'a Katkı Yapmak
 
-{% page-ref page="cpython.md" %}
+{% page-ref page="cpython/" %}
 
 
 

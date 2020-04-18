@@ -6,7 +6,7 @@ description: Bu yazımda
 
 {% embed url="https://bugs.python.org/" caption="List of cpython\'s issues" %}
 
-Cpython bugları yukarıdaki adreste listelenir, tartışılır ve takip edilir sizlerde CLA kaydınızı yaptıktan sonra burada yapabileceğiniz bir issue bulup onun için çalışabilirsiniz.
+CPython bugları yukarıdaki adreste listelenir, tartışılır ve takip edilir sizlerde CLA kaydınızı yaptıktan sonra burada yapabileceğiniz bir issue bulup onun için çalışabilirsiniz.
 
 Bir örnek üzerinden nasıl PR atabiliriz bakalım. 
 
@@ -24,9 +24,9 @@ False
 
 bu obje bir method-wrapper'dir bu yüzden eğer bug var ise düzeltmemiz gereken şey `inspect.isroutine` fonksiyonuna verilen obje method-wrapper olursada `True` göndermesini sağlamalıyız.
 
-### Cpython'u Forklamak
+### CPython'u Forklamak
 
-Ne yapacağımızı öğrendiğimize göre yapacağımız ilk iş Cpython'u forklamak bunun için Cpython reposuna gidip fork tuşuna basın ve kendi adınıza forklayın.
+Ne yapacağımızı öğrendiğimize göre yapacağımız ilk iş CPython'u forklamak bunun için CPython reposuna gidip fork tuşuna basın ve kendi adınıza forklayın.
 
 {% embed url="https://github.com/python/cpython" %}
 
@@ -39,7 +39,7 @@ Ne yapacağımızı öğrendiğimize göre yapacağımız ilk iş Cpython'u fork
 >>> make
 ```
 
-Şuan Cpython'u klonladık ve bilgisayarımıza en güncel Cpython'u kurduk bunu görmek ve en güncel Cpython'u denemek için konsolu açıp.
+Şuan CPython'u klonladık ve bilgisayarımıza en güncel CPython'u kurduk bunu görmek ve en güncel CPython'u denemek için konsolu açıp.
 
 ```text
 >>> cd cpython

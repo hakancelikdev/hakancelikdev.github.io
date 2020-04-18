@@ -4,11 +4,11 @@ description: PSF Contributor Agreement ( PSF Katılımcı Sözleşmesi )
 
 # CLA
 
-CLA cpython'a yapacağınız katkıları yasal olarak psf'e ait olacağını kabul ettiğinizi gösterir. Sözleşmeyi açmak, okumak ve imzalamak için aşağıdaki adrese tıklayabilirsiniz.
+CLA Cpython'a yapacağınız katkıları yasal olarak PSF'ye ait olacağını kabul ettiğinizi gösterir. Sözleşmeyi açmak, okumak ve imzalamak için aşağıdaki adrese tıklayabilirsiniz.
 
 {% embed url="https://www.python.org/psf/contrib/contrib-form/" %}
 
-Katkı yapmadan önce bu sözleşmeyi internet ortamından imzalamanız \( kabul etmeniniz \) gerekmektedir. Aksi halde katkılarınız kabul edilmeyecektir ve cpython'a katkı gönderdiğinizde sizleri [the-knights-who-say-ni](https://github.com/the-knights-who-say-ni%20) adında bir bot karşılayacak ve aşağıdakine benzer bir mesaj bırakacaktır sizlere sözleşmeyi kabul etmeniz gerektiği hakkında bir mesajda bırakacaktır. 
+Katkı yapmadan önce bu sözleşmeyi internet ortamından imzalamanız \( kabul etmeniniz \) gerekmektedir. Aksi halde katkılarınız kabul edilmeyecektir ve Cpython'a katkı gönderdiğinizde sizleri [the-knights-who-say-ni](https://github.com/the-knights-who-say-ni%20) adında bir bot karşılayacak ve aşağıdakine benzer bir mesaj bırakacaktır sizlere sözleşmeyi kabul etmeniz gerektiği hakkında bir mesajda bırakacaktır. 
 
 ![the-knights-who-say-ni bot cla messages](../../.gitbook/assets/capture.PNG)
 

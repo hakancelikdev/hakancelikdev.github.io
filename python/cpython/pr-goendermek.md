@@ -1,3 +1,7 @@
+---
+description: Bu yazımda
+---
+
 # PR Göndermek
 
 {% embed url="https://bugs.python.org/" caption="List of cpython\'s issues" %}
@@ -22,7 +26,7 @@ bu obje bir method-wrapper'dir bu yüzden eğer bug var ise düzeltmemiz gereken
 
 ### Cpython'u Forklamak
 
-Ne yapacağımızı öğrendiğimize göre yapacağımız ilk iş cpython'u forklamak bunun için cpython reposuna gidip fork tuşuna basın ve kendi adınıza forklayın.
+Ne yapacağımızı öğrendiğimize göre yapacağımız ilk iş Cpython'u forklamak bunun için Cpython reposuna gidip fork tuşuna basın ve kendi adınıza forklayın.
 
 {% embed url="https://github.com/python/cpython" %}
 
@@ -35,7 +39,7 @@ Ne yapacağımızı öğrendiğimize göre yapacağımız ilk iş cpython'u fork
 >>> make
 ```
 
-Şuan cpython'u klonladık ve bilgisayarımıza en güncel cpython'u kurduk bunu görmek ve en güncel cpython'u denemek için konsolu açıp.
+Şuan Cpython'u klonladık ve bilgisayarımıza en güncel Cpython'u kurduk bunu görmek ve en güncel Cpython'u denemek için konsolu açıp.
 
 ```text
 >>> cd cpython

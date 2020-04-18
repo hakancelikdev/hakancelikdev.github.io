@@ -6,6 +6,8 @@ description: Bu yazımda
 
 CPython bugları [https://bugs.python.org/](https://bugs.python.org/) adresinde listelenir, tartışılır ve takip edilir sizlerde CLA kaydınızı yaptıktan sonra burada yapabileceğiniz bir issue bulup onun için çalışabilirsiniz.
 
+### Örnek PR
+
 Bir örnek üzerinden nasıl PR atabiliriz bakalım. 
 
 Issue olarak [https://bugs.python.org/issue29418](https://bugs.python.org/issue29418) bunu seçiyorum, issue'yi açan kişi bazı built-in methodlarının inspect kütüphanesinde bulunan isroutine fonksiyonunun False dönderdiğini söylemiş ama verdiği örnekteki 

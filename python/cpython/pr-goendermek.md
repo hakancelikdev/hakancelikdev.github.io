@@ -10,7 +10,7 @@ CPython bugları [https://bugs.python.org/](https://bugs.python.org/) adresinde 
 
 Bir örnek üzerinden nasıl PR atabiliriz bakalım. 
 
-Issue olarak [https://bugs.python.org/issue29418](https://bugs.python.org/issue29418) bunu seçiyorum, issue'yi açan kişi bazı built-in methodlarının [inspect ](https://docs.python.org/library/inspect.html)kütüphanesinde bulunan [isroutine ](https://docs.python.org/library/inspect.html#inspect.isroutine)fonksiyonunun False dönderdiğini söylemiş ama verdiği örnekteki 
+Issue olarak [https://bugs.python.org/issue29418](https://bugs.python.org/issue29418) bunu seçiyorum, issue'yi açan kişi bazı [built-in functionların](https://docs.python.org/library/functions.html) [inspect ](https://docs.python.org/library/inspect.html)kütüphanesinde bulunan [isroutine ](https://docs.python.org/library/inspect.html#inspect.isroutine)fonksiyonunun False dönderdiğini söylemiş ama verdiği örnekteki 
 
 ```text
 >>> inspect.isroutine(object().__str__)
@@ -22,7 +22,11 @@ False
 <method-wrapper '__str__' of object object at 0x7fb92f30a0d0>
 ```
 
-bu obje bir method-wrapper'dir bu yüzden eğer bug var ise düzeltmemiz gereken şey `inspect.isroutine` fonksiyonuna verilen obje method-wrapper olursada `True` göndermesini sağlamalıyız.
+bu obje bir method-wrapper'dir bu yüzden eğer bug var ise düzeltmemiz gereken şey `inspect.isroutine` fonksiyonuna verilen obje method-wrapper olursada `True` göndermesini sağlamalıyız. Peki bu bulduğumuz bug, **isroutine** fonksiyonunun tanımına uyuyor mu onada bakalım.
+
+> Return `True` if the object is a user-defined or built-in function or method.
+
+bu tanımda nesne eğer kullanıcı tanımlı veya built-in fonksiyonları veya method ise `True` döndermesi gerekmektedir demiş. Sanırım bu durumda objec method-wrapper ise de `True` göndermesi gerek. 
 
 ### CPython'u Forklamak
 

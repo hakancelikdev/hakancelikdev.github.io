@@ -4,9 +4,7 @@ description: Bu yazımda
 
 # PR Göndermek
 
-{% embed url="https://bugs.python.org/" caption="List of cpython\'s issues" %}
-
-CPython bugları yukarıdaki adreste listelenir, tartışılır ve takip edilir sizlerde CLA kaydınızı yaptıktan sonra burada yapabileceğiniz bir issue bulup onun için çalışabilirsiniz.
+CPython bugları [https://bugs.python.org/](https://bugs.python.org/) adresinde listelenir, tartışılır ve takip edilir sizlerde CLA kaydınızı yaptıktan sonra burada yapabileceğiniz bir issue bulup onun için çalışabilirsiniz.
 
 Bir örnek üzerinden nasıl PR atabiliriz bakalım. 
 

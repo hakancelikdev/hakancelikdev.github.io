@@ -52,20 +52,18 @@ from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand): # sınıf ismimiz Command olmalı
- help = "Use and get 10 users"
+    help = "Use and get 10 users"
 
- def handle(self, *args, **kwargs):
- for user in User.objects.all()[:10]:
-        self.stdout.write(user)
+    def handle(self, *args, **kwargs):
+        for user in User.objects.all()[:10]:
+            self.stdout.write(user)
 ```
 
 Sınıf izmimiz **Command** olmalı ve **BaseCommand** sınıfını miras almalıyız ve **handle** fonksiyonunda komutumuzun çıktısı tamamlanmalı, **self.stdout.write** ile de çıktılarımızı yolluyoruz farklı renklerde mevcut, ilerde değineceğim.
 
-Çalıştırıp sonucu görelim
+Çalıştırıp sonucu görelim.
 
-![django-manage-command.png](https://www.coogger.com/media/images/django-manage-command.png?style=center)
-
-## Komutumuza Argüman Ekleyelim
+### Komutumuza Argüman Ekleyelim
 
 Django Python'un standart kütüphanesi olan [argparse](https://docs.python.org/3/library/argparse.html) 'yi kullanıyor yani komutlarımıza argüman eklemek için bu kütüphanenin özelliklerini kullanmalıyız ve bunu sınıfımıza `add_arguments` adlı bir fonksiyon ekleyerek yapacağız.
 
@@ -79,20 +77,18 @@ from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
- help = "Use and get 10 users"
+    help = "Use and get 10 users"
 
- def add_arguments(self, parser):
- parser.add_argument("hmany", type=int, help="write how many users will you get")
+    def add_arguments(self, parser):
+        parser.add_argument("hmany", type=int, help="write how many users will you get")
 
- def handle(self, *args, **kwargs):
- hmany = kwargs.get("hmany")
- for user in User.objects.all()[:hmany]:
- self.stdout.write(user.username)
+    def handle(self, *args, **kwargs):
+        hmany = kwargs.get("hmany")
+        for user in User.objects.all()[:hmany]:
+            self.stdout.write(user.username)
 ```
 
-Kullanımı `python manage.py get_user 2` çıktı;
-
-![django-manage-command.png](https://www.coogger.com/media/images/django-manage-command_1.png?style=center)
+Kullanımı `python manage.py get_user 2`
 
 ## İsteğe Bağlı Argümanlar
 
@@ -106,19 +102,19 @@ from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
- help = "Use and get 10 users"
+    help = "Use and get 10 users"
 
- def add_arguments(self, parser):
- parser.add_argument("--hmany", type=int, help="write how many users will you get")
+    def add_arguments(self, parser):
+        parser.add_argument("--hmany", type=int, help="write how many users will you get")
 
- def handle(self, *args, **kwargs):
- hmany = kwargs.get("hmany")
- if hmany:
- for user in User.objects.all()[:hmany]:
- self.stdout.write(user.username)
- else:
- for user in User.objects.all()[:10]:
- self.stdout.write(user.username)
+    def handle(self, *args, **kwargs):
+        hmany = kwargs.get("hmany")
+        if hmany:
+            for user in User.objects.all()[:hmany]:
+                self.stdout.write(user.username)
+         else:
+             for user in User.objects.all()[:10]:
+                 self.stdout.write(user.username)
 ```
 
 Kullanımı;
@@ -136,30 +132,30 @@ istegöre argümanları sadece `--` bu işareti yazarak yaptık, ben hem 1 argü
 from django.core.management.base import BaseCommand
 
 class Command(BaseCommand):
- help = 'Show all available styles'
-
- def handle(self, *args, **kwargs):
- self.stdout.write(self.style.ERROR('error - A major error.'))
- self.stdout.write(self.style.NOTICE('notice - A minor error.'))
- self.stdout.write(self.style.SUCCESS('success - A success.'))
- self.stdout.write(self.style.WARNING('warning - A warning.'))
- self.stdout.write(self.style.SQL_FIELD('sql_field - The name of a model field in SQL.'))
- self.stdout.write(self.style.SQL_COLTYPE('sql_coltype - The type of a model field in SQL.'))
- self.stdout.write(self.style.SQL_KEYWORD('sql_keyword - An SQL keyword.'))
- self.stdout.write(self.style.SQL_TABLE('sql_table - The name of a model in SQL.'))
- self.stdout.write(self.style.HTTP_INFO('http_info - A 1XX HTTP Informational server response.'))
- self.stdout.write(self.style.HTTP_SUCCESS('http_success - A 2XX HTTP Success server response.'))
- self.stdout.write(self.style.HTTP_NOT_MODIFIED('http_not_modified - A 304 HTTP Not Modified server response.'))
- self.stdout.write(self.style.HTTP_REDIRECT('http_redirect - A 3XX HTTP Redirect server response other than 304.'))
- self.stdout.write(self.style.HTTP_NOT_FOUND('http_not_found - A 404 HTTP Not Found server response.'))
- self.stdout.write(self.style.HTTP_BAD_REQUEST('http_bad_request - A 4XX HTTP Bad Request server response other than 404.'))
- self.stdout.write(self.style.HTTP_SERVER_ERROR('http_server_error - A 5XX HTTP Server Error response.'))
- self.stdout.write(self.style.MIGRATE_HEADING('migrate_heading - A heading in a migrations management command.'))
- self.stdout.write(self.style.MIGRATE_LABEL('migrate_label - A migration name.'))
+     help = 'Show all available styles'
+     
+     def handle(self, *args, **kwargs):
+          self.stdout.write(self.style.ERROR('error - A major error.'))
+          self.stdout.write(self.style.NOTICE('notice - A minor error.'))
+          self.stdout.write(self.style.SUCCESS('success - A success.'))
+          self.stdout.write(self.style.WARNING('warning - A warning.'))
+          self.stdout.write(self.style.SQL_FIELD('sql_field - The name of a model field in SQL.'))
+          self.stdout.write(self.style.SQL_COLTYPE('sql_coltype - The type of a model field in SQL.'))
+          self.stdout.write(self.style.SQL_KEYWORD('sql_keyword - An SQL keyword.'))
+          self.stdout.write(self.style.SQL_TABLE('sql_table - The name of a model in SQL.'))
+          self.stdout.write(self.style.HTTP_INFO('http_info - A 1XX HTTP Informational server response.'))
+          self.stdout.write(self.style.HTTP_SUCCESS('http_success - A 2XX HTTP Success server response.'))
+          self.stdout.write(self.style.HTTP_NOT_MODIFIED('http_not_modified - A 304 HTTP Not Modified server response.'))
+          self.stdout.write(self.style.HTTP_REDIRECT('http_redirect - A 3XX HTTP Redirect server response other than 304.'))
+          self.stdout.write(self.style.HTTP_NOT_FOUND('http_not_found - A 404 HTTP Not Found server response.'))
+          self.stdout.write(self.style.HTTP_BAD_REQUEST('http_bad_request - A 4XX HTTP Bad Request server response other than 404.'))
+          self.stdout.write(self.style.HTTP_SERVER_ERROR('http_server_error - A 5XX HTTP Server Error response.'))
+          self.stdout.write(self.style.MIGRATE_HEADING('migrate_heading - A heading in a migrations management command.'))
+          self.stdout.write(self.style.MIGRATE_LABEL('migrate_label - A migration name.'))
 ```
 
 ## İncele
 
 * [Django'nun özel yönetim komutları](https://github.com/django/django/tree/master/django/core/management/commands)
-* [Django Döküman - custom-management-commands](https://docs.djangoproject.com/en/2.1/howto/custom-management-commands/)
+* [Django Döküman - custom-management-commands](https://docs.djangoproject.com/en/3.0/howto/custom-management-commands/)
 

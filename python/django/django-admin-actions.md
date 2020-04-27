@@ -2,7 +2,7 @@
 
 Admin action kısaca seçilen nesneler ile toplu iş uygulayabilme olayıdır, seçili bütün kullanıcıları silmek gibi, aşağıda ki resim hangi konudan bahsettiğimizi anlatır niteliktedir.
 
-![admin-actions](https://www.coogger.com/media/images/admin-actions.png?style=center)
+![django admin action](../../.gitbook/assets/admin-actions.png)
 
 Bu içerikte **admin.py** dosyamıza yeni **actionlar** yazarak bazı toplu işlerimizi kolaylaştıracağız.
 
@@ -50,11 +50,7 @@ def remove_ban(modeladmin, request, queryset):
 remove_ban.short_description = 'Remove Ban'
 ```
 
-Burada `remove_ban` fonksiyonumuza **short\_description** adında bir atama yapıldığını görünüyorz bunun amacı django bu değişkeni admin panelde **list\_display** olarak kullanıyor, aşağıdaki resimde nerede kullanıldığı görülmektedir.
-
-![django\_ban\_admin\_action](https://www.coogger.com/media/images/django_ban_admin_action.PNG?style=center)
-
-Şimdi modelim için admin tarafını yazalım. **/admin.py**
+Burada `remove_ban` fonksiyonumuza **short\_description** adında bir atama yapıldığını görünüyoruz bunun amacı django bu değişkeni admin panelde **list\_display** olarak kullanıyor. Şimdi modelim için admin tarafını yazalım. **/admin.py**
 
 ```python
 from django.contrib.admin import ModelAdmin, site

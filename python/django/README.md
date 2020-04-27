@@ -6,9 +6,11 @@ description: >-
 
 # Django
 
+  
+  
 Python içeriklerini bitirdiğinize göre Django ile tanışabilirsiniz.
 
-Django, Python ile geliştirilen bir web framework'ü dür. Django ile hızlı, güvenli geliştirmeler yapabilirsiniz.
+Django, Python ile geliştirilen bir web Framework'ü dür. Django ile hızlı, güvenli geliştirmeler yapabilirsiniz.
 
 ### Telegram
 

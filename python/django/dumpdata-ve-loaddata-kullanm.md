@@ -57,11 +57,3 @@ Genel kullanım `python manage.py loaddata fixture [fixture ...]` burdaki **fixt
 * `python manage.py loaddata mydata.json --format xml --database default`
 * `python manage.py loaddata mydata.json --exclude auth --database default`
 
-## Ne Zaman Kullanmalıyım
-
-Bazen geliştirme sırasında **models.py** dosyamızda çok fazla değişiklikler yapabiliyoruz bu değişiklikleri migrate sırasında istediğimiz gibi gitmediğinde, normalde bir veri tabanı kullanıyorken birden fazla veri tabanı kullanma kararı aldığımızda eski verileri yeniden oluşturduğumuz 0 klometre veri tabanlarımıza eski verileri bu iki komut sayesinde hızla aktarabiliyoruz ben bu iki sorundan dolayı kullanmıştım.
-
-## Sürüm
-
-Django 2.1
-

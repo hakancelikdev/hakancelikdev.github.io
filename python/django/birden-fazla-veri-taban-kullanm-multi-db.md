@@ -1,4 +1,4 @@
-# Birden Fazla Veri Tabanı Kullanımı - \( Multi Db \)
+# Birden Fazla Veri Tabanı Kullanımı
 
 Birden fazla veri tabanı kullanmak için öncelikle projemizin settings.py dosyasına eklemeler yaparak bu veri tabanlarını tanımlamamız gerekiyor örnek olarak aşağıda bir postgresql ve mysql veri tabanları için settings.py ayarı var birden fazla ve aynı olmayan tür olmayan veri tabanlarınıda kullanabiliyoruz.
 

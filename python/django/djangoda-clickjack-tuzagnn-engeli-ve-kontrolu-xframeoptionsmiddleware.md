@@ -4,8 +4,6 @@
 
 **Django** kütüphanesinde bulunan clickjack middleware \( ara katman \) ve dekoratörler **clickjack**'e karşı kullanımı kolay koruma sağlar.
 
-![](https://cdn.steemitimages.com/DQmTxbMupXoHhMSTNk6ydzYgTEDCu83f5fGHVqNsgJxebDc)
-
 Django uygulamanızda **MIDDLEWARE** listesine ellemediyseniz zaten uygulamanız şuan bu açığa karşı koruma durumunda, bunu korumayı `django.middleware.clickjacking.XFrameOptionsMiddleware` Middlewar'i ile yapıyor, eğer bilmeyerek sildiyseniz hemen bunu kopyalayarak **MIDDLEWARE** bölümüne eklemelisiniz.
 
 Varsayılan olarak **X-Frame-Options** header'i **middleware**'de **SAMEORIGIN** olarak ayarlanmış durumda olacaktır bütün Http yanıtlarında \(HttpResponse\), fakat eğer isterseniz bunu değiştirebilirsiniz.

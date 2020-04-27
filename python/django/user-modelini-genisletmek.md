@@ -135,7 +135,3 @@ User modelinizi genişlettiniz ve şimdi yeni bir kullanıcı, kayıt olduğunda
 
 [@hakancelik96/django-sinyalleri-nasl-olusturulur-django-signals](https://www.coogger.com/@hakancelik96/django-sinyalleri-nasl-olusturulur-django-signals/)
 
-## Sonuç
-
-![extend-user-model](https://www.coogger.com/media/images/extend-user-model.png)
-

@@ -1,72 +1,98 @@
-# Python'a Giriş, Anaconda, Atom Ve Pip Kurulumu
+# Python Kurulumu
 
-Herkese merhaba bu gün yeni bir tutorial serisine başlamaya karar verdim, python'ı baştan sona anlatan bir kaynak olacak, normalde [Python](https://www.coogger.com/python/@hakancelik96/) konusu altında yeni öğrendiğim konuları yazıyordum fakat baştan sona bir python serisi olmadığı için içimden yazmak gelmiyordu, ek olarak gaziantep üniversitesinde arkadaşlarımız arasında yazılım öğrenmek ve uygulamak adına bir ekip oluşturduk onlar içinde ek kaynak olmasını istediğim için ![](https://www.egitimsistem.com/d/news/13286.jpg) umarım güzel bir şekilde devamını getireceğim orada işlenecek olan başlıkları bir hafta öncesinde burda anlatmayı planlıyorum \( Gereken yerlerde sık sık düzenlemeler yapacağım \), hatalı yerleri görürseniz lütfen yorum yapın veya aşağıdaki adreslerden bana ulaşarak bildirin, sizde katkıda bulunun.
+### Linux Üzerine Python Kurulumu
 
-## [Anaconda Nedir](https://www.anaconda.com/what-is-anaconda/) ?
+```text
+$ sudo apt-get install software-properties-common
+$ sudo add-apt-repository ppa:deadsnakes/ppa
+$ sudo apt-get update
+$ sudo apt install python3.8
+$ sudo apt-get install python3.8-dev
+$ sudo apt-get install python3.8-pip
+```
 
-Aslında anaconda **en popüler python veri bilim platformu** dur, ek olarak anaconda ile birlikte çok sayıda python kütüphaneleri kurulur ve ilerleyen zamanda tek tek pip kullanarak indirmek zorunda kalmazsınız.
+En sonda yaptığımız yüklemeyi şuan için yapmanız gerekmiyor
 
-### Anaconda Dağıtımı
+```text
+$ sudo apt-get install python3.8-pip
+```
 
-6 milyonu aşkın kullanıcı ile, açık kaynak Anaconda Dağıtımı, _**Linux**_, _**Windows**_ ve _**Mac OS X**_'te **Python** ve **R** veri bilimi ve makine öğrenimi yapmanın en hızlı ve kolay yoludur. Bu, geliştirme, test etme ve eğitim için tek makine'de endüstri standardıdır.
+Burada Python'un paket yöneticisi olan pip kurulumunu yapıyoruz pip'i
 
-### Anaconda Kuruluş, Girişim
+{% page-ref page="kuetuephane-moduel-ve-paketler.md" %}
 
-Anaconda Enterprise \( Kurulum, girişim \), kurumları eğitimden üretime kadar dizüstü bilgisayardan AI/ML ve veri bilimini geliştirmeye, yönetmeye ve otomatik hale getirmeye teşvik eden bir AI/ML etkinleştirme platformudur. Organizasyonların bireysel veri bilimcilerden binlerce kişilik işbirlikçi ekiplere ölçeklenmesini ve tek bir sunucudan model eğitim ve dağıtım için binlerce düğüm noktasına gitmesini sağlar.
+Adlı konuya geldiğimizde daha detaylı inceleyip kullanacağız, bu yüzden gerekli değil.  
+Bash konsolunuzu açıp `python3.8` yazarsanız kurulu olduğunu ve kullanıma hazır hale geldiğini aşağıdaki gibi göreceksiniz.
 
-## Anaconda Kurulumu
+```text
+$ python3.8
+Python 3.8.2 (default, Feb 26 2020, 02:56:10)
+[GCC 7.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>    
+```
 
-[https://www.anaconda.com/download/](https://www.anaconda.com/download/) bu adresten en güncel sürümü indirin, Bir yazılımcı hep güncel kalmalı, yoksa gelişen teknoloji içinde **old man** olur. Ve sonra **next, next, next** diyerek kurulumu tamamlayın bu kısmı anlatmayı gerek bulmuyorum
+### WSL Nedir ?
 
-Dikkat;Bilgisayar kullanıcı isminizde boşluk olmaması gerek var ise Atom ve Anaconda hata verebiliyor
+Wsl'nin açılımı **Windows Subsystem for Linux** \( Linux için Windows Alt sistemi \).
 
-## [Atom Nedir?](https://atom.io/)
+Sadece Windows 10 işletim sistemine sahip cihazlarda olan bu özellik sayesinde Windows üzerinden Linux kullanmanız için Virtualbox gibi araçlar kullanmadan çok daha hızlı bir şekilde Windows üzerinde Linux'u kurabilir ve kullanabilirsiniz, WSL sizlere bu imkanı sağlıyor.
 
-Atom kısacası bir editör'dür, başka bir çok editör olmasına rağmen, ben kod yazarken **Atomu** kullandığım için sizede onu öneriyorum, kendileri açık kaynak olup Python veya diğer diller için yazılmış paketleri bulunmakta birazdan 2 tane paketi indireceğiz zaten.
+#### WSL Kurulumu
 
-## Atom Kurulumu
+Power Shell'i yönetici mod ile açıp aşağıdaki kodu çalıştırın.
 
-Bu adresten [https://atom.io/](https://atom.io/) Atom editörü indirip, kurulumunu yapabilirsiniz, zor bir kısım olmadığı için yine atlıyorum burayı.
+```text
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+```
 
-Python için tasarlanmış **pycharm** editörüde isterseniz bu adresten kurabilirsiniz, [https://www.jetbrains.com/pycharm/download/](https://www.jetbrains.com/pycharm/download/)
+Eğer isterse bilgisayarınızı yeniden başlatın.
 
-kurulum bittikten sonra aşağıdaki resimde görüldüğü gibi **Atom**&gt;**Settings** bölümüne geliyorsunuz.
+Microsfot Strore \( Mağaza \) 'e girerek 
 
-!\[\]\(https://www.coogger.com/media/images/atom\_settings.png\)
+![](../.gitbook/assets/store.png)
 
-Daha sonra aşağıda göründüğü gibi **Install** bölümüne gelip arama yerine _**Python**_ yazıyoruz ve çıkan paketlerden sizlere yardımcı olması için **autocomplete-python** ve **atom-pyhton-run** paketlerini **install** düymesine basarak indiriyoruz.
+Ubuntu kurulumu yapın \( indirin \).  
+  
+Daha fazla bilgi için ziyaret edin, [https://docs.microsoft.com/en-us/windows/wsl/install-win10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
-!\[\]\(https://www.coogger.com/media/images/atom\_install.PNG\)
+İndirme tamamlantıktan sonra ilk çalışmada sizlerden kullanıcı adı ve parolası isteyecektir onları kendinize göre ayarlayın ve Python'u kurmak için yukarıda Linux için anlattığım bölümün aynısını yaparak Python kurulumunuzu yapın.
 
-### autocomplete-python
+Python kurulumu bittikten sonra bulunduğunuz console 'a `python3.8` yazarak Python consolunuzu başlatabilirsiniz.
 
-Kodlarınızı oto tamamlayan bir paket.
+### Windows Üzerine Python Kurulumu
 
-### atom-pyhton-run
+> Tavsiye etmiyorum, Linux , MacOS veya WSL kullanın.
 
-F5 tuşuna basarak yazdığınız python kodunun çalışmasını sağlayan bir paket'tir.
+Python'un kendi sitesinden [https://www.python.org/](https://www.python.org/) download bölümünden en güncel Python sürümünü indirin ve çalıştırın.
 
-Son olarak **Anaconda**'nın bilgisayarınızın neresine kurulduğunu bulun, eğer kurulum sırasında değiştirmemiş iseniz **C:\Users{kullanıcı\_adınız}\Anaconda3** şeklinde kurulmuş olması gerek, bu yolu kopyalayın ve **Bilgisayarım&gt;\(sağ tık\) özellikler&gt;\( sol en alta\) gelişmiş sistem ayarları&gt;Ortam değişkenleri&gt;\(sistem değişkenleri altındaki\) Path kısmını açın** sağ köşede yeni yazan yere tıklayıp **Anaconda'nın yolunu sonuna  işareti ekleyerek buraya yapıştırın** daha sonra tekrar anaconda'nın kurulu olduğu yere gelin ve **C:\Users{kullanıcı\_adınız}\Anaconda3\Scripts** yolunu kopyalayın ve yine aynı adımları yapın son hali aşağıdaki gibi olacaktır.
+Karşınıza şöyle bir ekran gelecektir.
 
-!\[\]\(https://www.coogger.com/media/images/ortam\_de%C4%9Fi%C5%9Fkenleri.png\)
+![](../.gitbook/assets/capture%20%282%29.PNG)
 
-## Pip nedir?
+Aşağıda bulunan **Add to Python 3.8 to PATH** bölümünü yukarıdaki gibi seçin ve **Customize installation** bölümüne tıklarak devam edin.
 
-Pip python için paket yöneticisidir, **Anaconda**'da bulunmayan kütüphaneleri kurmak için pip kullabilirsiniz, veya anaconda yerine direk python indiren arkadaşlar ek kütüphaneleri **Pip paket yöneticisi** ile hızlı bir şekilde indirip kurulumu yapabilir ve kullanabilir.
+Bir sonraki sayfada her şeyi seçili bırakın ve next'e basın.
 
-Masaüstüne **get\_pip.py** adında bir python dosyası açın
+![](../.gitbook/assets/capture%20%283%29.PNG)
 
-> Not; Eğer dosyalarınızın uzantısı görünmüyor ise windows arama yerine klasör yazıp, çıkan penceredeki ikinci sırada yer alan `bilinen dosya türleri için uzantıları gizle` adlı yerin işaretini kaldırın ve kayıt edin.
+Bir sonraki sayfayı yukarıdaki gibi doldurun ve **insall** tuşuna basıp yükleyin.
 
-ve [https://bootstrap.pypa.io/get-pip.py](https://bootstrap.pypa.io/get-pip.py) bu linke tıklarak karşınıza çıkan kodları açtığınız get\_pip.py adındaki dosyanıza kopyalayın kayıt edip kapatın ve masaüstünde **shift + \(fare sağ tık\)** yaparak shell komut satırını \( veya cmd \) açın.
+Yükleme bittikten sonra arama yerine Python yazarak, python'un console 'una erişebilirsiniz, veyahut arama yerine `cmd.exe`yazın o console'a python yazın yine karşınıza python console'u çıkacaktır.
 
-`python get_pip.py` yazarsanız pip kurulumuda gerçekleşmiş olacaktır.
+### Kodlarımızı Nereye Yazacağız, Nasıl Çalıştıracağız ?
 
-## Test Etme Zamanı
+Python biliyor ve ufak denemeler yapmak için veya Python'a yeni başlıyor denemeler yaparak sonuçları görmek ve öğrenmek için işletim sisteminize uygun konsolu kullanabilirsiniz, [`cmd`](https://en.wikipedia.org/wiki/Cmd.exe) , [`bash`](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) gibi.
 
-Windows aramaya yerine **cmd** yazın ve konsolu açıp **python** komutunu girin eğer kurduğunuz anaconda'nın konsolu açılırsa bütün kurulumu doğru yaptınız ve _Atom_ editörden F5 yaparak da doğru bir şekilde çalıştırılacaktır, tebrikler görüşmek üzere.
+### Text Editör Nedir ?
 
-!\[\]\(https://www.coogger.com/media/images/console.png\) Yine komut satırına `pip` yazarak kontrol edebilirsiniz, yardım sayfası açılıra başarılı bir şekilde kurulum gerçekleşmiş demektir.
+Çok kısaca text dosyalarını düzenleyen bir bilgisayar programıdır.
 
-**Kod yazmadığınız gün olmasın ... görüşürüz**
+#### Atom Nedir?
+
+Atom kısacası bir text editör'dür, başka bir çok editör olmasına rağmen, benim ilk kullandığım editör Atom oldu, şuan ise [VScode ](https://code.visualstudio.com/)kullanıyorum.
+
+Editörleri veya IDLE leri araştırıp en çok hoşunuza giden ve rahat hissettiğinizi indirip kullanabilirsiniz, sizlere bunun için bir kaç `keyword`vereceğim.
+
+**vim, pycharm, emacs, atom, vscode** 
 

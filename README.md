@@ -4,6 +4,8 @@ description: Developer at Prisma CSI
 
 # Hakan Çelik'ın Bloğu
 
+Bu blog sürekli güncel tutulmaya çalışılmaktadır.  
+  
 Adreslerim;
 
 * [Twitter](https://twitter.com/hakancelik96)

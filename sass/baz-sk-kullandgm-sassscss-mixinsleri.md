@@ -2,15 +2,17 @@
 
 ### Konunun Anlaşılması İçin Bilinmesi Gereken Konular
 
-* css3
-* scss yapısı
+- css3
+- scss yapısı
 
 ## Mixins Prefixed
 
-Öncelikle en sevdiğim sass mixins'inden başlamak istiyorum bu aynı zamanda yazdığım sass/css kodlarını bütün tarayıcılarda uyumlu hale getiriyor ve bir kere yaz bütün tarayıcılarda çalışsın pirensibi ile hareket etmemi sağlıyor örneğin:
+Öncelikle en sevdiğim sass mixins'inden başlamak istiyorum bu aynı zamanda yazdığım
+sass/css kodlarını bütün tarayıcılarda uyumlu hale getiriyor ve bir kere yaz bütün
+tarayıcılarda çalışsın pirensibi ile hareket etmemi sağlıyor örneğin:
 
-```text
-.flex{
+```css
+.flex {
   -webkit-display: flex;
   -moz-display: flex;
   -ms-display: flex;
@@ -18,7 +20,7 @@
   display: flex;
 }
 
-[border~="2"]{
+[border~="2"] {
   -webkit-border: 2px solid;
   -moz-border: 2px solid;
   -ms-border: 2px solid;
@@ -27,9 +29,10 @@
 }
 ```
 
-şimdi bu iki örnekte gördüğümüz gibi bütün tarayıcılara uyumlu halde css kodu yazmak istersek sass ile şu şekilde bunu sağlayabilecek kod yazabiliriz.
+şimdi bu iki örnekte gördüğümüz gibi bütün tarayıcılara uyumlu halde css kodu yazmak
+istersek sass ile şu şekilde bunu sağlayabilecek kod yazabiliriz.
 
-```text
+```sass
 @mixin prefixed($property, $value) {
     -webkit-#{$property}: #{$value};
     -moz-#{$property}: #{$value};
@@ -39,11 +42,12 @@
 }
 ```
 
-bunun kullanımını bir önceki içeriğimde anlatmıştım aslında yine örnek vererek anlatayım üstte verdiğim iki örneği sass ile yazalım
+bunun kullanımını bir önceki içeriğimde anlatmıştım aslında yine örnek vererek anlatayım
+üstte verdiğim iki örneği sass ile yazalım
 
 ### Kullanım
 
-```text
+```sass
 .flex{
      @include prefixed(display,flex);
 }
@@ -55,7 +59,7 @@ bunun kullanımını bir önceki içeriğimde anlatmıştım aslında yine örne
 
 şimdi size bu mixins'in kullanıldığı diğer mixinsleri örnek olarak göstereyim, inceleyin
 
-```text
+```sass
 @mixin text-shadow($string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
     text-shadow: $string;
 }
@@ -112,11 +116,13 @@ bunun kullanımını bir önceki içeriğimde anlatmıştım aslında yine örne
 
 ## Mixins Reprefixed
 
-bu prefix ise bazı durumlarda prefixed uygum olmuyor bunun tam tersi gerekiyor o yuzden prefixed mixins inin tam tersine reprefixed adını verdim bunun kullanım alanı ise şu şekilde olan css kodlarıdır.
+bu prefix ise bazı durumlarda prefixed uygum olmuyor bunun tam tersi gerekiyor o yuzden
+prefixed mixins inin tam tersine reprefixed adını verdim bunun kullanım alanı ise şu
+şekilde olan css kodlarıdır.
 
 örneğin:
 
-```text
+```css
 [width~="wmax"] {
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -126,9 +132,10 @@ bu prefix ise bazı durumlarda prefixed uygum olmuyor bunun tam tersi gerekiyor 
 }
 ```
 
-şimdi bunu gibi bütün tarayıcılarda çalışacak olan css maks genişlik için prefixed uygun olmuyor bu yüzden bu şekilde bir reprefixed işimizi görecektir.
+şimdi bunu gibi bütün tarayıcılarda çalışacak olan css maks genişlik için prefixed uygun
+olmuyor bu yüzden bu şekilde bir reprefixed işimizi görecektir.
 
-```text
+```sass
 @mixin reprefixed($property, $value) {
     #{$property}: -webkit-#{$value};
     #{$property}: -moz-#{$value};
@@ -140,7 +147,7 @@ bu prefix ise bazı durumlarda prefixed uygum olmuyor bunun tam tersi gerekiyor 
 
 ### Kullanımı :
 
-```text
+```sass
 [width~="wmax"] {
      @include reprefixed(width,max-content);
 }
@@ -150,7 +157,7 @@ hepsi bu kadar.
 
 ## Mixins Gradient İşlemleri
 
-```text
+```sass
 @mixin gradient($startColor: #eee, $endColor: white) {
     background-color: $startColor;
     background: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
@@ -165,9 +172,13 @@ hepsi bu kadar.
 
 ## Hover İşlemleri
 
-şu kodu yazarak istediğiniz gibi bir nesneye hover ayarı yapabilirsiniz hover özelliğinden yararlanırken hover,active ve focus gibi özellikleri'de kullanırsanız her tarayıcıda aynı çalışmasını sağlarsınız mesela chrome da hover direk çalışırken safari'de hover çalışmıyor focus yapınca çalışıyor bu yüzden bu gibi işlemlerde hepsini kullanmanız iyi olacaktır örnek olarak
+şu kodu yazarak istediğiniz gibi bir nesneye hover ayarı yapabilirsiniz hover
+özelliğinden yararlanırken hover,active ve focus gibi özellikleri'de kullanırsanız her
+tarayıcıda aynı çalışmasını sağlarsınız mesela chrome da hover direk çalışırken
+safari'de hover çalışmıyor focus yapınca çalışıyor bu yüzden bu gibi işlemlerde hepsini
+kullanmanız iyi olacaktır örnek olarak
 
-```text
+```sass
 @mixin hover($name, $property, $value){
   [hover~="#{$name}"]{
     &:hover,&:focus,&:active
@@ -176,9 +187,11 @@ hepsi bu kadar.
 }
 ```
 
-örneğin bu sass kodu ile basit hover işlemlerinizi yapabilirsiniz ama hover uygularken bazı hover durumları bütün tarayıcılarda aynı çalışmaz o zaman bu durumda şöyle bir kod yazmamız gerekecektir.
+örneğin bu sass kodu ile basit hover işlemlerinizi yapabilirsiniz ama hover uygularken
+bazı hover durumları bütün tarayıcılarda aynı çalışmaz o zaman bu durumda şöyle bir kod
+yazmamız gerekecektir.
 
-```text
+```sass
 @mixin hover-prefixed($name,$property, $value){
   [hover~="#{$name}"]{
     &:hover,&:focus,&:active{
@@ -188,11 +201,12 @@ hepsi bu kadar.
 }
 ```
 
-işte bu kod ile artık bütün hover işlemlerimiz bütün tarayıcılarda aynı çalışacaktır bunu bir kaç örnek ile daha iyi anlayacaksınız.
+işte bu kod ile artık bütün hover işlemlerimiz bütün tarayıcılarda aynı çalışacaktır
+bunu bir kaç örnek ile daha iyi anlayacaksınız.
 
 örnekler :
 
-```text
+```sass
 @include hover(txt-xl,font-size, 24px);
 /*html içine şu şekilde yazdığınızda <div hover="txt-xl">hover xl</div> ve fare üzerine geldiğinizde hover işlemi uygulanacaktır.*/
 
@@ -219,31 +233,35 @@ işte bu kod ile artık bütün hover işlemlerimiz bütün tarayıcılarda ayn�
 
 ## Son Olarak Sık Kullandığım Bir Sınıf Olan Media'yı Görelim.
 
-mixins değil ama siz bunu mixin haline getirebilirsiniz, css kodlarımda display flex kullandığım için çok fazla media etiketine ihtiyaç duymuyorum flex yapısı direk mobil uyumlu hale geliyor yazarken biraz dikkatlı olursanzı ayrıca mobil için kodlamanız gerekmez, ama bazı durumlarda gerekli oluyor işte bunun için ben şunu kullanıyorum
+mixins değil ama siz bunu mixin haline getirebilirsiniz, css kodlarımda display flex
+kullandığım için çok fazla media etiketine ihtiyaç duymuyorum flex yapısı direk mobil
+uyumlu hale geliyor yazarken biraz dikkatlı olursanzı ayrıca mobil için kodlamanız
+gerekmez, ama bazı durumlarda gerekli oluyor işte bunun için ben şunu kullanıyorum
 
-```text
-.media{
-    /* taşmaması için overflow ve margin ayarı */
-    overflow-x: auto;
-    width: 50%; /* aşağıdaki ekranlardan daha büyük olan ekranlar için olan genişlik ayarı */
-    margin: auto;
-    @media screen and (max-width: 900px) { /* tablet ve pc için */
-        width: 80%;
-    }
-    @media screen and (max-width: 700px) {
+```css
+.media {
+  /* taşmaması için overflow ve margin ayarı */
+  overflow-x: auto;
+  width: 50%; /* aşağıdaki ekranlardan daha büyük olan ekranlar için olan genişlik ayarı */
+  margin: auto;
+  @media screen and (max-width: 900px) {
+    /* tablet ve pc için */
+    width: 80%;
+  }
+  @media screen and (max-width: 700px) {
     /* bu ekran boyutuna sahip tablet, mobil veya pc için */
-        width: 90%;
-    }
-    @media screen and (max-width: 500px) { /* mobil ve daha düşün
+    width: 90%;
+  }
+  @media screen and (max-width: 500px) {
+    /* mobil ve daha düşün
         width: 96%;
     }
     @media screen and (max-width: 300px) { /* daha küçün ekranlı mobil ve daha düşük */
-        width: 98%;
-    }
+    width: 98%;
+  }
 }
 ```
 
 işte bu kod ile hem responsive hemde bütün tarayıclarda çalışan css kodu yazabiliyorum.
 
 okuduğunuz için teşekkürler, görüşmek üzere :\)
-

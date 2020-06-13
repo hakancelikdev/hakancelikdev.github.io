@@ -2,16 +2,20 @@
 
 ### Hedefler
 
-* OpenCV de fare olaylarını işlemeyi öğreneceğiz
-* Bu fonksiyonu öğreneceğiz : _**cv2.setMouseCallback\(\)**_
+- OpenCV de fare olaylarını işlemeyi öğreneceğiz
+- Bu fonksiyonu öğreneceğiz : _**cv2.setMouseCallback\(\)**_
 
 ## Basit Demo
 
-Resim üzerinde iki defa tıkladığımız herhangi bir yere çember çizen basit bir uygulama oluşturacağız.
+Resim üzerinde iki defa tıkladığımız herhangi bir yere çember çizen basit bir uygulama
+oluşturacağız.
 
-İlk olarak bir fare olayı gerçekleştiğinde, bu olayı yakalamak için bir geri dönüş fonksiyonu oluşturacağız. Bu olaylar herhangi bir fare ile ilgili olabilir örneğin; sol düğme aşağı, sol düğme yukarı, sol düğme çift tıklama.
+İlk olarak bir fare olayı gerçekleştiğinde, bu olayı yakalamak için bir geri dönüş
+fonksiyonu oluşturacağız. Bu olaylar herhangi bir fare ile ilgili olabilir örneğin; sol
+düğme aşağı, sol düğme yukarı, sol düğme çift tıklama.
 
-Her fare olayı için \(x,y\) kordinat noktalarını vermeliyiz, bu olaylar ve kordinat bilgisi ile istediğimiz herşeyi yapabiliriz.
+Her fare olayı için \(x,y\) kordinat noktalarını vermeliyiz, bu olaylar ve kordinat
+bilgisi ile istediğimiz herşeyi yapabiliriz.
 
 Mevcut tüm olayları listelemek için, Python terminalinde aşağıdaki kodu çalıştırın;
 
@@ -21,7 +25,9 @@ Mevcut tüm olayları listelemek için, Python terminalinde aşağıdaki kodu ç
 >>> print(events)
 ```
 
-Fare geri çağırma fonkiyonu oluşturmak genel olarak heryerde aynı olan belirli bir formata sahiptir. Sadece fonksiyonun yaptıkları farklıdır.Yani fare geri çağırma olayı iki defa tıklandığında bir çember çizer.
+Fare geri çağırma fonkiyonu oluşturmak genel olarak heryerde aynı olan belirli bir
+formata sahiptir. Sadece fonksiyonun yaptıkları farklıdır.Yani fare geri çağırma olayı
+iki defa tıklandığında bir çember çizer.
 
 Aşağıdaki kodu inceleyelim, açıklamalar kod satırlarında mevcut.
 
@@ -47,9 +53,14 @@ cv2.destroyAllWindows()
 
 ## Daha Fazla Gelişmiş Demo
 
-Şimdi daha iyi bir uygulama yapacağız.Burada, dikdörtgen veya daireler çizeceğiz \(seçtiğimiz modele bağlı olarak\), Paint uygulamasında yaptığımız gibi fareyi sürükleyerek yapacağız.Yani fare geri cağırma fonksiyonu \( mouse callback function \) olarak iki part mevcut.
+Şimdi daha iyi bir uygulama yapacağız.Burada, dikdörtgen veya daireler çizeceğiz
+\(seçtiğimiz modele bağlı olarak\), Paint uygulamasında yaptığımız gibi fareyi
+sürükleyerek yapacağız.Yani fare geri cağırma fonksiyonu \( mouse callback function \)
+olarak iki part mevcut.
 
-Birincisi dikdörtgen çizmek için İkincisi çember çizmek için Bu özel örnek, nesne izleme, resim parçalama gibi bazı etkileşimli uygulamaları oluşturma ve anlama konusunda gerçekten yardımcı olacaktır.
+Birincisi dikdörtgen çizmek için İkincisi çember çizmek için Bu özel örnek, nesne
+izleme, resim parçalama gibi bazı etkileşimli uygulamaları oluşturma ve anlama konusunda
+gerçekten yardımcı olacaktır.
 
 ```python
 import cv2
@@ -82,7 +93,9 @@ def draw_circle(event,x,y,flags,param):
             cv2.circle(img,(x,y),5,(0,0,255),-1)
 ```
 
-Sonra bu fare geri arama işlevini OpenCV penceresine bağlamalıyız. Ana döngüde, dikdörtgen ve daire arasında geçiş yapmak için 'm' anahtarı için bir klavye bağlaması ayarlamalıyız.
+Sonra bu fare geri arama işlevini OpenCV penceresine bağlamalıyız. Ana döngüde,
+dikdörtgen ve daire arasında geçiş yapmak için 'm' anahtarı için bir klavye bağlaması
+ayarlamalıyız.
 
 ```python
 img = np.zeros((512,512,3), np.uint8)
@@ -99,4 +112,3 @@ while(1):
 
 cv2.destroyAllWindows()
 ```
-

@@ -1,12 +1,16 @@
 # Django Admin Actions
 
-Admin action kısaca seçilen nesneler ile toplu iş uygulayabilme olayıdır, seçili bütün kullanıcıları silmek gibi, aşağıda ki resim hangi konudan bahsettiğimizi anlatır niteliktedir.
+Admin action kısaca seçilen nesneler ile toplu iş uygulayabilme olayıdır, seçili bütün
+kullanıcıları silmek gibi, aşağıda ki resim hangi konudan bahsettiğimizi anlatır
+niteliktedir.
 
 ![django admin action](../../.gitbook/assets/admin-actions.png)
 
-Bu içerikte **admin.py** dosyamıza yeni **actionlar** yazarak bazı toplu işlerimizi kolaylaştıracağız.
+Bu içerikte **admin.py** dosyamıza yeni **actionlar** yazarak bazı toplu işlerimizi
+kolaylaştıracağız.
 
-benim aşağıdaki gibi bir modelim olsun, bu model ip banlamak için yazdım, banlanan ip siteye giremeyecek girdiğinde hata alacaki, modelimiz aşağıdaki gibi.
+benim aşağıdaki gibi bir modelim olsun, bu model ip banlamak için yazdım, banlanan ip
+siteye giremeyecek girdiğinde hata alacaki, modelimiz aşağıdaki gibi.
 
 **/models.py**
 
@@ -22,11 +26,12 @@ class IPModel(models.Model):
 
 Action fonksiyonu normal fonksiyon olup 3 tane parametre alır bunlar
 
-* ModelAdmin
-* HttpRequest
-* QuerySet
+- ModelAdmin
+- HttpRequest
+- QuerySet
 
-Bu fonksiyonumuz **ModelAdmin** ve **HttpRequest** 'i kullanmayacağız bunlar django için gerekli parametreler biz **QuerySet**'i kullanacağız.
+Bu fonksiyonumuz **ModelAdmin** ve **HttpRequest** 'i kullanmayacağız bunlar django için
+gerekli parametreler biz **QuerySet**'i kullanacağız.
 
 örneğin
 
@@ -42,7 +47,8 @@ for obj in queryset:
     do_something_with(obj)
 ```
 
-Bunun gibi şeylede yapabilirsiniz gelen nesne sizin verdiğiniz modeli kullanarak oluşturulmuş bir **queryset** sonuçta.
+Bunun gibi şeylede yapabilirsiniz gelen nesne sizin verdiğiniz modeli kullanarak
+oluşturulmuş bir **queryset** sonuçta.
 
 ```python
 def remove_ban(modeladmin, request, queryset):
@@ -50,7 +56,9 @@ def remove_ban(modeladmin, request, queryset):
 remove_ban.short_description = 'Remove Ban'
 ```
 
-Burada `remove_ban` fonksiyonumuza **short\_description** adında bir atama yapıldığını görünüyoruz bunun amacı django bu değişkeni admin panelde **list\_display** olarak kullanıyor. Şimdi modelim için admin tarafını yazalım. **/admin.py**
+Burada `remove_ban` fonksiyonumuza **short_description** adında bir atama yapıldığını
+görünüyoruz bunun amacı django bu değişkeni admin panelde **list_display** olarak
+kullanıyor. Şimdi modelim için admin tarafını yazalım. **/admin.py**
 
 ```python
 from django.contrib.admin import ModelAdmin, site
@@ -80,7 +88,10 @@ class IPAdmin(ModelAdmin):
 site.register(IPModel,IPAdmin)
 ```
 
-Yukarıdaki **admin.py** dosyamda iki tane admin action fonksiyonu yazdım ve **modeladmin** sınıfıma bu actionları **actions = \[remove\_ban, banned\]** şeklinde yazdım, django artık **IPAdmin** nesnemde iki tane action olduğunu ve bunların görevlerini biliyor.
+Yukarıdaki **admin.py** dosyamda iki tane admin action fonksiyonu yazdım ve
+**modeladmin** sınıfıma bu actionları **actions = \[remove_ban, banned\]** şeklinde
+yazdım, django artık **IPAdmin** nesnemde iki tane action olduğunu ve bunların
+görevlerini biliyor.
 
-şimdi admin sayfama gidip birden fazla ip adresi seçip bunları toplu olarak banlayabilirim veya banını kaldırabilirim.
-
+şimdi admin sayfama gidip birden fazla ip adresi seçip bunları toplu olarak
+banlayabilirim veya banını kaldırabilirim.

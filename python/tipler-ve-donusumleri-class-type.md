@@ -2,52 +2,64 @@
 
 #### Hatırlatma
 
-Öncelikle python'da hangi veri tipleri vardı onları hatırlayalım, aşağıda python'da var olan veri tiplerinin listesi ve örnekler yazılmıştır bu konunun daha iyi anlaşılması için lütfen dikkatli inceleyiniz.
+Öncelikle python'da hangi veri tipleri vardı onları hatırlayalım, aşağıda python'da var
+olan veri tiplerinin listesi ve örnekler yazılmıştır bu konunun daha iyi anlaşılması
+için lütfen dikkatli inceleyiniz.
 
-> Not: Python ile alakalı terimlerin türkçesini yazmayacağım, ingilizcesini öğrenmek daha yararlı olduğunu düşünüyorum.
+> Not: Python ile alakalı terimlerin türkçesini yazmayacağım, ingilizcesini öğrenmek
+> daha yararlı olduğunu düşünüyorum.
 
-* Numbers
-  * **int\(\)**
-    * `variable = 1`
-  * **float\(\)**
-    * `variable = 0.1`
-    * `variable = 0.00012`
-* String
-  * **str\(\)**
-    * `variable = "string"`
-    * `variable = 'string'`
-    * `variable = """long string"""`
-    * `variable = '''long string'''`
-* List
-  * **list\(\)**
-    * `variable = [1, 2, 3, 4]`
-    * `variable = ["1", "2", "3", "4"]`
-    * `variable = ['1', '2', '3', '4']`
-    * `variable = [1.1, 2.2, 3.3, 4.4]`
-    * `variable = [{1: 2}, {2: 3}, {3: 4}]`
-    * `variable = [{"1": 2}, {"2": 3}, {3: "4"}]`
-* Tuple
-  * `variable = 1, 2, 3, 4`
-  * `variable = (1, 2, 3, 4)`
-  * `variable = "1", "2", "3", "4"`
-  * `variable = [1], [2, 2], [3], {4}`
-  * `variable = 1, 2, 3, 4`
-  * `variable = "a", 2, "3", 4`
-* Dictionary
-  * **dict\(\)**
-    * `variable = {1: 2, "a": "b", "c": 2}`
-    * `variable = dict(a=1, b=2, c=3)`
-    * `variable = {1: [3, 4], "a": "b", "c": 2}`
+- Numbers
+  - **int\(\)**
+    - `variable = 1`
+  - **float\(\)**
+    - `variable = 0.1`
+    - `variable = 0.00012`
+- String
+  - **str\(\)**
+    - `variable = "string"`
+    - `variable = 'string'`
+    - `variable = """long string"""`
+    - `variable = '''long string'''`
+- List
+  - **list\(\)**
+    - `variable = [1, 2, 3, 4]`
+    - `variable = ["1", "2", "3", "4"]`
+    - `variable = ['1', '2', '3', '4']`
+    - `variable = [1.1, 2.2, 3.3, 4.4]`
+    - `variable = [{1: 2}, {2: 3}, {3: 4}]`
+    - `variable = [{"1": 2}, {"2": 3}, {3: "4"}]`
+- Tuple
+  - `variable = 1, 2, 3, 4`
+  - `variable = (1, 2, 3, 4)`
+  - `variable = "1", "2", "3", "4"`
+  - `variable = [1], [2, 2], [3], {4}`
+  - `variable = 1, 2, 3, 4`
+  - `variable = "a", 2, "3", 4`
+- Dictionary
+  - **dict\(\)**
+    - `variable = {1: 2, "a": "b", "c": 2}`
+    - `variable = dict(a=1, b=2, c=3)`
+    - `variable = {1: [3, 4], "a": "b", "c": 2}`
 
 ## Python'da Tip Dönüşümleri
 
-Yukarıda güzel bir hatırlatma sağladığımıza göre asıl konuya geçebiliriz, aslında bu işlemler gerçekten çok kolay size kısaca şöyle anlatayım.
+Yukarıda güzel bir hatırlatma sağladığımıza göre asıl konuya geçebiliriz, aslında bu
+işlemler gerçekten çok kolay size kısaca şöyle anlatayım.
 
-Elinizde bir değişken ve değişkene atadığınız bir veri var bu verinin tipini biliyorsunuz veya **type\(\)** metodu kullanarak onun tipini buluyorsunuz daha sonra dönültürmek istediğiniz veri tipin method'unu \( fonksiyonunu \) kullanarak dönüştürmek istediğiniz veri tipine dönüştürmüş oluyorsunuz.
+Elinizde bir değişken ve değişkene atadığınız bir veri var bu verinin tipini
+biliyorsunuz veya **type\(\)** metodu kullanarak onun tipini buluyorsunuz daha sonra
+dönültürmek istediğiniz veri tipin method'unu \( fonksiyonunu \) kullanarak dönüştürmek
+istediğiniz veri tipine dönüştürmüş oluyorsunuz.
 
-Bu içerikte [input-fonksiyonu-ozellikleri-ve-detayl-inceleme](https://www.coogger.com/@hakancelik96/input-fonksiyonu-ozellikleri-ve-detayl-inceleme/) input fonksiyonunu incelemiş ve input ile aldığımız \( kullanıcı tarafından \) her verinin bir karakter dizisi olduğunu yani tipinin **string** olduğunu söylemiştik.
+Bu içerikte
+[input-fonksiyonu-ozellikleri-ve-detayl-inceleme](https://www.coogger.com/@hakancelik96/input-fonksiyonu-ozellikleri-ve-detayl-inceleme/)
+input fonksiyonunu incelemiş ve input ile aldığımız \( kullanıcı tarafından \) her
+verinin bir karakter dizisi olduğunu yani tipinin **string** olduğunu söylemiştik.
 
-İşte sorun burada başlıyor, ben kullanıcıdan bir sayı girilmesini istesem o da bunun için **2049** girse bu bana yani değişkenime sayı olarak gitmeyecek bir string olarak gidecektir, ve benim bunu denetlemem ve tip dönüşümü uygulamam gerekiyor.
+İşte sorun burada başlıyor, ben kullanıcıdan bir sayı girilmesini istesem o da bunun
+için **2049** girse bu bana yani değişkenime sayı olarak gitmeyecek bir string olarak
+gidecektir, ve benim bunu denetlemem ve tip dönüşümü uygulamam gerekiyor.
 
 ```python
 string_data = input("Please enter a any number what you want ? >> ")
@@ -58,16 +70,18 @@ print(string_data/1)
 # burada gelen veriyi '1' e bölüyorum eğer gelen veri sayı değil ise hata verecektir.
 ```
 
-Aldığımız hata **TypeError** hatası olacaktır, yani tip hatası yaptık, string ile int bir veriyi bölmeye çalıştık.
+Aldığımız hata **TypeError** hatası olacaktır, yani tip hatası yaptık, string ile int
+bir veriyi bölmeye çalıştık.
 
-```text
+```python
 <class 'str'>
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: unsupported operand type(s) for /: 'str' and 'int'
 ```
 
-Bizim burada gelen veriyi **int** veya **float** tipine dönüştürmemiz gerekiyor, bir kez daha yapalım.
+Bizim burada gelen veriyi **int** veya **float** tipine dönüştürmemiz gerekiyor, bir kez
+daha yapalım.
 
 ```python
 string_data = input("Please enter a any number what you want ? >> ")
@@ -81,7 +95,7 @@ print(string_data)
 
 Sonuç;
 
-```text
+```python
 <class 'int'>
 2049
 ```
@@ -92,7 +106,8 @@ Herhangi bir hata almadık, konu anlaşıldı ise diğerlerine de bakalım.
 
 > int\(\) argument must be a string, a bytes-like object or a number
 
-**int\(\)** fonksiyonu parametre olarak verilen nesneyi yapabiliyor ise **int** veri tipine çevirir.
+**int\(\)** fonksiyonu parametre olarak verilen nesneyi yapabiliyor ise **int** veri
+tipine çevirir.
 
 Parametre olarak string veya number \( sayı \) değeri alır.
 
@@ -103,13 +118,15 @@ Parametre olarak string veya number \( sayı \) değeri alır.
 0
 ```
 
-> Not: `int("10.1")` bu gibi string formatinda bulunan float veri tipi int çevrilemez, önce float veri tipine çevirmek gerek.
+> Not: `int("10.1")` bu gibi string formatinda bulunan float veri tipi int çevrilemez,
+> önce float veri tipine çevirmek gerek.
 
 ### float\(\)
 
 > float\(\) argument must be a string or a number
 
-**float\(\)** fonksiyonu parametre olarak verilen nesneyi yapabiliyor ise **float** veri tipine çevirir.
+**float\(\)** fonksiyonu parametre olarak verilen nesneyi yapabiliyor ise **float** veri
+tipine çevirir.
 
 Parametre olarak string veya number \( sayı \) değeri alır.
 
@@ -126,7 +143,8 @@ Parametre olarak string veya number \( sayı \) değeri alır.
 
 ### str\(\)
 
-**str\(\)** fonksiyonu parametre olarak verilen her nesneyi **string** veri tipine çevirir.
+**str\(\)** fonksiyonu parametre olarak verilen her nesneyi **string** veri tipine
+çevirir.
 
 ```python
 >>> str(10)
@@ -149,9 +167,12 @@ Parametre olarak string veya number \( sayı \) değeri alır.
 
 > first argument must be a string or a number
 
-İki parametre alır sadece bir parametre yazılacak ise string tipinde sayı int veya float olabilir , iki parametre birden yazılacaksa ilk parametre string olamaz , ikinci parametre ise kompleks sayımızın i'li kısmıdır.
+İki parametre alır sadece bir parametre yazılacak ise string tipinde sayı int veya float
+olabilir , iki parametre birden yazılacaksa ilk parametre string olamaz , ikinci
+parametre ise kompleks sayımızın i'li kısmıdır.
 
-**complex\(\)** fonksiyonu parametre olarak verilen string veya sayıları **complex** veri tipine çevirir.
+**complex\(\)** fonksiyonu parametre olarak verilen string veya sayıları **complex**
+veri tipine çevirir.
 
 ```python
 >>> complex(10)
@@ -189,4 +210,3 @@ Girilen parametre isimlerini ve değerlerini kullanarak **dict** veri tipi oluş
 >>> list((1, 2))
 [1, 2]
 ```
-

@@ -1,6 +1,7 @@
 # Git Komutları
 
-Git'i kurduk konfigürasyon ayarlarımızı yaptık şimdi git komutlarını öğrenme zamanı geldi.
+Git'i kurduk konfigürasyon ayarlarımızı yaptık şimdi git komutlarını öğrenme zamanı
+geldi.
 
 **Hatırlatma**
 
@@ -16,7 +17,8 @@ Tüm yerel depolar için eposta bilgilerini yapılandırın
 git config --global user.email "email address"
 ```
 
-bu bilgiler git tarafından her değişiklik yaptığınızda yaptığınız değişiklikler ve tarih ile birlikte tutulurlar.
+bu bilgiler git tarafından her değişiklik yaptığınızda yaptığınız değişiklikler ve tarih
+ile birlikte tutulurlar.
 
 ## Inıt
 
@@ -34,7 +36,8 @@ git init proje-ismi
 
 ## Clone
 
-Uzak bir git sunucusundan projeyi ve tüm sürüm geçmişini indirmek için `clone` komutunu kullanın.
+Uzak bir git sunucusundan projeyi ve tüm sürüm geçmişini indirmek için `clone` komutunu
+kullanın.
 
 ```bash
 git clone uzak_repo_adresi
@@ -70,7 +73,9 @@ git commit -m "commit_mesajınız"
 
 ## Status
 
-Durum kontrolu için, size o anki durumunuzu gösterir, add mi yoksa commit komutunu mu çalıştırmanız gerektiğini burdan bakarak anlayabilirsiniz ve değişen dosyalarıda listeler
+Durum kontrolu için, size o anki durumunuzu gösterir, add mi yoksa commit komutunu mu
+çalıştırmanız gerektiğini burdan bakarak anlayabilirsiniz ve değişen dosyalarıda
+listeler
 
 ```bash
 git status
@@ -86,22 +91,24 @@ git log
 
 burda atılan commitlere ait
 
-* Commit'in kim tarafından atıldığı
-* Ne zaman atıldığı
-* Commit mesajı
-* Commit hash değeri
+- Commit'in kim tarafından atıldığı
+- Ne zaman atıldığı
+- Commit mesajı
+- Commit hash değeri
 
 şeklinde çıktı alınır.
 
 ## Reset
 
-Bir sorun yaşandığında eski bir sürüme geri gelmek için kullanılır, git log sonrası dönmek istediğiniz commit hash değerini kopyalar ve reset ile o sürüme dönersiniz.
+Bir sorun yaşandığında eski bir sürüme geri gelmek için kullanılır, git log sonrası
+dönmek istediğiniz commit hash değerini kopyalar ve reset ile o sürüme dönersiniz.
 
 ```bash
 git reset commit_hash_değeri
 ```
 
-Değişiklikleri yerel olarak koruyarak, commit sonrasında verilen tüm commitleri geri alır.
+Değişiklikleri yerel olarak koruyarak, commit sonrasında verilen tüm commitleri geri
+alır.
 
 ```bash
 git reset --hard commit_hash_değeri
@@ -139,7 +146,8 @@ git branch -d dal_ismi
 
 ## Checkout
 
-Bir daldan diğer bir dala geçiş yapmanızı sağlar, master dalındasınız ve `yeni_dal` diye bir dalınız var ona geçmek istiyorsanız.
+Bir daldan diğer bir dala geçiş yapmanızı sağlar, master dalındasınız ve `yeni_dal` diye
+bir dalınız var ona geçmek istiyorsanız.
 
 ```bash
 git checkout yeni_dal
@@ -147,7 +155,7 @@ git checkout yeni_dal
 
 ## Merge
 
-**yeni\_dal** da yaptığınız değişiklikleri master dalı ile birleştirmek istiyorsanız.
+**yeni_dal** da yaptığınız değişiklikleri master dalı ile birleştirmek istiyorsanız.
 
 ```bash
 git checkout master
@@ -159,9 +167,9 @@ master dalına geçtim
 git merge yeni_dal
 ```
 
-**yeni\_dal** daki değişiklikleri master ile birleştirdim.
+**yeni_dal** daki değişiklikleri master ile birleştirdim.
 
-veyahut 
+veyahut
 
 ```bash
 git pull origin master
@@ -185,13 +193,16 @@ git pull origin master
 
 ## Push
 
-Kendi localinizde \( bilgisayarınızda \) yaptığınız değişiklikleri uzak sunucuda bulunan repoya göndermenizi sağlar.
+Kendi localinizde \( bilgisayarınızda \) yaptığınız değişiklikleri uzak sunucuda bulunan
+repoya göndermenizi sağlar.
 
 ```bash
 git push
 ```
 
-eğer gönderdiğiniz değişiklikler uzak sunucudaki ile çakışır size push yapmadan önce pull yapmanız gerektiği ile ilgili bir uyarı mesajı verirsee git ve siz yinede yaptığınız değişiklikleri uzak sunucudaki silinse bile yapmak istiyorsanız.
+eğer gönderdiğiniz değişiklikler uzak sunucudaki ile çakışır size push yapmadan önce
+pull yapmanız gerektiği ile ilgili bir uyarı mesajı verirsee git ve siz yinede
+yaptığınız değişiklikleri uzak sunucudaki silinse bile yapmak istiyorsanız.
 
 ```bash
 git push -f
@@ -201,9 +212,11 @@ burdaki **-f force** anlamına gelir.
 
 ## Gitignore Dosyası
 
-Gitignore dosyası bizim bazı git tarafından izlenmesini istemediğimiz dosyalar olabilir bu dosyaları **.gitignore** dosyası yardımı ile git'e söylüyoruz.
+Gitignore dosyası bizim bazı git tarafından izlenmesini istemediğimiz dosyalar olabilir
+bu dosyaları **.gitignore** dosyası yardımı ile git'e söylüyoruz.
 
-Bu adreste programlama dilleri için gitignore dosyaları mevcut siz projelerinizde hangi dili kullanıyorsanız bu adresten esinlenerek gitignore dosyanızı oluşturabilir git'in takip etmesini istemediniz dosyalarınız kontrol altına alabilirsiniz.
+Bu adreste programlama dilleri için gitignore dosyaları mevcut siz projelerinizde hangi
+dili kullanıyorsanız bu adresten esinlenerek gitignore dosyanızı oluşturabilir git'in
+takip etmesini istemediniz dosyalarınız kontrol altına alabilirsiniz.
 
 [https://github.com/github/gitignore](https://github.com/github/gitignore)
-

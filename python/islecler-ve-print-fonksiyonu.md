@@ -2,24 +2,25 @@
 
 ### Neler Öğreneceğiz?
 
-* İşleçler \( \*, /, -, +, %\)
-* print Fonksiyonu \(Ekrana yazı yazmamızı sağlayan fonksiyon\)
+- İşleçler \( \*, /, -, +, %\)
+- print Fonksiyonu \(Ekrana yazı yazmamızı sağlayan fonksiyon\)
 
 ### İşleçler
 
 #### Matematiksel İşleçler
 
-Matematiksel işleçler python'da matematiksel işlemleri yapmamızı sağlar, bir kaç tane örnek yaparak bu konuyu daha iyi anlayalım.
+Matematiksel işleçler python'da matematiksel işlemleri yapmamızı sağlar, bir kaç tane
+örnek yaparak bu konuyu daha iyi anlayalım.
 
-|  |  |
-| :--- | :--- |
-| + | Toplama |
-| - | Çıkarma |
-| \* | Çarpma |
-| / | Bölme |
-| \*\* | Kuvvet |
-| % | Moduler bölme |
-| // | Taban bölme |
+|      |               |
+| :--- | :------------ |
+| +    | Toplama       |
+| -    | Çıkarma       |
+| \*   | Çarpma        |
+| /    | Bölme         |
+| \*\* | Kuvvet        |
+| %    | Moduler bölme |
+| //   | Taban bölme   |
 
 ```python
 >>> 4 + 5 # toplama
@@ -44,14 +45,15 @@ Matematiksel işleçler python'da matematiksel işlemleri yapmamızı sağlar, b
 
 #### Karşılaştırma işleçleri
 
-Karşılaştırma işleçleri işlenenler arasında bir karşılaştırma işlemi yapmamızı sağlar, 3 büyüktür 2, 3 eşittir 3 gibi.
+Karşılaştırma işleçleri işlenenler arasında bir karşılaştırma işlemi yapmamızı sağlar, 3
+büyüktür 2, 3 eşittir 3 gibi.
 
-|  |  |
-| :--- | :--- |
-| == | Eşittir |
-| != | Eşit Değildir |
-| &gt; | Büyüktür |
-| &lt; | Küçüktür |
+|       |               |
+| :---- | :------------ |
+| ==    | Eşittir       |
+| !=    | Eşit Değildir |
+| &gt;  | Büyüktür      |
+| &lt;  | Küçüktür      |
 | &gt;= | Büyük Eşittir |
 | &lt;= | Küçük Eşittir |
 
@@ -70,7 +72,9 @@ else: # hiç şart sağlamadı yani eşit ise
 
 #### Bool İşleçleri
 
-Bilgisayarda 0 ve 1 den oluştuğunu hepimiz biliyoruz ikili sistem kullanılmata açık, kapalı, var yok, doğru yanlış gibi anlamlara gelebilir, bilgisayar bilimi bu iki adet iki değer üzerine kuruludur bu bool değerleri **True** ve **False** dır.
+Bilgisayarda 0 ve 1 den oluştuğunu hepimiz biliyoruz ikili sistem kullanılmata açık,
+kapalı, var yok, doğru yanlış gibi anlamlara gelebilir, bilgisayar bilimi bu iki adet
+iki değer üzerine kuruludur bu bool değerleri **True** ve **False** dır.
 
 örnek olarak
 
@@ -81,9 +85,12 @@ True
 False
 ```
 
-Bilgisayarlar biliminin 0 ve 1'in üzerine kurulduğunu söyledik ve bunlar True ve False'dır dedik burdan yola çıkarsak bilgisayarda her şeyin bir bool değerinin olduğu sonucu çıkar.
+Bilgisayarlar biliminin 0 ve 1'in üzerine kurulduğunu söyledik ve bunlar True ve
+False'dır dedik burdan yola çıkarsak bilgisayarda her şeyin bir bool değerinin olduğu
+sonucu çıkar.
 
-Bilgisayarda 0 ve boş karakter hariç her şeyin değeri True'dur, bunu **bool\(\)** adlı bir fonksiyon ile gösterelim.
+Bilgisayarda 0 ve boş karakter hariç her şeyin değeri True'dur, bunu **bool\(\)** adlı
+bir fonksiyon ile gösterelim.
 
 ```python
 >>> bool(0)
@@ -106,11 +113,11 @@ True
 True
 ```
 
-|  |  |
-| :--- | :--- |
-| and | ve |
+|     |                                 |
+| :-- | :------------------------------ |
+| and | ve                              |
 | not | değil, hayır, yok gibi anlamlar |
-| or | veya |
+| or  | veya                            |
 
 ```python
 test_val = "01234"
@@ -120,18 +127,20 @@ if test_val == "01234" or test_val == "0":
 
 #### Değer Atama İşleçleri
 
-Şimdiye kadar sadece bir tane atama işareti kullanıyorduk o işaret'te **=** buydu, bir veriyi değişkene atamamızı sağlayan atama işareti, aşağıda bütün atama işaretlerinin tablosu bulunmakta, inceledikten sonra bir kaç örnek yapalım.
+Şimdiye kadar sadece bir tane atama işareti kullanıyorduk o işaret'te **=** buydu, bir
+veriyi değişkene atamamızı sağlayan atama işareti, aşağıda bütün atama işaretlerinin
+tablosu bulunmakta, inceledikten sonra bir kaç örnek yapalım.
 
-|  |  |
-| :--- | :--- |
-| = | Atama işareti |
-| += | Kendisi ile Arttırıp Atama İşareti |
-| -= | Kendisi ile Azaltıp Atama İşareti |
-| /= | Kendisi ile Bölüp Atama İşareti |
-| \*= | Kendisi ile Çarpıp Atama İşareti |
-| %= | Kendisi ile Modüler Bölme İşareti |
-| \*\*= | Kendisi ile Kuvvet Alma İşareti |
-| //= | Kendisi ile Taban Bölme İşareti |
+|       |                                    |
+| :---- | :--------------------------------- |
+| =     | Atama işareti                      |
+| +=    | Kendisi ile Arttırıp Atama İşareti |
+| -=    | Kendisi ile Azaltıp Atama İşareti  |
+| /=    | Kendisi ile Bölüp Atama İşareti    |
+| \*=   | Kendisi ile Çarpıp Atama İşareti   |
+| %=    | Kendisi ile Modüler Bölme İşareti  |
+| \*\*= | Kendisi ile Kuvvet Alma İşareti    |
+| //=   | Kendisi ile Taban Bölme İşareti    |
 
 ```python
 >>> a = 5
@@ -145,11 +154,12 @@ if test_val == "01234" or test_val == "0":
 
 #### Aitlik İşleçleri
 
-Bu işlecin amacı bir verinin başka bir verinin içinde bulunup bulunmadığını sorgulamamızı sağlamaktır.
+Bu işlecin amacı bir verinin başka bir verinin içinde bulunup bulunmadığını
+sorgulamamızı sağlamaktır.
 
-|  |  |
-| :--- | :--- |
-| in | Aitlik İşleci |
+|        |                   |
+| :----- | :---------------- |
+| in     | Aitlik İşleci     |
 | not in | Ait olmama işleci |
 
 ```python
@@ -161,12 +171,14 @@ True # evet yok
 
 #### Kimlik İşleçleri
 
-Python’da her nesnenin bir kimlik numarası \(identity\) vardır. Bu kimlik numarası esasında o nesnenin bellekteki adresini gösterir. Nesnelerin id bilgisini gömülü olarak gelen **id\(\)** fonksiyonunu kullanarak bulabiliyoruz.
+Python’da her nesnenin bir kimlik numarası \(identity\) vardır. Bu kimlik numarası
+esasında o nesnenin bellekteki adresini gösterir. Nesnelerin id bilgisini gömülü olarak
+gelen **id\(\)** fonksiyonunu kullanarak bulabiliyoruz.
 
-|  |  |
-| :--- | :--- |
+|        |                               |
+| :----- | :---------------------------- |
 | id\(\) | İd Numarasını Veren Fonksiyon |
-| is | Kimlik işleci |
+| is     | Kimlik işleci                 |
 
 ```python
 >>> a = 2.5
@@ -176,7 +188,8 @@ Python’da her nesnenin bir kimlik numarası \(identity\) vardır. Bu kimlik nu
 1510666808640
 ```
 
-Gördüğünüz gibi her verinin bir id numarası konum bilgisi vardır, bir diğer kimlik işleci olan **is**'e bakalım birde.
+Gördüğünüz gibi her verinin bir id numarası konum bilgisi vardır, bir diğer kimlik
+işleci olan **is**'e bakalım birde.
 
 ```python
 >>> a = 1
@@ -187,7 +200,8 @@ True
 False
 ```
 
-Bunun sebebi **-5 ile 257** arasındaki olmayan sayılar için python her defasında tekrardan bir bellekleme çalışması yapıyor olmasıdır, yani şöyle anlatayım.
+Bunun sebebi **-5 ile 257** arasındaki olmayan sayılar için python her defasında
+tekrardan bir bellekleme çalışması yapıyor olmasıdır, yani şöyle anlatayım.
 
 ```python
 >>> a = 1000 # versi 1000 olan yeni bir alan ( adres ) açtı
@@ -197,9 +211,14 @@ False # false çıktısını aldık
 
 ## Print Fonksiyonu
 
-print fonksiyonu'nun amacı ekrana yazı yazdırmaktır, fonksiyonlara kısa giriş dersini hatırlarsanız fonksiyonlar yapacağı göreve göre parametre alır veya almaz tıpkı matematik'te olduğu gibi, print fonksiyonu'da veri olarak sınırsız parametre alabilen aynı zamanda kendine özgü parametreleri bulunan bir fonksiyondur siz ona parametre olarak ne verirseniz print fonksiyonu sırası ile ekrana basacaktır.
+print fonksiyonu'nun amacı ekrana yazı yazdırmaktır, fonksiyonlara kısa giriş dersini
+hatırlarsanız fonksiyonlar yapacağı göreve göre parametre alır veya almaz tıpkı
+matematik'te olduğu gibi, print fonksiyonu'da veri olarak sınırsız parametre alabilen
+aynı zamanda kendine özgü parametreleri bulunan bir fonksiyondur siz ona parametre
+olarak ne verirseniz print fonksiyonu sırası ile ekrana basacaktır.
 
-> Sınırsız parametreli fonksiyonların nasıl yapılacağını ilerleyen derslerde yine gireceğim
+> Sınırsız parametreli fonksiyonların nasıl yapılacağını ilerleyen derslerde yine
+> gireceğim
 
 ```python
 >>> text = "python programlama dilinin ismi yılan'dan gelmez"
@@ -216,9 +235,12 @@ python "açık kaynak kodlu" bir dildir
 
 #### Sep
 
-Sep parametresinin amacı print fonksiyonuna yazdığımız her bir veri değerinin sonuna eklemeler yapar, siz sep="0" yazarsanız python print içine paramtre olarak yazdığınız her bir verinin sonuna 0 yazacaktır örnek olarak.
+Sep parametresinin amacı print fonksiyonuna yazdığımız her bir veri değerinin sonuna
+eklemeler yapar, siz sep="0" yazarsanız python print içine paramtre olarak yazdığınız
+her bir verinin sonuna 0 yazacaktır örnek olarak.
 
-**print\("veri", sep="str\_değer"\)** sep parametresi ya **None** yada string bir değer alır.
+**print\("veri", sep="str_değer"\)** sep parametresi ya **None** yada string bir değer
+alır.
 
 ```python
 >>> print(1, 2, 3, 4, 5, 6, 7, sep=" - ")
@@ -227,11 +249,13 @@ Sep parametresinin amacı print fonksiyonuna yazdığımız her bir veri değeri
 
 #### End
 
-End parametresinin görevi print fonksiyonuna verilen verinin sonuna eklenecek olan nesneyi yazmaktır.
+End parametresinin görevi print fonksiyonuna verilen verinin sonuna eklenecek olan
+nesneyi yazmaktır.
 
 **end** parametresi yine **None** veya str bir değer alır.
 
-print fonksiyonunda default \(varsayılan olarak\) **print\(end="\n"\)** kaçış işareti vardır.
+print fonksiyonunda default \(varsayılan olarak\) **print\(end="\n"\)** kaçış işareti
+vardır.
 
 ```python
 >>> print("Buraya ne yazacağımı bulamadım", end="\n") # \n satır başı kaçış işareti
@@ -243,7 +267,9 @@ Buraya ne yazacağımı bulamadım -
 
 #### Print İle Ekrane Değil Dosyaya Yazdıralım
 
-Python dosya işlemlerini ileride göreceğiz ama ufakta olsa burada değinmek iyi olacaktır, print fonksiyonu normalde ekrana çıktı verirken bunu değiştirip dosyaya yazmasını sağlayabiliyoruz.
+Python dosya işlemlerini ileride göreceğiz ama ufakta olsa burada değinmek iyi
+olacaktır, print fonksiyonu normalde ekrana çıktı verirken bunu değiştirip dosyaya
+yazmasını sağlayabiliyoruz.
 
 **file parametresi**
 
@@ -265,4 +291,3 @@ flush parametresi veriyi bekletmeden dosyaya yazmamızı sağlar
 >>> print("ikinci defa dosyaya veri yazıyorum", file = dosya, flush=True) # bu şekilde yazmalısınız
 >>> dosya.close()
 ```
-

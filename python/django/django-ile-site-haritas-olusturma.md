@@ -2,15 +2,25 @@
 
 ### Site Haritası Nedir?
 
-Site haritaları google gibi arama motorlarının sizin sitenizi'deki içeriklerin botları ile daha hızlı ve pratik bir şekilde tarama yapıp indexlemesini sağlayan .xml uzantılı bir dosyadır seo yani arama motoru optimizasyonu için oldukça önemli olup neredeyse her sitede bulunur, örneğin coogger'ın içerikler için kullandığı [/sitemap/content.xml/](https://www.coogger.com/sitemap/content.xml/) adresine tıklayarak inceleyebilirsiniz.
+Site haritaları google gibi arama motorlarının sizin sitenizi'deki içeriklerin botları
+ile daha hızlı ve pratik bir şekilde tarama yapıp indexlemesini sağlayan .xml uzantılı
+bir dosyadır seo yani arama motoru optimizasyonu için oldukça önemli olup neredeyse her
+sitede bulunur, örneğin coogger'ın içerikler için kullandığı
+[/sitemap/content.xml/](https://www.coogger.com/sitemap/content.xml/) adresine
+tıklayarak inceleyebilirsiniz.
 
 ## Hadi Projemiz için Site Haritası Yapalım
 
-Önce projenizin **settings.py** bölümünü açın ve [INSTALLED\_APP](https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-INSTALLED_APPS) kısmına django'da bulunan sitemap uygulamasının yolunu yazalım; `django.contrib.sitemaps`
+Önce projenizin **settings.py** bölümünü açın ve
+[INSTALLED_APP](https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-INSTALLED_APPS)
+kısmına django'da bulunan sitemap uygulamasının yolunu yazalım;
+`django.contrib.sitemaps`
 
-[sites framework](https://docs.djangoproject.com/en/1.11/ref/contrib/sites/#module-django.contrib.sites)'ün yüklü olduğundan emin olun.
+[sites framework](https://docs.djangoproject.com/en/1.11/ref/contrib/sites/#module-django.contrib.sites)'ün
+yüklü olduğundan emin olun.
 
-Daha sonra projenizin **myapp/templates** dizini içerisine **sitemap.xml** olarak bir dosya açalım ve içine şu satırları yazalım;
+Daha sonra projenizin **myapp/templates** dizini içerisine **sitemap.xml** olarak bir
+dosya açalım ve içine şu satırları yazalım;
 
 ```markup
 <?xml version="1.0" encoding="UTF-8"?>
@@ -115,7 +125,8 @@ urlpatterns = [
 ]
 ```
 
-şimdi projenizden /sitemap.xml şeklinde ki adrese giderek site haritanızı görüntüleyebilirsiniz.
+şimdi projenizden /sitemap.xml şeklinde ki adrese giderek site haritanızı
+görüntüleyebilirsiniz.
 
 ## Not
 
@@ -123,5 +134,4 @@ Seo için **robots.txt** dosyanıza site haritalarının adreslerini koymayı un
 
 #### Kaynak
 
-* [https://docs.djangoproject.com/en/2.2/ref/contrib/sitemaps/](https://docs.djangoproject.com/en/2.2/ref/contrib/sitemaps/)
-
+- [https://docs.djangoproject.com/en/2.2/ref/contrib/sitemaps/](https://docs.djangoproject.com/en/2.2/ref/contrib/sitemaps/)

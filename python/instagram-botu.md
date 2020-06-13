@@ -2,19 +2,30 @@
 
 ### Neler Öğreneceğiz ;
 
-* Sınıf yapısını instagram botu yaparak pekiştireceğiz.
-* Sınıf yapısında bulunan @staticmethod decorator'ünü öğreneceğiz.
-* requests kütüphanesini kullanarak güzel bir bot yapacağız.
+- Sınıf yapısını instagram botu yaparak pekiştireceğiz.
+- Sınıf yapısında bulunan @staticmethod decorator'ünü öğreneceğiz.
+- requests kütüphanesini kullanarak güzel bir bot yapacağız.
 
 ### Botumuzun şuan ki yapabildikleri
 
-* Kullanıcı adınız ve şifreniz ile oturum açmak, çift doğrulama olayını henüz eklemedim.
-* Bir kullacı adını girerek onun bilgilerine ulaşmak - gizli hesap ise daha çok bilgi için oturum açmanız ve kişinin sizde ekli olması gerek.
-* Yeni bir hesap açmak
-* Kullanıcı isimlerine göre takip etmek veya takibi bırakma
-* çıkış yapmak
+- Kullanıcı adınız ve şifreniz ile oturum açmak, çift doğrulama olayını henüz eklemedim.
+- Bir kullacı adını girerek onun bilgilerine ulaşmak - gizli hesap ise daha çok bilgi
+  için oturum açmanız ve kişinin sizde ekli olması gerek.
+- Yeni bir hesap açmak
+- Kullanıcı isimlerine göre takip etmek veya takibi bırakma
+- çıkış yapmak
 
-> Birde botumuz rastgele bir useragent bilgisi alabilmekte ve proxy değiştirerek farklı konumlardan işlemler gerçekleşiyor gibi gösterilmekte Bundan dolayı bir keyword hazırlayıp bu bot ile bir bruteforce yazsanız işlem yaptığınız kişiye hesabınıza giriş yapılmaya çalışıldı gibi bir bildirim gittiğinde gerçek konumuz değilde sahte konumunuz gider,ama instagram siz proxy kullansanız bile max 19 istek gibi bir sayıda engelliyor ve siz şifreyi doğru yazsanız bile giriş vermiyor kişi bir süreliğine sadece telefonundan girebiliyor. Peki bunu nasıl yapıyor bir web birde mobil olarak ayırmış ona göre çerez vermiş olabilir web den 19 istek her ne şekilde gelirse gelsin bunu zaman damgası ile gelen istek sayısını kayıt eder ve 2 saat süresince 19 istek atmış ise engellensin ve şifre doğru olsa bile web'den girilmesin şeklinde bir algoritma kullanmış ise işe yarayacaktır diye düşünüyorum.
+> Birde botumuz rastgele bir useragent bilgisi alabilmekte ve proxy değiştirerek farklı
+> konumlardan işlemler gerçekleşiyor gibi gösterilmekte Bundan dolayı bir keyword
+> hazırlayıp bu bot ile bir bruteforce yazsanız işlem yaptığınız kişiye hesabınıza giriş
+> yapılmaya çalışıldı gibi bir bildirim gittiğinde gerçek konumuz değilde sahte
+> konumunuz gider,ama instagram siz proxy kullansanız bile max 19 istek gibi bir sayıda
+> engelliyor ve siz şifreyi doğru yazsanız bile giriş vermiyor kişi bir süreliğine
+> sadece telefonundan girebiliyor. Peki bunu nasıl yapıyor bir web birde mobil olarak
+> ayırmış ona göre çerez vermiş olabilir web den 19 istek her ne şekilde gelirse gelsin
+> bunu zaman damgası ile gelen istek sayısını kayıt eder ve 2 saat süresince 19 istek
+> atmış ise engellensin ve şifre doğru olsa bile web'den girilmesin şeklinde bir
+> algoritma kullanmış ise işe yarayacaktır diye düşünüyorum.
 
 ## Yapalım Şu Lanet Botu.
 
@@ -58,11 +69,24 @@ class Instagram():
         self.s_get = self.s.get("https://www.instagram.com/") # ve instagram.com'a bağlanıyoruz
 ```
 
-İlk önce Instagram adında bir sınıfımızı tanımladık ve 3 tane parametre verdik bunları **init** fonksiyonuna yazık bildiğiniz gibi sınıflarda init fonksiyonu sınıf örneklenince çalışan ve return işlemi uygulanmayan bir fonksiyondur. Self. ön eki ile de yazdığımız değişkenleri sınıfımızı örneklerdikten sonra @classmethod veya @staticmethod olarak tanımlamadığımız bütün fonksiyonlarda yine self. ön eki ile erişebiliriz. Şimdi burada instagram işlemleri için bir kaç adres var peki ben bu adresleri nerden buldum yapmak istediğim işlem her ne ise instagram.com'a gidip resimde görmüş olduğunuz gibi network de görünen giden gelen isteklere bakmak ve daha sonra requests kütüphanesini kullanarak bu istekleri taklit etmek genel botu bu şekilde yapıyoruz mesela takip olayını yapacaksak bir kullanıcı profiline gidip follow tuşuna basıyoruz ve giden isteğin adresini bulup post mu get mi yapmış ona bakıyoruz daha sonra da bunu taklit ediyoruz.
+İlk önce Instagram adında bir sınıfımızı tanımladık ve 3 tane parametre verdik bunları
+**init** fonksiyonuna yazık bildiğiniz gibi sınıflarda init fonksiyonu sınıf
+örneklenince çalışan ve return işlemi uygulanmayan bir fonksiyondur. Self. ön eki ile de
+yazdığımız değişkenleri sınıfımızı örneklerdikten sonra @classmethod veya @staticmethod
+olarak tanımlamadığımız bütün fonksiyonlarda yine self. ön eki ile erişebiliriz. Şimdi
+burada instagram işlemleri için bir kaç adres var peki ben bu adresleri nerden buldum
+yapmak istediğim işlem her ne ise instagram.com'a gidip resimde görmüş olduğunuz gibi
+network de görünen giden gelen isteklere bakmak ve daha sonra requests kütüphanesini
+kullanarak bu istekleri taklit etmek genel botu bu şekilde yapıyoruz mesela takip
+olayını yapacaksak bir kullanıcı profiline gidip follow tuşuna basıyoruz ve giden
+isteğin adresini bulup post mu get mi yapmış ona bakıyoruz daha sonra da bunu taklit
+ediyoruz.
 
 ![](https://www.coogger.com/media/images/instagram-console.jpg)
 
-şimdi yukarda kullanıcı adı ve şifreyi aldık işlem gerçekleşecek adresleride bulduk. Şimdi sınıfımınızn diğer fonksiyonlarını yapmaya geçelim bazı yapılmamış fonksiyonlar var init fonksiyonumuzda şimdi onları ve diğerlerini yapalım.
+şimdi yukarda kullanıcı adı ve şifreyi aldık işlem gerçekleşecek adresleride bulduk.
+Şimdi sınıfımınızn diğer fonksiyonlarını yapmaya geçelim bazı yapılmamış fonksiyonlar
+var init fonksiyonumuzda şimdi onları ve diğerlerini yapalım.
 
 #### Init Fonksiyonunda Kullandığımız Fonksiyonlar
 
@@ -95,13 +119,28 @@ class Instagram():
         return {json_proxy["type"]: "{}://{}".format(json_proxy["type"], json_proxy["proxy"])}
 ```
 
-@staticmethod decorator'ü olarak tanımladığımız sınıf içi fonksiyonlar yine sınıfın bir elemanı olup sınıfla pek bağlantısı olmayan fonksiyonlardır @staticmethod decoratorleri self parametresini almaz çünkü az önce dediğimiz gibi sınıfın öğeleri ile pek işi yoktur ve bu fonksiyonlar sınıf örneklemeden çağırıp kullanabilirsiniz yanı şu şekilde _**Instagram.random\_ua\(\)**_ bunu yaparsanız size random bir useragent verecektır.
+@staticmethod decorator'ü olarak tanımladığımız sınıf içi fonksiyonlar yine sınıfın bir
+elemanı olup sınıfla pek bağlantısı olmayan fonksiyonlardır @staticmethod decoratorleri
+self parametresini almaz çünkü az önce dediğimiz gibi sınıfın öğeleri ile pek işi yoktur
+ve bu fonksiyonlar sınıf örneklemeden çağırıp kullanabilirsiniz yanı şu şekilde
+_**Instagram.random_ua\(\)**_ bunu yaparsanız size random bir useragent verecektır.
 
-Yukarıdaki _**random\_ua\(\)**_ fonksiyonu nasıl çalışıyor derseniz **fake.py** dosyamızdaki sözlük tipindeki useragent bilgilerini rastgelen **\["chrome", "opera", "firefox", "internetexplorer", "safari"\]** bunlardan birini seçerek\( random modulü ile yapıyor bunu\) yine fake içinde rast gelen bir agent bilgisini sözlük kurallarına göre alıyor.
+Yukarıdaki _**random_ua\(\)**_ fonksiyonu nasıl çalışıyor derseniz **fake.py**
+dosyamızdaki sözlük tipindeki useragent bilgilerini rastgelen **\["chrome", "opera",
+"firefox", "internetexplorer", "safari"\]** bunlardan birini seçerek\( random modulü ile
+yapıyor bunu\) yine fake içinde rast gelen bir agent bilgisini sözlük kurallarına göre
+alıyor.
 
-**random\_proxy\(\)** fonksiyonu ise yine static bir fonksiyon olup [https://freevpn.ninja/free-proxy/json](https://freevpn.ninja/free-proxy/json) bu adresten json formatında adresleri alıyor ve aldığı tüm adreslerden rastgele bir proxy seçip [https://123.123.12.12](https://123.123.12.12) şeklinde çıktı olarak veriyor, eğer ip bulamamıssa boş döndürüyor
+**random_proxy\(\)** fonksiyonu ise yine static bir fonksiyon olup
+[https://freevpn.ninja/free-proxy/json](https://freevpn.ninja/free-proxy/json) bu
+adresten json formatında adresleri alıyor ve aldığı tüm adreslerden rastgele bir proxy
+seçip [https://123.123.12.12](https://123.123.12.12) şeklinde çıktı olarak veriyor, eğer
+ip bulamamıssa boş döndürüyor
 
-Arkadaşlar gönül isterdiki her adımı anlatayım ama birşeyler bilerek bu yazıyı oluduğunuzu varsayıyorum çünkü bir ton başlangıç kaynakları videoları ve kursları var yani ben burda random nasıl çalışıyor anlatamam \( ama yinede anlatıyorum fakat sözlük liste işlemlerini adım adım anlatamam \) bilmeyenler lütfen öğrenip gelsin.
+Arkadaşlar gönül isterdiki her adımı anlatayım ama birşeyler bilerek bu yazıyı
+oluduğunuzu varsayıyorum çünkü bir ton başlangıç kaynakları videoları ve kursları var
+yani ben burda random nasıl çalışıyor anlatamam \( ama yinede anlatıyorum fakat sözlük
+liste işlemlerini adım adım anlatamam \) bilmeyenler lütfen öğrenip gelsin.
 
 Şimdi bir json çıktılarımız için bir fonksiyon yazalım ki sürekli kodlar tekrar etmesin.
 
@@ -122,11 +161,18 @@ Arkadaşlar gönül isterdiki her adımı anlatayım ama birşeyler bilerek bu y
         return r
 ```
 
-gelen veriyi req içine attık normalde instagram dan gelen veriyo bu şekilde yapmadan çıktı vermeye çalışsak ,  gibi status kodları gelir. gelen req verisini req.text yaparak metin halinde aldık ve json formatına dönüştürdük **json.loads\(\)** diyerek.
+gelen veriyi req içine attık normalde instagram dan gelen veriyo bu şekilde yapmadan
+çıktı vermeye çalışsak , gibi status kodları gelir. gelen req verisini req.text yaparak
+metin halinde aldık ve json formatına dönüştürdük **json.loads\(\)** diyerek.
 
 Hatalarımız olmuşsa ekrana bastık
 
-ve gelen veride **r\["authenticated"\]** şu bilgiye baktık bu kişinin oturum açıp açmadığı bilgisidir True ise oturum açmış demektir, eğer açmış ise **isloggedin** değikenimze durumu bildirdik ve daha sonra herhangi bir çerez session değişmesine karşın tekrar **self.s.get\(self.instagram\_url\)** diyerek o bilgileri aldık bunu şundan dolayı yapıyoruz kişi oturum açmiş ve bu fonksiyon çalışmış ise oturum açınca instagramın verdiği çerez bilgisini alıyoruz güncellemiş oluyoruz.
+ve gelen veride **r\["authenticated"\]** şu bilgiye baktık bu kişinin oturum açıp
+açmadığı bilgisidir True ise oturum açmış demektir, eğer açmış ise **isloggedin**
+değikenimze durumu bildirdik ve daha sonra herhangi bir çerez session değişmesine karşın
+tekrar **self.s.get\(self.instagram_url\)** diyerek o bilgileri aldık bunu şundan dolayı
+yapıyoruz kişi oturum açmiş ve bu fonksiyon çalışmış ise oturum açınca instagramın
+verdiği çerez bilgisini alıyoruz güncellemiş oluyoruz.
 
 ### Login\(\)
 
@@ -152,9 +198,17 @@ ve gelen veride **r\["authenticated"\]** şu bilgiye baktık bu kişinin oturum 
         return self.json_loads(r)
 ```
 
-Yine basitce deniyelim, gönderilen form verileri kullancı adı ve şifre başka yok daha sonra taklit etmemiz gereken headers bilgisi var buda web geliştirici konsolunu açtığınızda görünüyor gereken bilgileri doldurduk ve bu bilgileri **self.s.headers.update** \(self.s\) hep bağlı kaldığımız çerez ve session bilgisini ip adresimi zi \( proxy \) tutar ve istekleri ona göre yapar. bu yüzden hep bu şekilde yapıyoruz.Django da da bulunan csrftoken bilgisini isteğimizden önce siteden **self.s.headers.update\({'X-CSRFToken': self.s\_get.cookies.get\_dict\(\)\['csrftoken'\]}\)**
+Yine basitce deniyelim, gönderilen form verileri kullancı adı ve şifre başka yok daha
+sonra taklit etmemiz gereken headers bilgisi var buda web geliştirici konsolunu
+açtığınızda görünüyor gereken bilgileri doldurduk ve bu bilgileri
+**self.s.headers.update** \(self.s\) hep bağlı kaldığımız çerez ve session bilgisini ip
+adresimi zi \( proxy \) tutar ve istekleri ona göre yapar. bu yüzden hep bu şekilde
+yapıyoruz.Django da da bulunan csrftoken bilgisini isteğimizden önce siteden
+**self.s.headers.update\({'X-CSRFToken':
+self.s_get.cookies.get_dict\(\)\['csrftoken'\]}\)**
 
-bu kodlar ile alıyoruz ve headeri tekrar güncelliyoruz sonda **self.s.post** ile bu bilgiler işiğinde post isteğimizi yapıyor ve artık login olmuş oluyoruz.
+bu kodlar ile alıyoruz ve headeri tekrar güncelliyoruz sonda **self.s.post** ile bu
+bilgiler işiğinde post isteğimizi yapıyor ve artık login olmuş oluyoruz.
 
 ### Logout\(\)
 
@@ -165,7 +219,10 @@ bu kodlar ile alıyoruz ve headeri tekrar güncelliyoruz sonda **self.s.post** i
     return r
 ```
 
-Çıkış yaparken pek birşey yok yine **self.s** i kullanarak çıkış yapmamızı sağlayan **self.instagram\_logout\_url** adresine get isteğinde bulunuyoruz ve tamam çıkış yaptığımız içinde isloggedin false yapıyoruz neden hemen çıkış yapabildik derseniz zaten bize ait olan bütün bilgiler **self.s** in içinde olduğu için ek bir şeye gerek kalmadı.
+Çıkış yaparken pek birşey yok yine **self.s** i kullanarak çıkış yapmamızı sağlayan
+**self.instagram_logout_url** adresine get isteğinde bulunuyoruz ve tamam çıkış
+yaptığımız içinde isloggedin false yapıyoruz neden hemen çıkış yapabildik derseniz zaten
+bize ait olan bütün bilgiler **self.s** in içinde olduğu için ek bir şeye gerek kalmadı.
 
 ### Userinfo\(\)
 
@@ -181,7 +238,12 @@ bu kodlar ile alıyoruz ve headeri tekrar güncelliyoruz sonda **self.s.post** i
         return info
 ```
 
-şimdi burda **isloggedin** değişkeni ile oturum açılıp açılmadığı bilgisini tutuyorduk burda **if self.isloggedin** diyerek oturum açmış ise request isteğini bizim çerez ve session vb bilgilerin bulunduğu **self.s** ile yapacağız bu sayede eğer oturum açmış ve işlem yapacağım kullanıcı bizde ekli ise daha detaylı bilgilere erişebileceğiz,eğer oturum açılmamıs ise zaten normal **requests.get** yapıp herkese açık olan kullanıcı bilgilerine erişebiliyoruz.
+şimdi burda **isloggedin** değişkeni ile oturum açılıp açılmadığı bilgisini tutuyorduk
+burda **if self.isloggedin** diyerek oturum açmış ise request isteğini bizim çerez ve
+session vb bilgilerin bulunduğu **self.s** ile yapacağız bu sayede eğer oturum açmış ve
+işlem yapacağım kullanıcı bizde ekli ise daha detaylı bilgilere erişebileceğiz,eğer
+oturum açılmamıs ise zaten normal **requests.get** yapıp herkese açık olan kullanıcı
+bilgilerine erişebiliyoruz.
 
 ### Follow\(\)
 
@@ -206,16 +268,21 @@ kodlarda açıklamalar var
             print("You must login first")
 ```
 
-şimdi bu bir kişiyi kullanıcı adına veya user\_id sine göre takip isteği atmamızı sağlayan bir fonksiyondur. aldığı parametreler:
+şimdi bu bir kişiyi kullanıcı adına veya user_id sine göre takip isteği atmamızı
+sağlayan bir fonksiyondur. aldığı parametreler:
 
-* username
-* userid
+- username
+- userid
 
-  her ikisini aynı anda alamaz alırsa   **else: return "you can not enter two parameters at the same time"** bu çalışır yani almanıza izin vermez diğer açıklamları kodların içine yazdım.userinfo dan daha ne gibi bilgiler alınabilir diye merak ediyorsanız github da verdiğim adreste **userinfo.md** dosyasına bakın.
+  her ikisini aynı anda alamaz alırsa **else: return "you can not enter two parameters
+  at the same time"** bu çalışır yani almanıza izin vermez diğer açıklamları kodların
+  içine yazdım.userinfo dan daha ne gibi bilgiler alınabilir diye merak ediyorsanız
+  github da verdiğim adreste **userinfo.md** dosyasına bakın.
 
 ### Unfollow\(\)
 
-Arkadaşlar unfollow da follow un aynısı sadece adresi değişiyor init de tanmlamış oldugumuz unfollow oluyor onun yerine
+Arkadaşlar unfollow da follow un aynısı sadece adresi değişiyor init de tanmlamış
+oldugumuz unfollow oluyor onun yerine
 
 ### Singup\(\)
 
@@ -249,15 +316,19 @@ Login fonksiyonuna çok benzer kendileri
         return self.json_loads(r)
 ```
 
-**form\_data** mızda sizinde bilmiş olduğunuz gibi instagra.com'a üye olurken sorduğu 4 soru var email,şifre,kullanıcı adı ve tam adınız
+**form_data** mızda sizinde bilmiş olduğunuz gibi instagra.com'a üye olurken sorduğu 4
+soru var email,şifre,kullanıcı adı ve tam adınız
 
-bu form isimlerinide frefoxda params sekmesinde bulunuyor ilgili adrese baktıgınızda, rastgele formu doldurup giden isteklerden [https://www.instagram.com/accounts/web\_create\_ajax/](https://www.instagram.com/accounts/web_create_ajax/) bu adrese baktıgınızda params sekmesinde form isimleri görünür.
+bu form isimlerinide frefoxda params sekmesinde bulunuyor ilgili adrese baktıgınızda,
+rastgele formu doldurup giden isteklerden
+[https://www.instagram.com/accounts/web_create_ajax/](https://www.instagram.com/accounts/web_create_ajax/)
+bu adrese baktıgınızda params sekmesinde form isimleri görünür.
 
-* "email"
-* "password"
-* "username"
-* "firs\_name"
-* "seamless\_login\_enabled": "1"
+- "email"
+- "password"
+- "username"
+- "firs_name"
+- "seamless_login_enabled": "1"
 
 **Resimde görünüyor :**
 
@@ -265,7 +336,8 @@ bu form isimlerinide frefoxda params sekmesinde bulunuyor ilgili adrese baktıg�
 
 Bunlar yani geri kalan işlemde yine aynı işlemler login de olduğu gibi.
 
-Gerçekten bu botu anlatırken çok yoruldum umarım faydalı ve yardımcı olur siz değerli okuyanlara github adresini bıraktım zaten herkese iyi çalışmalar görüşmek üzere
+Gerçekten bu botu anlatırken çok yoruldum umarım faydalı ve yardımcı olur siz değerli
+okuyanlara github adresini bıraktım zaten herkese iyi çalışmalar görüşmek üzere
 
 ## Botun kullanımı :
 
@@ -339,4 +411,3 @@ I.signup(first_name="first_name",email="email") # to signup for instagram
 ```
 
 Bu kadar görüşmek üzere, okuduğunuz için teşekkürler.
-

@@ -9,7 +9,10 @@ while <expr>:
     <statement(s)>
 ```
 
-olup while döngüsü bir şart ile çalışan döngüdür, tıpkı if, elif veya else gibi while döngüsünün de önemsediği tek şey verilen şartın doğru olup olmadığıdır, eğer doğru ise çalışmaya devam eder, yanlış ise çalışmaz bu gibi yapılara karşı yanlış yapamazsınız, yaptınız an sizinle işinin bittiği andır.
+olup while döngüsü bir şart ile çalışan döngüdür, tıpkı if, elif veya else gibi while
+döngüsünün de önemsediği tek şey verilen şartın doğru olup olmadığıdır, eğer doğru ise
+çalışmaya devam eder, yanlış ise çalışmaz bu gibi yapılara karşı yanlış yapamazsınız,
+yaptınız an sizinle işinin bittiği andır.
 
 Örneğin aşağıda bir while döngüsüne karşı yanlış yapalım bakalım bizi affedebilecek mi?
 
@@ -18,7 +21,8 @@ while False:
     print("İnsansın sonuçta bana karşı yanlış yapabilirsin, önemli değil ben çalışmaya devam edebilirim")
 ```
 
-çalıştırın bakalım içinde düşündüğü gibi sonuç verecekmi ? tabikide hayır bu yapılara yanlış yaparsanız affınız olmaz.
+çalıştırın bakalım içinde düşündüğü gibi sonuç verecekmi ? tabikide hayır bu yapılara
+yanlış yaparsanız affınız olmaz.
 
 şimdide ona karşı doğru şeyler yapalım bakalım ne diyecek.
 
@@ -27,9 +31,15 @@ while True:
     print("Bana iyi davrandığın için teşekkürler ben her zaman senin arkadaşın olacağım")
 ```
 
-yukarıdaki kodu çalıştırdığınızda siz arkadaşlığınızı kesene kadar \( kapatana kadar \) çalışmaya devam edip sizin arkadaşınız olacaktır.
+yukarıdaki kodu çalıştırdığınızda siz arkadaşlığınızı kesene kadar \( kapatana kadar \)
+çalışmaya devam edip sizin arkadaşınız olacaktır.
 
-[islecler-ve-print-fonksiyonu](https://www.coogger.com/@hakancelik96/islecler-ve-print-fonksiyonu/) bu yazımda diğer bool değerleri nasıl elde edildiğini python'un onları nasıl anladığını ve her nesnenin veya değerin bir bool değeri olduğundan bahsetmiştim, yukarıda `True` veya `False` yazdığımız yerlere bu içeriktek öğrendiğiniz şekilde yazarsanız yazdığınız şartın bool değerine bakıp `True` ise çalışmaya devam edip `False` ise çalışmayacaktır yine aynı şekilde, bu anlattığım konuları ayrı ayrı tutmak yerine bağdaştırın.
+[islecler-ve-print-fonksiyonu](https://www.coogger.com/@hakancelik96/islecler-ve-print-fonksiyonu/)
+bu yazımda diğer bool değerleri nasıl elde edildiğini python'un onları nasıl anladığını
+ve her nesnenin veya değerin bir bool değeri olduğundan bahsetmiştim, yukarıda `True`
+veya `False` yazdığımız yerlere bu içeriktek öğrendiğiniz şekilde yazarsanız yazdığınız
+şartın bool değerine bakıp `True` ise çalışmaya devam edip `False` ise çalışmayacaktır
+yine aynı şekilde, bu anlattığım konuları ayrı ayrı tutmak yerine bağdaştırın.
 
 ### While Örneği
 
@@ -41,19 +51,21 @@ while (password != str(input("lütfen şifrenizi yazınız >> "))):
 
 yukarıdaki örneği inceleyelim;
 
-* Bir şifre belirledik
+- Bir şifre belirledik
 
   > password = "123"
 
-* Şart olarak girilen yazının bizim şifremize eşit olmama durumunu yazdık
+- Şart olarak girilen yazının bizim şifremize eşit olmama durumunu yazdık
 
   > \(password != str\(input\("lütfen şifrenizi yazınız &gt;&gt; "\)\)\) şart olarak
 
-* Şart gereği şifre doğru değilse ise çalışmaya devam edecektir.
-* Hiç bir şey yapmadan çalışmaya devam etmesi için pass keyword'unu kullandık.
-* Şart sağlandığı anda yani şifreler eşleştiği anda verilen şart doğru olmadığı zamanlar çalış dediği için doğru olduğunda çalışmayı bıraktı.
+- Şart gereği şifre doğru değilse ise çalışmaya devam edecektir.
+- Hiç bir şey yapmadan çalışmaya devam etmesi için pass keyword'unu kullandık.
+- Şart sağlandığı anda yani şifreler eşleştiği anda verilen şart doğru olmadığı zamanlar
+  çalış dediği için doğru olduğunda çalışmayı bıraktı.
 
-eğer aşağıdaki gibi yazıp bıraksaydım hata alırdım çünkü while döngüsü ne iş yapacak ? o kısmı kodlamamışım hata verir bu yüzden.
+eğer aşağıdaki gibi yazıp bıraksaydım hata alırdım çünkü while döngüsü ne iş yapacak ? o
+kısmı kodlamamışım hata verir bu yüzden.
 
 ```python
 password = "123"
@@ -68,7 +80,9 @@ while (password != str(input("lütfen şifrenizi yazınız >> "))):
     "Bu döngü ile şifre doğrulaması yapıyoruz"
 ```
 
-> Not; döngüler içinde if, elif, else döngüler gibi yapıları kullanabilirsiniz anlatılan herşeyi bağdaştırın ve bunu bir dil olduğunu unutmayın diller esnektir istediğinizi yapmakta özgürsünüz.
+> Not; döngüler içinde if, elif, else döngüler gibi yapıları kullanabilirsiniz anlatılan
+> herşeyi bağdaştırın ve bunu bir dil olduğunu unutmayın diller esnektir istediğinizi
+> yapmakta özgürsünüz.
 
 örnek olarak
 
@@ -95,7 +109,8 @@ for <değişken ismimiz> in <list veya str veya tuple>:
     <statement(s)>
 ```
 
-for döngümüzde `<list, str, tuple veya dict>` bu kısım kısacası **iterator** bir nesne olması gerekiyor.
+for döngümüzde `<list, str, tuple veya dict>` bu kısım kısacası **iterator** bir nesne
+olması gerekiyor.
 
 ### Iteratorlerin Çalışma Mantığı
 
@@ -115,9 +130,11 @@ Traceback (most recent call last):
 StopIteration
 ```
 
-Burda **iter** built-in fonksiyonlarından olup **iterable** bir nesne alır ve **iterator** olarak döndürür \( return \)
+Burda **iter** built-in fonksiyonlarından olup **iterable** bir nesne alır ve
+**iterator** olarak döndürür \( return \)
 
-aslında bu anlatılanlar for döngüsünün çalışma mantığıdır, sizde while döngüsünü kullanarak bir for döngüsü elde edebilirsiniz.
+aslında bu anlatılanlar for döngüsünün çalışma mantığıdır, sizde while döngüsünü
+kullanarak bir for döngüsü elde edebilirsiniz.
 
 ### For Döngüsüne Örnekler
 
@@ -130,7 +147,8 @@ for i in "1234":
 
 Burdaki her bir döngümüzde i değerimiz sırası ile 1, 2, 3 ve 4 olacaktır.
 
-Bu örnekte anlayacağınız gibi for döngüleri verilen **iterator'ün** uzunlukları kadar çalışırlar bir şarta ihtiyaçları yoktur.
+Bu örnekte anlayacağınız gibi for döngüleri verilen **iterator'ün** uzunlukları kadar
+çalışırlar bir şarta ihtiyaçları yoktur.
 
 #### list Iterator
 
@@ -140,7 +158,9 @@ for i in my_list:
     print(i)
 ```
 
-Burda mesela eleman sayım 3 o zaman for döngüsü 3 defa çalışacak ve her çalışmasında `["1", "2", "3"]` iterator'e çevirdiği bu nesnenin altındaki `next()` methodunu kullanarak i değişkenimiz sırası ile 1, 2 ve 3 olacaktır.
+Burda mesela eleman sayım 3 o zaman for döngüsü 3 defa çalışacak ve her çalışmasında
+`["1", "2", "3"]` iterator'e çevirdiği bu nesnenin altındaki `next()` methodunu
+kullanarak i değişkenimiz sırası ile 1, 2 ve 3 olacaktır.
 
 #### Dict Iterator
 
@@ -150,15 +170,19 @@ for key, value in my_dict.items():
     print(key, value)
 ```
 
-Burdaki eleman sayım yine 3, for döngüsü 3 defa çalışacak, bu sefer i yerine `key, value`adında iki tane değişken kullanıyorum çünkü iteratorüm bir sözlük ve her next çalışmasında bana key', ve value'su olacak şekilde bir tuple döndürecektir.
+Burdaki eleman sayım yine 3, for döngüsü 3 defa çalışacak, bu sefer i yerine
+`key, value`adında iki tane değişken kullanıyorum çünkü iteratorüm bir sözlük ve her
+next çalışmasında bana key', ve value'su olacak şekilde bir tuple döndürecektir.
 
-> Not her döngüde kullanılan 'i' index'in baş harfi olan 'i' dir, genel olarak bu şekilde kullanılır, tabi burdaki değişken ismini istediğiniz gibi seçebilirsiniz.
+> Not her döngüde kullanılan 'i' index'in baş harfi olan 'i' dir, genel olarak bu
+> şekilde kullanılır, tabi burdaki değişken ismini istediğiniz gibi seçebilirsiniz.
 
 ## İlgili Fonksiyonlar, Keywordler
 
 ### Range
 
-Range bir **built-in** fonksiyonu olup parametrelere olarak girilen sayıları alıp bir iterator döndürür.
+Range bir **built-in** fonksiyonu olup parametrelere olarak girilen sayıları alıp bir
+iterator döndürür.
 
 ```python
 >>> for i in range(5):
@@ -171,7 +195,8 @@ Range bir **built-in** fonksiyonu olup parametrelere olarak girilen sayıları a
 4
 ```
 
-Yukarıdaki ilgili yere aşağıdaki örnekler ile yer değiştirirseniz alacağınız sonuçları ile birlikte yazılmıştır.
+Yukarıdaki ilgili yere aşağıdaki örnekler ile yer değiştirirseniz alacağınız sonuçları
+ile birlikte yazılmıştır.
 
 ```python
 range(5, 10)
@@ -198,9 +223,11 @@ Veya değişken türümüzün **list** olduğu bir örnek yapalım
 4 lamb
 ```
 
-Burdaki **len** fonksiyonu parametre olarak verilen değişkenin uzunluğunu, eleman sayısını döndürür.
+Burdaki **len** fonksiyonu parametre olarak verilen değişkenin uzunluğunu, eleman
+sayısını döndürür.
 
-burda her bir döngüde i değişkeni 0, 1 ... olurken **a\[i\]** şeklinde yazarak listemizin elemanlarını alıyoruz
+burda her bir döngüde i değişkeni 0, 1 ... olurken **a\[i\]** şeklinde yazarak
+listemizin elemanlarını alıyoruz
 
 > Not: Bir iterator'ü list tipimizin içine atarsak onu listeye çevirir.
 
@@ -224,7 +251,9 @@ while True:
         break
 ```
 
-Yukarıdaki örneğimizde count değişkeninin değeri 10'a ulaştığında if koşullu durumu çalışacaktır buna bağlı olarak `break` keywordüde çalışacağından bir üstündeki while döngüsü kapanacak, çıkılacaktır.
+Yukarıdaki örneğimizde count değişkeninin değeri 10'a ulaştığında if koşullu durumu
+çalışacaktır buna bağlı olarak `break` keywordüde çalışacağından bir üstündeki while
+döngüsü kapanacak, çıkılacaktır.
 
 #### For Döngüsünde Break
 
@@ -250,11 +279,13 @@ while True:
             break
 ```
 
-Bu döngüdeki `break` for döngüsünü şart sağladığında durdursa bile en üstteki `while` döngüsünü durduramayacağından her zaman çalışacaktır.
+Bu döngüdeki `break` for döngüsünü şart sağladığında durdursa bile en üstteki `while`
+döngüsünü durduramayacağından her zaman çalışacaktır.
 
 ### Continue
 
-Continue kelime anlamı gibi devam et özelliğini taşır python'da bunu da örnek ile anlatalım.
+Continue kelime anlamı gibi devam et özelliğini taşır python'da bunu da örnek ile
+anlatalım.
 
 ```python
 for i in range(20):
@@ -263,11 +294,14 @@ for i in range(20):
     print("i 10 ilen bu yazı ekrana gelmez", i)
 ```
 
-Yukarıdaki örnekte eğer i değeri 10 olursa devam et dedik yani bir satır aşağıya bakma iteratorumüzdeki bir sonraki next değerini çalıştır, demiş olduk.
+Yukarıdaki örnekte eğer i değeri 10 olursa devam et dedik yani bir satır aşağıya bakma
+iteratorumüzdeki bir sonraki next değerini çalıştır, demiş olduk.
 
 ### Else
 
-For döngümüzün içinde bir if koşul durumu kullandığımızı düşünün fakat biz şöyle bir iş yapmak istiyoruz eğer döngü boyunca bu şart sağlanmaz ise döngü sonunda şunu çalıştır, işte burada yine else yetişiyor yardıma.
+For döngümüzün içinde bir if koşul durumu kullandığımızı düşünün fakat biz şöyle bir iş
+yapmak istiyoruz eğer döngü boyunca bu şart sağlanmaz ise döngü sonunda şunu çalıştır,
+işte burada yine else yetişiyor yardıma.
 
 ```python
 for i in range(20):
@@ -279,7 +313,8 @@ else:
 
 ### Pass
 
-Pass keyword'üne daha önce bakmıştık zaten hiç bir şey yapma ama bu satırda boş kalmasın çünkü hata verir dediğiniz anda yardımınıza koşar.
+Pass keyword'üne daha önce bakmıştık zaten hiç bir şey yapma ama bu satırda boş kalmasın
+çünkü hata verir dediğiniz anda yardımınıza koşar.
 
 #### Örnekler
 
@@ -306,4 +341,3 @@ Fonksiyon tanımlarken
 ...     pass   # Remember to implement this!
 ...
 ```
-

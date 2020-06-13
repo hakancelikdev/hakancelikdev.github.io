@@ -1,20 +1,24 @@
 # Sass Kurulumu ?
 
-Kurulum için daha detaylı bilgi : [http://sass-lang.com/install](http://sass-lang.com/install)
+Kurulum için daha detaylı bilgi :
+[http://sass-lang.com/install](http://sass-lang.com/install)
 
 ## Linux için
 
-Linux dağıtımı kullanıyorsanız, önce ruby'yi yüklemeniz gerekir. Ruby'yi apt Paket Yöneticisi ile yükleyebiliriz şu adresten kullandığınız linux dağıtımında uygun olarak yükleyebilirsiniz [https://www.ruby-lang.org/en/documentation/installation/\#package-management-systems](https://www.ruby-lang.org/en/documentation/installation/#package-management-systems)
+Linux dağıtımı kullanıyorsanız, önce ruby'yi yüklemeniz gerekir. Ruby'yi apt Paket
+Yöneticisi ile yükleyebiliriz şu adresten kullandığınız linux dağıtımında uygun olarak
+yükleyebilirsiniz
+[https://www.ruby-lang.org/en/documentation/installation/\#package-management-systems](https://www.ruby-lang.org/en/documentation/installation/#package-management-systems)
 
 mesela ubuntu için
 
-```text
+```bash
 sudo apt-get install ruby-full
 ```
 
 şimdide sass' ı kuralım
 
-```text
+```bash
 sudo gem install sass --no-user-install
 ```
 
@@ -31,7 +35,8 @@ Done installing documentation for sass after 3 seconds
 
 ## windows için
 
-Yine önce ruby'i kurmamız gerek bunun için exe dosyasını indirip next next next diyerek kurabiliriz. adres: [https://rubyinstaller.org/](https://rubyinstaller.org/)
+Yine önce ruby'i kurmamız gerek bunun için exe dosyasını indirip next next next diyerek
+kurabiliriz. adres: [https://rubyinstaller.org/](https://rubyinstaller.org/)
 
 ## Mac için
 
@@ -39,23 +44,22 @@ mac'de ruby zaten yüklü geliyor bu yüzden ek bir şey kurmanıza gerek yok
 
 windows ve mac de ruby den sonra sass'ı kurmak için konsolu açın ve şu kodu yazın.
 
-```text
+```bash
 gem install sass
 ```
 
 izin vermez ise yönetici olarak sudo ön eki ile yazın
 
-```text
+```bash
 sudo gem install sass
 ```
 
 yüklenmiş mi diye bir kontrol amacı ile yazın
 
-```text
+```bash
 sass -v
 ```
 
 cevap olarak yüklenen güncel versiyon bilgisi gelecektir örneğin : Sass 3.5.4.
 
 Diğer ders görüşmek üzere ..
-

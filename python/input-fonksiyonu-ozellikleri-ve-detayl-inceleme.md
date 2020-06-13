@@ -2,16 +2,20 @@
 
 ## Input fonksiyonu?
 
-Daha önceki içeriklerimde python'da fonksiyonlar konusuna bir giriş yapmış hatta **type\(\)**, **print\(\)** gibi işe yarar fonksiyonlarıda anlatmıştım şimdi ise kullanıcılardan bilgi \( girdi \) almamızı sağlayan **input\(\)** fonksiyonunu göreceğiz.
+Daha önceki içeriklerimde python'da fonksiyonlar konusuna bir giriş yapmış hatta
+**type\(\)**, **print\(\)** gibi işe yarar fonksiyonlarıda anlatmıştım şimdi ise
+kullanıcılardan bilgi \( girdi \) almamızı sağlayan **input\(\)** fonksiyonunu
+göreceğiz.
 
-**Type** fonksiyonunu kullanarak input nesnesinin \( python'da herşey bir nesneydi unutmayın \) hangi sınıfa girdiğine bakacak olursak
+**Type** fonksiyonunu kullanarak input nesnesinin \( python'da herşey bir nesneydi
+unutmayın \) hangi sınıfa girdiğine bakacak olursak
 
 ```python
 >>> type(input)
 <class 'builtin_function_or_method'>
 ```
 
-_**builtin\_function\_or\_method**_ sınıfına girdiğini görürüz.
+_**builtin_function_or_method**_ sınıfına girdiğini görürüz.
 
 Şimdiye kadar gördüğümüz nesnelerinde python'da hangi sınıfa aitlermiş bir bakalım.
 
@@ -24,20 +28,21 @@ _**builtin\_function\_or\_method**_ sınıfına girdiğini görürüz.
 <class 'builtin_function_or_method'>
 ```
 
-> builtin\_function\_or\_method = Gömülü fonksiyon veya method.
+> builtin_function_or_method = Gömülü fonksiyon veya method.
 
 Bunları hatırlatma olarak kalsın biz devam edelim.
 
 ### input\(\)
 
-* **input\(\)** gömülü fonksiyon veya method'dur.
-* **input\(\)** bir nesnedir.
-* **input\(\)** kullanıcıdan veri almamızı sağlar.
-* **input\(\)** kullanarak aldığımız her veri string formatı ile gelir
+- **input\(\)** gömülü fonksiyon veya method'dur.
+- **input\(\)** bir nesnedir.
+- **input\(\)** kullanıcıdan veri almamızı sağlar.
+- **input\(\)** kullanarak aldığımız her veri string formatı ile gelir
 
 ### input nesnemizin diğer özellikleri?
 
-**Dir** fonksiyonunu kullanarak bir nesnenin diğer özelliklerini \( nesne'ye ait fonksiyonları, methodları, değişkenleri vs \) görüntüleyebiliriz.
+**Dir** fonksiyonunu kullanarak bir nesnenin diğer özelliklerini \( nesne'ye ait
+fonksiyonları, methodları, değişkenleri vs \) görüntüleyebiliriz.
 
 ```python
 >>> dir(input)
@@ -59,7 +64,9 @@ Nesnemiz **method-wrapper** olarak sınıflandırılmış.
 'Call self as a function.'
 ```
 
-Kendisini bir fonksiyon olarak çağır \( _**Call self as a function.**_ \) diye bir not duşulmuş fonksiyonlara yazılmış notları **`__doc__`** method'unu kullanarak görebiliyoruz.
+Kendisini bir fonksiyon olarak çağır \( _**Call self as a function.**_ \) diye bir not
+duşulmuş fonksiyonlara yazılmış notları **`__doc__`** method'unu kullanarak
+görebiliyoruz.
 
 ```python
 >>> input.__call__()
@@ -67,16 +74,21 @@ denemek için bu metni yazıyorum
 'denemek için bu metni yazıyorum'
 ```
 
-**call** fonksiyonunu çağırdım ve bu tıpkı **input\(\)** fonksiyonunu çağırmak gibiydi, durun bir dakika belkide biz **input\(\)** şeklinde yazıp çağırdığımızda nesnemizden çağrılan yani çalışan method **call** methodudur.
+**call** fonksiyonunu çağırdım ve bu tıpkı **input\(\)** fonksiyonunu çağırmak gibiydi,
+durun bir dakika belkide biz **input\(\)** şeklinde yazıp çağırdığımızda nesnemizden
+çağrılan yani çalışan method **call** methodudur.
 
 ## Input Fonksiyonunun Kullanımı
 
-**input** asağıdaki gibi görüldüğü üzere tek parametre alır \( fonksiyonlara giriş dersinde bahsetmiştim \) ve bu aldığı parametreyi konsolda kullanıcya gösteriri genelde bu kısımda kullacıya yazması gereken şeyin bilgisi verilir mesela biz şifrenizi yazın diye bir not düştük.
+**input** asağıdaki gibi görüldüğü üzere tek parametre alır \( fonksiyonlara giriş
+dersinde bahsetmiştim \) ve bu aldığı parametreyi konsolda kullanıcya gösteriri genelde
+bu kısımda kullacıya yazması gereken şeyin bilgisi verilir mesela biz şifrenizi yazın
+diye bir not düştük.
 
-> Not; input'un aldığı paramtre'nin veri türü string olması gerekmiyor, int, list veya dict olabilir.
+> Not; input'un aldığı paramtre'nin veri türü string olması gerekmiyor, int, list veya
+> dict olabilir.
 >
 > ```python
 > password = input("Please enter your password >>> ") # input'dan veri aldım ve bunu password adlı değişkenime attım
 > print("Your password is", password) # daha sonra print ile password değişkenime atılan veriyi ekrana verdim.
 > ```
-

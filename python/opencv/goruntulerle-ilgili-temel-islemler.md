@@ -2,12 +2,14 @@
 
 ### Hedefler
 
-* Piksel değerlerine erişme ve bunları değiştirme
-* Resim özelliklerine erişme
-* Resim Bölgesini \( alanını \) Ayarlama \(ROI\)
-* Görüntüleri Bölme ve Birleştirme
+- Piksel değerlerine erişme ve bunları değiştirme
+- Resim özelliklerine erişme
+- Resim Bölgesini \( alanını \) Ayarlama \(ROI\)
+- Görüntüleri Bölme ve Birleştirme
 
-> Bu bölümdeki hemen hemen tüm işlemler esas olarak **OpenCV** yerine **Numpy** ile ilgilidir. **OpenCV** ile daha iyi optimize edilmiş kod yazmak için **Numpy**'nin iyi bir bilgisi gereklidir.
+> Bu bölümdeki hemen hemen tüm işlemler esas olarak **OpenCV** yerine **Numpy** ile
+> ilgilidir. **OpenCV** ile daha iyi optimize edilmiş kod yazmak için **Numpy**'nin iyi
+> bir bilgisi gereklidir.
 
 ## Piksel değerlerine erişme ve değiştirme
 
@@ -20,7 +22,9 @@
 >>> img = cv2.imread('messi5.jpg')
 ```
 
-Bir piksel değerine satır ve sütun koordinatlarıyla erişebilirsiniz.BGR görüntüsü için, Mavi, Yeşil, Kırmızı değerlerin bir dizisini döndürür.Gri tonlamalı görüntü için yalnızca karşılık gelen yoğunluk döndürülür.
+Bir piksel değerine satır ve sütun koordinatlarıyla erişebilirsiniz.BGR görüntüsü için,
+Mavi, Yeşil, Kırmızı değerlerin bir dizisini döndürür.Gri tonlamalı görüntü için
+yalnızca karşılık gelen yoğunluk döndürülür.
 
 ```python
 >>> px = img[100,100]
@@ -43,11 +47,16 @@ Piksel değerlerini aynı şekilde değiştirebilirsiniz.
 
 #### Uyarı
 
-> Numpy, hızlı dizi hesaplamaları için optimize edilmiş bir kütüphanedir. Bu nedenle her piksel değerine erişmek ve onu değiştirmek çok yavaş olacaktır
+> Numpy, hızlı dizi hesaplamaları için optimize edilmiş bir kütüphanedir. Bu nedenle her
+> piksel değerine erişmek ve onu değiştirmek çok yavaş olacaktır
 
 #### Not
 
-> Yukarıda bahsedilen yöntem normalde dizinin bir bölgesini seçmek için kullanılır, örneğin ilk 5 sıra ve son 3 sütun buna benzer. Tek tek piksel erişimi için, Numpy dizi yöntemleri, array.item \(\) ve array.itemset \(\) daha iyi kabul edilir. Fakat her zaman bir skala döndürür. Bu nedenle, tüm B, G, R değerlerine erişmek istiyorsanız, array.item \(\) öğesini her biri için ayrı ayrı çağırmanız gerekir.
+> Yukarıda bahsedilen yöntem normalde dizinin bir bölgesini seçmek için kullanılır,
+> örneğin ilk 5 sıra ve son 3 sütun buna benzer. Tek tek piksel erişimi için, Numpy dizi
+> yöntemleri, array.item \(\) ve array.itemset \(\) daha iyi kabul edilir. Fakat her
+> zaman bir skala döndürür. Bu nedenle, tüm B, G, R değerlerine erişmek istiyorsanız,
+> array.item \(\) öğesini her biri için ayrı ayrı çağırmanız gerekir.
 
 Daha iyi piksel erişme ve düzenleme yöntemi:
 
@@ -63,9 +72,11 @@ Daha iyi piksel erişme ve düzenleme yöntemi:
 
 ## Resim Özelliklerine Erişme
 
-Görüntü özellikleri, satır sayısı, sütun ve kanallar, resim verileri türü, piksel sayısı vb. Içerir.
+Görüntü özellikleri, satır sayısı, sütun ve kanallar, resim verileri türü, piksel sayısı
+vb. Içerir.
 
-Görüntünün şekline **img.shape** tarafından erişilir. Birkaç satır, sütun ve kanal sayısı döndürür \(resim renk ise \)
+Görüntünün şekline **img.shape** tarafından erişilir. Birkaç satır, sütun ve kanal
+sayısı döndürür \(resim renk ise \)
 
 ```python
 >>> print(img.shape)
@@ -74,7 +85,9 @@ Görüntünün şekline **img.shape** tarafından erişilir. Birkaç satır, sü
 
 #### Not
 
-> Resim gri tonlamalıysa, döndürülen tuple yalnızca birkaç satır ve sütun içerir. Bu nedenle, yüklenen görüntünün gri tonlamalı mı yoksa renkli görüntü olup olmadığını kontrol etmek için iyi bir yöntemdir.
+> Resim gri tonlamalıysa, döndürülen tuple yalnızca birkaç satır ve sütun içerir. Bu
+> nedenle, yüklenen görüntünün gri tonlamalı mı yoksa renkli görüntü olup olmadığını
+> kontrol etmek için iyi bir yöntemdir.
 
 Toplam piksel sayısına **img.size** ile erişilebilir.
 
@@ -92,11 +105,14 @@ uint8
 
 #### Not
 
-> Hata ayıklarken img.dtype çok önemlidir, çünkü OpenCV-Python kodların da çok sayıda geçersiz veri türünden kaynaklanan hata vardır.
+> Hata ayıklarken img.dtype çok önemlidir, çünkü OpenCV-Python kodların da çok sayıda
+> geçersiz veri türünden kaynaklanan hata vardır.
 
 ## Image ROI
 
-Bazen, belirli görüntü parçaları ile oynamak zorunda kalacaksınız.Görüntülerde göz algılaması için önce görüntünün yüz algılama işlemini yapın, daha sonra yüz bölgesi içinde gözler aranır. Bu yaklaşım göz bulma doğruluğunu artırır.
+Bazen, belirli görüntü parçaları ile oynamak zorunda kalacaksınız.Görüntülerde göz
+algılaması için önce görüntünün yüz algılama işlemini yapın, daha sonra yüz bölgesi
+içinde gözler aranır. Bu yaklaşım göz bulma doğruluğunu artırır.
 
 Burada topu seçip resmin başka bir bölgesine kopyalayacağım:
 
@@ -109,7 +125,8 @@ Burada topu seçip resmin başka bir bölgesine kopyalayacağım:
 
 ## Görüntü Kanallarının Ayrılması ve Birleştirilmesi
 
-Gerektiğinde bir görüntünün B, G,R kanalları, tek tek düzlemlerine ayrılabilir. Sonra, bireysel kanallar yine BGR görüntüsünü oluşturmak üzere bir araya birleştirilebilir.
+Gerektiğinde bir görüntünün B, G,R kanalları, tek tek düzlemlerine ayrılabilir. Sonra,
+bireysel kanallar yine BGR görüntüsünü oluşturmak üzere bir araya birleştirilebilir.
 
 ```python
 >>> b,g,r = cv2.split(img)
@@ -124,21 +141,31 @@ Gerektiğinde bir görüntünün B, G,R kanalları, tek tek düzlemlerine ayrıl
 
 #### Not
 
-> **cv2.split\(\)** uzun sğren bir işlemdir , bu nedenle yalnızca gerekirse kullanın. **Numpy** çok daha verimlidir.
+> **cv2.split\(\)** uzun sğren bir işlemdir , bu nedenle yalnızca gerekirse kullanın.
+> **Numpy** çok daha verimlidir.
 
 ## Resimler için Sınırlar Oluşturma \(Padding\)
 
-Görüntünün etrafında, fotoğraf çerçevesi gibi bir çerçeve oluşturmak istiyorsanız **cv2.copyMakeBorder\(\)** işlevini kullanabilirsiniz. Ancak konvolüsyon işlemi, sıfır doldurma vb. Için daha fazla uygulama vardır. Bu işlev aşağıdaki argümanları alır:
+Görüntünün etrafında, fotoğraf çerçevesi gibi bir çerçeve oluşturmak istiyorsanız
+**cv2.copyMakeBorder\(\)** işlevini kullanabilirsiniz. Ancak konvolüsyon işlemi, sıfır
+doldurma vb. Için daha fazla uygulama vardır. Bu işlev aşağıdaki argümanları alır:
 
-* _**src**_ - input image \( resim girdisi \)
-* _**top, bottom, left, right**_ - üst, alt, sol, sağ kenarlık genişliği ilgili yöndeki piksel sayısına göre
-* _**borderType**_ - Hangi sınırın ekleneceğini tanımlayan kısım. Şu türlerden biri olabilir:
-* _**cv2.BORDER\_CONSTAN**_T - Sabit renkli bir kenarlık ekler. Değer sonraki argüman olarak verilmelidir.
-* _**cv2.BORDER\_REFLECT**_ -Kenarlık, sınır öğelerinin ayna yansıması olacaktır bunun gibi: fedcba \| abcdefgh \| hgfedcb
-* _**cv2.BORDER\_REFLECT\_101 or cv2.BORDER\_DEFAULT**_ - Yukarıdakiyle aynı, ancak şu şekilde hafif bir değişiklikle: gfedcb \| abcdefgh \| gfedcba
-* _**cv2.BORDER\_REPLICATE**_ - Son öğe, şu şekilde çoğaltılır: aaaaaa \| abcdefgh \| hhhhhhh
-* _**cv2.BORDER\_WRAP**_ -Açıklayamıyorum, şuna benzeyecektir: cdefgh \| abcdefgh \| abcdefg
-* _**value**_ - Kenarlık türünün cv2.BORDER\_CONSTANT olması durumunda kenarlık rengi
+- _**src**_ - input image \( resim girdisi \)
+- _**top, bottom, left, right**_ - üst, alt, sol, sağ kenarlık genişliği ilgili yöndeki
+  piksel sayısına göre
+- _**borderType**_ - Hangi sınırın ekleneceğini tanımlayan kısım. Şu türlerden biri
+  olabilir:
+- \_**cv2.BORDER_CONSTAN**\_T - Sabit renkli bir kenarlık ekler. Değer sonraki argüman
+  olarak verilmelidir.
+- _**cv2.BORDER_REFLECT**_ -Kenarlık, sınır öğelerinin ayna yansıması olacaktır bunun
+  gibi: fedcba \| abcdefgh \| hgfedcb
+- _**cv2.BORDER_REFLECT_101 or cv2.BORDER_DEFAULT**_ - Yukarıdakiyle aynı, ancak şu
+  şekilde hafif bir değişiklikle: gfedcb \| abcdefgh \| gfedcba
+- _**cv2.BORDER_REPLICATE**_ - Son öğe, şu şekilde çoğaltılır: aaaaaa \| abcdefgh \|
+  hhhhhhh
+- _**cv2.BORDER_WRAP**_ -Açıklayamıyorum, şuna benzeyecektir: cdefgh \| abcdefgh \|
+  abcdefg
+- _**value**_ - Kenarlık türünün cv2.BORDER_CONSTANT olması durumunda kenarlık rengi
 
 Daha iyi anlamak için tüm bu kenarlık türlerini gösteren örnek bir kod aşağıdadır:
 
@@ -167,7 +194,7 @@ plt.subplot(236),plt.imshow(constant,'gray'),plt.title('CONSTANT')
 plt.show()
 ```
 
-Aşağıdaki sonuca bakın, \( Resim **matplotlib** ile gösterilir, böylece KIRMIZI ve MAVİ'ler değiş tokuş olur \);
+Aşağıdaki sonuca bakın, \( Resim **matplotlib** ile gösterilir, böylece KIRMIZI ve
+MAVİ'ler değiş tokuş olur \);
 
 ![](https://www.coogger.com/media/images/opencv_5MHKX6N.jpg)
-

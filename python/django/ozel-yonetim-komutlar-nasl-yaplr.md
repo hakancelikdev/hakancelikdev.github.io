@@ -2,13 +2,20 @@
 
 ## Giriş
 
-Django'nun bu bölümünü kullanmayan yoktur, django'yu hiç bilmeyenler ve öğrenmeye yeni başlayanlar bile ilk kullandıkları alan burasıdır proje dizininden konsolu açar ve yeni projesini kodlamaya başlamak için hemen bir proje açar `django-admin startproject mysite` ve daha sonra en sık kullanılan ilk uygulamasını komutunu kullanarak inşa eder `python manage.py startapp polls` uygulamasını biraz düzenler ve komutu ile test yayınına alır`python manage.py runserver`.
+Django'nun bu bölümünü kullanmayan yoktur, django'yu hiç bilmeyenler ve öğrenmeye yeni
+başlayanlar bile ilk kullandıkları alan burasıdır proje dizininden konsolu açar ve yeni
+projesini kodlamaya başlamak için hemen bir proje açar
+`django-admin startproject mysite` ve daha sonra en sık kullanılan ilk uygulamasını
+komutunu kullanarak inşa eder `python manage.py startapp polls` uygulamasını biraz
+düzenler ve komutu ile test yayınına alır`python manage.py runserver`.
 
-Bu içerikte, benim de henüz yeni öğrendiğim, özel yönetim komutlarının nasıl yapılacağıdır. Kendi uygulamamız için nasıl komutlar gerekiyorsa onu insa edip kullanacağız.
+Bu içerikte, benim de henüz yeni öğrendiğim, özel yönetim komutlarının nasıl
+yapılacağıdır. Kendi uygulamamız için nasıl komutlar gerekiyorsa onu insa edip
+kullanacağız.
 
 Aşağıda klasik bir django proje hiyerarşi'si görünmektedir
 
-```text
+```bash
 mysite/
  |-- myapp/
  | |-- management/ <-- management adında dosya açıyoruz
@@ -30,17 +37,24 @@ mysite/
  +-- manage.py
 ```
 
-Yukarıdaki **my\_custom\_command** adlı django uygulamamızda özel komutumuzun çalışacak olan modüldür, dikkat ettiyseniz projede açmış olduğumuz `myapp` isimli uygulama dizini içerisindedir, django her komut'da `settings.py` dosyası içine yazdığımız apps kısmında ki uygulamaların dizinini tarar ve eğer varsa onlarında komutlarını çalıştırır, yani özel komutlarınız açmış olduğunuz django uygulamalarının içinde olmalıdır.
+Yukarıdaki **my_custom_command** adlı django uygulamamızda özel komutumuzun çalışacak
+olan modüldür, dikkat ettiyseniz projede açmış olduğumuz `myapp` isimli uygulama dizini
+içerisindedir, django her komut'da `settings.py` dosyası içine yazdığımız apps kısmında
+ki uygulamaların dizinini tarar ve eğer varsa onlarında komutlarını çalıştırır, yani
+özel komutlarınız açmış olduğunuz django uygulamalarının içinde olmalıdır.
 
-Burada `my_custom_command` adlı özel komutumu şu şekilde çalıştırabiliyoruz, `python manage.py my_custom_command` başka ek bir ayar yapmanız gerekmiyor.
+Burada `my_custom_command` adlı özel komutumu şu şekilde çalıştırabiliyoruz,
+`python manage.py my_custom_command` başka ek bir ayar yapmanız gerekmiyor.
 
 ## Örnek
 
-Bu bölümde olayı anlamanız için ufak bir örnek yapacağız, **get\_user** isimli bir özel komut açacağım ve bu komutu yazdığımızda bize sadece 10 tane kullanıcıyı ekranda gösterecek, hepsini değil.
+Bu bölümde olayı anlamanız için ufak bir örnek yapacağız, **get_user** isimli bir özel
+komut açacağım ve bu komutu yazdığımızda bize sadece 10 tane kullanıcıyı ekranda
+gösterecek, hepsini değil.
 
 kullanımı `python manage.py get_user` şeklinde olacak bildiğiniz gibi
 
-**/management/commands/get\_user.py**
+**/management/commands/get_user.py**
 
 ```python
 # django
@@ -59,17 +73,23 @@ class Command(BaseCommand): # sınıf ismimiz Command olmalı
             self.stdout.write(user)
 ```
 
-Sınıf izmimiz **Command** olmalı ve **BaseCommand** sınıfını miras almalıyız ve **handle** fonksiyonunda komutumuzun çıktısı tamamlanmalı, **self.stdout.write** ile de çıktılarımızı yolluyoruz farklı renklerde mevcut, ilerde değineceğim.
+Sınıf izmimiz **Command** olmalı ve **BaseCommand** sınıfını miras almalıyız ve
+**handle** fonksiyonunda komutumuzun çıktısı tamamlanmalı, **self.stdout.write** ile de
+çıktılarımızı yolluyoruz farklı renklerde mevcut, ilerde değineceğim.
 
 Çalıştırıp sonucu görelim.
 
 ### Komutumuza Argüman Ekleyelim
 
-Django Python'un standart kütüphanesi olan [argparse](https://docs.python.org/3/library/argparse.html) 'yi kullanıyor yani komutlarımıza argüman eklemek için bu kütüphanenin özelliklerini kullanmalıyız ve bunu sınıfımıza `add_arguments` adlı bir fonksiyon ekleyerek yapacağız.
+Django Python'un standart kütüphanesi olan
+[argparse](https://docs.python.org/3/library/argparse.html) 'yi kullanıyor yani
+komutlarımıza argüman eklemek için bu kütüphanenin özelliklerini kullanmalıyız ve bunu
+sınıfımıza `add_arguments` adlı bir fonksiyon ekleyerek yapacağız.
 
-Geçen örnekte kendisi 10 tane kullanıcı veriyordu ama şimdi bizim argüman olarak girdiğimiz sayı kadar çıktı vermesini sağlayacağız.
+Geçen örnekte kendisi 10 tane kullanıcı veriyordu ama şimdi bizim argüman olarak
+girdiğimiz sayı kadar çıktı vermesini sağlayacağız.
 
-**/management/commands/get\_user.py**
+**/management/commands/get_user.py**
 
 ```python
 from django.contrib.auth.models import User
@@ -94,7 +114,7 @@ Kullanımı `python manage.py get_user 2`
 
 Yine aynı örnek üzerinden devam edelim ve isteğe göre argümanları anlayalım.
 
-**/management/commands/get\_user.py**
+**/management/commands/get_user.py**
 
 ```python
 from django.contrib.auth.models import User
@@ -119,10 +139,12 @@ class Command(BaseCommand):
 
 Kullanımı;
 
-* `python manage.py get_user --hmany 3`
-* `python manage.py get_user` veya isterseniz kullanmayabilirsiniz
+- `python manage.py get_user --hmany 3`
+- `python manage.py get_user` veya isterseniz kullanmayabilirsiniz
 
-istegöre argümanları sadece `--` bu işareti yazarak yaptık, ben hem 1 argüman ekledim fakat siz isterseniz birden fazla argüman ekleyebilirsiniz veya **/management/commands/** bu adres altına diğer özel kod modülünüzü yazabilirsiniz.
+istegöre argümanları sadece `--` bu işareti yazarak yaptık, ben hem 1 argüman ekledim
+fakat siz isterseniz birden fazla argüman ekleyebilirsiniz veya
+**/management/commands/** bu adres altına diğer özel kod modülünüzü yazabilirsiniz.
 
 > Not; Daha güzel kullanımlar için argparse kütüphanesini incelemeyi unutmayın.
 
@@ -133,7 +155,7 @@ from django.core.management.base import BaseCommand
 
 class Command(BaseCommand):
      help = 'Show all available styles'
-     
+
      def handle(self, *args, **kwargs):
           self.stdout.write(self.style.ERROR('error - A major error.'))
           self.stdout.write(self.style.NOTICE('notice - A minor error.'))
@@ -156,6 +178,5 @@ class Command(BaseCommand):
 
 ## İncele
 
-* [Django'nun özel yönetim komutları](https://github.com/django/django/tree/master/django/core/management/commands)
-* [Django Döküman - custom-management-commands](https://docs.djangoproject.com/en/3.0/howto/custom-management-commands/)
-
+- [Django'nun özel yönetim komutları](https://github.com/django/django/tree/master/django/core/management/commands)
+- [Django Döküman - custom-management-commands](https://docs.djangoproject.com/en/3.0/howto/custom-management-commands/)

@@ -1,8 +1,8 @@
 ---
 description: >-
-  Python yazılarını bitirdikten sonra kendinize bir alan seçebilir ve o alanda
-  kendinizi geliştirmeye devam edebilirsiniz, sizlere yardımcı olabileceğim
-  alanlar aşağıda listelenmiştir.
+  Python yazılarını bitirdikten sonra kendinize bir alan seçebilir ve o alanda kendinizi
+  geliştirmeye devam edebilirsiniz, sizlere yardımcı olabileceğim alanlar aşağıda
+  listelenmiştir.
 ---
 
 # Alan Seçimi
@@ -18,6 +18,3 @@ description: >-
 ### Cpython'a Katkı Yapmak
 
 {% page-ref page="cpython/" %}
-
-
-

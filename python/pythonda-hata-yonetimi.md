@@ -2,7 +2,9 @@
 
 ## Python'da Hata Yakalama
 
-Şimdiye kadar anlattığım konularda hiç hatalardan, onları nasıl yakalayabileceğimizden, ve gelen hataya göre nasıl işlemlerimizi devam ettirebileceğimizden hiç bahsetmemiştim ama bu konu oldukça önemli bir konudur ve burda bunları öğreneceksiniz.
+Şimdiye kadar anlattığım konularda hiç hatalardan, onları nasıl yakalayabileceğimizden,
+ve gelen hataya göre nasıl işlemlerimizi devam ettirebileceğimizden hiç bahsetmemiştim
+ama bu konu oldukça önemli bir konudur ve burda bunları öğreneceksiniz.
 
 Size ufak bir örnek vereceğim
 
@@ -12,7 +14,10 @@ result = 10 / get_n
 print(f"sonuç {result}")
 ```
 
-Böyle bir programda kullanıcı 1, 2 değilde 0 girerse ne olur ? hatalardan biri gerçekleşir ve programımız istediğimiz gibi bir sonuç vermez, siz burda 0 girme durumunu `if` ile kontrol edebilirdiniz veya bunu için python'da hata yakalama olayını kullanabilirsiniz.
+Böyle bir programda kullanıcı 1, 2 değilde 0 girerse ne olur ? hatalardan biri
+gerçekleşir ve programımız istediğimiz gibi bir sonuç vermez, siz burda 0 girme durumunu
+`if` ile kontrol edebilirdiniz veya bunu için python'da hata yakalama olayını
+kullanabilirsiniz.
 
 Aşağıda gerçekleşen hatayı nasıl bulduğumuza dair bir script var.
 
@@ -145,7 +150,7 @@ if input_ == 0:
 
 **Sonuç**
 
-```text
+```python
 Traceback (most recent call last):
   File "myapp.py", line 28, in <module>
     raise InputError(input_, "0 yazmayın")
@@ -186,49 +191,50 @@ else:
 
 **Sonuç**
 
-```text
+```bash
 0 hariç bir sayı girin >> 0
 (0.0, '0 yazmayın')
 ```
 
 ## Python Built-in Exceptions
 
-| Exception | Cause of Error |
-| :--- | :--- |
-| AssertionError | `Assert` ifadesi \( statement \) başarısız olduğunda yükselir \( raise eder \). |
-| AttributeError | Özellik ataması veya referans başarısız olduğunda yükselir \( raise eder \). |
-| EOFError | `İnput ()` fonksiyonu dosya sonu durumuna geldiğinde ortaya çıkar \( raise eder \). |
-| FloatingPointError | floating-point işlemi başarısız olduğunda raise eder. |
-| GeneratorExit | Generator'ün `close()` methodu çağrıldığında raise eder |
-| ImportError | İmport edilen modül bulunamadığında raise eder. |
-| IndexError | İndex dizi dışında olduğunda raise eder. |
-| KeyError | Raised when a key is not found in a dictionary. |
-| KeyboardInterrupt | Raised when the user hits interrupt key \(Ctrl+c or delete\). |
-| MemoryError | Raised when an operation runs out of memory. |
-| NameError | Raised when a variable is not found in local or global scope. |
-| NotImplementedError | Raised by abstract methods. |
-| OSError | Raised when system operation causes system related error. |
-| OverflowError | Raised when result of an arithmetic operation is too large to be represented. |
-| ReferenceError | Raised when a weak reference proxy is used to access a garbage collected referent. |
-| RuntimeError | Raised when an error does not fall under any other category. |
-| StopIteration | Raised by `next()` function to indicate that there is no further item to be returned by iterator. |
-| SyntaxError | Raised by parser when syntax error is encountered. |
-| IndentationError | Raised when there is incorrect indentation. |
-| TabError | Raised when indentation consists of inconsistent tabs and spaces. |
-| SystemError | Raised when interpreter detects internal error. |
-| SystemExit | Raised by `sys.exit()` function. |
-| TypeError | Raised when a function or operation is applied to an object of incorrect type. |
-| UnboundLocalError | Raised when a reference is made to a local variable in a function or method, but no value has been bound to that variable. |
-| UnicodeError | Raised when a Unicode-related encoding or decoding error occurs. |
-| UnicodeEncodeError | Raised when a Unicode-related error occurs during encoding. |
-| UnicodeDecodeError | Raised when a Unicode-related error occurs during decoding. |
-| UnicodeTranslateError | Raised when a Unicode-related error occurs during translating. |
-| ValueError | Raised when a function gets argument of correct type but improper value. |
-| ZeroDivisionError | Raised when second operand of division or modulo operation is zero. |
+| Exception             | Cause of Error                                                                                                             |
+| :-------------------- | :------------------------------------------------------------------------------------------------------------------------- |
+| AssertionError        | `Assert` ifadesi \( statement \) başarısız olduğunda yükselir \( raise eder \).                                            |
+| AttributeError        | Özellik ataması veya referans başarısız olduğunda yükselir \( raise eder \).                                               |
+| EOFError              | `İnput ()` fonksiyonu dosya sonu durumuna geldiğinde ortaya çıkar \( raise eder \).                                        |
+| FloatingPointError    | floating-point işlemi başarısız olduğunda raise eder.                                                                      |
+| GeneratorExit         | Generator'ün `close()` methodu çağrıldığında raise eder                                                                    |
+| ImportError           | İmport edilen modül bulunamadığında raise eder.                                                                            |
+| IndexError            | İndex dizi dışında olduğunda raise eder.                                                                                   |
+| KeyError              | Raised when a key is not found in a dictionary.                                                                            |
+| KeyboardInterrupt     | Raised when the user hits interrupt key \(Ctrl+c or delete\).                                                              |
+| MemoryError           | Raised when an operation runs out of memory.                                                                               |
+| NameError             | Raised when a variable is not found in local or global scope.                                                              |
+| NotImplementedError   | Raised by abstract methods.                                                                                                |
+| OSError               | Raised when system operation causes system related error.                                                                  |
+| OverflowError         | Raised when result of an arithmetic operation is too large to be represented.                                              |
+| ReferenceError        | Raised when a weak reference proxy is used to access a garbage collected referent.                                         |
+| RuntimeError          | Raised when an error does not fall under any other category.                                                               |
+| StopIteration         | Raised by `next()` function to indicate that there is no further item to be returned by iterator.                          |
+| SyntaxError           | Raised by parser when syntax error is encountered.                                                                         |
+| IndentationError      | Raised when there is incorrect indentation.                                                                                |
+| TabError              | Raised when indentation consists of inconsistent tabs and spaces.                                                          |
+| SystemError           | Raised when interpreter detects internal error.                                                                            |
+| SystemExit            | Raised by `sys.exit()` function.                                                                                           |
+| TypeError             | Raised when a function or operation is applied to an object of incorrect type.                                             |
+| UnboundLocalError     | Raised when a reference is made to a local variable in a function or method, but no value has been bound to that variable. |
+| UnicodeError          | Raised when a Unicode-related encoding or decoding error occurs.                                                           |
+| UnicodeEncodeError    | Raised when a Unicode-related error occurs during encoding.                                                                |
+| UnicodeDecodeError    | Raised when a Unicode-related error occurs during decoding.                                                                |
+| UnicodeTranslateError | Raised when a Unicode-related error occurs during translating.                                                             |
+| ValueError            | Raised when a function gets argument of correct type but improper value.                                                   |
+| ZeroDivisionError     | Raised when second operand of division or modulo operation is zero.                                                        |
 
-Aşağıdaki ağaç yapısında hangi hata nesnesinin hangi nesneden türetildiği açıkça görünüyor.
+Aşağıdaki ağaç yapısında hangi hata nesnesinin hangi nesneden türetildiği açıkça
+görünüyor.
 
-```text
+```bash
 BaseException
  +-- SystemExit
  +-- KeyboardInterrupt
@@ -297,9 +303,8 @@ BaseException
 
 ## Yararlanılan Kaynaklar
 
-* [https://docs.python.org/3/library/exceptions.html](https://docs.python.org/3/library/exceptions.html)
-* [https://belgeler.yazbel.com/python-istihza/hata\_yakalama.html](https://belgeler.yazbel.com/python-istihza/hata_yakalama.html)
-* [https://docs.python.org/3/tutorial/errors.html](https://docs.python.org/3/tutorial/errors.html)
-* [https://www.programiz.com/python-programming/exceptions](https://www.programiz.com/python-programming/exceptions)
-* [https://realpython.com/python-exceptions/](https://realpython.com/python-exceptions/)
-
+- [https://docs.python.org/3/library/exceptions.html](https://docs.python.org/3/library/exceptions.html)
+- [https://belgeler.yazbel.com/python-istihza/hata_yakalama.html](https://belgeler.yazbel.com/python-istihza/hata_yakalama.html)
+- [https://docs.python.org/3/tutorial/errors.html](https://docs.python.org/3/tutorial/errors.html)
+- [https://www.programiz.com/python-programming/exceptions](https://www.programiz.com/python-programming/exceptions)
+- [https://realpython.com/python-exceptions/](https://realpython.com/python-exceptions/)

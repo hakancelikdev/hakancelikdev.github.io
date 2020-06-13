@@ -2,24 +2,25 @@
 
 ### Neler öğreneceğiz ?
 
-* python sınıf yapısı \( class \)
-* isinstance
+- python sınıf yapısı \( class \)
+- isinstance
 
-  ```text
+  ```python
   >>> type(isinstance)
   <class 'builtin_function_or_method'>
   ```
 
-* setattr
+- setattr
 
-  ```text
+  ```python
   >>> type(setattr)
   <class 'builtin_function_or_method'>
   ```
 
-* items
+- items
 
-  Bildiğiniz gibi items dict veri türündeki değişkenlerin öğelerini almak için kullanırız örneğin.
+  Bildiğiniz gibi items dict veri türündeki değişkenlerin öğelerini almak için
+  kullanırız örneğin.
 
   ```python
   for key,value in {1:2,3:4}.items():
@@ -28,13 +29,14 @@
 
 ### Gereksinimler
 
-* sadece python3
+- sadece python3
 
   > python 2 ise günceli takip etmek için python3 kullanmaya başlayın
 
 ### Isinstance nedir ?
 
-isinstance,tıpkı type methodu gibi nesnelerin türünü bulmamızı ve bu bilgiyi kullanmamızı sağlar,
+isinstance,tıpkı type methodu gibi nesnelerin türünü bulmamızı ve bu bilgiyi
+kullanmamızı sağlar,
 
 örneğin;
 
@@ -62,7 +64,8 @@ if isinstance(num,(int,str)):
 
 ### Setattr nedir ?
 
-**setattr** bir nesneye yeni bir değişken atamamızı sağlar, kullanımı şu şekilde dir. `setattr(object, name, value)`
+**setattr** bir nesneye yeni bir değişken atamamızı sağlar, kullanımı şu şekilde dir.
+`setattr(object, name, value)`
 
 > bunları bildiğimize göre asıl konumuza gelebiliriz.
 
@@ -80,7 +83,8 @@ Traceback (most recent call last):
 AttributeError: 'dict' object has no attribute 'a'
 ```
 
-**AttributeError: 'dict' object has no attribute 'a'** bizlere bu şekilde bir hata verecektir, o zaman yapmamız gereken şey _**attribute**_ etmek.
+**AttributeError: 'dict' object has no attribute 'a'** bizlere bu şekilde bir hata
+verecektir, o zaman yapmamız gereken şey _**attribute**_ etmek.
 
 Kodlarımızın tamamı.
 
@@ -94,7 +98,11 @@ class DictToObject():
                setattr(self, key, DictToObject(value) if isinstance(value, dict) else value)
 ```
 
-Şimdi burada bir for döngüsü var sebebi şu, eğer **DictToObject** sınıfımıza vereceğimiz sözlük şu şekilde ise `d = {'a': 1, 'b': {'c': 2}, 'd': ["hi", {'foo': "bar"}]}` for döngüsü ile iç içe bulunan dict leri de sınıfımıza attribute edebilmektir bu kısımlarıda tam olarak **5. ve 7.** satırlarda yapılıyor, yorum satırlarını kullanarak kodları baştan sona anlatayım.
+Şimdi burada bir for döngüsü var sebebi şu, eğer **DictToObject** sınıfımıza vereceğimiz
+sözlük şu şekilde ise `d = {'a': 1, 'b': {'c': 2}, 'd': ["hi", {'foo': "bar"}]}` for
+döngüsü ile iç içe bulunan dict leri de sınıfımıza attribute edebilmektir bu kısımlarıda
+tam olarak **5. ve 7.** satırlarda yapılıyor, yorum satırlarını kullanarak kodları
+baştan sona anlatayım.
 
 ```python
 class DictToObject(): # sınıfımızın ismi DictToObject
@@ -110,7 +118,8 @@ class DictToObject(): # sınıfımızın ismi DictToObject
                # burda da gelen değişken *if isinstance(value, dict)* dict ise **DictToObject** tekrandan sınıfımıza geri gönderileri ve işlemler tekrar eder ve burada yine attr olarak sınıf göndermiş oluyoruz, eğer dict değilsede *else value* direk value değerini **setattr** ile  sınıfa işler.
 ```
 
-Biraz karışık oldu, ama dikkatlı inceler ve okursanız anlayacağınızı tahmin ediyorum, bu kod \( sınıf \) benim çok işime yarayacak sizlerede anlatmak istedim.
+Biraz karışık oldu, ama dikkatlı inceler ve okursanız anlayacağınızı tahmin ediyorum, bu
+kod \( sınıf \) benim çok işime yarayacak sizlerede anlatmak istedim.
 
 ### Nasıl kullanılır ?
 
@@ -133,4 +142,3 @@ e
 # burdan bakın normalde x.a yapınca b cıktısını alırız fakat x.c yapınca bize yine sınıf döndürecektir yada
 # x.f yapınca bize bir liste döndürecektir bu listenin 1. elemanı ise yine bir sınıftır.
 ```
-

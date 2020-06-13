@@ -1,5 +1,13 @@
-# Git (2)
+---
+description: >-
+  Git, Bütün Küçük Projelerden Büyük Projelere Kadar Hızlı ve Etkili Bir Şekilde
+  Üstesinden Gelmek için Tasarlanmış Özgür ve Açık Kaynak Dağıtık Versiyon
+  Kontrol Sistemidir.
+---
 
-###### Git Is A Free And Open Source Distributed Version Control System Designed To Handle Everything From Small To Very Large Projects With Speed And Efficiency.
+# Git
 
-[![](https://cdn.worldvectorlogo.com/logos/git.svg)](https://git-scm.com/)
+{% embed url="https://git-scm.com/" %}
+
+
+

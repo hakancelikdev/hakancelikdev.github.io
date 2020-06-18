@@ -1,86 +1,13 @@
----
-description: Developer at Prisma CSI
----
-
 # Hakan Çelik'ın Bloğu
 
-Bu blog sürekli güncel tutulmaya çalışılmaktadır.
+**Developer at Prisma CSI**
+
+> Bu blog sürekli güncel tutulmaya çalışılmaktadır.
 
 Adreslerim;
 
 - [Twitter](https://twitter.com/hakancelik96)
 - [Github](https://github.com/hakancelik96)
 - [Linkedin](https://www.linkedin.com/in/hakancelik96/)
-- [Youtube](https://www.youtube.com/channel/UCOnI7y3qKkPcZ2ZE3LfXkDw)
+<!-- - [Youtube](https://www.youtube.com/channel/UCOnI7y3qKkPcZ2ZE3LfXkDw) -->
 - [Telegram](https://t.me/hakancelik)
-
-- [git/](git/)
-- [python/](python/)
-- [clickjacking/](clickjacking/)
-- [sass/](sass/)
-
-# Table of contents
-
-- [Hakan Çelik'ın Bloğu](README.md)
-- [Git](git/README.md)
-  - [Git Nedir Kurulumu ve Özgür Yazılım](git/git-nedir-kurulumu-ve-ozgur-yazlm.md)
-  - [Git Komutları](git/git-komutlar.md)
-- [Python](python/README.md)
-  - [Python Nedir](python/python-nedir.md)
-  - [Python Kurulumu](python/pythona-giris-anaconda-atom-ve-pip-kurulumu.md)
-  - [Fonksiyonlara Giriş, Type Fonksiyonu, Değişkenler Ve Türleri, Yorum Satırı](python/fonksiyonlara-giris-type-fonksiyonu-degiskenler-ve-turleri-yorum-satr.md)
-  - [İşleçler Ve Print Fonksiyonu](python/islecler-ve-print-fonksiyonu.md)
-  - [Input Fonksiyonu, Özellikleri Ve Detaylı İnceleme](python/input-fonksiyonu-ozellikleri-ve-detayl-inceleme.md)
-  - [Tipler Ve Dönüşümleri](python/tipler-ve-donusumleri-class-type.md)
-  - [If, Elif Ve Else Koşul Durumları](python/if-elif-ve-else-kosul-durumlar.md)
-  - [Python'da Döngüler](python/pythonda-donguler.md)
-  - [String Nesnesinin Methodları ve Method Operasyonları](python/str-nesnesinin-methodlar-ve-method-operasyonlar-method-method-wrapper.md)
-  - [Python'da Hata Yönetimi](python/pythonda-hata-yonetimi.md)
-  - [Sözlük Veri Tipini Python Nesnesine Dönüştürme](python/sozluk-veri-tipini-python-nesnesine-donusturme.md)
-  - [Kütüphane, Modül ve Paketler](python/kuetuephane-moduel-ve-paketler.md)
-  - [Alan Seçimi](python/alan-secimi.md)
-  - [Django](python/django/README.md)
-    - [Django Nedir](python/django/django-nedir.md)
-    - [Django Admin Actions](python/django/django-admin-actions.md)
-    - [Dumpdata Ve Loaddata Kullanımı](python/django/dumpdata-ve-loaddata-kullanm.md)
-    - [Özel Yönetim Komutları Nasıl Yapılır](python/django/ozel-yonetim-komutlar-nasl-yaplr.md)
-    - [Context Processors Fonksiyonları Ve Kodlanması](python/django/context-processors-fonksiyonlar-ve-kodlanmas.md)
-    - [Django'da Sayfalama - Pagination](python/django/djangoda-sayfalama-pagination.md)
-    - [Django Ile Site Haritası Oluşturma](python/django/django-ile-site-haritas-olusturma.md)
-    - [User Modelini Genişletmek](python/django/user-modelini-genisletmek.md)
-    - [Birden Fazla Veri Tabanı Kullanımı](python/django/birden-fazla-veri-taban-kullanm-multi-db.md)
-    - [Django Sinyalleri Nasıl Oluşturulur \( Django Signals \)](python/django/django-sinyalleri-nasl-olusturulur-django-signals.md)
-    - [Django'da Clickjack Tuzağının Engeli Ve Kontrolu - Xframeoptionsmiddleware](python/django/djangoda-clickjack-tuzagnn-engeli-ve-kontrolu-xframeoptionsmiddleware.md)
-  - [Opencv Python](python/opencv/README.md)
-    - [Opencv Nedir Ve Kurulumu](python/opencv/opencv-nedir-ve-kurulumu.md)
-    - [Opencv Resim Işlemleri](python/opencv/opencv-resim-islemleri.md)
-    - [Opencv Video Işlemleri](python/opencv/opencv-video-islemleri.md)
-    - [Opencv'de Çizim Fonksiyonları](python/opencv/opencvde-cizim-fonksiyonlar.md)
-    - [Boya Fırçası Olarak Fare](python/opencv/boya-frcas-olarak-fare.md)
-    - [Renk Paleti Olarak Parça Çubuğu \( Trackbar \)](python/opencv/renk-paleti-olarak-parca-cubugu-trackbar.md)
-    - [Görüntülerle İlgili Temel İşlemler](python/opencv/goruntulerle-ilgili-temel-islemler.md)
-    - [Görüntülerde Aritmetik İşlemler](python/opencv/goruntulerde-aritmetik-islemler.md)
-    - [Performans Ölçüm Ve Geliştirme Teknikleri](python/opencv/performans-olcum-ve-gelistirme-teknikleri.md)
-    - [Renk Alanlarını Değiştirme](python/opencv/renk-alanlarn-degistirme.md)
-    - [Resim Eşikleme](python/opencv/resim-esikleme.md)
-    - [Görüntünün Geometrik Dönüşümleri](python/opencv/goruntunun-geometrik-donusumleri.md)
-    - [Görüntüyü Yumuşatma - \( Smoothing Images \)](python/opencv/goruntuyu-yumusatma-smoothing-images.md)
-    - [Morfolojik Dönüşümler](python/opencv/morfolojik-donusumler.md)
-    - [Görüntü Geçişleri](python/opencv/goruntu-gecisleri.md)
-    - [Canny Kenar Algılama](python/opencv/canny-kenar-alglama.md)
-    - [Görüntü Piramitleri](python/opencv/goruntu-piramitleri.md)
-    - [Konturler \( Contours \)](python/opencv/konturler-contours.md)
-    - [Histogramlar](python/opencv/histogramlar.md)
-  - [CPython](python/cpython/README.md)
-    - [CLA](python/cpython/cla.md)
-    - [PR Göndermek](python/cpython/pr-goendermek.md)
-- [Clickjacking](clickjacking/README.md)
-  - [Clickjack Tuzagı Saldırısı Nedir](clickjacking/clickjack-tuzagsaldrs-nedir.md)
-  - [Clickjack Tuzagını Engellemenin Yolu](clickjacking/clickjack-tuzagn-engellemenin-yolu.md)
-  - [Clickjack Tuzagının Engellenmesi](clickjacking/clickjack-tuzagnn-engellenmesi.md)
-- [Sass](sass/README.md)
-  - [Sass ve Scss Nedir ?](sass/sass-ve-scss-nedir-syntactically-awesome-stylesheets.md)
-  - [Sass Kurulumu ?](sass/sass-kurulumu-linux-windows-ve-mac.md)
-  - [Sass Watch, Degişkenler Nesting, Import, Mixin, Include ve Operatorler](sass/sass-scss-dersleri-sass-watch-degiskenler-nesting-import-mixin-include-ve-operatorler.md)
-  - [Koşul Durumları ve Döngüler](sass/kosullu-durumlar-ve-donguler-if-else-if-else-for-while-each.md)
-  - [Bazı Sık Kullandığım Sass Mixinsleri](sass/baz-sk-kullandgm-sassscss-mixinsleri.md)

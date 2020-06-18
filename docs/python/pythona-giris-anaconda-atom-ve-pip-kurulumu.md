@@ -54,7 +54,7 @@ Eğer isterse bilgisayarınızı yeniden başlatın.
 
 Microsfot Strore \( Mağaza \) 'e girerek
 
-![](../.gitbook/assets/store.png)
+![](../assets/store.png)
 
 Ubuntu kurulumu yapın \( indirin \).
 
@@ -77,14 +77,14 @@ bölümünden en güncel Python sürümünü indirin ve çalıştırın.
 
 Karşınıza şöyle bir ekran gelecektir.
 
-![](../.gitbook/assets/capture%20%282%29.PNG)
+![](../assets/capture%20%282%29.PNG)
 
 Aşağıda bulunan **Add to Python 3.8 to PATH** bölümünü yukarıdaki gibi seçin ve
 **Customize installation** bölümüne tıklarak devam edin.
 
 Bir sonraki sayfada her şeyi seçili bırakın ve next'e basın.
 
-![](../.gitbook/assets/capture%20%283%29.PNG)
+![](../assets/capture%20%283%29.PNG)
 
 Bir sonraki sayfayı yukarıdaki gibi doldurun ve **insall** tuşuna basıp yükleyin.
 

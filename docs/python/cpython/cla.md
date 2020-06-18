@@ -16,13 +16,13 @@ gönderdiğinizde sizleri
 karşılayacak ve sizlere sözleşmeyi kabul etmeniz gerektiği hakkında aşağıdakine bir
 mesajda bırakacaktır.
 
-![the-knights-who-say-ni bot cla messages](../../.gitbook/assets/capture.PNG)
+![the-knights-who-say-ni bot cla messages](../../assets/capture.PNG)
 
 Ayrıca PR labelleriniz aşağıdaki gibi olacak şekilde bot tarafından verilecektir, CLA
 kaydınız yapıldıktan sonra **CLA not signed** etiketi yerine **CLA signed** etiketi
 verilecektir.
 
-![](../../.gitbook/assets/capture%20%281%29.PNG)
+![](../../assets/capture%20%281%29.PNG)
 
 Kaydınızı yaptıktan sonra aşağıdaki adresten kullanıcı adınızı yazarak kabul olunup
 olunmadığını kontrol edebilirsiniz. Kabul olması sadece iş günlerinde olduğu ve uzun

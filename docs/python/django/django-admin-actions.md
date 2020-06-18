@@ -4,7 +4,7 @@ Admin action kısaca seçilen nesneler ile toplu iş uygulayabilme olayıdır, s
 kullanıcıları silmek gibi, aşağıda ki resim hangi konudan bahsettiğimizi anlatır
 niteliktedir.
 
-![django admin action](../../.gitbook/assets/admin-actions.png)
+![django admin action](../../assets/admin-actions.png)
 
 Bu içerikte **admin.py** dosyamıza yeni **actionlar** yazarak bazı toplu işlerimizi
 kolaylaştıracağız.

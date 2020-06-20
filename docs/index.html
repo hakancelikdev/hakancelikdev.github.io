@@ -10,17 +10,10 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css" />
+    <link rel="icon" href="_media/icon.jpg" />
     <style>
-      .app-nav {
-        position: relative;
-        z-index: 0;
-      }
-      .content {
-        padding-top: 20px;
-      }
-      .app-name img {
-        max-width: 50%;
-        border-radius: 8px;
+      .cover-main img {
+        border-radius: 12px;
       }
     </style>
   </head>
@@ -30,17 +23,26 @@
       window.$docsify = {
         name: "Hakan Çelik",
         repo: "hakancelik96/hakancelik.dev",
-        loadNavbar: "nav.md",
         loadSidebar: "summary.md",
         hideSidebar: false,
+        auto2top: true,
         subMaxLevel: 2,
+        coverpage: true,
+        loadNavbar: true,
         homepage: "README.md",
         basePath: "/",
-        logo: "/_media/icon.jpg",
         copyCode: {
           buttonText: "Copy to clipboard",
           errorText: "Error",
           successText: "Copied",
+        },
+        share: {
+          reddit: true,
+          linkedin: true,
+          facebook: true,
+          twitter: true,
+          whatsapp: true,
+          telegram: true,
         },
       };
     </script>
@@ -59,10 +61,11 @@
     <!-- prism -->
     <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-html.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-css.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-sass.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-scss.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
+    <!-- docsify-share -->
+    <script src="//unpkg.com/docsify-share/build/index.min.js"></script>
   </body>
 </html>

@@ -1,8 +1,6 @@
----
-description: The Python programming language
----
-
 # CPython
+
+> The Python programming language
 
 Kendinizi açık kaynak projelere katkı yaparak gelişmeye devam edebilirsiniz, bu sayede
 tecrübe kazanabilir, kendi referansınızı kendiniz oluşturabilirsiniz.

@@ -1,6 +1,4 @@
----
-description: PSF Contributor Agreement ( PSF Katılımcı Sözleşmesi )
----
+PSF Contributor Agreement ( PSF Katılımcı Sözleşmesi )
 
 # CLA
 

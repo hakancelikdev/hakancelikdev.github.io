@@ -1,6 +1,4 @@
----
-description: Syntactically awesome stylesheets
----
+Syntactically awesome stylesheets
 
 # Sass ve Scss Nedir ?
 

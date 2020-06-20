@@ -1,9 +1,6 @@
----
-description: >-
-  Python Is A Dynamically Typed Programming Language Designed By Guido Van Rossum
----
-
 # Python
+
+> Python Is A Dynamically Typed Programming Language Designed By Guido Van Rossum
 
 Python, Guido Van Rossum Tarafından Tasarlanan Dinamik Olarak Yazılan Bir Programlama
 Dilidir

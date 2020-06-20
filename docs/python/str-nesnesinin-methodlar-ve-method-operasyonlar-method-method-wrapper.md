@@ -1,6 +1,4 @@
----
-description: Method Operasyonları = Method Wrapper
----
+Method Operasyonları = Method Wrapper
 
 # String Nesnesinin Methodları ve Method Operasyonları
 

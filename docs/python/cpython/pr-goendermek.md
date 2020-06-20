@@ -1,6 +1,4 @@
----
-description: Bu yazımda
----
+Bu yazımda
 
 # PR Göndermek
 

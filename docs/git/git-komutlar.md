@@ -51,25 +51,55 @@ git clone https://github.com/{kullanıcı_adınız}/{repo_isminiz}.git
 
 ## Add
 
-Değiştirilmiş dosyaları almak için kullanılır.
+https://git-scm.com/docs/git-add
+
+Değişiklik yaptığınız dosyaları staged bölümüne almanızı sağlar.
+
+İlk argümanı olan `pathspec`'i dosya yolu ( path ) veya glob olarak verebilirsiniz.
 
 ```bash
-git add dosya_ismi.formatı
+git add foo/bar/file.ex
 ```
-
-Değiştirilmiş bütün dosyaları almak için.
 
 ```bash
-git add .
+git add *.py
 ```
+
+böyle yazarak bütün python dosyalarında yaptığınız değişiklikleri staged bölümüne
+alabilirsiniz. `pathspec` argümanına `.` olarak verirseniz değişiklik olan bütün
+dosyaları alır.
+
+```bash
+git add -p
+```
+
+Yaptığınız değişikliklere bakarak ( diff'i gösterilir ) onay sonrası o değişikliği
+staged bölümüne almanızı sağlar.
 
 ## Commit
 
-Yaptığınız değişikliği commit mesajı ile birlikte kayıt etmenizi sağlar.
+https://git-scm.com/docs/git-commit
 
-```bash
-git commit -m "commit_mesajınız"
-```
+Staged bölgesinde bulunan değişiklikleri bir mesajı ile birlikte kayıt etmenizi sağlar.
+
+`git commit -m "commit_mesajınız"`
+
+eğer değişiklikleri bir önceki commit üzerine yazmak istiyorsanız ( aslında tam olarak
+üzerine yazmaz yeni bir commit atar )
+
+`git commit --amend`
+
+`--amend` argümanı kullandığınızda `-m` argümanını kullanmazsanız bir önceki commit
+mesajınız ne ise onu alır, `-m` kullanır ve commit mesajı girerseniz, teoride bir önceki
+commit mesajını düzenlemiş olursunuz.
+
+`git commit --amend -m "messages"`
+
+Eğer [git-hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) kullanıyor
+iseniz ( veya git-hooks'u kullanan bir teknoloji kullanıyor iseniz, örneğin
+[pre-commit](https://pre-commit.com/))
+
+`--no-verify` argümanı eğer hookları es geçerek commit atmanızı sağlar.
 
 ## Status
 
@@ -209,6 +239,37 @@ git push -f
 ```
 
 burdaki **-f force** anlamına gelir.
+
+## Remote
+
+https://git-scm.com/docs/git-remote
+
+Git reponuzdaki diğer repoları yönetmenizi sağlar.
+
+Bu şu demek birden fazla git reposuna bağlı şekilde çalışabilirsiniz, bunlardan biri
+orginal repo diğeri ise upstream repo olabilir. Upstream repo sizin forkladığınız
+repodur, bu sayede orginal repodaki yeni güncellemeleri kendi fork'unuza çekebilir ve
+güncel bir şekilde geliştirmeye devam edebilirsiniz.
+
+`git remote -v` yazarak git reponuzda bağlı olan repoların isimlerini ve adreslerini
+görebilirsiniz.
+
+`git remote add {remote name} {repo adresi}` örneğin;
+`git remote add upstream https://github.com/user/repo.git`
+
+`git remote remove {remote name}` yazarak eklenen repoları silebilirsiniz.
+
+## Rebase
+
+https://git-scm.com/docs/git-rebase
+
+Daha önceden atmış olduğunuz commit'i git history'i düzenleyerek en üste taşımanızı
+sağlar.
+
+`git rebase` bulunduğunuz branch'da ( dal ) atmış olduğunuz en son commit'i en üste
+taşımanızı sağlar. Bunu ne zaman kullanabiliriz derseniz, `git pull` sonrası yeni
+commitleri reponuza çektikten sonra sizin uzan repoya göndermediğiniz değişiklikleri en
+üste taşımaki için kullanabilirsiniz.
 
 ## Gitignore Dosyası
 

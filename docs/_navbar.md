@@ -1,13 +1,13 @@
 - Blog
 
   - [---------------------------------](/)
-  - [Git](/git/README)
-  - [Python](/python/README)
-  - [Django](/python/django/README)
-  - [Opencv](/python/opencv/README)
-  - [Cpython](/python/cpython/README)
-  - [Clickjacking](/clickjacking/README)
-  - [Sass](/sass/README)
+  - [Git](/git/README.md)
+  - [Python](/python/README.md)
+  - [Django](/python/django/README.md)
+  - [Opencv](/python/opencv/README.md)
+  - [Cpython](/python/cpython/README.md)
+  - [Clickjacking](/clickjacking/README.md)
+  - [Sass](/sass/README.md)
 
 - Projeler
 

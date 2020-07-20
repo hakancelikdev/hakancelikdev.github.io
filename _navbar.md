@@ -6,6 +6,7 @@
   - [Django](/python/django/README.md)
   - [Opencv](/python/opencv/README.md)
   - [Cpython](/python/cpython/README.md)
+  - [JavaScript](/javascript/README.md)
   - [Clickjacking](/clickjacking/README.md)
   - [Sass](/sass/README.md)
 

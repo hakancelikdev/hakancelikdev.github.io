@@ -11,7 +11,7 @@
     />
     <link rel="icon" href="_media/icon.jpg" />
     <!-- css -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/themes/vue.css" />
     <!-- primer.css -->
     <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
     <!-- https://primer.style/ -->
@@ -27,14 +27,16 @@
       window.$docsify = {
         name: "Hakan Çelik",
         repo: "hakancelik96/hakancelik.dev",
-        loadSidebar: "summary.md",
+        loadSidebar: true,
         hideSidebar: false,
         auto2top: true,
-        subMaxLevel: 2,
+        ext: ".md",
+        subMaxLevel: 6,
         coverpage: true,
         loadNavbar: true,
         homepage: "README.md",
         basePath: "/",
+        themeColor: "#000",
         copyCode: {
           buttonText: "Copy to clipboard",
           errorText: "Error",
@@ -60,7 +62,7 @@
       };
     </script>
     <!-- docsify -->
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
     <!-- search -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
     <!-- emoji -->

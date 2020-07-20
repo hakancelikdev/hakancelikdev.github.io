@@ -50,6 +50,8 @@
   - [CPython](python/cpython/README.md)
     - [CLA](python/cpython/cla.md)
     - [PR Göndermek](python/cpython/pr-goendermek.md)
+- [JavaScript](javascript/README.md)
+  - [insertAdjacentHTML](javascript/insertAdjacentHTML.md)
 - [Clickjacking](clickjacking/README.md)
   - [Clickjack Tuzagı Saldırısı Nedir](clickjacking/clickjack-tuzagsaldrs-nedir.md)
   - [Clickjack Tuzagını Engellemenin Yolu](clickjacking/clickjack-tuzagn-engellemenin-yolu.md)

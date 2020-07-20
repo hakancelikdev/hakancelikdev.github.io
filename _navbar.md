@@ -9,13 +9,6 @@
   - [Clickjacking](/clickjacking/README.md)
   - [Sass](/sass/README.md)
 
-- Projeler
-
-  - [---------------------------------](/)
-  - [Unimport](https://unimport.hakancelik.dev/)
-  - [Pythonanywhere Client](https://pythonanywhere-client.hakancelik.dev/)
-  - [Coogger](https://github.com/coogger)
-
 - İletişim
 
   - [---------------------------------](/)

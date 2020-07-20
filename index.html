@@ -9,8 +9,12 @@
       name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css" />
     <link rel="icon" href="_media/icon.jpg" />
+    <!-- css -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css" />
+    <!-- primer.css -->
+    <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+    <!-- https://primer.style/ -->
     <style>
       .cover-main img {
         border-radius: 12px;
@@ -44,11 +48,14 @@
           whatsapp: true,
           telegram: true,
         },
-        editDoc: {
+        editButton: {
           username: "hakancelik96",
           repoName: "hakancelik.dev",
           branch: "master",
           docsPath: ".",
+        },
+        githubRepos: {
+          username: "hakancelik96",
         },
       };
     </script>
@@ -72,8 +79,13 @@
     <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-scss.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
     <!-- docsify-share -->
-    <script src="//unpkg.com/docsify-share/build/index.min.js"></script>
+    <script src="//unpkg.com/docsify-share@0.1.1/build/index.min.js"></script>
+    <!-- <script src="//unpkg.com/docsify-share/build/index.min.js"></script> -->
     <!-- editdoc -->
     <script src="plugin/editdoc.js"></script>
+    <!-- client -->
+    <script src="plugin/github-repos/client.js"></script>
+    <!-- github repos -->
+    <script src="plugin/github-repos/github-repos.js"></script>
   </body>
 </html>

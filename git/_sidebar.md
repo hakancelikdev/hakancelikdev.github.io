@@ -1,0 +1,2 @@
+- [Git Nedir Kurulumu ve Özgür Yazılım](git/git-nedir-kurulumu-ve-ozgur-yazlm.md)
+- [Git Komutları](git/git-komutlar.md)

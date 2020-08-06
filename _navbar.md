@@ -1,4 +1,4 @@
-- Blog
+- Kategoriler
 
   - [---------------------------------](/)
   - [Git](/git/README.md)

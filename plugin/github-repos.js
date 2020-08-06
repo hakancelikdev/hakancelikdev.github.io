@@ -1,21 +1,26 @@
+function sortRepos(reposData) {
+  let repos = reposData.filter(function (repo) {
+    return !repo.private && !repo.fork;
+  });
+  repos.sort((repo1, repo2) => repo2.stargazers_count - repo1.stargazers_count);
+  return repos;
+}
+
 const githubPlugin = (hook, vm) => {
   hook.doneEach(function () {
-    if (vm.route.path === "/") {
-      for (let username of window.$docsify.githubRepos.username) {
-        let apiUrl = `https://api.github.com/users/${username}/repos`;
-        axios
-          .get(apiUrl)
-          .then(function (response) {
-            let repos = response.data.filter(function (repo) {
-              return !repo.private && !repo.fork;
-            });
-            repos.sort(
-              (repo1, repo2) => repo2.stargazers_count - repo1.stargazers_count
-            );
-            let html = ``;
-            for (let repo of repos) {
-              html += `
-                <div class="repos mt-3">
+    if (vm.route.path !== "/") return "";
+    let requests = [];
+    for (let username of window.$docsify.githubRepos.username) {
+      let apiUrl = `https://api.github.com/users/${username}/repos`;
+      requests.push(axios.get(apiUrl));
+    }
+    Promise.all(requests).then(function (results) {
+      let allRepos = [];
+      for (result of results) for (repo of result.data) allRepos.push(repo);
+      let html = ``;
+      for (let repo of sortRepos(allRepos)) {
+        html += `
+            <div class="repos mt-3">
                     <nav aria-label="Breadcrumb">
                         <ol>
                             <svg class="octicon octicon-repo text-gray" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
@@ -56,18 +61,13 @@ const githubPlugin = (hook, vm) => {
                           repo.language
                         }</span>
                     </div>
-                </div>
-                `;
-            }
-            document
-              .getElementById(window.$docsify.githubRepos.id)
-              .insertAdjacentHTML("afterend", html);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+            </div>
+            `;
       }
-    }
+      document
+        .getElementById(window.$docsify.githubRepos.id)
+        .insertAdjacentHTML("afterend", html);
+    });
   });
 };
 window.$docsify.plugins.push(githubPlugin);

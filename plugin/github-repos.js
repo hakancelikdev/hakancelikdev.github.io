@@ -1,22 +1,20 @@
-class GithubRepos {
-  constructor() {
-    this.client = new HttpClient();
-    this.configGithubRepos = window.$docsify.githubRepos;
-    this.username = this.configGithubRepos.username;
-  }
-
-  getRepos(apiUrl = null) {
-    if (apiUrl == null) {
-      apiUrl = `https://api.github.com/users/${this.username}/repos`;
-    }
-    this.client.get(apiUrl, function (response) {
-      let repos = JSON.parse(response).filter(function (repo) {
-        return !repo.private && !repo.fork;
-      });
-      repos.sort((repo1, repo2) => repo2.stargazers_count - repo1.stargazers_count);
-      let html = ``;
-      for (let repo of repos) {
-        html += `
+const githubPlugin = (hook, vm) => {
+  hook.doneEach(function () {
+    if (vm.route.path === "/") {
+      for (let username of window.$docsify.githubRepos.username) {
+        let apiUrl = `https://api.github.com/users/${username}/repos`;
+        axios
+          .get(apiUrl)
+          .then(function (response) {
+            let repos = response.data.filter(function (repo) {
+              return !repo.private && !repo.fork;
+            });
+            repos.sort(
+              (repo1, repo2) => repo2.stargazers_count - repo1.stargazers_count
+            );
+            let html = ``;
+            for (let repo of repos) {
+              html += `
                 <div class="repos mt-3">
                     <nav aria-label="Breadcrumb">
                         <ol>
@@ -60,17 +58,15 @@ class GithubRepos {
                     </div>
                 </div>
                 `;
+            }
+            document
+              .getElementById(window.$docsify.githubRepos.id)
+              .insertAdjacentHTML("afterend", html);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       }
-      document.getElementById("projelerim").insertAdjacentHTML("afterend", html);
-    });
-  }
-}
-
-const githubPlugin = (hook, vm) => {
-  hook.doneEach(function () {
-    if (vm.route.path === "/") {
-      let github = new GithubRepos();
-      github.getRepos();
     }
   });
 };

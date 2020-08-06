@@ -13,7 +13,10 @@
     <!-- css -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/themes/vue.css" />
     <!-- primer.css -->
-    <link href="https://cdn.jsdelivr.net/npm/primer-css@9.6.0/build/build.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/primer-css@9.6.0/build/build.css"
+      rel="stylesheet"
+    />
     <!-- https://primer.style/ -->
     <style>
       .cover-main img {
@@ -57,10 +60,17 @@
           docsPath: ".",
         },
         githubRepos: {
-          username: "hakancelik96",
+          username: ["hakancelik96", "coogger"],
+          id: "projelerim",
         },
       };
     </script>
+    <!-- moment.js  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+      integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg=="
+      crossorigin="anonymous"
+    ></script>
     <!-- docsify -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
     <!-- search -->
@@ -85,9 +95,13 @@
     <!-- <script src="//unpkg.com/docsify-share/build/index.min.js"></script> -->
     <!-- editdoc -->
     <script src="plugin/editdoc.js"></script>
-    <!-- client -->
-    <script src="plugin/github-repos/client.js"></script>
+    <!-- axios -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0-0/axios.min.js"
+      integrity="sha512-mPPsSGy0P9Lvp6mRQUUV9RhSM58XNlJZkSS/l5dCGxcb+t/d8j69yGMfzjqhq32TNqC29FcCWBNeuAnFtrQLHg=="
+      crossorigin="anonymous"
+    ></script>
     <!-- github repos -->
-    <script src="plugin/github-repos/github-repos.js"></script>
+    <script src="plugin/github-repos.js"></script>
   </body>
 </html>

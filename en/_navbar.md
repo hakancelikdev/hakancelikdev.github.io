@@ -1,4 +1,9 @@
-- İletişim
+- Categories
+
+  - [---------------------------------](/)
+  - [Django](en/python/django/README.md)
+
+- Contact
 
   - [---------------------------------](/)
   - [Discord](https://discord.gg/6z8YXy4)
@@ -6,3 +11,8 @@
   - [Linkedin](https://www.linkedin.com/in/hakancelik96/)
   - [Telegram](https://t.me/hakancelik)
   - [Twitter](https://twitter.com/hakancelik96)
+
+- Languages
+  - [---------------------------------](/)
+  - [:tr: Turkish](/)
+  - [:us: English](/en/)

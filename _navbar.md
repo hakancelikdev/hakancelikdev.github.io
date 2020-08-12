@@ -1,4 +1,4 @@
-- İletişim
+- Contact
 
   - [---------------------------------](/)
   - [Discord](https://discord.gg/6z8YXy4)

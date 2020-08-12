@@ -1,20 +1,23 @@
 # Django
 
-> Django Is A Web Application Framework For Python. It Is Designed To Prioritize
-> Principles Of Reusability And Rapid Development.
+> Django, Python İçin Bir Web Uygulama Çerçevesidir. Yeniden Kullanılabilirlik ve Hızlı
+> Geliştirme Prensiplerine Öncelik Verilerek Tasarlanmıştır.
 
 Python içeriklerini bitirdiğinize göre Django ile tanışabilirsiniz.
 
-Django, Python ile geliştirilen bir web Framework'ü dür. Django ile hızlı, güvenli
-geliştirmeler yapabilirsiniz.
+### Telegram Grubumuz
 
-### Telegram
+Telegram üzerinden [Django Türkiye](https://t.me/django_turkey) grubuna katılmanızı
+tavsiye ederim, sizin için çok faydalı olacağına eminim.
 
-[Telegram ](https://telegram.org/)kullanıcısı değilseniz indirmenizi, kullanmanızı ve
-grubumuza gelmenizi tavsiye ederim.
-
-{% embed url="https://t.me/django\_turkey" %}
-
-### Repo Adresi;
-
-{% embed url="https://github.com/django/django" %}
+- [Django Nedir](python/django/django-nedir.md)
+- [Django Admin Actions](python/django/django-admin-actions.md)
+- [Dumpdata Ve Loaddata Kullanımı](python/django/dumpdata-ve-loaddata-kullanm.md)
+- [Özel Yönetim Komutları Nasıl Yapılır](python/django/ozel-yonetim-komutlar-nasl-yaplr.md)
+- [Context Processors Fonksiyonları Ve Kodlanması](python/django/context-processors-fonksiyonlar-ve-kodlanmas.md)
+- [Django'da Sayfalama - Pagination](python/django/djangoda-sayfalama-pagination.md)
+- [Django Ile Site Haritası Oluşturma](python/django/django-ile-site-haritas-olusturma.md)
+- [User Modelini Genişletmek](python/django/user-modelini-genisletmek.md)
+- [Birden Fazla Veri Tabanı Kullanımı](python/django/birden-fazla-veri-taban-kullanm-multi-db.md)
+- [Django Sinyalleri Nasıl Oluşturulur \( Django Signals \)](python/django/django-sinyalleri-nasl-olusturulur-django-signals.md)
+- [Django'da Clickjack Tuzağının Engeli Ve Kontrolu - Xframeoptionsmiddleware](python/django/djangoda-clickjack-tuzagnn-engeli-ve-kontrolu-xframeoptionsmiddleware.md)

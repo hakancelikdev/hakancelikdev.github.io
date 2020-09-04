@@ -46,10 +46,8 @@ modelinde hangi kullanıcıya denk geldiğini bulur işlem bu şekilde devam ede
 > Hemen bir üste söylediğim şeyler bunun içide geçerli o yüzden hemen geçiyorum dikkat !
 > Peki sen hangisini anlatacaksın ?
 
-Kolay ve hemen kavranabilen one-to-one olayını anlatacağım.
-[coogger](https://github.com/hakancelik96/blog/tree/a2daa68f9fcf2b6e6dae3f9d0e8b8bfc6369c349/django/www.coogger.com)'ın
-kodlarını kullanarak açıklayacağım önce projenize eklemediyseniz **models.py** içine şu
-User modeli'ni dahil edelim
+Kolay ve hemen kavranabilen one-to-one olayını anlatacağım. Önce projenize
+eklemediyseniz **models.py** içine şu User modeli'ni dahil edelim
 
 ```python
 from django.contrib.auth.models import User
@@ -156,9 +154,9 @@ yüklemişmi yüklememişmi teplate içinde öğrenmeniz gerek o zaman benim mod
 ```markup
   {% if request.user.userprofile.pp %}
       <img  src="/media/users/{{ request.user  }}.jpg">
-      {% else %}
+  {% else %}
       <img src="/static/media/profil.png" >
-      {% endif %}
+  {% endif %}
 ```
 
 Burada tema içinde **request.user.userprofile.pp** bu kod ile gelen kullanıcının yani
@@ -176,4 +174,4 @@ User modelinizi genişlettiniz ve şimdi yeni bir kullanıcı, kayıt olduğunda
 yakalamak ve açtığınız yeni model'e de kayıt olsun istiyorsunuz, o zaman **Django
 signal** konusunu öğrenmeniz gerekiyor.
 
-[@hakancelik96/django-sinyalleri-nasl-olusturulur-django-signals](https://www.coogger.com/@hakancelik96/django-sinyalleri-nasl-olusturulur-django-signals/)
+[Django Sinyalleri Nasıl Oluşturulur \( Django Signals \)](python/django/django-sinyalleri-nasl-olusturulur-django-signals.md)

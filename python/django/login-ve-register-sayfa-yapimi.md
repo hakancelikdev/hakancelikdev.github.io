@@ -1,3 +1,5 @@
+## Form
+
 Bu yazımda sayfaların tasarımı için css yazmak yerine [Uikit](https://getuikit.com/)
 adında front-end framework'u kullanacağım ve bu yazımda kullandığım kodlar
 [Eatingword](https://github.com/hakancelik96/eatingword) adında Django bilgimi taze
@@ -99,6 +101,8 @@ aldık ve bu kadar, formlarımız hazır.
 Yine aynı şekilde AuthenticationForm'un kodlarını incelemeniz için link bırakıyorum
 [AuthenticationForm](https://github.com/django/django/blob/master/django/contrib/auth/forms.py#L173)
 
+## View
+
 **view_mixin.py**
 
 ```python
@@ -114,6 +118,15 @@ class MessageMixin(SuccessMessageMixin):
         return super().form_invalid(form)
 ```
 
+Bu classımız ile de form işlemleri sonrası başarılı ( success ) mesajı yada form invalid
+olur ise onun mesajını vermek için kullanacağız, Bu view'i kullanmak için ilgili class
+based view'imize miras almamız yeterli olacaktır, eğer isterseniz `success_message`
+attribute'u ile success mesajını kendiniz belirleyebilirsiniz.
+
+Djangoda success mesajı için zaten `SuccessMessageMixin` adlı bir class var ben yukarıda
+bunu miras alarak hem onu hemde form invalid oldugunda mesaj iletsin diye böyle bir
+class yazdım.
+
 **views.py**
 
 ```python
@@ -128,28 +141,48 @@ from .view_mixin import MessageMixin
 
 
 class RegisterView(MessageMixin, generic.CreateView):
-    template_name = "registration/register.html"
-    success_url = reverse_lazy("wordapp:index")
-    form_class = RegisterForm
-    success_message = "You have successfully registered %(username)s"
+    template_name = "registration/register.html" # get isteği sonrası render edilecek olan template'imiz
+    success_url = reverse_lazy("wordapp:index") # form valid olur ve herhangi bir sıkıntı çıkmaz ise bu adrese yönlenecek
+    form_class = RegisterForm # form class'ımız
+    success_message = "You have successfully registered %(username)s" # form valid olursa tanımlı olan success_url'e yönlenmeden önce messages ile gönderilecek olan mesaj
 
     def form_valid(self, form):
-        response = super().form_valid(form)
-        if user := authenticate(
+        # tanımlı form_class'ımız post isteği sonrası valid olduğu zaman çalışacak olan fonksiyon
+        response = super().form_valid(form) # formu save edip yukarıda tanımlı olan success_url'e redirect eden responsu alıyoruz
+        if user := authenticate( # self.object si super().form_valid(form) sırasında kayıt olan formun dönderdiği objedir yanı kayıt olan userımızdır.
             self.request,
             username=self.object.username,
             password=self.object.password,
-        ):
-            login(self.request, user)
+        ): # burada başarılı bir user girişi var ise bize o user'ı döndürecek, python 3.8 ile gelen := walrus operatürü ile bunu alıyoruz.
+            login(self.request, user) # burada dönen kullanıcıyı login ediyoruz, Django cookie ataması vs yapıyor.
         else:
-            messages.error(self.request, "Could not login")
-        return response
+            messages.error(self.request, "Could not login") # user false dönerse, mesaj gönderiyoruz
+        return response # yukarıda bize dönen responsu döndüyoruz, bu sayede kullanıcı success_url tanımlı adrese dönüyor
 
 
 class LoginView(MessageMixin, auth_views.LoginView):
     form_class = AuthenticationForm
     success_message = "You have successfully logged in %(username)s"
 ```
+
+Geldik viewlerimize register ve login viewlerimiz yukarıda da gördüğünüz gibi oldukça
+kısa zaten bir şeyler gereksizce uzun ise bir çok şeyi yanlış yapıyorsunuzdur.
+
+Register view'imizın amacı yeni bir kullanıcı kayıt etmek olduğu için bunun
+`generic.CreateView` kullanarak hızlı bir şekilde yapabiliriz.
+
+Burada `generic.FormView`, `generic.View` veya fonksiyonel bazlı yazarakta yapabiliriz
+ama bu yöntemlerden biri ile yazmayı tercih edersek gereksizce kod uzun, anlaşılması zor
+olacaktır bu yüzden en doğru şekilde yapmaya çalışmak her zaman iyidir.
+
+RegisterView'ı yorum satırları ile anlattım, kodlardan kontrol edebilirsiniz.
+
+LoginView de ise çok bir şey yok, Djangoda zaten `LoginView` var bende onu kullanarak
+kendi view'imi yazdım form_class'ımı verdim, birde mesajı verdim bu kadar, kodları
+incelemek isterseniz
+[LoginView](https://github.com/django/django/blob/master/django/contrib/auth/views.py#L40)
+
+## Urls
 
 **urls.py**
 
@@ -165,6 +198,59 @@ urlpatterns = [
     path("logout/", LogoutView.as_view(), name="logout"),
 ]
 ```
+
+Daha sonra urllerimiz tanımladık, logout için tekrardan bir view yazmadık cunku
+Django'da var zaten,
+[LogoutView](https://github.com/django/django/blob/master/django/contrib/auth/views.py#L107)
+
+## Templates
+
+Şimdi sıra geldi son adımlarımıza, templateler.
+
+Form işlemleri sonrası Django messages framework'u ile mesaj yolluyorduk yukarıda, ben o
+mesajları daha güzel göstermek adına [toastr](https://github.com/CodeSeven/toastr)
+adında bir js lib'i kullanıyorum, Django ile dönen mesajları **base.html** template'imin
+head etiketi içine basıp daha sonra js ile çekip mesaj var ise gösteriyorum, ilgili
+kodları aşağıda göreceksiniz.
+
+**custom.js**
+
+```javascript
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+    /* toasatr */
+    toastr.options = {
+      closeButton: true,
+      debug: false,
+      newestOnTop: true,
+      progressBar: true,
+      positionClass: "toast-bottom-right",
+      preventDuplicates: false,
+      onclick: null,
+      showDuration: "300",
+      hideDuration: "1000",
+      timeOut: "5000",
+      extendedTimeOut: "1000",
+      showEasing: "swing",
+      hideEasing: "linear",
+      showMethod: "fadeIn",
+      hideMethod: "fadeOut",
+    };
+    let messages = document.head.querySelectorAll("meta[name=message]");
+    for (let message of messages) {
+      let tagName = message.dataset["tag"];
+      let content = message.content;
+      eval(`toastr.${tagName}`)(content);
+    }
+  },
+  false
+);
+```
+
+Yukarıdaki kod ile DOM yüklendiği zaman toastr ayarlarını yapıp meta etiketine bakıyor
+eğer Django mesaj basmış ise dönen uyarı tipine ( error, warning, vs ) göre bildirim
+üretiyor.
 
 **templates/base.html**
 
@@ -209,7 +295,7 @@ urlpatterns = [
       href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
     />
     <!-- custome js -->
-    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'custom.js' %}"></script>
   </head>
   <body class="uk-animation-scale-up uk-background-default">
     <!-- start:: header -->
@@ -248,6 +334,10 @@ urlpatterns = [
   </body>
 </html>
 ```
+
+Yukarıda **base.html** dosyasını görüyorsunuz, anlatacak çok bir şey yok aslında, title,
+content, footer adında 3 blogum var, base.html dosyamı extend edeceğim zaman onları
+kullanarak bir tasarım çıkartıyorum, js, css linkleri vs var o kadar.
 
 **templates/include/\_\_form.html**
 
@@ -290,12 +380,28 @@ urlpatterns = [
 {% endwith %}
 ```
 
+Geldik sevdiğim bir kısma **\_\_form.html** template'i bu template bütün formlarda
+kullanacağım ortak bir template, uikit'e göre biraz düzenledim.
+
+Kullanımınıda en yukarıya yazmışım
+
+```
+{% include 'analyst/include/__form.html' with form_url_name='' form_id="formId" method="post" form=form' %}
+```
+
+Kullanımda da gördüğünüz gibi formun method'unu ( post, get ) varsayılan post,
+değiştirebiliyorsunuz, varsayılan form olan form objenizi değiştirebiliyorsunuz, form
+id'nizide değiştirebiliyorsunuz ve son olarak varsayılan olarak bulunduğunuz sayfa olan
+form action'ı `form_url_name` ile belirleyebiliyorsunuz.
+
 **templates/registration/register.html**
 
 ```
 {% extends "base.html" %} {% block title %} Register {% endblock title %}
-{% block content %} {% include 'include/__form.html' with buttonText="Register" %}
-{% endblock content %} {% block footer %}
+{% block content %}
+  {% include 'include/__form.html' with buttonText="Register" %}
+{% endblock content %}
+{% block footer %}
 <div class="ui bottom attached warning message">
   <i class="icon help"></i>
   Already signed up? <a href="{% url 'login' %}">Login here</a> instead.
@@ -303,12 +409,17 @@ urlpatterns = [
 {% endblock footer %}
 ```
 
+Register template'imiz burada base'i extend edip content kısmına form'u verip footer
+kısmında eğer hesabı varsa login yapmasını söylemişim mis.
+
 **templates/registration/login.html**
 
 ```
-{% extends "base.html" %} {% block title %} Login {% endblock title %} {% block content
-%} {% include 'include/__form.html' with buttonText="Login" %} {% endblock content %} {%
-block footer %}
+{% extends "base.html" %} {% block title %} Login {% endblock title %}
+{% block content %}
+  {% include 'include/__form.html' with buttonText="Login" %}
+{% endblock content %}
+{% block footer %}
 <div class="ui bottom attached warning message">
   <i class="icon help"></i>
   Do not have an account?
@@ -316,3 +427,9 @@ block footer %}
 </div>
 {% endblock footer %}
 ```
+
+Login sayfasıda aynı şekilde.
+
+Bu konuda anlatacaklarım bu kadar, anlaşılmayan bir bölüm var ise bana telegramdan
+yazabilirsiniz bende bu yazıyı güncelleyerek o başlığı daha detaycı anlatmaya çalışırım,
+okuduğunuz için teşekkürler.

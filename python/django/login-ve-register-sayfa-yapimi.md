@@ -1,3 +1,9 @@
+Bu yazımda sayfaların tasarımı için css yazmak yerine [Uikit](https://getuikit.com/)
+adında front-end framework'u kullanacağım ve bu yazımda kullandığım kodlar
+[Eatingword](https://github.com/hakancelik96/eatingword) adında Django bilgimi taze
+tutmak ve yeni şeyler öğrenmek amacı ile geliştirdiğim projeden alıyorum, şuan için
+proje private, hazır olduğu zaman public yapacağım.
+
 **form_mixin.py**
 
 ```python
@@ -36,6 +42,16 @@ class UikitFormMixin:
             widget.label_classes = ("uk-form-label",)
 ```
 
+`UikitFormMixin` mixinine şöyle bir baktığınızda aslında ne amaç ile yazıldığını
+anlayabilirsiniz, ben yinede kısaca bahsedeyim.
+
+Bir form class'ınıza bu class'ı miras aldığınız zaman, önce form'u çalıştırıyor, sonra
+bu çalışıyor ve bir önceki formda oluşan alanları ( field ) for döngüsü ile alıp her
+birinin `widget` inin tipine ( type ) bakıyor daha sonra gelen tiplere uygun `uikit`
+class atamalarını yapıyor ve field name'e gçre de icon isimlerini atıyor daha sonra bu
+atamaları **\_\_form.html** dosyamızda kullanarak gelen her formu uikit tasarımına sahip
+bir forma dönüştürmüş olacağız.
+
 **forms.py**
 
 ```python
@@ -55,6 +71,33 @@ class RegisterForm(UikitFormMixin, auth_forms.UserCreationForm):
 class AuthenticationForm(UikitFormMixin, auth_forms.AuthenticationForm):
     pass
 ```
+
+Bakın bu form classlarımda tanımlarken `UikitFormMixin` class'ımı miras aldım, o classs
+oto bir şekilde form alanlarımı uikit için hazır hale getiriyor.
+
+Burada neden direkt `from django.contrib.auth import User` böyle yapıp `User` modelini
+almak yerine `from django.contrib.auth import get_user_model` `get_user_model` 'ını
+alıp, onu kullandım ?
+
+sebebi şu arkadaşlar
+[User Modelini Genişletmek](python/django/user-modelini-genisletmek.md) adında bir yazı
+yazmıştım siz bu yazımda bahsettiğim yöntemlerden biri olan `AbstractBaseUser` class'ını
+miras ( inherit )'ını alıp user modelinizi bu şekilde oluşturduysanız o modeli almak
+için, oluşturmadıysanız zaten `User` modelini dönderiyor. Bu sayede user modeliniz nasıl
+olursa olsun uyumlu bir form çıkartmış oluyorsunuz.
+
+Daha sonra zaten Django'da UserCreationForm hazır bir halde var, bu formu Django admin
+sayfasında siz bir user create ederken kullanıyor, bizde kendi register sayfamız için
+kullanacağız var olan bir şeyi baştan yazmamıza gerek yok. Bu formun kodlarını inceleyin
+mutlaka ben sizlere link bırakayım
+[UserCreationForm](https://github.com/django/django/blob/master/django/contrib/auth/forms.py#L82)
+
+Sonra aynı şekilde kullanıcı giriş formu yine Django'da var biz aynı formu kullanacağız
+ama uikit tasarımına uygun olması gerekiyor bu yüzden sadece `UikitFormMixin`' i miras
+aldık ve bu kadar, formlarımız hazır.
+
+Yine aynı şekilde AuthenticationForm'un kodlarını incelemeniz için link bırakıyorum
+[AuthenticationForm](https://github.com/django/django/blob/master/django/contrib/auth/forms.py#L173)
 
 **view_mixin.py**
 
@@ -179,7 +222,7 @@ urlpatterns = [
       <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
           {% if user.is_authenticated %}
-          <li class="uk-active"><a href="{% url 'account:logout' %}">Logout</a></li>
+          <li class="uk-active"><a href="{% url 'logout' %}">Logout</a></li>
           {% endif %}
         </ul>
       </div>
@@ -208,27 +251,17 @@ urlpatterns = [
 
 **templates/include/\_\_form.html**
 
-```html
+```
 <!-- {% comment %}
         {% include 'analyst/include/__form.html' with form_url_name='' form_id="formId" method="post" form=form' %}
     {% endcomment %}
  -->
 {% with button_id=form_id|add:'Button'|default:'formSubmitButton' %}
-<form
-  {%
-  if
-  url_name
-  %}action="{% url form_url_name %}"
-  {%
-  endif
-  %}method="{{ method|default:'POST' }}"
-  id="{{ form_id|default:'formSubmitButton' }}"
-  class="uk-form-horizontal"
->
-  {{ form.media }} {% if method|lower != "get" %} {% csrf_token %} {% endif %} {{
-  form.non_field_errors }} {% for hidden_field in form.hidden_fields %} {{
-  hidden_field.errors }} {{ hidden_field }} {% endfor %} {% for field in
-  form.visible_fields %}
+<form {% if url_name %}action="{% url form_url_name %}" {% endif %} method="{{ method|default:'POST' }}" id="{{ form_id|default:'formSubmitButton' }}" class="uk-form-horizontal">
+  {{ form.media }}
+  {% if method|lower != "get" %} {% csrf_token %} {% endif %}
+  {{ form.non_field_errors }} {% for hidden_field in form.hidden_fields %} {{ hidden_field.errors }}
+  {{ hidden_field }} {% endfor %} {% for field in form.visible_fields %}
   <div class="field" id="group_{{ field.html_name }}">
     {% if field.errors %}
     <ol>
@@ -237,10 +270,7 @@ urlpatterns = [
       {% endfor %}
     </ol>
     {% endif %}
-    <label
-      class="{% for class in field.field.widget.label_classes %}{{ class }}{% endfor %}"
-      for="{{ field.auto_id }}"
-    >
+    <label class="{% for class in field.field.widget.label_classes %}{{ class }}{% endfor %}" for="{{ field.auto_id }}">
       {{ field.label }}
     </label>
     <div class="uk-inline">
@@ -248,9 +278,9 @@ urlpatterns = [
       <span class="uk-form-icon" uk-icon="{{ field.field.widget.uk_icon }}"></span>
       {% endif %} {{ field }}
     </div>
-    <small class="uk-text-meta uk-text-background" id="{{ field.id_for_label }}Help"
-      >{{ field.help_text|safe }}</small
-    >
+    <small class="uk-text-meta uk-text-background" id="{{ field.id_for_label }}Help">
+    {{ field.help_text|safe }}
+    </small>
   </div>
   {% endfor %}
   <button id="{{button_id}}" type="submit" class="uk-button uk-button-primary">
@@ -262,10 +292,10 @@ urlpatterns = [
 
 **templates/registration/register.html**
 
-```html
-{% extends "base.html" %} {% block title %} Register {% endblock title %} {% block
-content %} {% include 'include/__form.html' with buttonText="Register" %} {% endblock
-content %} {% block footer %}
+```
+{% extends "base.html" %} {% block title %} Register {% endblock title %}
+{% block content %} {% include 'include/__form.html' with buttonText="Register" %}
+{% endblock content %} {% block footer %}
 <div class="ui bottom attached warning message">
   <i class="icon help"></i>
   Already signed up? <a href="{% url 'login' %}">Login here</a> instead.
@@ -275,7 +305,7 @@ content %} {% block footer %}
 
 **templates/registration/login.html**
 
-```html
+```
 {% extends "base.html" %} {% block title %} Login {% endblock title %} {% block content
 %} {% include 'include/__form.html' with buttonText="Login" %} {% endblock content %} {%
 block footer %}

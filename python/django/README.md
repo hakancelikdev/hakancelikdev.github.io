@@ -21,3 +21,4 @@ tavsiye ederim, sizin için çok faydalı olacağına eminim.
 - [Birden Fazla Veri Tabanı Kullanımı](python/django/birden-fazla-veri-taban-kullanm-multi-db.md)
 - [Django Sinyalleri Nasıl Oluşturulur \( Django Signals \)](python/django/django-sinyalleri-nasl-olusturulur-django-signals.md)
 - [Django'da Clickjack Tuzağının Engeli Ve Kontrolu - Xframeoptionsmiddleware](python/django/djangoda-clickjack-tuzagnn-engeli-ve-kontrolu-xframeoptionsmiddleware.md)
+- [Login, Register ve Logout Sayfalarının Yapımı](python/django/login-register-ve-logout-sayfalarinin-yapimi.md)

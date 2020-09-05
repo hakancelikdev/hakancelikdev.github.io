@@ -9,4 +9,4 @@
 - [Birden Fazla Veri Tabanı Kullanımı](python/django/birden-fazla-veri-taban-kullanm-multi-db.md)
 - [Django Sinyalleri Nasıl Oluşturulur \( Django Signals \)](python/django/django-sinyalleri-nasl-olusturulur-django-signals.md)
 - [Django'da Clickjack Tuzağının Engeli Ve Kontrolu - Xframeoptionsmiddleware](python/django/djangoda-clickjack-tuzagnn-engeli-ve-kontrolu-xframeoptionsmiddleware.md)
-- [Login ve Register Sayfa Yapımı](python/django/login-ve-register-sayfa-yapimi.md)
+- [Login, Register ve Logout Sayfalarının Yapımı](python/django/login-register-ve-logout-sayfalarinin-yapimi.md)

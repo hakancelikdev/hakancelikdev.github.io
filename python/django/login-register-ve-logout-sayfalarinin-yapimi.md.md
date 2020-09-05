@@ -1,3 +1,5 @@
+# Login, Register ve Logout Sayfalarının Yapımı
+
 Bu yazımda sayfaların tasarımı için css yazmak yerine [Uikit](https://getuikit.com/)
 adında front-end framework'u kullanacağım ve bu yazımda kullandığım kodlar
 [Eatingword](https://github.com/hakancelik96/eatingword) adında Django bilgimi taze

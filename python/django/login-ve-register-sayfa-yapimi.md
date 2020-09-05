@@ -1,10 +1,11 @@
-## Form
-
 Bu yazımda sayfaların tasarımı için css yazmak yerine [Uikit](https://getuikit.com/)
 adında front-end framework'u kullanacağım ve bu yazımda kullandığım kodlar
 [Eatingword](https://github.com/hakancelik96/eatingword) adında Django bilgimi taze
-tutmak ve yeni şeyler öğrenmek amacı ile geliştirdiğim projeden alıyorum, şuan için
-proje private, hazır olduğu zaman public yapacağım.
+tutmak ve yeni şeyler öğrenmek amacı ile geliştirmekte olduğum projemden alıyorum, şuan
+için proje gizli durumda, hazır olduğu zaman
+[MIT lisansı](https://en.wikipedia.org/wiki/MIT_License) ile paylaşacağım.
+
+## Form
 
 **form_mixin.py**
 
@@ -47,12 +48,12 @@ class UikitFormMixin:
 `UikitFormMixin` mixinine şöyle bir baktığınızda aslında ne amaç ile yazıldığını
 anlayabilirsiniz, ben yinede kısaca bahsedeyim.
 
-Bir form class'ınıza bu class'ı miras aldığınız zaman, önce form'u çalıştırıyor, sonra
-bu çalışıyor ve bir önceki formda oluşan alanları ( field ) for döngüsü ile alıp her
-birinin `widget` inin tipine ( type ) bakıyor daha sonra gelen tiplere uygun `uikit`
-class atamalarını yapıyor ve field name'e gçre de icon isimlerini atıyor daha sonra bu
-atamaları **\_\_form.html** dosyamızda kullanarak gelen her formu uikit tasarımına sahip
-bir forma dönüştürmüş olacağız.
+Bir form sınıfımıza bu sınıfı miras aldığınız zaman, önce form'u çalıştırıyor, sonra bu
+çalışıyor ve bir önceki formda oluşan alanları for döngüsü ile alıp her birinin `widget`
+inin tipine bakıyor daha sonra gelen tiplere uygun `uikit` sınıf atamalarını yapıyor ve
+alan isimlerine göre de icon isimlerini atıyor daha sonra bu atamaları **\_\_form.html**
+şablonumuzu kullanarak gelen her formu uikit tasarımına sahip bir forma dönüştürmüş
+olacağız.
 
 **forms.py**
 
@@ -83,22 +84,20 @@ alıp, onu kullandım ?
 
 sebebi şu arkadaşlar
 [User Modelini Genişletmek](python/django/user-modelini-genisletmek.md) adında bir yazı
-yazmıştım siz bu yazımda bahsettiğim yöntemlerden biri olan `AbstractBaseUser` class'ını
-miras ( inherit )'ını alıp user modelinizi bu şekilde oluşturduysanız o modeli almak
-için, oluşturmadıysanız zaten `User` modelini dönderiyor. Bu sayede user modeliniz nasıl
-olursa olsun uyumlu bir form çıkartmış oluyorsunuz.
+yazmıştım size bu yazımda bahsettiğim yöntemlerden biri olan `AbstractBaseUser` sınıfını
+miras alıp kullanıcı modelinizi bu şekilde oluşturduysanız o modeli dönderir ,
+oluşturmadıysanız zaten varsayılan olan `User` modelini dönderiyor. Bu sayede user
+modeliniz nasıl olursa olsun uyumlu bir form çıkartmış oluyorsunuz.
 
-Daha sonra zaten Django'da UserCreationForm hazır bir halde var, bu formu Django admin
-sayfasında siz bir user create ederken kullanıyor, bizde kendi register sayfamız için
-kullanacağız var olan bir şeyi baştan yazmamıza gerek yok. Bu formun kodlarını inceleyin
-mutlaka ben sizlere link bırakayım
+Daha sonra zaten Django'da `UserCreationForm` hazır bir halde var, bu formu Django admin
+sayfasında siz bir kullanıcı oluşturduğunuzda kullanıyor, bizde kendi kayıt ol sayfamızı
+yazarken kullanacağız. Bu formun kodlarını inceleyin mutlaka ben sizlere link bırakayım
 [UserCreationForm](https://github.com/django/django/blob/master/django/contrib/auth/forms.py#L82)
 
 Sonra aynı şekilde kullanıcı giriş formu yine Django'da var biz aynı formu kullanacağız
 ama uikit tasarımına uygun olması gerekiyor bu yüzden sadece `UikitFormMixin`' i miras
-aldık ve bu kadar, formlarımız hazır.
-
-Yine aynı şekilde AuthenticationForm'un kodlarını incelemeniz için link bırakıyorum
+aldık ve bu kadar, formlarımız hazır. Yine aynı şekilde AuthenticationForm'un kodlarını
+incelemeniz için link bırakıyorum
 [AuthenticationForm](https://github.com/django/django/blob/master/django/contrib/auth/forms.py#L173)
 
 ## View
@@ -118,14 +117,16 @@ class MessageMixin(SuccessMessageMixin):
         return super().form_invalid(form)
 ```
 
-Bu classımız ile de form işlemleri sonrası başarılı ( success ) mesajı yada form invalid
-olur ise onun mesajını vermek için kullanacağız, Bu view'i kullanmak için ilgili class
-based view'imize miras almamız yeterli olacaktır, eğer isterseniz `success_message`
-attribute'u ile success mesajını kendiniz belirleyebilirsiniz.
+Bu sınıfımız ile de form işlemleri sonrası form başarılı şekilde geçerli olursa başarılı
+mesajını, geçersiz olursa form geçersiz mesajını, vermek için kullanacağız.
 
-Djangoda success mesajı için zaten `SuccessMessageMixin` adlı bir class var ben yukarıda
-bunu miras alarak hem onu hemde form invalid oldugunda mesaj iletsin diye böyle bir
-class yazdım.
+Bu view'i kullanmak için ilgili sınıf tabanlı view'imize miras almamız yeterli
+olacaktır, eğer isterseniz `success_message` niteliği ile başarılı mesajını kendiniz
+belirleyebilirsiniz.
+
+Djangoda başarılı mesajı için zaten `SuccessMessageMixin` adlı bir sınıf var ben
+yukarıda bunu miras alarak hem onu hemde form geçersiz oldugunda mesaj iletsin diye
+böyle bir sınıf yazdım.
 
 **views.py**
 
@@ -141,23 +142,23 @@ from .view_mixin import MessageMixin
 
 
 class RegisterView(MessageMixin, generic.CreateView):
-    template_name = "registration/register.html" # get isteği sonrası render edilecek olan template'imiz
-    success_url = reverse_lazy("wordapp:index") # form valid olur ve herhangi bir sıkıntı çıkmaz ise bu adrese yönlenecek
-    form_class = RegisterForm # form class'ımız
-    success_message = "You have successfully registered %(username)s" # form valid olursa tanımlı olan success_url'e yönlenmeden önce messages ile gönderilecek olan mesaj
+    template_name = "registration/register.html" # get isteği sonrası render edilecek olan şablonumuz
+    success_url = reverse_lazy("wordapp:index") # form geçerli olur ve herhangi bir sıkıntı çıkmaz ise bu adrese yönlenecek
+    form_class = RegisterForm # form sınıfımız
+    success_message = "You have successfully registered %(username)s" # form geçerli olursa tanımlı olan success_url'e yönlenmeden önce messages ile gönderilecek olan mesaj
 
     def form_valid(self, form):
-        # tanımlı form_class'ımız post isteği sonrası valid olduğu zaman çalışacak olan fonksiyon
-        response = super().form_valid(form) # formu save edip yukarıda tanımlı olan success_url'e redirect eden responsu alıyoruz
-        if user := authenticate( # self.object si super().form_valid(form) sırasında kayıt olan formun dönderdiği objedir yanı kayıt olan userımızdır.
+        # tanımlı form_class'ımız post isteği sonrası geçerli olduğu zaman çalışacak olan fonksiyon
+        response = super().form_valid(form) # formu kayıt edip yukarıda tanımlı olan success_url'e yönlenecek olan responsu alıyoruz.
+        if user := authenticate( # self.object si super().form_valid(form) sırasında kayıt olan formun dönderdiği nesnedir yanı kayıt olan kullanıcımızdır.
             self.request,
             username=self.object.username,
             password=self.object.password,
-        ): # burada başarılı bir user girişi var ise bize o user'ı döndürecek, python 3.8 ile gelen := walrus operatürü ile bunu alıyoruz.
-            login(self.request, user) # burada dönen kullanıcıyı login ediyoruz, Django cookie ataması vs yapıyor.
+        ): # burada başarılı bir kullanıcı girişi var ise bize o kullanıcıyı döndürecek, python 3.8 ile gelen := walrus operatürü ile bunu alıyoruz.
+            login(self.request, user) # burada dönen kullanıcının giriş yapmasını sağlıyoruz.
         else:
             messages.error(self.request, "Could not login") # user false dönerse, mesaj gönderiyoruz
-        return response # yukarıda bize dönen responsu döndüyoruz, bu sayede kullanıcı success_url tanımlı adrese dönüyor
+        return response # yukarıda bize dönen cevabı döndüyoruz, bu sayede kullanıcı success_url tanımlı adrese yönleniyor.
 
 
 class LoginView(MessageMixin, auth_views.LoginView):
@@ -165,8 +166,10 @@ class LoginView(MessageMixin, auth_views.LoginView):
     success_message = "You have successfully logged in %(username)s"
 ```
 
-Geldik viewlerimize register ve login viewlerimiz yukarıda da gördüğünüz gibi oldukça
-kısa zaten bir şeyler gereksizce uzun ise bir çok şeyi yanlış yapıyorsunuzdur.
+Geldik viewlerimize
+
+Kayıt olmak ve giriş yapmamızı sağlayan viewlerimiz yukarıda da gördüğünüz gibi oldukça
+kısa, bir şeyler gereksizce uzun ise bir çok şeyi yanlış yapıyorsunuzdur.
 
 Register view'imizın amacı yeni bir kullanıcı kayıt etmek olduğu için bunun
 `generic.CreateView` kullanarak hızlı bir şekilde yapabiliriz.
@@ -199,7 +202,7 @@ urlpatterns = [
 ]
 ```
 
-Daha sonra urllerimiz tanımladık, logout için tekrardan bir view yazmadık cunku
+Daha sonra urllerimiz tanımladık, çıkış işlemi için tekrardan bir view yazmadık cunku
 Django'da var zaten,
 [LogoutView](https://github.com/django/django/blob/master/django/contrib/auth/views.py#L107)
 
@@ -209,7 +212,7 @@ Django'da var zaten,
 
 Form işlemleri sonrası Django messages framework'u ile mesaj yolluyorduk yukarıda, ben o
 mesajları daha güzel göstermek adına [toastr](https://github.com/CodeSeven/toastr)
-adında bir js lib'i kullanıyorum, Django ile dönen mesajları **base.html** template'imin
+adında bir JS lib'i kullanıyorum, Django ile dönen mesajları **base.html** template'imin
 head etiketi içine basıp daha sonra js ile çekip mesaj var ise gösteriyorum, ilgili
 kodları aşağıda göreceksiniz.
 
@@ -336,8 +339,8 @@ eğer Django mesaj basmış ise dönen uyarı tipine ( error, warning, vs ) gör
 ```
 
 Yukarıda **base.html** dosyasını görüyorsunuz, anlatacak çok bir şey yok aslında, title,
-content, footer adında 3 blogum var, base.html dosyamı extend edeceğim zaman onları
-kullanarak bir tasarım çıkartıyorum, js, css linkleri vs var o kadar.
+content, footer adında 3 blogum var, base.html dosyamı genişleteceğim zaman onları
+kullanarak bir tasarım çıkartıyorum, JS, CSS linkleri vs var o kadar.
 
 **templates/include/\_\_form.html**
 
@@ -380,8 +383,8 @@ kullanarak bir tasarım çıkartıyorum, js, css linkleri vs var o kadar.
 {% endwith %}
 ```
 
-Geldik sevdiğim bir kısma **\_\_form.html** template'i bu template bütün formlarda
-kullanacağım ortak bir template, uikit'e göre biraz düzenledim.
+Geldik sevdiğim bir kısma **\_\_form.html** şablona bu şablon bütün formlarda
+kullanacağım ortak bir şablondur, uikit'e göre biraz düzenledim.
 
 Kullanımınıda en yukarıya yazmışım
 
@@ -390,7 +393,7 @@ Kullanımınıda en yukarıya yazmışım
 ```
 
 Kullanımda da gördüğünüz gibi formun method'unu ( post, get ) varsayılan post,
-değiştirebiliyorsunuz, varsayılan form olan form objenizi değiştirebiliyorsunuz, form
+değiştirebiliyorsunuz, varsayılan form olan form nesnenizi değiştirebiliyorsunuz, form
 id'nizide değiştirebiliyorsunuz ve son olarak varsayılan olarak bulunduğunuz sayfa olan
 form action'ı `form_url_name` ile belirleyebiliyorsunuz.
 
@@ -409,8 +412,8 @@ form action'ı `form_url_name` ile belirleyebiliyorsunuz.
 {% endblock footer %}
 ```
 
-Register template'imiz burada base'i extend edip content kısmına form'u verip footer
-kısmında eğer hesabı varsa login yapmasını söylemişim mis.
+Kayıt ol şablonumuz burada base'i genişletip content kısmına form'u verip footer
+kısmında eğer hesabı varsa login yapmasını söylemişim.
 
 **templates/registration/login.html**
 

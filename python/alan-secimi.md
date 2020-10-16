@@ -4,14 +4,8 @@ listelenmiştir.
 
 # Alan Seçimi
 
-### Web Geliştirme
+- [Web Geliştirme | Django](python/django/README.md)
 
-{% page-ref page="django/" %}
+- [Görüntü İşleme | OPENCV](python/opencv/README.md)
 
-### Görüntü İşleme
-
-{% page-ref page="opencv/" %}
-
-### Cpython'a Katkı Yapmak
-
-{% page-ref page="cpython/" %}
+- [Python'a Katkı Yap](python/cpython/README.md)

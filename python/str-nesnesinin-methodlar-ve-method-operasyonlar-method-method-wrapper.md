@@ -23,7 +23,11 @@ Methodlar bir sınıf \( nesne, object \) altında bulunan fonksiyonlardır.
 #### Method-wrapper Nedir
 
 Kendileri yine bir method olup built-in \( yerleşik işlev \) objeleri için c katinda
-tanımlanmış edilmis ve belli operasyonların daha hızlı olmasını sağlayan methodlardır.
+tanımlanmış ve belli operasyonların daha hızlı olmasını sağlayan methodlardır.
+
+Burada anlatılacak olan wrapper'ler Python'da tanımlanmış her objede bulunur, bu yazımda
+str nesnesi üzerinden ilerlediğim için başlığı bu şekilde verdim ama yinede not düşmüş
+olayım.
 
 > Python c dili ile yazıldığından
 
@@ -37,6 +41,9 @@ Genellikle farkına varmadan kullanırız bu methodları örnek vermek gerekirse
 Bu gibi işlemleri yapmamızı sağlarlar.
 
 ## Method-Wrappers
+
+Bu konu nesne yönetimli programlama (object oriented programming) başlığında önemli, bu
+wrapperleri bildiğimiz takdirde oluşturduğumuz yeni nesnemize göre değiştirebiliriz.
 
 ### `__ne__` Eşit Değildir Operasyon Methodu \( Not Equal to Operation Method\)
 
@@ -122,7 +129,7 @@ class TStr(str): # TStr isimli bir nesne, object oluşturdum, ve str nesnemi mir
 
  def __mul__(self, times): # nesne içine __mul__ adında bir fonksiyon tanımladım
                 # bu fonksiyon TStr isimli nesnemin bir methodudur.
- return times # nesnem ile girilen değeri çarpmak yerine kişinin çarpmak istediği
+    return times # nesnem ile girilen değeri çarpmak yerine kişinin çarpmak istediği
                 # sayısı döndürdüm.
 
 test_str = TStr("bu bir test sınıfıdır") # yeni sınıfımı kullanarak bir str değeri oluşturdum ve test_str isimli değişkene attım
@@ -280,11 +287,19 @@ Bu iki örnek aynı işlemi yapar biz `__iter__` methodunu fark etmeden kullanı
 
 ### `__init_subclass__` Methodu
 
-Bu method str nesnesi miras alındığında çalışır.
+Bu method-wrapper ilgili nesne miras alındığında çalışır, bu wrapperin yaptığı işi
+`__new__` wrapperini kullanarakta yapılabilmektedir. Daha fazla bilgiye buradan
+ulaşabilirsiniz,
+[PEP 487 -- Simpler customisation of class creation](https://www.python.org/dev/peps/pep-0487/)
+
+### `__new__` Methodu
+
+Bu method ise nesneler çağrıldığında çalışan ilk method'dur. Diğer dillerde bulunan
+constructor, python'da `__new__`'e denktir. Yapıcı fonksiyon olarakta geçer.
 
 ### `__init__` Methodu
 
-Bu method ise nesneler çağrıldığında çalışan ilk method'dur
+Bu method ise nesne çalıştığında attributeler atamak için kullandığımız bir method'dur.
 
 ## Methods
 

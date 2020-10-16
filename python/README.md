@@ -13,6 +13,5 @@
 - [Python'da Döngüler](python/pythonda-donguler.md)
 - [String Nesnesinin Methodları ve Method Operasyonları](python/str-nesnesinin-methodlar-ve-method-operasyonlar-method-method-wrapper.md)
 - [Python'da Hata Yönetimi](python/pythonda-hata-yonetimi.md)
-- [Sözlük Veri Tipini Python Nesnesine Dönüştürme](python/sozluk-veri-tipini-python-nesnesine-donusturme.md)
 - [Kütüphane, Modül ve Paketler](python/kuetuephane-moduel-ve-paketler.md)
 - [Alan Seçimi](python/alan-secimi.md)

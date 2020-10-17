@@ -9,4 +9,4 @@
   )
 - Author of [Unimport](https://github.com/hakancelik96/unimport) ( Eylül 2019 | ~ )
 
-[Tr](/) [En](/en/)
+[Tr](/) [En](/en/) [RESUME](https://resume.io/r/UstYUfbE6)

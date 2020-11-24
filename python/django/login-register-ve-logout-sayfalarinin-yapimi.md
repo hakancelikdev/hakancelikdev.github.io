@@ -322,16 +322,10 @@ eğer Django mesaj basmış ise dönen uyarı tipine ( error, warning, vs ) gör
     <!-- start:: body -->
     <div class="uk-card">
       <div class="uk-card-header">
-        <h3 class="uk-card-title">
-          {% block title %}{% endblock title %}
-        </h3>
+        <h3 class="uk-card-title">{% block title %}{% endblock title %}</h3>
       </div>
-      <div class="uk-card-body">
-        {% block content %}{% endblock content %}
-      </div>
-      <div class="uk-card-footer">
-        {% block footer %}{% endblock footer %}
-      </div>
+      <div class="uk-card-body">{% block content %}{% endblock content %}</div>
+      <div class="uk-card-footer">{% block footer %}{% endblock footer %}</div>
     </div>
     <!-- end:: body -->
     <!-- start:: footer -->

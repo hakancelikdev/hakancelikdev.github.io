@@ -1,6 +1,6 @@
-![](../_media/icon.jpg ":size=140px")
+![](../_media/icon.jpg ":size=14%")
 
-# Hakan Çelik <small>Python Software Developer at Dofotech</small>
+# Hakan Çelik <small>Python Software Developer at DeepInfo</small>
 
 - Founder of [Coogger | Failed](https://github.com/coogger) ( October 2017 | February
   2020 )
@@ -9,7 +9,7 @@
 - Django Software Developer at [Prisma CSI](https://www.linkedin.com/company/prismacsi/)
   ( October 2019 | September 2020)
 - Author of [Unimport](https://github.com/hakancelik96/unimport) ( September 2019 | ~ )
-- Python Software Developer at [Dofotech](https://www.linkedin.com/company/dofotech/) (
+- Python Software Developer at [DeepInfo](https://www.linkedin.com/company/deepinfo/) (
   November 2020 | ~ )
 
-[Tr](/) [En](/en/) [RESUME](https://resume.io/r/UstYUfbE6)
+[Tr](/) [En](/en/) [RESUME](https://resume.io/r/UstYUfbE6) [CONTACT](#contact)

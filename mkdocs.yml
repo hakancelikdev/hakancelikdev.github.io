@@ -1,0 +1,139 @@
+site_name: Hakan Çelik
+site_description: Hakan Çelik - Software Engineer at DeepInfo
+site_url: https://hakancelik.dev
+
+markdown_extensions:
+  - fenced_code
+  - footnotes
+  - tables
+  - codehilite
+  - legacy_em
+  - meta
+  - sane_lists
+  - smarty
+  - toc:
+      permalink: true
+      baselevel: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid-experimental
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+plugins:
+  - search:
+      separator: '[\s\-\.]+'
+      prebuild_index: true
+
+  - git-revision-date-localized:
+      type: date
+      enable_creation_date: true
+
+  - minify:
+      minify_html: true
+
+extra:
+  version:
+    provider: mike
+    default: stable
+
+  social:
+    - icon: fontawesome/brands/ravelry
+      link: https://resume.io/r/UstYUfbE6
+
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/unimport
+
+    - icon: fontawesome/brands/discord
+      link: https://discord.com/invite/6z8YXy4
+
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/hakancelik96
+
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/hakancelik96
+
+    - icon: fontawesome/solid/globe
+      link: https://hakancelik.dev
+
+  analytics:
+    provider: google
+    property: G-X2KBT06ZP2
+
+  homepage: https://hakancelik.dev
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+    - header.autohide
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: red
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: red
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+  font:
+    text: Noto Sans
+    code: Roboto Mono
+
+  icon:
+    repo: fontawesome/brands/github
+
+copyright: Copyright &copy; 2020 - 2020 Hakan Çelik
+repo_url: https://github.com/hakancelik96/hakancelik.dev
+repo_name: hakancelik96/hakancelik.dev
+edit_uri: https://github.com/hakancelik96/hakancelik.dev/tree/master/docs
+
+nav:
+  - Welcome: index.md
+  - Git: git/README.md
+  - Python: python/README.md
+  - Django: python/django/README.md
+  - Opencv: python/opencv/README.md
+  - CPython: python/cpython/README.md
+  - Javascript: javascript/README.md
+  - Clickjacking: clickjacking/README.md
+  - Sass: sass/README.md

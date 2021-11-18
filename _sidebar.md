@@ -1,8 +1,0 @@
-- [**Git**](git/README.md)
-- [**Python**](python/README.md)
-  - [**Django**](python/django/README.md)
-  - [**Opencv Python**](python/opencv/README.md)
-  - [**CPython**](python/cpython/README.md)
-- [**JavaScript**](javascript/README.md)
-- [**Clickjacking**](clickjacking/README.md)
-- [**Sass**](sass/README.md)

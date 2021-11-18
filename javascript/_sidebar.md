@@ -1,1 +1,0 @@
-- [insertAdjacentHTML](javascript/insertAdjacentHTML.md)

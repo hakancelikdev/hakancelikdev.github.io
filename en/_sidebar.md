@@ -1,2 +1,0 @@
-- [**Python**](en/python/README.md)
-  - [**Django**](en/python/django/README.md)

@@ -1,6 +1,6 @@
 site_name: Hakan Çelik
 site_description: Hakan Çelik - Software Engineer at DeepInfo
-site_url: https://hakancelik.dev
+site_url: https://www.hakancelik.dev
 
 markdown_extensions:
   - fenced_code
@@ -77,13 +77,13 @@ extra:
       link: https://www.linkedin.com/in/hakancelik96
 
     - icon: fontawesome/solid/globe
-      link: https://hakancelik.dev
+      link: https://www.hakancelik.dev
 
   analytics:
     provider: google
     property: G-X2KBT06ZP2
 
-  homepage: https://hakancelik.dev
+  homepage: https://www.hakancelik.dev
 
 theme:
   name: material

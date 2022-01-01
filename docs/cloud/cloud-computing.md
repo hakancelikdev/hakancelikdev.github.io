@@ -1,17 +1,16 @@
 ## Cloud Compuing Nedir ?
 
-Cloud computing, kullandığın kadar öde ( pay-as-you-go ) fiyatlandırmasıyla IT
-kaynaklarının İnternet üzerinden isteğe bağlı olarak ihtiyac duydukları hizmetleri
-almasıdır. Fiziksel veri merkezleri ve sunucuları satın almak, bunlara sahip olmak ve
-bakımını yapmak yerine, Amazon Web Services (AWS) gibi bir bulut sağlayıcısından bilgi
+Cloud computing, kullandığın kadar öde ( pay-as-you-go ) fiyatlandırmasıyla Bulut
+teknoloji kaynaklarının İnternet üzerinden isteğe bağlı olarak ihtiyac duydukları
+hizmetleri almasıdır. Fiziksel veri merkezleri ve sunucuları satın almak, bunlara sahip
+olmak ve bakımını yapmak yerine, Amazon Web Services (AWS) gibi bir cloud provider bilgi
 işlem gücü, depolama ve veritabanları gibi teknoloji hizmetlerine gerektiği gibi
 erişilebilir.
 
 ## Cloud Computing'i Kimler Kullanır?
 
-En küçük startuplardan en büyük firmalara kadar, veri yedekleme, e-posta, test etme
-işlemi sağlık oyun veya video üreticileri gibi bir çok sektör ihtiyacına yönelik
-kullanabilir.
+En küçük startuplardan en büyük firmalara kadar, veri yedekleme, e-posta, test etme,
+sağlık, oyun veya video üreticileri gibi bir çok sektör ihtiyacına yönelik kullanabilir.
 
 ## Cloud Computing Kullanmanın Yararları Nelerdir?
 
@@ -58,13 +57,13 @@ as a Service ( PAAS ) ve Software as a Service ( SAAS ). Her bir cloud computing
 farklı seviyelerde kontrol imkanı sağlar, bu sayede ihtiyacınıza en uygun olanı
 seçebilirsiniz.
 
-### Infrastructure as a Service (IaaS) - Altyapı Hizmeti
+### Infrastructure as a Service (IaaS)
 
-IaaS, cloud IT için temel yapı taşlarını içerir. Genellikle ağ özelliklerine,
-bilgisayarlara (sanal veya özel donanımda) ve veri depolama alanına erişim sağlar. IaaS,
-size IT kaynaklarınız üzerinde en yüksek düzeyde esneklik ve yönetim kontrolü sağlar.
-Birçok IT departmanının ve geliştiricisinin aşina olduğu mevcut IT kaynaklarına çok
-benzer.
+IaaS, cloud bilişim teknolojisi için temel yapı taşlarını içerir. Genellikle ağ
+özelliklerine, bilgisayarlara (sanal veya özel donanımda) ve veri depolama alanına
+erişim sağlar. IaaS, size bulut bilişim kaynaklarınız üzerinde en yüksek düzeyde
+esneklik ve yönetim kontrolü sağlar. Birçok bulut bişilim departmanının ve
+geliştiricisinin aşina olduğu mevcut bulut bilişim kaynaklarına çok benzer.
 
 DigitalOcean, Linode, Rackspace, Amazon Web Services (AWS), Cisco Metapod, Microsoft
 Azure, Google Compute Engine (GCE)

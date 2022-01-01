@@ -20,5 +20,5 @@ jobs:
 
       - name: Build Docs
         run: |
-          git fetch --all 
+          git fetch --all
           mkdocs gh-deploy -m "Update Docs" --remote-branch gh-pages

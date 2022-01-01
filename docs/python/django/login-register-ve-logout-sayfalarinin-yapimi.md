@@ -84,10 +84,9 @@ Burada neden direkt `from django.contrib.auth import User` böyle yapıp `User` 
 almak yerine `from django.contrib.auth import get_user_model` `get_user_model` 'ını
 alıp, onu kullandım ?
 
-sebebi şu arkadaşlar
-[User Modelini Genişletmek](user-modelini-genisletmek.md) adında bir yazı
-yazmıştım size bu yazımda bahsettiğim yöntemlerden biri olan `AbstractBaseUser` sınıfını
-miras alıp kullanıcı modelinizi bu şekilde oluşturduysanız o modeli dönderir ,
+sebebi şu arkadaşlar [User Modelini Genişletmek](user-modelini-genisletmek.md) adında
+bir yazı yazmıştım size bu yazımda bahsettiğim yöntemlerden biri olan `AbstractBaseUser`
+sınıfını miras alıp kullanıcı modelinizi bu şekilde oluşturduysanız o modeli dönderir ,
 oluşturmadıysanız zaten varsayılan olan `User` modelini dönderiyor. Bu sayede user
 modeliniz nasıl olursa olsun uyumlu bir form çıkartmış oluyorsunuz.
 

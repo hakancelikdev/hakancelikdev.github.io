@@ -1,19 +1,12 @@
-### Projects
+### Hi there 👋️ I'am Hakan!
 
-- [Unimport](https://unimport.hakancelik.dev/)
-- [Pyall](https://pyall.hakancelik.dev/)
-- [Coogger](https://github.com/coogger/coogger)
+- 👝 I'am currently software engineer at [DeepInfo](https://www.linkedin.com/company/deepinfo/)
+- 🔭 I’m currently working on [unimport](https://github.com/hakancelik96/unimport)
+- 🌱 I’m currently learning Python, Elasticsearch
+- 📫 How to reach me: contact@hakancelik.dev
 
-### Volunteer Experiences
+### Join Our Telegram Community
 
 - [Django Turkey Telegram Community](https://t.me/django_turkey)
 - [FastAPI Turkey Telegram Community](https://t.me/fastapi_turkey)
 
-### Formerly
-
-- Django Software Developer at [Apas](https://www.linkedin.com/company/apasplus/)
-- Django Software Developer at [PRISMA CSI](https://www.linkedin.com/company/prismacsi/)
-
-### Currently
-
-Software Engineer at [DeepInfo](https://www.linkedin.com/company/deepinfo/)

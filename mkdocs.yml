@@ -62,10 +62,7 @@ extra:
 
   social:
     - icon: fontawesome/brands/ravelry
-      link: https://resume.io/r/UstYUfbE6
-
-    - icon: fontawesome/brands/discord
-      link: https://discord.com/invite/6z8YXy4
+      link: /resume
 
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/hakancelikdev
@@ -73,8 +70,8 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/hakancelikdev
 
-    - icon: fontawesome/solid/globe
-      link: https://www.hakancelik.dev
+    - icon: fontawesome/brands/github
+      link: https://github.com/hakancelikdev
 
   analytics:
     provider: google
@@ -120,12 +117,12 @@ theme:
     repo: fontawesome/brands/github
 
 copyright: Copyright &copy; 2020 - 2020 Hakan Çelik
-repo_url: https://github.com/hakancelik96/hakancelik.dev
-repo_name: hakancelik96/hakancelik.dev
-edit_uri: https://github.com/hakancelik96/hakancelik.dev/tree/master/docs
+repo_url: https://github.com/hakancelikdev/hakancelik.dev
+repo_name: hakancelikdev/hakancelik.dev
+edit_uri: https://github.com/hakancelikdev/hakancelik.dev/tree/master/docs
 
 nav:
-  - Welcome: index.md
+  - Index: index.md
   - Git: git/README.md
   - Python: python/README.md
   - Django: python/django/README.md

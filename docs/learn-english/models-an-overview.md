@@ -111,21 +111,4 @@ marathon." (meaning: She had the ability to finish the marathon) In these exampl
 "able to" is used to indicate that the subject has the ability to do the action
 described by the main verb.
 
-## Other things
-
-There are a few other things that you may want to know about modal verbs:
-
-- Modal verbs are always followed by a base verb, which is the main verb in the
-  sentence. The base verb usually appears in its base form (also known as the infinitive
-  form), without "-ing" or "-ed" endings.
-- Modal verbs are not conjugated to match the subject of the sentence. This means that
-  they do not change form based on the person or number of the subject. For example: "I
-  can swim," "she can swim," "we can swim."
-- Modal verbs do not have a past tense form. To express past tense, you can use the
-  modal verb "could" or the appropriate verb tense of the base verb. For example: "I
-  could swim when I was younger" (past ability) or "I was able to swim when I was
-  younger" (past ability).
-- Modal verbs do not have a future tense form. To express future tense, you can use the
-  modal verb "will" or the appropriate verb tense of the base verb. For example: "I will
-  be able to swim next summer" (future ability) or "I will learn how to swim next
-  summer" (future action).
+Other resource; https://www.grammarly.com/blog/modal-verbs/

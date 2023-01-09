@@ -77,3 +77,55 @@ two examples, "may" is used to express possibility and to request permission.
 **_It is worth noting that "may" is often considered to be more formal than "can," and
 is used more frequently in written English than in spoken English. "Can" is more
 commonly used in spoken English to express ability or possibility._**
+
+## Using Modals with All Tenses
+
+Modal verbs can be used with all tenses, although the meaning of the modal verb may
+change depending on the tense of the main verb.
+
+For example, here are the modal verb "could" used with various tenses:
+
+Simple present: "I could swim when I was younger." (ability in the past) Present
+continuous: "I am just learning how to swim. I couldn't swim before." (ability in the
+past) Simple past: "I couldn't swim when I was younger." (ability in the past) Past
+continuous: "I was trying to learn how to swim, but I couldn't swim very well." (ability
+in the past) Simple future: "I will be able to swim next summer." (ability in the
+future) Future continuous: "I will be learning how to swim next summer." (ability in the
+future) Future perfect: "I will have learned how to swim by next summer." (ability in
+the future)
+
+As you can see, the meaning of the modal verb "could" changes depending on the tense of
+the main verb. Similarly, the other modal verbs can be used with various tenses to
+express different meanings.
+
+## Able to
+
+"Able to" is an adjective phrase that is used to indicate that someone or something has
+the ability or capability to do something. It is often used as an alternative to using a
+modal verb such as "can" or "could."
+
+For example:
+
+"I am able to swim." (meaning: I have the ability to swim) "She was able to finish the
+marathon." (meaning: She had the ability to finish the marathon) In these examples,
+"able to" is used to indicate that the subject has the ability to do the action
+described by the main verb.
+
+## Other things
+
+There are a few other things that you may want to know about modal verbs:
+
+- Modal verbs are always followed by a base verb, which is the main verb in the
+  sentence. The base verb usually appears in its base form (also known as the infinitive
+  form), without "-ing" or "-ed" endings.
+- Modal verbs are not conjugated to match the subject of the sentence. This means that
+  they do not change form based on the person or number of the subject. For example: "I
+  can swim," "she can swim," "we can swim."
+- Modal verbs do not have a past tense form. To express past tense, you can use the
+  modal verb "could" or the appropriate verb tense of the base verb. For example: "I
+  could swim when I was younger" (past ability) or "I was able to swim when I was
+  younger" (past ability).
+- Modal verbs do not have a future tense form. To express future tense, you can use the
+  modal verb "will" or the appropriate verb tense of the base verb. For example: "I will
+  be able to swim next summer" (future ability) or "I will learn how to swim next
+  summer" (future action).

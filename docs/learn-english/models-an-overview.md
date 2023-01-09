@@ -111,4 +111,20 @@ marathon." (meaning: She had the ability to finish the marathon) In these exampl
 "able to" is used to indicate that the subject has the ability to do the action
 described by the main verb.
 
+## Have to, Has to ?
+
+"Have to" and "has to" are used to express obligation or necessity. They are similar to
+the modal verb "must," but are used more frequently in spoken English.
+
+"Have to" is used in the present and future tenses to express obligation or necessity.
+For example:
+
+"I have to finish my homework before I watch TV." (present obligation) "We will have to
+leave early to catch the first train." (future necessity) "Has to" is used in the
+present tense to express obligation or necessity. For example:
+
+"She has to finish her homework before she can watch TV." (present obligation) In each
+of these examples, "have to" and "has to" are used to indicate that something is
+required or necessary.
+
 Other resource; https://www.grammarly.com/blog/modal-verbs/

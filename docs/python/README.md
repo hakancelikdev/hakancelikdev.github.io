@@ -1,7 +1,9 @@
 # Python
 
-> Python, Guido Van Rossum Tarafından Tasarlanan Dinamik Olarak Yazılan Bir Programlama
-> Dilidir
+> Python, 1991 yılında Guido van Rossum tarafından yazılmış bir programlama dili. Geniş
+> bir kullanım alanına sahiptir ve veri analitikten, web geliştirmeye, makine öğrenimine
+> kadar birçok alanda kullanılabilir. Açık kaynak kodlu bir dildir ve kolay
+> anlaşılabilir ve okunaklı yapısı ile öğrenimi kolaydır.
 
 - [Python Nedir](python-nedir.md)
 - [Python Kurulumu](pythona-giris-anaconda-atom-ve-pip-kurulumu.md)
@@ -14,4 +16,3 @@
 - [String Nesnesinin Methodları ve Method Operasyonları](str-nesnesinin-methodlar-ve-method-operasyonlar-method-method-wrapper.md)
 - [Python'da Hata Yönetimi](pythonda-hata-yonetimi.md)
 - [Kütüphane, Modül ve Paketler](kuetuephane-moduel-ve-paketler.md)
-- [Alan Seçimi](alan-secimi.md)

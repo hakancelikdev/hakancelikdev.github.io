@@ -5,8 +5,6 @@ programlama dilidir. JavaScript yüksek seviyeli, genellikle tam zamanında ( ju
 ) derlenen ve çoklu paradigmalıdır. Kıvrımlı parantez sözdizimi, dinamik yazım, prototip
 tabanlı nesne yönlendirme ve birinci sınıf işlevlere sahiptir.
 
-**Tavsiye Edilen Kaynaklar**
-
-- https://javascript.info/
+**Tavsiye Edilen Kaynaklar** https://javascript.info/
 
 - [insertAdjacentHTML](insertAdjacentHTML.md)

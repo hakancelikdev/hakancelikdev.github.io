@@ -118,13 +118,87 @@ theme:
 nav:
   - Overview: index.md
   - Subdomains: subdomains.md
-  - Git: git/README.md
-  - Python: python/README.md
-  - Django: python/django/README.md
-  - Opencv: python/opencv/README.md
-  - CPython: python/cpython/README.md
-  - Javascript: javascript/README.md
-  - Clickjacking: clickjacking/README.md
-  - Sass: sass/README.md
-  - Cloud: cloud/README.md
-  - Learn English: learn-english/README.md
+  - Git:
+      - git/README.md
+      - git/git-nedir-kurulumu-ve-ozgur-yazlm.md
+      - git/git-komutlar.md
+  - Python:
+      - python/README.md
+      - python/python-nedir.md
+      - python/pythona-giris-anaconda-atom-ve-pip-kurulumu.md
+      - python/fonksiyonlara-giris-type-fonksiyonu-degiskenler-ve-turleri-yorum-satr.md
+      - python/islecler-ve-print-fonksiyonu.md
+      - python/input-fonksiyonu-ozellikleri-ve-detayl-inceleme.md
+      - python/tipler-ve-donusumleri-class-type.md
+      - python/if-elif-ve-else-kosul-durumlar.md
+      - python/pythonda-donguler.md
+      - python/str-nesnesinin-methodlar-ve-method-operasyonlar-method-method-wrapper.md
+      - python/pythonda-hata-yonetimi.md
+      - python/kuetuephane-moduel-ve-paketler.md
+  - Django:
+      - django/README.md
+      - django/django-nedir.md
+      - django/django-admin-actions.md
+      - django/dumpdata-ve-loaddata-kullanm.md
+      - django/ozel-yonetim-komutlar-nasl-yaplr.md
+      - django/context-processors-fonksiyonlar-ve-kodlanmas.md
+      - django/djangoda-sayfalama-pagination.md
+      - django/django-ile-site-haritas-olusturma.md
+      - django/user-modelini-genisletmek.md
+      - django/birden-fazla-veri-taban-kullanm-multi-db.md
+      - django/django-sinyalleri-nasl-olusturulur-django-signals.md
+      - django/djangoda-clickjack-tuzagnn-engeli-ve-kontrolu-xframeoptionsmiddleware.md
+      - django/login-register-ve-logout-sayfalarinin-yapimi.md
+  - OpenCV:
+      - opencv/README.md
+      - opencv/opencv-nedir-ve-kurulumu.md
+      - opencv/opencv-resim-islemleri.md
+      - opencv/opencvde-cizim-fonksiyonlar.md
+      - opencv/boya-frcas-olarak-fare.md
+      - opencv/renk-paleti-olarak-parca-cubugu-trackbar.md
+      - opencv/goruntulerle-ilgili-temel-islemler.md
+      - opencv/goruntulerde-aritmetik-islemler.md
+      - opencv/performans-olcum-ve-gelistirme-teknikleri.md
+      - opencv/renk-alanlarn-degistirme.md
+      - opencv/resim-esikleme.md
+      - opencv/goruntunun-geometrik-donusumleri.md
+      - opencv/goruntuyu-yumusatma-smoothing-images.md
+      - opencv/morfolojik-donusumler.md
+      - opencv/goruntu-gecisleri.md
+      - opencv/canny-kenar-alglama.md
+      - opencv/goruntu-piramitleri.md
+      - opencv/konturler-contours.md
+      - opencv/histogramlar.md
+  - CPython:
+      - cpython/README.md
+      - cpython/cla.md
+      - cpython/pr-goendermek.md
+  - Javascript:
+      - javascript/README.md
+      - javascript/insertAdjacentHTML.md
+  - Security:
+      - security/README.md
+      - security/clickjacking/README.md
+      - security/clickjacking/clickjack-tuzagsaldrs-nedir.md
+      - security/clickjacking/clickjack-tuzagn-engellemenin-yolu.md
+      - security/clickjacking/clickjack-tuzagnn-engellenmesi.md
+  - Sass:
+      - sass/README.md
+      - sass/sass-ve-scss-nedir-syntactically-awesome-stylesheets.md
+      - sass/sass-kurulumu-linux-windows-ve-mac.md
+      - sass/sass-scss-dersleri-sass-watch-degiskenler-nesting-import-mixin-include-ve-operatorler.md
+      - sass/kosullu-durumlar-ve-donguler-if-else-if-else-for-while-each.md
+      - sass/baz-sk-kullandgm-sassscss-mixinsleri.md
+  - Cloud:
+      - cloud/README.md
+      - cloud/cloud-computing.md
+      - cloud/serverless-nedir.md
+      - cloud/aws-de-serverless-ve-lambda.md
+      - cloud/aws-lambda-uzerine-serverless-uygulama-deployu-nasil-yapilir-.md
+      - cloud/custom-image-kullanarak-aws-lambda-uzerine-sam-ile-deploy.md
+      - cloud/aws-lambda-uzerine-fastapi-uygulamasini-sam-ile-nasil-deploy-edebilirim.md
+  - Learn English:
+      - learn-english/README.md
+      - learn-english/prompts-for-learning-english-with-chatgpt.md
+      - learn-english/tenses-in-english-an-overview.md
+      - learn-english/models-an-overview.md

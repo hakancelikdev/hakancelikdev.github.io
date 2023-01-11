@@ -1,9 +1,11 @@
 # Django
 
-> Django, Python İçin Bir Web Uygulama Çerçevesidir. Yeniden Kullanılabilirlik ve Hızlı
-> Geliştirme Prensiplerine Öncelik Verilerek Tasarlanmıştır.
-
-Python içeriklerini bitirdiğinize göre Django ile tanışabilirsiniz.
+> Django, Python programlama dili için açık kaynak kodlu bir web frameworküdür. İleri
+> seviyede özellikler sunan ve Model-View-Template (MVT) tasarım deseni üzerine
+> kuruludur. Ön tanımlı modülleri ile veritabanı işlemleri, arama, form oluşturma ve
+> işleme, yetkilendirme ve güvenlik, URL yönlendirmesi gibi özellikleri sunar. Önemli
+> bir avantajı, karmaşık sistemleri ve büyük projeleri kolayca yönetebilme yeteneğidir.
+> Django ile hızlı ve kaliteli bir şekilde web uygulamaları geliştirmek mümkündür.
 
 ### Telegram Grubumuz
 

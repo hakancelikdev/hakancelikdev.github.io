@@ -118,6 +118,7 @@ theme:
 nav:
   - Overview: index.md
   - Subdomains: subdomains.md
+  - Metaclasses in Python: https://metaclasses.hakancelik.dev
   - Git:
       - git/README.md
       - git/git-nedir-kurulumu-ve-ozgur-yazlm.md

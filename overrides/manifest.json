@@ -1,0 +1,89 @@
+{
+  "name": "Hakan Çelik - Kişisel Web Sitesi",
+  "short_name": "Hakan Çelik",
+  "description": "Python developer, open source contributor, and technical writer. Tutorials, documentation, and insights about Python, Django, OpenCV, and more.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "tr",
+  "dir": "ltr",
+  "categories": ["education", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "assets/images/profile.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/profile.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/images/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Desktop screenshot"
+    },
+    {
+      "src": "assets/images/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile screenshot"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Python Tutorials",
+      "short_name": "Python",
+      "description": "Python tutorials and documentation",
+      "url": "/python/",
+      "icons": [
+        {
+          "src": "assets/images/python-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Django Tutorials",
+      "short_name": "Django",
+      "description": "Django tutorials and documentation",
+      "url": "/django/",
+      "icons": [
+        {
+          "src": "assets/images/django-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "OpenCV Tutorials",
+      "short_name": "OpenCV",
+      "description": "OpenCV tutorials and documentation",
+      "url": "/opencv/",
+      "icons": [
+        {
+          "src": "assets/images/opencv-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://hakancelik.dev"
+    }
+  ],
+  "prefer_related_applications": false
+}

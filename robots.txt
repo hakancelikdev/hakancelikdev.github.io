@@ -1,0 +1,45 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hakancelik.dev/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /draft/
+
+# Allow important directories
+Allow: /python/
+Allow: /django/
+Allow: /opencv/
+Allow: /git/
+Allow: /security/
+Allow: /cloud/
+Allow: /learn-english/
+Allow: /sass/
+Allow: /javascript/
+Allow: /cpython/
+
+# Specific rules for search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /

@@ -1,14 +1,95 @@
-{% extends "base.html" %} {% block announce %}
-<div style="display: flex; justify-content: flex-end">
-  <div style="padding: 5px 16px">
-    You can now sponsor <strong>Hakan Çelik</strong> 🍰
-  </div>
-  <iframe
-    src="https://github.com/sponsors/hakancelikdev/button"
-    title="Sponsor hakancelikdev"
-    height="35"
-    width="116"
-    style="border: 0"
-  ></iframe>
-</div>
-{% endblock %} {%- block scripts %} {{ super() }} {%- endblock %}
+{% extends "base.html" %}
+
+{%- block scripts %}
+{{ super() }}
+
+<!-- Custom JavaScript -->
+<script src="{{ 'assets/javascripts/extra.js' | url }}"></script>
+
+<!-- Add structured data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Hakan Çelik",
+  "url": "https://hakancelik.dev",
+  "image": "https://hakancelik.dev/assets/images/profile.png",
+  "sameAs": [
+    "https://github.com/hakancelikdev",
+    "https://twitter.com/hakancelikdev",
+    "https://www.linkedin.com/in/hakancelikdev"
+  ],
+  "jobTitle": "Software Engineer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "DeepInfo"
+  },
+  "description": "Python developer, open source contributor, and technical writer"
+}
+</script>
+
+<!-- Add meta tags for better social sharing -->
+<meta property="og:title" content="Hakan Çelik - Software Engineer">
+<meta property="og:description" content="Python developer, open source contributor, and technical writer. Tutorials, documentation, and insights about Python, Django, OpenCV, and more.">
+<meta property="og:image" content="https://hakancelik.dev/assets/images/profile.png">
+<meta property="og:url" content="https://hakancelik.dev">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hakancelikdev">
+<meta name="twitter:creator" content="@hakancelikdev">
+
+<!-- Add preconnect for performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://github.com">
+<link rel="preconnect" href="https://twitter.com">
+<link rel="preconnect" href="https://www.linkedin.com">
+
+<!-- PWA features disabled for development stability -->
+
+<!-- Add theme color -->
+<meta name="theme-color" content="#6366f1">
+<meta name="msapplication-TileColor" content="#6366f1">
+
+<!-- Add viewport for better mobile experience -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- Add language and direction -->
+<html lang="tr" dir="ltr">
+
+<!-- Add loading indicator -->
+<style>
+.loading-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  z-index: 9999;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: loading 2s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% { transform: scaleX(0); }
+  50% { transform: scaleX(1); }
+  100% { transform: scaleX(0); }
+}
+
+.loading-indicator.hidden {
+  display: none;
+}
+</style>
+
+<div class="loading-indicator" id="loadingIndicator"></div>
+
+<script>
+// Hide loading indicator when page is loaded
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loadingIndicator').classList.add('hidden');
+  }, 1000);
+});
+</script>
+{%- endblock %}

@@ -48,5 +48,5 @@ Alternatif olarak, daha yeni sürümlerde:
 
 Konu ile alakalı başka bir yazı, bu korumayı django kütüphanesini kullanarak nasıl
 yapıldığını öğrenin,
-[Django'da Clickjack Tuzağının Engeli Ve Kontrolu - Xframeoptionsmiddleware](../python/django/djangoda-clickjack-tuzagnn-engeli-ve-kontrolu-xframeoptionsmiddleware.md)
+[Django'da Clickjack Tuzağının Engeli Ve Kontrolu - Xframeoptionsmiddleware](../../django/djangoda-clickjack-tuzagnn-engeli-ve-kontrolu-xframeoptionsmiddleware.md)
 adlı yazıyıda bir göz atın.

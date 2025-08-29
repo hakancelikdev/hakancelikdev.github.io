@@ -1,0 +1,416 @@
+/* Custom styles for better UX */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better focus states */
+:focus {
+  outline: 2px solid var(--md-primary-fg-color);
+  outline-offset: 2px;
+}
+
+/* Grid layout for better organization */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* Card styling for better content organization */
+.card {
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: var(--md-primary-fg-color);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--md-primary-fg-color), var(--md-accent-fg-color));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Dark mode card adjustments */
+[data-md-color-scheme="slate"] .card {
+  background: var(--md-default-bg-color);
+  border-color: var(--md-default-fg-color--lightest);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-md-color-scheme="slate"] .card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Improved code blocks */
+.md-typeset pre {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.md-typeset pre:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Better table styling */
+.md-typeset table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.md-typeset table th {
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  font-weight: 600;
+}
+
+/* Improved navigation */
+.md-nav__link {
+  transition: color 0.2s ease;
+}
+
+.md-nav__link:hover {
+  color: var(--md-primary-fg-color);
+}
+
+/* Better buttons */
+.md-button {
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.md-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Improved search */
+.md-search__input {
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.md-search__input:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Better admonitions */
+.md-typeset .admonition {
+  border-radius: 8px;
+  border-left-width: 4px;
+}
+
+/* Improved typography */
+.md-typeset h1 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.md-typeset h2 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Better spacing */
+.md-content {
+  line-height: 1.7;
+}
+
+.md-typeset p {
+  margin-bottom: 1.2em;
+}
+
+/* Improved code inline */
+.md-typeset code {
+  background-color: rgba(99, 102, 241, 0.1);
+  border-radius: 4px;
+  padding: 0.2em 0.4em;
+  font-size: 0.9em;
+}
+
+/* Better mobile experience */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .card {
+    padding: 1rem;
+  }
+  
+  .md-nav__title {
+    font-size: 1.1em;
+  }
+  
+  .md-content {
+    font-size: 0.95em;
+  }
+}
+
+/* Dark mode improvements */
+[data-md-color-scheme="slate"] .md-typeset code {
+  background-color: rgba(99, 102, 241, 0.2);
+}
+
+/* Loading animation */
+.md-loading {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+/* Better link styling */
+.md-typeset a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.md-typeset a:hover {
+  border-bottom-color: var(--md-primary-fg-color);
+}
+
+/* Improved sidebar */
+.md-sidebar {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+[data-md-color-scheme="slate"] .md-sidebar {
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+/* Better header */
+.md-header {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-md-color-scheme="slate"] .md-header {
+  background-color: rgba(0, 0, 0, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Improved footer */
+.md-footer,
+.md-footer[data-md-state="hidden"],
+footer.md-footer,
+footer.md-footer[data-md-state="hidden"],
+.md-footer:not([data-md-state="hidden"]) {
+  background-color: var(--md-primary-fg-color) !important;
+  border-top: 1px solid var(--md-primary-fg-color) !important;
+  color: var(--md-primary-bg-color) !important;
+}
+
+[data-md-color-scheme="slate"] .md-footer,
+[data-md-color-scheme="slate"] .md-footer[data-md-state="hidden"],
+[data-md-color-scheme="slate"] footer.md-footer,
+[data-md-color-scheme="slate"] footer.md-footer[data-md-state="hidden"],
+[data-md-color-scheme="slate"] .md-footer:not([data-md-state="hidden"]) {
+  background-color: var(--md-primary-fg-color) !important;
+  border-top: 1px solid var(--md-primary-fg-color) !important;
+  color: var(--md-primary-bg-color) !important;
+}
+
+/* Footer link colors */
+.md-footer a,
+.md-footer__link,
+.md-footer__button {
+  color: var(--md-primary-bg-color) !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.md-footer a:hover,
+.md-footer__link:hover,
+.md-footer__button:hover {
+  color: rgba(255, 255, 255, 0.8) !important;
+  text-decoration: underline;
+}
+
+[data-md-color-scheme="slate"] .md-footer a,
+[data-md-color-scheme="slate"] .md-footer__link,
+[data-md-color-scheme="slate"] .md-footer__button {
+  color: var(--md-primary-bg-color) !important;
+}
+
+[data-md-color-scheme="slate"] .md-footer a:hover,
+[data-md-color-scheme="slate"] .md-footer__link:hover,
+[data-md-color-scheme="slate"] .md-footer__button:hover {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Footer navigation */
+.md-footer__title,
+.md-footer__direction {
+  color: var(--md-primary-bg-color) !important;
+}
+
+[data-md-color-scheme="slate"] .md-footer__title,
+[data-md-color-scheme="slate"] .md-footer__direction {
+  color: var(--md-primary-bg-color) !important;
+}
+
+/* Better scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* Improved tooltips */
+.md-tooltip {
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Better form elements */
+.md-search__input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+[data-md-color-scheme="slate"] .md-search__input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Improved navigation tabs */
+.md-tabs {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: rgba(0, 0, 0, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Better content area */
+.md-main__inner {
+  padding-top: 1rem;
+}
+
+/* Improved spacing for mobile */
+@media (max-width: 768px) {
+  .md-main__inner {
+    padding-top: 0.5rem;
+  }
+  
+  .md-content {
+    padding: 0 1rem;
+  }
+}
+
+/* Better image handling */
+.md-typeset img {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.md-typeset img:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Improved blockquotes */
+.md-typeset blockquote {
+  border-left: 4px solid var(--md-primary-fg-color);
+  background-color: rgba(99, 102, 241, 0.05);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset blockquote {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+/* Mermaid diagram improvements */
+.mermaid {
+  background: var(--md-default-bg-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced button styles */
+.md-button--small {
+  font-size: 0.8em;
+  padding: 0.4em 0.8em;
+}
+
+.md-button--primary {
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  border: 2px solid var(--md-primary-fg-color);
+}
+
+.md-button--primary:hover {
+  background-color: transparent;
+  color: var(--md-primary-fg-color);
+}
+
+/* Icon improvements */
+.md-typeset .emojione,
+.md-typeset .twemoji {
+  height: 1.2em;
+  width: 1.2em;
+  vertical-align: middle;
+}
+
+/* Section dividers */
+.md-typeset hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--md-primary-fg-color), transparent);
+  margin: 3rem 0;
+}
+
+/* Enhanced list styling */
+.md-typeset ul li,
+.md-typeset ol li {
+  margin-bottom: 0.5rem;
+}
+
+.md-typeset ul li::marker,
+.md-typeset ol li::marker {
+  color: var(--md-primary-fg-color);
+}

@@ -6,20 +6,24 @@ repo_url: https://github.com/hakancelikdev/hakancelik.dev
 repo_name: hakancelikdev/hakancelikdev.github.io
 edit_uri: https://github.com/hakancelikdev/hakancelikdev.github.io/tree/main/docs
 
-copyright: Copyright &copy; 2023 - 2023 Hakan Çelik
+copyright: Copyright &copy; 2023 - 2025 Hakan Çelik
 
 markdown_extensions:
-  - fenced_code
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
   - footnotes
-  - tables
-  - codehilite
-  - legacy_em
+  - md_in_html
   - meta
+  - nl2br
   - sane_lists
   - smarty
+  - tables
   - toc:
       permalink: true
       baselevel: 3
+      title: İçindekiler
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
@@ -28,9 +32,26 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.highlight
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      guess_lang: true
+      auto_title: true
+      auto_title_map:
+        python: Python
+        javascript: JavaScript
+        html: HTML
+        css: CSS
+        bash: Bash
+        shell: Shell
+        yaml: YAML
+        json: JSON
+        sql: SQL
+        django: Django
+        jinja: Jinja2
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.magiclink:
@@ -39,12 +60,19 @@ markdown_extensions:
       repo: mkdocs-material
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
-          class: mermaid-experimental
+          class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        case: lower
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
@@ -52,10 +80,12 @@ markdown_extensions:
 plugins:
   - search:
       separator: '[\s\-\.]+'
-      prebuild_index: true
+      lang: tr
   - git-revision-date-localized:
-      type: date
+      type: datetime
       enable_creation_date: true
+      enable_git_follow: true
+      fallback_to_build_date: true
   - minify:
       minify_html: true
 
@@ -64,12 +94,11 @@ extra:
     provider: google
     property: G-2EGM5WWEED
   consent:
-    title: Cookie consent
+    title: Çerez Onayı
     description: >-
-      We use cookies to recognize your repeated visits and preferences, as well as to
-      measure the effectiveness of our documentation and whether users find what they're
-      searching for. With your consent, you're helping us to make our documentation
-      better.
+      Tekrarlanan ziyaretlerinizi ve tercihlerinizi tanımak, dokümantasyonumuzun etkinliğini
+      ölçmek ve kullanıcıların aradıklarını bulup bulmadığını anlamak için çerezler kullanıyoruz.
+      Onayınızla dokümantasyonumuzu daha iyi hale getirmemize yardımcı oluyorsunuz.
   social:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/hakancelikdev
@@ -77,43 +106,104 @@ extra:
       link: https://www.linkedin.com/in/hakancelikdev
     - icon: fontawesome/solid/globe
       link: https://hakancelik.dev
+    - icon: fontawesome/brands/github
+      link: https://github.com/hakancelikdev
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/django_turkey
   homepage: https://hakancelik.dev
+  generator: false
 
 theme:
   name: material
   custom_dir: docs/overrides
-  language: en
+  language: tr
   logo: "assets/images/profile.png"
   favicon: "assets/images/profile.png"
   features:
     - navigation.instant
     - navigation.tracking
     - navigation.indexes
+    - navigation.sections
+    - navigation.expand
+    - navigation.prune
+    - navigation.footer
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.instant.prefetch
     - search.suggest
     - search.highlight
     - search.share
+    - search.boost
     - header.autohide
-    - navigation.top
+    - content.code.copy
+    - content.code.annotate
+    - content.code.select
+    - content.code.select.annotate
+    - content.tabs.link
+    - content.tooltips
+    - content.action.edit
+    - content.action.view
+    - content.action.print
+    - content.footer.previous
+    - content.footer.next
+    - content.footer.nav
+    - content.footer.track
+    - toc.follow
+    - toc.integrate
+    - top
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: white
-      accent: amber
+      primary: indigo
+      accent: indigo
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
-      accent: amber
+      primary: indigo
+      accent: indigo
       toggle:
         icon: material/weather-night
         name: Switch to light mode
   font:
-    text: Noto Sans
-    code: Roboto Mono
+    text: Inter
+    code: JetBrains Mono
   icon:
     repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+    previous: material/arrow-left
+    next: material/arrow-right
+    top: material/arrow-up
+    search: material/magnify
+    menu: material/menu
+    language: material/translate
+    theme: material/theme-light-dark
+    expand: material/chevron-down
+    collapse: material/chevron-up
+    directory: material/folder
+    file: material/file
+    close: material/close
+    check: material/check
+    warning: material/alert
+    info: material/information
+    note: material/note-text
+    tip: material/lightbulb
+    example: material/format-list-checks
+    bug: material/bug
+    zap: material/lightning-bolt
+    heart: material/heart
+    star: material/star
+    download: material/download
+    share: material/share-variant
+    print: material/printer
+    external: material/open-in-new
+    new_window: material/open-in-new
+    fullscreen: material/fullscreen
+    minimize: material/fullscreen-exit
+  favicon: assets/images/profile.png
 
 nav:
   - Overview: index.md
@@ -135,7 +225,8 @@ nav:
       - python/pythonda-donguler.md
       - python/str-nesnesinin-methodlar-ve-method-operasyonlar-method-method-wrapper.md
       - python/pythonda-hata-yonetimi.md
-      - python/kuetuephane-moduel-ve-paketler.md
+      - python/kutuphane-modul-ve-paketler.md
+      - python/instagram-botu.md
   - Django:
       - django/README.md
       - django/django-nedir.md
@@ -147,6 +238,7 @@ nav:
       - django/django-ile-site-haritas-olusturma.md
       - django/user-modelini-genisletmek.md
       - django/birden-fazla-veri-taban-kullanm-multi-db.md
+      - django/django-projesinde-birden-fazla-veri-taban-kullanm.md
       - django/django-sinyalleri-nasl-olusturulur-django-signals.md
       - django/djangoda-clickjack-tuzagnn-engeli-ve-kontrolu-xframeoptionsmiddleware.md
       - django/login-register-ve-logout-sayfalarinin-yapimi.md
@@ -154,6 +246,7 @@ nav:
       - opencv/README.md
       - opencv/opencv-nedir-ve-kurulumu.md
       - opencv/opencv-resim-islemleri.md
+      - opencv/opencv-video-islemleri.md
       - opencv/opencvde-cizim-fonksiyonlar.md
       - opencv/boya-frcas-olarak-fare.md
       - opencv/renk-paleti-olarak-parca-cubugu-trackbar.md

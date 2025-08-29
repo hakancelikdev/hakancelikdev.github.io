@@ -1,3 +1,3 @@
 # Security
 
-- [Clickjacking](clickjack/clickjack-tuzagsaldrs-nedir.md)
+- [Clickjacking](clickjacking/clickjack-tuzagsaldrs-nedir.md)

@@ -19,7 +19,7 @@ $ sudo apt-get install python3.8-pip
 
 Burada Python'un paket yöneticisi olan pip kurulumunu yapıyoruz pip'i
 
-{% page-ref page="kuetuephane-moduel-ve-paketler.md" %}
+{% page-ref page="kutuphane-modul-ve-paketler.md" %}
 
 Adlı konuya geldiğimizde daha detaylı inceleyip kullanacağız, bu yüzden gerekli değil.
 Bash konsolunuzu açıp `python3.8` yazarsanız kurulu olduğunu ve kullanıma hazır hale

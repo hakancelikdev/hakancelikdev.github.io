@@ -15,4 +15,4 @@
 - [Python'da Döngüler](pythonda-donguler.md)
 - [String Nesnesinin Methodları ve Method Operasyonları](str-nesnesinin-methodlar-ve-method-operasyonlar-method-method-wrapper.md)
 - [Python'da Hata Yönetimi](pythonda-hata-yonetimi.md)
-- [Kütüphane, Modül ve Paketler](kuetuephane-moduel-ve-paketler.md)
+- [Kütüphane, Modül ve Paketler](kutuphane-modul-ve-paketler.md)

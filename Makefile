@@ -2,13 +2,17 @@ all: lint clean
 
 .PHONY: dev
 dev:
-	python3.10 -m venv venv
-	source venv/bin/activate; pip install pip -U; pip install -r requirements.txt
+	python3.11 -m venv .venv
+	source .venv/bin/activate; pip install pip -U; pip install -r requirements.txt
+
+.PHONY: install
+install:
+	source .venv/bin/activate; pip install -r requirements.txt
 
 .PHONY: lint
 lint:
 	git add .
-	source venv/bin/activate; pre-commit run --all-files
+	source .venv/bin/activate; pre-commit run --all-files
 
 .PHONY: clean
 clean:
@@ -25,10 +29,19 @@ clean:
 	rm -f .coverage.*
 	rm -rf .tox
 	rm -rf build
+	rm -rf site
 
 .PHONY: docs
 docs:
-	source venv/bin/activate; mkdocs serve
+	source .venv/bin/activate; mkdocs serve
+
+.PHONY: build
+build:
+	source .venv/bin/activate; mkdocs build
+
+.PHONY: deploy
+deploy:
+	source .venv/bin/activate; mkdocs gh-deploy
 
 .PHONY: push
 push:

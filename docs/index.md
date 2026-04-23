@@ -77,7 +77,7 @@ Bu günlerde, open source projelerimdeki issue'ları kapatmaya çalışıyorum. 
 #### :rocket: Unimport
 **Açıklama:** Kullanılmayan import ifadelerini bulmak ve kaldırmak için bir linter, formatter.
 
-[:octicons-globe-24: Docs](https://unimport.hakancelik.dev){ .md-button .md-button--small } [:octicons-play-24: Playground](https://playground-unimport.hakancelik.dev){ .md-button .md-button--small } [:octicons-repo-24: GitHub](https://github.com/hakancelikdev/unimport){ .md-button .md-button--small }
+[:octicons-globe-24: Docs](https://unimport.hakancelik.dev){ .md-button .md-button--small } [:octicons-repo-24: GitHub](https://github.com/hakancelikdev/unimport){ .md-button .md-button--small }
 
 </div>
 
@@ -86,7 +86,7 @@ Bu günlerde, open source projelerimdeki issue'ları kapatmaya çalışıyorum. 
 #### :eight_spoked_asterisk: Unexport
 **Açıklama:** Python modüllerinizdeki **\__all__** listesini her zaman güncel tutmaya çalışan bir linter.
 
-[:octicons-globe-24: Docs](https://unexport.hakancelik.dev){ .md-button .md-button--small } [:octicons-play-24: Playground](https://playground-unexport.hakancelik.dev){ .md-button .md-button--small } [:octicons-repo-24: GitHub](https://github.com/hakancelikdev/unexport){ .md-button .md-button--small }
+[:octicons-globe-24: Docs](https://unexport.hakancelik.dev){ .md-button .md-button--small } [:octicons-repo-24: GitHub](https://github.com/hakancelikdev/unexport){ .md-button .md-button--small }
 
 </div>
 

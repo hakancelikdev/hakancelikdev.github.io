@@ -120,36 +120,6 @@ Bu sayfada hakancelik.dev ana alanı altındaki tüm alt alanları ve projelerim
 
 ---
 
-## 🎮 Canlı Demo'lar
-
-<div class="grid" markdown>
-
-<div class="card" markdown>
-
-### :octicons-play-24: Unimport Playground
-**URL:** [https://playground-unimport.hakancelik.dev](https://playground-unimport.hakancelik.dev)  
-**Proje:** [unimport](https://github.com/hakancelikdev/unimport)  
-**Açıklama:** Unimport'u tarayıcınızda canlı olarak deneyebilirsiniz
-
-[:octicons-arrow-right-24: Deneyin](https://playground-unimport.hakancelik.dev){ .md-button .md-button--small }
-
-</div>
-
-<div class="card" markdown>
-
-### :octicons-play-24: Unexport Playground
-**URL:** [https://playground-unexport.hakancelik.dev](https://playground-unexport.hakancelik.dev)  
-**Proje:** [unexport](https://github.com/hakancelikdev/unexport)  
-**Açıklama:** Unexport'u tarayıcınızda canlı olarak deneyebilirsiniz
-
-[:octicons-arrow-right-24: Deneyin](https://playground-unexport.hakancelik.dev){ .md-button .md-button--small }
-
-</div>
-
-</div>
-
----
-
 ## 📊 Site Haritası
 
 Aşağıdaki diyagram tüm alt alanlarımı görsel olarak gösterir:
@@ -164,8 +134,6 @@ graph TD
     A --> F[unexport.hakancelik.dev]
     A --> G[pydbm.hakancelik.dev]
     A --> H[defineif.hakancelik.dev]
-    A --> I[playground-unimport.hakancelik.dev]
-    A --> J[playground-unexport.hakancelik.dev]
     
     B --> B1[Vakit Uygulaması]
     C --> C1[SiteSeeker Uygulaması]
@@ -175,8 +143,6 @@ graph TD
     F --> F1[Unexport Dokümantasyonu]
     G --> G1[Pydbm Dokümantasyonu]
     H --> H1[Defineif Dokümantasyonu]
-    I --> I1[Unimport Canlı Demo]
-    J --> J1[Unexport Canlı Demo]
 ```
 
 ---

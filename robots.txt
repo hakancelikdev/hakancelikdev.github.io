@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://hakancelik.dev/sitemap.xml
+Sitemap: https://www.hakancelik.dev/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1

@@ -127,22 +127,22 @@ Bu sayfada hakancelik.dev ana alanı altındaki tüm alt alanları ve projelerim
 <div class="card" markdown>
 
 ### :octicons-play-24: Unimport Playground
-**URL:** [https://unimport.hakancelik.dev/playground/](https://unimport.hakancelik.dev/playground/)  
+**URL:** [https://playground-unimport.hakancelik.dev](https://playground-unimport.hakancelik.dev)  
 **Proje:** [unimport](https://github.com/hakancelikdev/unimport)  
 **Açıklama:** Unimport'u tarayıcınızda canlı olarak deneyebilirsiniz
 
-[:octicons-arrow-right-24: Deneyin](https://unimport.hakancelik.dev/playground/){ .md-button .md-button--small }
+[:octicons-arrow-right-24: Deneyin](https://playground-unimport.hakancelik.dev){ .md-button .md-button--small }
 
 </div>
 
 <div class="card" markdown>
 
 ### :octicons-play-24: Unexport Playground
-**URL:** [https://unexport.hakancelik.dev/playground/](https://unexport.hakancelik.dev/playground/)  
+**URL:** [https://playground-unexport.hakancelik.dev](https://playground-unexport.hakancelik.dev)  
 **Proje:** [unexport](https://github.com/hakancelikdev/unexport)  
 **Açıklama:** Unexport'u tarayıcınızda canlı olarak deneyebilirsiniz
 
-[:octicons-arrow-right-24: Deneyin](https://unexport.hakancelik.dev/playground/){ .md-button .md-button--small }
+[:octicons-arrow-right-24: Deneyin](https://playground-unexport.hakancelik.dev){ .md-button .md-button--small }
 
 </div>
 
@@ -164,17 +164,19 @@ graph TD
     A --> F[unexport.hakancelik.dev]
     A --> G[pydbm.hakancelik.dev]
     A --> H[defineif.hakancelik.dev]
+    A --> I[playground-unimport.hakancelik.dev]
+    A --> J[playground-unexport.hakancelik.dev]
     
     B --> B1[Vakit Uygulaması]
     C --> C1[SiteSeeker Uygulaması]
     K --> K1[Meld Bulmaca Oyunu]
     D --> D1[Metaclasses Dokümantasyonu]
     E --> E1[Unimport Dokümantasyonu]
-    E --> E2[Unimport Playground]
     F --> F1[Unexport Dokümantasyonu]
-    F --> F2[Unexport Playground]
     G --> G1[Pydbm Dokümantasyonu]
     H --> H1[Defineif Dokümantasyonu]
+    I --> I1[Unimport Canlı Demo]
+    J --> J1[Unexport Canlı Demo]
 ```
 
 ---

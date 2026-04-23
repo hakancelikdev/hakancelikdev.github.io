@@ -65,10 +65,19 @@ Bu günlerde, open source projelerimdeki issue'ları kapatmaya çalışıyorum. 
 
 <div class="card" markdown>
 
+#### :jigsaw: Meld
+**Açıklama:** Minimalist karo birleştirme bulmaca oyunu. Kaydır, birleştir, çöz.
+
+[:octicons-globe-24: Site](https://meld.hakancelik.dev){ .md-button .md-button--small } [:octicons-repo-24: GitHub](https://github.com/hakancelikdev/meld){ .md-button .md-button--small }
+
+</div>
+
+<div class="card" markdown>
+
 #### :rocket: Unimport
 **Açıklama:** Kullanılmayan import ifadelerini bulmak ve kaldırmak için bir linter, formatter.
 
-[:octicons-repo-24: GitHub](https://github.com/hakancelikdev/unimport){ .md-button .md-button--small }
+[:octicons-globe-24: Docs](https://unimport.hakancelik.dev){ .md-button .md-button--small } [:octicons-play-24: Playground](https://unimport.hakancelik.dev/playground/){ .md-button .md-button--small } [:octicons-repo-24: GitHub](https://github.com/hakancelikdev/unimport){ .md-button .md-button--small }
 
 </div>
 
@@ -77,7 +86,7 @@ Bu günlerde, open source projelerimdeki issue'ları kapatmaya çalışıyorum. 
 #### :eight_spoked_asterisk: Unexport
 **Açıklama:** Python modüllerinizdeki **\__all__** listesini her zaman güncel tutmaya çalışan bir linter.
 
-[:octicons-repo-24: GitHub](https://github.com/hakancelikdev/unexport){ .md-button .md-button--small }
+[:octicons-globe-24: Docs](https://unexport.hakancelik.dev){ .md-button .md-button--small } [:octicons-play-24: Playground](https://unexport.hakancelik.dev/playground/){ .md-button .md-button--small } [:octicons-repo-24: GitHub](https://github.com/hakancelikdev/unexport){ .md-button .md-button--small }
 
 </div>
 
@@ -86,7 +95,7 @@ Bu günlerde, open source projelerimdeki issue'ları kapatmaya çalışıyorum. 
 #### :balloon: Pydbm
 **Açıklama:** Dbm kullanmanın daha pythonic bir yolu.
 
-[:octicons-repo-24: GitHub](https://github.com/hakancelikdev/pydbm){ .md-button .md-button--small }
+[:octicons-globe-24: Docs](https://pydbm.hakancelik.dev){ .md-button .md-button--small } [:octicons-repo-24: GitHub](https://github.com/hakancelikdev/pydbm){ .md-button .md-button--small }
 
 </div>
 
@@ -95,7 +104,7 @@ Bu günlerde, open source projelerimdeki issue'ları kapatmaya çalışıyorum. 
 #### :trollface: Defineif
 **Açıklama:** Koşul doğruysa metodu tanımla. [Sadece eğlence için]
 
-[:octicons-repo-24: GitHub](https://github.com/hakancelikdev/defineif){ .md-button .md-button--small }
+[:octicons-globe-24: Docs](https://defineif.hakancelik.dev){ .md-button .md-button--small } [:octicons-repo-24: GitHub](https://github.com/hakancelikdev/defineif){ .md-button .md-button--small }
 
 </div>
 

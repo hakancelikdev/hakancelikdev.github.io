@@ -1,63 +1,56 @@
 ---
-import '@fontsource-variable/inter';
-
-// 'DM Sans'
-// Nunito
-// Dosis
-// Outfit
-// Roboto
-// Literata
-// 'IBM Plex Sans'
-// Karla
-// Poppins
-// 'Fira Sans'
-// 'Libre Franklin'
-// Inconsolata
-// Raleway
-// Oswald
-// 'Space Grotesk'
-// Urbanist
 ---
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Epilogue:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+  rel="stylesheet"
+/>
 
 <style is:inline>
   :root {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    --aw-font-sans: 'Epilogue', ui-sans-serif;
+    --aw-font-serif: 'Fraunces', ui-serif;
+    --aw-font-heading: 'Fraunces', ui-serif;
 
-    --aw-color-primary: rgb(99 102 241);
-    --aw-color-secondary: rgb(79 70 229);
-    --aw-color-accent: rgb(99 102 241);
+    /* Warm orange accent */
+    --aw-color-primary: rgb(234 88 12);
+    --aw-color-secondary: rgb(194 65 12);
+    --aw-color-accent: rgb(249 115 22);
 
-    --aw-color-text-heading: rgb(15 23 42);
-    --aw-color-text-default: rgb(30 41 59);
-    --aw-color-text-muted: rgb(30 41 59 / 66%);
-    --aw-color-bg-page: rgb(255 255 255);
-
-    --aw-color-bg-page-dark: rgb(10 10 20);
+    /* Light mode — warm cream */
+    --aw-color-text-heading: rgb(28 25 23);
+    --aw-color-text-default: rgb(41 37 36);
+    --aw-color-text-muted: rgb(41 37 36 / 58%);
+    --aw-color-bg-page: rgb(250 247 242);
+    --aw-color-bg-page-dark: rgb(12 10 8);
 
     ::selection {
-      background-color: lavender;
+      background-color: rgb(254 215 170);
+      color: rgb(124 45 18);
     }
   }
 
   .dark {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    --aw-font-sans: 'Epilogue', ui-sans-serif;
+    --aw-font-serif: 'Fraunces', ui-serif;
+    --aw-font-heading: 'Fraunces', ui-serif;
 
-    --aw-color-primary: rgb(99 102 241);
-    --aw-color-secondary: rgb(79 70 229);
-    --aw-color-accent: rgb(99 102 241);
+    /* Lighter orange for dark bg */
+    --aw-color-primary: rgb(251 146 60);
+    --aw-color-secondary: rgb(249 115 22);
+    --aw-color-accent: rgb(251 146 60);
 
-    --aw-color-text-heading: rgb(248 250 252);
-    --aw-color-text-default: rgb(229 236 246);
-    --aw-color-text-muted: rgb(229 236 246 / 66%);
-    --aw-color-bg-page: rgb(3 6 32);
+    /* Dark mode — warm near-black */
+    --aw-color-text-heading: rgb(250 247 242);
+    --aw-color-text-default: rgb(214 211 208);
+    --aw-color-text-muted: rgb(214 211 208 / 58%);
+    --aw-color-bg-page: rgb(12 10 8);
 
     ::selection {
-      background-color: black;
-      color: snow;
+      background-color: rgb(124 45 18);
+      color: rgb(254 215 170);
     }
   }
 </style>

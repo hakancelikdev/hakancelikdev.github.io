@@ -3,8 +3,8 @@ publishDate: 2021-11-10T00:00:00Z
 author: Hakan Çelik
 title: "Görüntülerle İlgili Temel İşlemler"
 excerpt: "Piksel değerlerine erişme ve bunları değiştirme Resim özelliklerine erişme Resim Bölgesini ( alanını ) Ayarlama (ROI) Görüntüleri Bölme ve Birleştirme"
-image: https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80
 category: OpenCV
+image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv
   - python
@@ -134,7 +134,6 @@ Burada topu seçip resmin başka bir bölgesine kopyalayacağım:
 >>> img[273:333, 100:160] = ball
 ```
 
-![](https://www.coogger.com/media/images/opencv.jpg)
 
 ## Görüntü Kanallarının Ayrılması ve Birleştirilmesi
 
@@ -210,4 +209,3 @@ plt.show()
 Aşağıdaki sonuca bakın, \( Resim **matplotlib** ile gösterilir, böylece KIRMIZI ve
 MAVİ'ler değiş tokuş olur \);
 
-![](https://www.coogger.com/media/images/opencv_5MHKX6N.jpg)

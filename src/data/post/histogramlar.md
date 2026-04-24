@@ -3,8 +3,8 @@ publishDate: 2021-12-22T00:00:00Z
 author: Hakan Çelik
 title: "Histogramlar"
 excerpt: "( Histograms 1 : Find, Plot, Analyze ) ### Hedefler"
-image: https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80
 category: OpenCV
+image: /images/posts/opencv/histogram_matplotlib.jpg
 tags:
   - opencv
   - python
@@ -39,7 +39,6 @@ sağlanmaktadır.
 Aşağıda Cambridge color websitesinden bir görsel var ve daha fazla bilgi için siteyi
 ziyaret etmenizi tavsiye ederim.
 
-![opencv-histogram](https://www.coogger.com/media/images/opencv-histogram.jpg?style=center)
 
 Görseli ve onun histogramını görebilirsiniz \( hatırlayın histgoram **grayscale**
 görsel, renk olmandan çizilir \).
@@ -140,8 +139,6 @@ img = cv.imread('home.jpg',0)
 plt.hist(img.ravel(),256,[0,256]); plt.show()
 ```
 
-![opencv-histogram](https://opencv-python-tutroals.readthedocs.io/en/latest/_images/histogram_matplotlib.jpg?style=center)
-
 Ya da BGR için daha iyi olan matplotlib'in normal grafiğini kullanabilirsiniz . Bunun
 için önce histogram verilerini bulmanız gerekir.
 
@@ -161,7 +158,7 @@ plt.show()
 ```
 
 Sonuç:
-![histogram](https://opencv-python-tutroals.readthedocs.io/en/latest/_images/histogram_rgb_plot.jpg?style=center)
+![histogram](/images/posts/opencv/histogram_rgb_plot.jpg)
 
 Yukarıdaki grafikten, mavinin görüntüde yüksek değerli bazı alanlar bulunduğunu
 düşebilirsiniz \(tabii ki gökyüzünden kaynaklanmaktadır\)
@@ -197,7 +194,7 @@ plt.xlim([0,256])
 plt.show()
 ```
 
-![histogram](https://opencv-python-tutroals.readthedocs.io/en/latest/_images/histogram_masking.jpg?style=center)
+![histogram](/images/posts/opencv/histogram_masking.jpg)
 
 ### Ek Kaynak
 

@@ -3,8 +3,8 @@ publishDate: 2023-02-01T00:00:00Z
 author: Hakan Çelik
 title: "Modals: An Overview"
 excerpt: "Modal verbs are a type of auxiliary verb that is used to indicate modality, which describes the speaker's attitude or feelings about the action or state being expressed in the main verb. Some common m"
-image: https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1200&q=80
 category: İngilizce
+image: ~/assets/images/blog/ingilizce.jpg
 tags:
   - ingilizce
   - öğrenme

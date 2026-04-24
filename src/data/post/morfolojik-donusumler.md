@@ -3,8 +3,8 @@ publishDate: 2022-01-19T00:00:00Z
 author: Hakan Çelik
 title: "Morfolojik Dönüşümler"
 excerpt: "Erozyon, Dilatasyon, Açılış, Kapanış gibi farklı morfolojik işlemleri öğreneceğiz. ( Erosion, Dilation, Opening, Closing ) Farklı işlevleri şöyle göreceğiz: cv2.erode(), cv2.dilate(), cv2.morphology"
-image: https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80
 category: OpenCV
+image: /images/posts/opencv/erosion.png
 tags:
   - opencv
   - python
@@ -31,7 +31,7 @@ imajımız, ikinciye yapılandırma unsuru denir veya işlemin niteliğini belir
 Kapanış, Gradyan vb. Gibi değişken biçimler de oyuna girer. Onları aşağıdaki resim
 yardımıyla tek tek göreceğiz:
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/j.png?style=center)
+![](/images/posts/opencv/j.png)
 
 ## 1. Erozyon
 
@@ -59,8 +59,6 @@ erosion = cv2.erode(img,kernel,iterations = 1)
 
 Sonuç;
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/erosion.png?style=center)
-
 ## 2. Dilatasyon
 
 Erozyonun tam tersi. Burada çekirdeğin en az bir pikseli '1' ise bir piksel öğesi '1'
@@ -74,7 +72,7 @@ zamanda, bir nesnenin kırılmış bölümlerine katılmada da yararlıdır.
 
 Sonuç;
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/dilation.png?style=center)
+![](/images/posts/opencv/dilation.png)
 
 ## 3. Açılış
 
@@ -86,7 +84,7 @@ işlevini kullanıyoruz;
 
 Sonuç:
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/opening.png?style=center)
+![](/images/posts/opencv/opening.png)
 
 ## 4. Kapanış
 
@@ -98,7 +96,7 @@ yararlıdır.
 
 Sonuç;
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/closing.png?style=center)
+![](/images/posts/opencv/closing.png)
 
 ## 5. Morfolojik Gradyan
 
@@ -110,7 +108,7 @@ Sonuç, cismin taslağı gibi görünecektir.
 
 Sonuç:
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/gradient.png?style=center)
+![](/images/posts/opencv/gradient.png)
 
 ## 6. Üst Şapka
 
@@ -119,7 +117,7 @@ için yapılır. `tophat = cv2.morphologyEx(img, cv2.MORPH_TOPHAT, kernel)`
 
 Sonuç:
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/tophat.png?style=center)
+![](/images/posts/opencv/tophat.png)
 
 ## 7. Kara Şapka
 
@@ -129,7 +127,7 @@ Giriş görüntüsünün ve giriş görüntüsünün kapanışı arasındaki far
 
 Sonuç:
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/blackhat.png?style=center)
+![](/images/posts/opencv/blackhat.png)
 
 ## Yapılandırma Elemanı
 

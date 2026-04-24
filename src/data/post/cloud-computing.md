@@ -3,8 +3,8 @@ publishDate: 2022-12-13T00:00:00Z
 author: Hakan Çelik
 title: "Cloud Computing"
 excerpt: "Cloud computing, kullandığın kadar öde ( payasyougo ) fiyatlandırmasıyla Bulut teknoloji kaynaklarının İnternet üzerinden isteğe bağlı olarak ihtiyac duydukları hizmetleri almasıdır. Fiziksel veri mer"
-image: https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80
 category: Cloud
+image: ~/assets/images/blog/cloud.jpg
 tags:
   - cloud
   - aws

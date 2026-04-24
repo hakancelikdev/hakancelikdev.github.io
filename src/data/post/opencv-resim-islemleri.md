@@ -3,8 +3,8 @@ publishDate: 2022-02-16T00:00:00Z
 author: Hakan Çelik
 title: "Opencv Resim Işlemleri"
 excerpt: "Resim dosyasını okumak için cv2.imread() fonksiyon kullanılır ve iki arguman alır."
-image: https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80
 category: OpenCV
+image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv
   - python
@@ -122,7 +122,5 @@ plt.imshow(img, cmap = 'gray', interpolation = 'bicubic')
 plt.xticks([]), plt.yticks([])  # x ve y eksenindeki işaret değerlerini gizler
 plt.show()
 ```
-
-![](https://www.coogger.com/media/images/matplotlib_screenshot.jpg)
 
 bu şekilde görünecektir.

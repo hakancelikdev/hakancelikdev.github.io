@@ -3,8 +3,8 @@ publishDate: 2022-01-05T00:00:00Z
 author: Hakan Çelik
 title: "Konturler ( Contours )"
 excerpt: "Konturlerin ne olduğunu anlayacağız. Konturleri bulmayı ve çizmeyi öğreneceğiz. Bu fonksiyonları öğreneceğiz : cv2.findContours(), cv2.drawContours()"
-image: https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80
 category: OpenCV
+image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv
   - python
@@ -109,7 +109,6 @@ ettiğim noktaları \( points \) gösteriyor. `CHAIN_APPROX_NONE` \(734 nokta \(
 \)\) ve İkinci resim, `cv2.CHAIN_APPROX_SIMPLE` \(yalnızca 4 nokta\) içeren bir resim
 gösterir. Bu şekilde hafızadan kazanmış oluyoruz.
 
-![opencv Konturler](https://www.coogger.com/media/images/konturler.jpg?style=center)
 
 ## Kontur Özellikleri
 

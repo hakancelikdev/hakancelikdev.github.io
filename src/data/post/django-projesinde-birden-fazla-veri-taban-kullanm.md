@@ -3,8 +3,8 @@ publishDate: 2022-05-10T00:00:00Z
 author: Hakan Çelik
 title: "Django Projesinde Birden Fazla Veri Tabanı Kullanımı"
 excerpt: "django ile birden fazla veri tabanı kullanımını django ile uygulama oluşturmayı ziyaretçilerin ip adreslerini bulmayı öğreneceğiz from django.db.models import F kullanımını öğreneceğiz."
-image: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80
 category: Django
+image: ~/assets/images/blog/django.jpg
 tags:
   - django
   - python
@@ -182,6 +182,4 @@ site.register(Blogviews, ViewsAdmin)
 
 ## sonuç ?
 
-![birden_fazla_veri_tabani](https://www.coogger.com/media/images/birden_fazla_veri_tabani.png)
 
-![birden_fazla_veri_tabani](https://www.coogger.com/media/images/birden_fazla_veri_tabani_Rfated5.png)

@@ -3,8 +3,8 @@ publishDate: 2021-10-05T00:00:00Z
 author: Hakan Çelik
 title: "Python'da Hata Yönetimi"
 excerpt: "Şimdiye kadar anlattığım konularda hiç hatalardan, onları nasıl yakalayabileceğimizden, ve gelen hataya göre nasıl işlemlerimizi devam ettirebileceğimizden hiç bahsetmemiştim ama bu konu oldukça öneml"
-image: https://images.unsplash.com/photo-1649180556628-9ba704115795?auto=format&fit=crop&w=1200&q=80
 category: Python
+image: ~/assets/images/blog/python.jpg
 tags:
   - python
 ---

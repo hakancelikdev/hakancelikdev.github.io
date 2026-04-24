@@ -7,9 +7,36 @@ import Features3 from '~/components/widgets/Features3.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
-import profileImg from '~/assets/images/profile.png';
 
 // Build-time stats helpers
+import fs from 'node:fs';
+import path from 'node:path';
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+// Cache file: stores fetched stats for 1 hour to avoid rate-limiting pypistats in dev mode
+const CACHE_FILE = path.resolve('./src/data/_stats-cache.json');
+const CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour
+
+interface StatsCache {
+  fetchedAt: number;
+  github: Record<string, string>;
+  pypi: Record<string, string>;
+}
+
+function readCache(): StatsCache | null {
+  try {
+    const raw = fs.readFileSync(CACHE_FILE, 'utf-8');
+    const cache: StatsCache = JSON.parse(raw);
+    if (Date.now() - cache.fetchedAt < CACHE_TTL_MS) return cache;
+  } catch { /* no cache or invalid */ }
+  return null;
+}
+
+function writeCache(cache: StatsCache) {
+  try { fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2)); } catch { /* ignore write errors */ }
+}
+
 async function githubStars(repo: string): Promise<string> {
   try {
     const res = await fetch(`https://api.github.com/repos/${repo}`, {
@@ -25,23 +52,26 @@ async function githubStars(repo: string): Promise<string> {
 }
 
 async function pypiDownloads(pkg: string): Promise<string> {
-  try {
-    const res = await fetch(`https://pypistats.org/api/packages/${pkg}/overall`);
-    if (!res.ok) return '';
-    const data = await res.json();
-    const n: number = data.data
-      .filter((r: { category: string }) => r.category === 'with_mirrors')
-      .reduce((sum: number, r: { downloads: number }) => sum + r.downloads, 0);
-    if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
-    if (n >= 1_000) return `${Math.round(n / 1000)}k`;
-    return String(n);
-  } catch {
-    return '';
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      if (attempt > 0) await sleep(3000 * attempt);
+      const res = await fetch(`https://pypistats.org/api/packages/${pkg}/recent?period=month`);
+      if (res.status === 429) continue;
+      if (!res.ok) return '';
+      const data = await res.json();
+      const n: number = data.data.last_month;
+      if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M/ay`;
+      if (n >= 1_000) return `${Math.round(n / 1000)}k/ay`;
+      return `${n}/ay`;
+    } catch {
+      return '';
+    }
   }
+  return '';
 }
 
 function badge(icon: string, value: string, title: string) {
-  if (!value) return '';
+  if (!value || value === '0') return '';
   return `<span title="${title}" class="inline-flex items-center gap-1 text-xs font-medium bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 px-2 py-0.5 rounded-full">${icon} ${value}</span>`;
 }
 
@@ -52,18 +82,46 @@ function statsBadges(stars: string, downloads: string) {
   return b ? `<span class="flex gap-1.5 mt-2 flex-wrap">${b}</span>` : '';
 }
 
-// Fetch all stats in parallel
-const [
-  unimportStars, unimportDl,
-  unexportStars, unexportDl,
-  pydbmStars,    pydbmDl,
-  defineifStars, defineifDl,
-] = await Promise.all([
-  githubStars('hakancelikdev/unimport'),   pypiDownloads('unimport'),
-  githubStars('hakancelikdev/unexport'),   pypiDownloads('unexport'),
-  githubStars('hakancelikdev/pydbm'),      pypiDownloads('pythonic-dbm'),
-  githubStars('hakancelikdev/defineif'),   pypiDownloads('defineif'),
-]);
+// Check cache first — avoids hitting rate limits during dev reloads
+const cached = readCache();
+
+let unimportStars: string, unexportStars: string, pydbmStars: string, defineifStars: string;
+let vakitStars: string, siteSeekerStars: string, meldStars: string;
+let unimportDl: string, unexportDl: string, pydbmDl: string, defineifDl: string;
+
+if (cached) {
+  ({ unimportStars = '', unexportStars = '', pydbmStars = '', defineifStars = '',
+     vakitStars = '', siteSeekerStars = '', meldStars = '' } = cached.github as any);
+  unimportDl  = cached.pypi['unimport']      ?? '';
+  unexportDl  = cached.pypi['unexport']      ?? '';
+  pydbmDl     = cached.pypi['pythonic-dbm']  ?? '';
+  defineifDl  = cached.pypi['defineif']      ?? '';
+} else {
+  // GitHub: parallel (different host, no rate limit issue)
+  [unimportStars, unexportStars, pydbmStars, defineifStars,
+   vakitStars, siteSeekerStars, meldStars] = await Promise.all([
+    githubStars('hakancelikdev/unimport'),
+    githubStars('hakancelikdev/unexport'),
+    githubStars('hakancelikdev/pydbm'),
+    githubStars('hakancelikdev/defineif'),
+    githubStars('hakancelikdev/vakit'),
+    githubStars('hakancelikdev/SiteSeeker'),
+    githubStars('hakancelikdev/meld'),
+  ]);
+
+  // PyPI: sequential with delay to avoid 429 (rate limit: ~3 req/10s per IP)
+  unimportDl  = await pypiDownloads('unimport');        await sleep(4000);
+  unexportDl  = await pypiDownloads('unexport');        await sleep(4000);
+  pydbmDl     = await pypiDownloads('pythonic-dbm');    await sleep(4000);
+  defineifDl  = await pypiDownloads('defineif');
+
+  writeCache({
+    fetchedAt: Date.now(),
+    github: { unimportStars, unexportStars, pydbmStars, defineifStars,
+              vakitStars, siteSeekerStars, meldStars },
+    pypi: { unimport: unimportDl, unexport: unexportDl, 'pythonic-dbm': pydbmDl, defineif: defineifDl },
+  });
+}
 
 const metadata = {
   title: 'Hakan Çelik — Software Engineer',
@@ -80,7 +138,6 @@ const metadata = {
       { variant: 'primary', text: 'Projeleri Gör', href: '#projects', icon: 'tabler:rocket' },
       { text: 'Blog', href: getPermalink('/blog') },
     ]}
-    image={{ src: profileImg, alt: 'Hakan Çelik', width: 400, height: 400 }}
   >
     <Fragment slot="title">
       Merhaba, ben <span class="text-accent dark:text-white">Hakan Çelik</span>
@@ -88,7 +145,7 @@ const metadata = {
 
     <Fragment slot="subtitle">
       <span class="font-semibold">Software Engineer</span> — Python tooling · iOS/macOS apps · Open source.
-      TrendyolGo'da yazılım geliştirici olarak çalışıyorum. 2015'ten beri yazılım dünyasının içindeyim.
+      Trendyol Go by Uber Eats'te yazılım geliştirici olarak çalışıyorum. 2019'dan beri profesyonel olarak yazılım geliştiriyorum.
     </Fragment>
   </Hero>
 
@@ -101,19 +158,19 @@ const metadata = {
     items={[
       {
         title: 'Vakit',
-        description: 'Namaz vakti hatırlatıcınız ve kıble. iOS için minimalist, kullanımı kolay bir uygulama.',
+        description: `Namaz vakti hatırlatıcınız ve kıble. iOS için minimalist, kullanımı kolay bir uygulama.${statsBadges(vakitStars, '')}`,
         icon: 'tabler:moon-stars',
         callToAction: { text: 'vakit.hakancelik.dev', href: 'https://vakit.hakancelik.dev', target: '_blank' },
       },
       {
         title: 'SiteSeeker',
-        description: 'macOS için akıllı tarayıcı geçmişi ve yer imi arama. Tüm tarayıcılarını tek arayüzde ara.',
+        description: `macOS için akıllı tarayıcı geçmişi ve yer imi arama. Tüm tarayıcılarını tek arayüzde ara.${statsBadges(siteSeekerStars, '')}`,
         icon: 'tabler:search',
         callToAction: { text: 'siteseeker.hakancelik.dev', href: 'https://siteseeker.hakancelik.dev', target: '_blank' },
       },
       {
         title: 'Meld',
-        description: 'Minimalist karo birleştirme bulmaca oyunu. Kaydır, birleştir, çöz.',
+        description: `Minimalist karo birleştirme bulmaca oyunu. Kaydır, birleştir, çöz.${statsBadges(meldStars, '')}`,
         icon: 'tabler:puzzle',
         callToAction: { text: 'meld.hakancelik.dev', href: 'https://meld.hakancelik.dev', target: '_blank' },
       },

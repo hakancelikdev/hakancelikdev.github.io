@@ -3,8 +3,8 @@ publishDate: 2022-04-13T00:00:00Z
 author: Hakan Çelik
 title: "Renk Alanlarını Değiştirme"
 excerpt: "Bu yazıda, BGR Gray, BGR HSV vb. Gibi görüntüleri bir renk alanından diğerine dönüştürmeyi öğreneceğiz. Buna ek olarak, bir videoda renkli bir nesne çıkarmayı sağlayan bir uygulama oluşturacağız Bu fo"
-image: https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80
 category: OpenCV
+image: /images/posts/opencv/frame.jpg
 tags:
   - opencv
   - python
@@ -87,8 +87,6 @@ cv2.destroyAllWindows()
 ```
 
 Çıktımız şu şekilde olacaktır.
-
-![coogger-opencv-python](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/frame.jpg?style=center)
 
 ## Takip Etmek İçin HSV Değerleri Nasıl Bulunur?
 

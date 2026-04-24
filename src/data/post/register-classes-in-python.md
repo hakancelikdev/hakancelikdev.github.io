@@ -1,10 +1,10 @@
 ---
 publishDate: 2022-11-24T00:00:00Z
 author: Hakan Çelik
-title: "-------"
-excerpt: ""
-image: https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80
+title: "Register Classes in Python"
+excerpt: "Three ways to auto-register subclasses in Python: metaclass, __init_subclass__, and class decorator."
 category: Python
+image: ~/assets/images/blog/python.jpg
 tags:
   - python
   - metaclass

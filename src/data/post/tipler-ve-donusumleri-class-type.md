@@ -3,8 +3,8 @@ publishDate: 2021-11-02T00:00:00Z
 author: Hakan Çelik
 title: "Tipler Ve Dönüşümleri"
 excerpt: "Öncelikle python'da hangi veri tipleri vardı onları hatırlayalım, aşağıda python'da var olan veri tiplerinin listesi ve örnekler yazılmıştır bu konunun daha iyi anlaşılması için lütfen dikkatli incele"
-image: https://images.unsplash.com/photo-1649180556628-9ba704115795?auto=format&fit=crop&w=1200&q=80
 category: Python
+image: ~/assets/images/blog/python.jpg
 tags:
   - python
 ---

@@ -3,8 +3,8 @@ publishDate: 2021-09-15T00:00:00Z
 author: Hakan Çelik
 title: "Canny Kenar Algılama"
 excerpt: "Canny kenar algılama kavramı Bunun işlem için OpenCV fonksiyonlarından : cv2.Canny()"
-image: https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80
 category: OpenCV
+image: /images/posts/opencv/nms.jpg
 tags:
   - opencv
   - python
@@ -33,13 +33,13 @@ gördük.
 ### Görüntünün Yoğunluk Gradyanını Bulma
 
 Düzeltilmiş görüntü yatay yönde
-![](https://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/435f8877ff8b95bab1e4f3bd435524ffee5c14e6.png)
+![](/images/posts/opencv/math-435f.png)
 ve dikey yönde
-![](https://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/8bc80afcfda0a10c756110ee5b0dfdfa5c137392.png)
+![](/images/posts/opencv/math-8bc8.png)
 birinci türev elde etmek için yatay ve dikey yönde bir Sobel çekirdeğiyle filtrelenir.
 Bu iki resimden, her piksel için kenar eğimini ve yönünü aşağıdaki gibi bulabilirsiniz:
 
-![canny-kenar-alglama](https://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/fc9752466c9c38d07985d62e86946489e23c61e2.png?style=center)
+![canny-kenar-alglama](/images/posts/opencv/math-fc97.png)
 
 Gradyan yönü \( Gradient direction \) her zaman kenarlara diktir. Dikey, yatay ve iki
 diyagonal yönde dört açıdan birine yuvarlanır.
@@ -50,8 +50,6 @@ Eğim büyüklüğü ve yönünü aldıktan sonra, kenar oluşturmayan istenmeye
 kaldırmak için görüntünün tam bir taraması yapılır. Bunun için, her pikselde, pikselin
 gradyan yönündeki komşusundan yerel bir maksimum olup olmadığı kontrol edilir. Aşağıdaki
 görüntüyü kontrol edin:
-
-![](https://opencv-python-tutroals.readthedocs.io/en/latest/_images/nms.jpg?style=center)
 
 A noktası kenarındadır \(dikey yönde\). Gradyan yönü kenarın normalidir. B ve C noktası
 gradyan yönündedir. Böylece, nokta A, yerel maksimum oluşturup oluşturmadığını görmek
@@ -70,7 +68,7 @@ maksimum ve minimum \) ile sınıflandırılır. Onlar gerçek kenar piksellerin
 kenarların bir parçası olarak kabul edilir ve diğer leri yani kenar olmayanlar atılır.
 Aşağıdaki görüntüye bakın.
 
-![](https://opencv-python-tutroals.readthedocs.io/en/latest/_images/hysteresis.jpg?style=center)
+![](/images/posts/opencv/hysteresis.jpg)
 
 A kenarı, "kesin kenar" olarak kabul edilen maxVal'ın üstündedir. Kenar C, maxVal'ın
 altında olmasına rağmen, kenar A'ya bağlıdır, böylece geçerli kenar olarak da düşünülür
@@ -96,7 +94,7 @@ yapar. Şimdi bu fonksiyonun nasıl kullanacağımızı göreceğiz.
 - Son argüman, gradyan büyüklüğünü bulma denklemini belirten **L2gradient**'tir.
   Doğruysa, yukarıda belirtilen doğru denklemi kullanır, aksi takdirde bu işlevi
   kullanır:
-  ![](https://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/559f1d19fb3ffb98feccf9e5931edc0f73e1f26e.png?style=center)
+  ![](/images/posts/opencv/math-559f.png)
 
 ```python
 import cv2
@@ -113,4 +111,4 @@ plt.show()
 
 #### Sonuç;
 
-![](https://opencv-python-tutroals.readthedocs.io/en/latest/_images/canny1.jpg?style=center)
+![](/images/posts/opencv/canny1.jpg)

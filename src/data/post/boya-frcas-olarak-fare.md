@@ -3,8 +3,8 @@ publishDate: 2021-09-01T00:00:00Z
 author: Hakan Çelik
 title: "Boya Fırçası Olarak Fare"
 excerpt: "OpenCV de fare olaylarını işlemeyi öğreneceğiz Bu fonksiyonu öğreneceğiz : _cv2.setMouseCallback()_"
-image: https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80
 category: OpenCV
+image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv
   - python

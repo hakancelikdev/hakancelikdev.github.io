@@ -1,11 +1,11 @@
 ---
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
-import { blogCategoryRobots, getStaticPathsBlogCategory } from '~/utils/blog';
+import { blogCategoryRobots, getStaticPathsBlogCategory, findCategories } from '~/utils/blog';
 
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
-import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 export const prerender = true;
 
@@ -16,11 +16,13 @@ export const getStaticPaths = (async ({ paginate }) => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths> & { category: Record<string, string> };
 
 const { page, category } = Astro.props as Props;
-
 const currentPage = page.currentPage ?? 1;
 
+const categories = await findCategories();
+const totalAll = categories.reduce((s, c) => s + c.count, 0);
+
 const metadata = {
-  title: `Category '${category.title}' ${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  title: `${category.title}${currentPage > 1 ? ` — Sayfa ${currentPage}` : ''} — Blog`,
   robots: {
     index: blogCategoryRobots?.index,
     follow: blogCategoryRobots?.follow,
@@ -29,9 +31,59 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <Headline>{category.title}</Headline>
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+
+    <!-- Header -->
+    <header class="mb-10 md:mb-14 text-center">
+      <p class="text-sm font-medium text-primary dark:text-indigo-400 uppercase tracking-widest mb-2">Kategori</p>
+      <h1 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading">
+        {category.title}
+      </h1>
+      <p class="mt-3 text-muted dark:text-slate-400">
+        {page.total} yazı
+      </p>
+    </header>
+
+    <!-- Kategori filtreleri -->
+    <div class="flex flex-wrap gap-2 mb-10 justify-center">
+      <a
+        href={getPermalink('blog')}
+        class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium
+               bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300
+               hover:bg-indigo-100 dark:hover:bg-indigo-900/40 hover:text-primary dark:hover:text-indigo-300
+               transition-colors"
+      >
+        Tümü
+        <span class="bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-slate-400 text-xs px-1.5 py-0.5 rounded-full">
+          {totalAll}
+        </span>
+      </a>
+      {categories.map((cat) => {
+        const isActive = cat.slug === category.slug;
+        return (
+          <a
+            href={getPermalink(cat.slug, 'category')}
+            class={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
+              isActive
+                ? 'bg-primary text-white dark:bg-primary dark:text-white hover:opacity-90'
+                : 'bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 hover:text-primary dark:hover:text-indigo-300'
+            }`}
+          >
+            {cat.title}
+            <span class={`text-xs px-1.5 py-0.5 rounded-full ${isActive ? 'bg-white/20 text-white' : 'bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-slate-400'}`}>
+              {cat.count}
+            </span>
+          </a>
+        );
+      })}
+    </div>
+
     <BlogList posts={page.data} />
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+    <Pagination
+      prevUrl={page.url.prev}
+      nextUrl={page.url.next}
+      prevText="Daha yeni"
+      nextText="Daha eski"
+    />
   </section>
 </Layout>

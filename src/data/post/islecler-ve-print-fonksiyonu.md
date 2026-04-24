@@ -3,8 +3,8 @@ publishDate: 2021-07-27T00:00:00Z
 author: Hakan Çelik
 title: "İşleçler Ve Print Fonksiyonu"
 excerpt: "İşleçler ( , /, , +, %) print Fonksiyonu (Ekrana yazı yazmamızı sağlayan fonksiyon)"
-image: https://images.unsplash.com/photo-1649180556628-9ba704115795?auto=format&fit=crop&w=1200&q=80
 category: Python
+image: ~/assets/images/blog/python.jpg
 tags:
   - python
 ---

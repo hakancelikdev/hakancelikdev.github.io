@@ -2,9 +2,9 @@
 publishDate: 2022-10-13T00:00:00Z
 author: Hakan Çelik
 title: "Define Method If Condition True"
-excerpt: ""
-image: https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80
+excerpt: "Define class methods conditionally at class creation time using a custom metaclass and __prepare__ namespace."
 category: Python
+image: ~/assets/images/blog/python.jpg
 tags:
   - python
   - metaclass

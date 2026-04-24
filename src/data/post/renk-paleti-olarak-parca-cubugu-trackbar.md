@@ -3,8 +3,8 @@ publishDate: 2022-04-27T00:00:00Z
 author: Hakan Çelik
 title: "Renk Paleti Olarak Parça Çubuğu ( Trackbar )"
 excerpt: "Trackbar'ı OpenCV pencerelerine bağlamayı öğreneceğiz Şu fonksiyonları öğreneceğiz ; cv2.getTrackbarPos (), cv2.createTrackbar() vb."
-image: https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80
 category: OpenCV
+image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv
   - python
@@ -82,4 +82,3 @@ cv2.destroyAllWindows()
 
 Ekran görüntüsü ;
 
-![](https://www.coogger.com/media/images/opencv_3JcB3OU.jpg)

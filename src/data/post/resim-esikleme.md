@@ -3,8 +3,8 @@ publishDate: 2022-05-11T00:00:00Z
 author: Hakan Çelik
 title: "Resim Eşikleme"
 excerpt: "Bu yazımızda basit eşikleme ( thresholding ) uyarlanabilir eşik ve otsu'nun eşiğini öğreneceğiz ve bu fonksiyonları öğreneceğiz, cv2.threshold, cv2.adaptiveThreshold"
-image: https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80
 category: OpenCV
+image: https://github.com/abidrahmank/OpenCV2-Python-Tutorials/raw/master/source/py_tutorials/py_imgproc/py_thresholding/images/threshold.jpg
 tags:
   - opencv
   - python
@@ -68,8 +68,6 @@ plt.show()
 > bilgi için lütfen Matplotlib dokümanlarına göz atın.
 
 bu kodların sonucu şöyle bir çıktı veriri.
-
-![](https://github.com/abidrahmank/OpenCV2-Python-Tutorials/raw/master/source/py_tutorials/py_imgproc/py_thresholding/images/threshold.jpg?style=center)
 
 ## Uyarlamalı Eşikleme
 

@@ -3,8 +3,8 @@ publishDate: 2022-09-15T00:00:00Z
 author: Hakan Çelik
 title: "Dynamic Class Creation"
 excerpt: "Even if I create the Example class dynamically, the results will be the same as in my previous post."
-image: https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80
 category: Python
+image: /images/posts/understanding-python-classes.png
 tags:
   - python
   - metaclass

@@ -2,9 +2,9 @@
 publishDate: 2023-01-05T00:00:00Z
 author: Hakan Çelik
 title: "Meta Classes Without Type"
-excerpt: ""
-image: https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80
+excerpt: "Build a metaclass without inheriting from type — understand __prepare__, __new__, __init__, and __call__ from scratch."
 category: Python
+image: /images/posts/meta-classes-without-type.png
 tags:
   - python
   - metaclass

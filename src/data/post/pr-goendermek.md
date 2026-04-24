@@ -3,8 +3,8 @@ publishDate: 2022-07-15T00:00:00Z
 author: Hakan Çelik
 title: "PR Göndermek"
 excerpt: "CPython bugları https://bugs.python.org/ adresinde listelenir, tartışılır ve takip edilir sizlerde CLA kaydınızı yaptıktan sonra burada yapabileceğiniz bir issue bulup onun için çalışabilirsiniz."
-image: https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80
 category: CPython
+image: ~/assets/images/blog/cpython.jpg
 tags:
   - python
   - cpython

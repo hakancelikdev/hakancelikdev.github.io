@@ -3,8 +3,8 @@ publishDate: 2021-10-19T00:00:00Z
 author: Hakan Çelik
 title: "String Nesnesinin Methodları ve Method Operasyonları"
 excerpt: "Method Operasyonları = Method Wrapper"
-image: https://images.unsplash.com/photo-1649180556628-9ba704115795?auto=format&fit=crop&w=1200&q=80
 category: Python
+image: ~/assets/images/blog/python.jpg
 tags:
   - python
 ---

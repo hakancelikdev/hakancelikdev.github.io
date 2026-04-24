@@ -3,8 +3,8 @@ publishDate: 2021-10-27T00:00:00Z
 author: Hakan Çelik
 title: "Görüntülerde Aritmetik İşlemler"
 excerpt: "Görüntüler üzerinde toplama, çıkarma, bitdüzeyi işlemleri gibi birkaç aritmetik işlemleri öğreneceğiz. Bu fonksiyonları öğreneceksiniz : cv2.add(), cv2.addWeighted() vb."
-image: https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80
 category: OpenCV
+image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv
   - python
@@ -48,19 +48,19 @@ Bu yüzden her zaman OpenCV işlevlerine sadık kalın.
 
 Bu aynı zamanda görüntü eklemesidir, ancak farklı ağırlıklar görüntülere verilir,
 böylece harmanlama veya şeffaflık hissi verir. Resimler aşağıdaki denkleme göre eklenir:
-![](https://steemitimages.com/0X0/http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/8086cd5f33e2aed7d185e1f55fc31ceab4433c2b.png)
-![](https://steemitimages.com/0X0/http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/e8b0946e02b57d6440cad75c8e0666f071d5ab3c.png)'e
+![](/images/posts/opencv/math-8086.png)
+![](/images/posts/opencv/math-e8b0.png)'e
 değişen
-![](https://steemitimages.com/0X0/http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/ad59b6e24a4a00ac621801f8d7513d68be654ab5.png)
+![](/images/posts/opencv/math-ad59.png)
 bir görüntü arasında diğerine serin bir geçiş yapabilirsiniz. Burada onları bir araya
 getirmek için iki görüntü aldım.
 
 İlk resme 0.7 ağırlık ve ikinci resme 0.3 verilir. **cv2.addWeighted\(\)**, aşağıdaki
 denklemi görüntüye uygular.
-![](https://steemitimages.com/0X0/http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/ce1ee966236689be38f566b9fb6bc92812bbd54d.png)
+![](/images/posts/opencv/math-ce1e.png)
 
 Burada
-![](https://steemitimages.com/0X0/http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/0ebb67342b546ca42a1c634b1ef03c893c4cdedb.png)
+![](/images/posts/opencv/math-0ebb.png)
 sıfır olarak alınır.
 
 ```python
@@ -74,7 +74,6 @@ cv2.destroyAllWindows()
 
 **sonuç ;**
 
-![](https://www.coogger.com/media/images/opencv_YfZ6eAZ.jpg)
 
 ## Bitwise Operations \( Bit düzeyi işlemleri \)
 
@@ -122,4 +121,3 @@ cv2.destroyAllWindows()
 Aşağıdaki sonuca bakın, Sol resim imal ettiğimiz maskeyi gösterir, Sağ görüntü ise sen
 son oluşan sonucu gösterir.
 
-![](https://www.coogger.com/media/images/opencv_LAvFMC7.jpg)

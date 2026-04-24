@@ -74,6 +74,13 @@ export const adaptOpenGraphImages = async (
           };
         }
 
+        // Public folder images (paths starting with /) cannot be optimized — return as absolute URL
+        if (typeof resolvedImage === 'string' && resolvedImage.startsWith('/')) {
+          return {
+            url: astroSite ? String(new URL(resolvedImage, astroSite)) : resolvedImage,
+          };
+        }
+
         let _image: OptimizedImage | undefined;
 
         if (

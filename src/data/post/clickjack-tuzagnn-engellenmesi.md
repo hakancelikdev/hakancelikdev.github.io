@@ -3,8 +3,8 @@ publishDate: 2022-05-15T00:00:00Z
 author: Hakan Çelik
 title: "Clickjack Tuzagının Engellenmesi"
 excerpt: "Apache'yi tüm sayfalara XFrameOptions üstbilgisini gönderecek şekilde yapılandırmak için bunu sitenizin yapılandırmasına ekleyin:"
-image: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80
 category: Güvenlik
+image: ~/assets/images/blog/guvenlik.jpg
 tags:
   - security
   - web

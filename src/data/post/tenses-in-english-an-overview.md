@@ -3,8 +3,8 @@ publishDate: 2023-03-01T00:00:00Z
 author: Hakan Çelik
 title: "Tenses in English: An Overview"
 excerpt: "Past simple tense _Used to describe actions or events that happened at a specific point in the past._ Examples; I walked to the store. (Meaning: I traveled to the store on foot in the past.) She calle"
-image: https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1200&q=80
 category: İngilizce
+image: ~/assets/images/blog/ingilizce.jpg
 tags:
   - ingilizce
   - öğrenme

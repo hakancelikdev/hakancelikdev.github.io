@@ -3,8 +3,8 @@ publishDate: 2021-09-07T00:00:00Z
 author: Hakan Çelik
 title: "Python Kurulumu"
 excerpt: "En sonda yaptığımız yüklemeyi şuan için yapmanız gerekmiyor"
-image: https://images.unsplash.com/photo-1649180556628-9ba704115795?auto=format&fit=crop&w=1200&q=80
 category: Python
+image: /images/posts/store.png
 tags:
   - python
 ---
@@ -86,10 +86,14 @@ bölümünden en güncel Python sürümünü indirin ve çalıştırın.
 
 Karşınıza şöyle bir ekran gelecektir.
 
+![](/images/posts/capture-2.png)
+
 Aşağıda bulunan **Add to Python 3.8 to PATH** bölümünü yukarıdaki gibi seçin ve
 **Customize installation** bölümüne tıklarak devam edin.
 
 Bir sonraki sayfada her şeyi seçili bırakın ve next'e basın.
+
+![](/images/posts/capture-3.png)
 
 Bir sonraki sayfayı yukarıdaki gibi doldurun ve **insall** tuşuna basıp yükleyin.
 

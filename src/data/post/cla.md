@@ -3,8 +3,8 @@ publishDate: 2022-07-01T00:00:00Z
 author: Hakan Çelik
 title: "CLA"
 excerpt: "PSF Contributor Agreement ( PSF Katılımcı Sözleşmesi )"
-image: https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80
 category: CPython
+image: /images/posts/capture.png
 tags:
   - python
   - cpython
@@ -30,6 +30,8 @@ mesajda bırakacaktır.
 Ayrıca PR labelleriniz aşağıdaki gibi olacak şekilde bot tarafından verilecektir, CLA
 kaydınız yapıldıktan sonra **CLA not signed** etiketi yerine **CLA signed** etiketi
 verilecektir.
+
+![](/images/posts/capture-1.png)
 
 Kaydınızı yaptıktan sonra aşağıdaki adresten kullanıcı adınızı yazarak kabul olunup
 olunmadığını kontrol edebilirsiniz. Kabul olması sadece iş günlerinde olduğu ve uzun

@@ -1,10 +1,10 @@
 ---
 publishDate: 2022-11-10T00:00:00Z
 author: Hakan Çelik
-title: "Account(first_name='Hakan', last_name='Çelik', username=1)"
-excerpt: ""
-image: https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80
+title: "Modeling a Class with a Metaclass"
+excerpt: "Use a metaclass to model a dataclass-like structure with automatic __slots__ and runtime type validation."
 category: Python
+image: ~/assets/images/blog/python.jpg
 tags:
   - python
   - metaclass

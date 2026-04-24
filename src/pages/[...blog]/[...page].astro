@@ -3,11 +3,10 @@ import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
-import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
-// import PostTags from "~/components/blog/Tags.astro";
 
-import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
+import { blogListRobots, getStaticPathsBlogList, findCategories } from '~/utils/blog';
+import { getPermalink } from '~/utils/permalinks';
 
 export const prerender = true;
 
@@ -20,11 +19,10 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { page } = Astro.props as Props;
 const currentPage = page.currentPage ?? 1;
 
-// const allCategories = await findCategories();
-// const allTags = await findTags();
+const categories = await findCategories();
 
 const metadata = {
-  title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  title: `Blog${currentPage > 1 ? ` — Sayfa ${currentPage}` : ''}`,
   robots: {
     index: blogListRobots?.index && currentPage === 1,
     follow: blogListRobots?.follow,
@@ -37,16 +35,146 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <Headline
-      subtitle="A statically generated blog example with news, tutorials, resources and other interesting content related to AstroWind"
-    >
-      The Blog
-    </Headline>
+
+    <!-- Header -->
+    <header class="mb-10 md:mb-14 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading">
+        Blog
+      </h1>
+      <p class="mt-3 text-xl text-muted dark:text-slate-400">
+        Python, Django, Go, OpenCV, Cloud ve daha fazlası üzerine yazılar.
+      </p>
+    </header>
+
+    <!-- Kategori filtreleri -->
+    <div class="flex flex-wrap gap-2 mb-10 justify-center">
+      <a
+        href={getPermalink('blog')}
+        class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium
+               bg-primary text-white dark:bg-primary dark:text-white
+               hover:opacity-90 transition-opacity"
+      >
+        Tümü
+        <span class="bg-white/20 text-white text-xs px-1.5 py-0.5 rounded-full">{page.total}</span>
+      </a>
+      {categories.map((cat) => (
+        <a
+          href={getPermalink(cat.slug, 'category')}
+          class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium
+                 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300
+                 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 hover:text-primary dark:hover:text-indigo-300
+                 transition-colors"
+        >
+          {cat.title}
+          <span class="bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-slate-400 text-xs px-1.5 py-0.5 rounded-full">
+            {cat.count}
+          </span>
+        </a>
+      ))}
+    </div>
+
     <BlogList posts={page.data} />
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-    <!--
-      <PostTags tags={allCategories} class="mb-2" title="Search by Categories:" isCategory />
-      <PostTags tags={allTags}  title="Search by Tags:" />
-    -->
+
+    <!-- Infinite scroll sentinel — hidden when JS loads more posts -->
+    <div
+      id="scroll-sentinel"
+      data-next-url={page.url.next ?? ''}
+      class="flex justify-center py-10"
+    >
+      <!-- spinner shown by JS while loading -->
+    </div>
+
+    <!-- Fallback pagination (hidden by JS, accessible without JS) -->
+    <div id="blog-pagination">
+      <Pagination
+        prevUrl={page.url.prev}
+        nextUrl={page.url.next}
+        prevText="Daha yeni"
+        nextText="Daha eski"
+      />
+    </div>
   </section>
 </Layout>
+
+<script>
+  const list = document.getElementById('post-list');
+  const sentinel = document.getElementById('scroll-sentinel');
+  const pagination = document.getElementById('blog-pagination');
+
+  if (list && sentinel) {
+    const nextUrlAttr = sentinel.getAttribute('data-next-url');
+    if (!nextUrlAttr) {
+      // No more pages — nothing to do
+    } else {
+      // Hide the fallback pagination nav since JS will handle loading
+      if (pagination) pagination.style.display = 'none';
+
+      let nextUrl: string | null = nextUrlAttr;
+      let isLoading = false;
+
+      const showSpinner = () => {
+        sentinel.innerHTML = `
+          <div class="flex flex-col items-center gap-3">
+            <div class="animate-spin rounded-full h-8 w-8 border-2 border-primary border-t-transparent"></div>
+            <p class="text-sm text-muted dark:text-slate-400">Yükleniyor…</p>
+          </div>`;
+      };
+
+      const clearSentinel = () => {
+        sentinel.innerHTML = '';
+      };
+
+      const loadMore = async () => {
+        if (isLoading || !nextUrl) return;
+        isLoading = true;
+        showSpinner();
+
+        try {
+          const res = await fetch(nextUrl);
+          const html = await res.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+
+          // Append new post items into the current list
+          const newItems = doc.querySelectorAll('#post-list li');
+          newItems.forEach((item) => {
+            // Force visibility — intersection animations won't re-fire for injected nodes
+            const article = item.querySelector('article');
+            if (article) {
+              (article as HTMLElement).style.opacity = '1';
+            }
+            list.appendChild(item);
+          });
+
+          // Advance to the next page from the fetched page's sentinel
+          const newSentinel = doc.getElementById('scroll-sentinel');
+          const newNextUrl = newSentinel?.getAttribute('data-next-url') ?? '';
+          nextUrl = newNextUrl || null;
+
+          if (nextUrl) {
+            clearSentinel();
+          } else {
+            observer.disconnect();
+            sentinel.innerHTML = `<p class="text-sm text-muted dark:text-slate-400 py-4">Tüm yazılar yüklendi.</p>`;
+          }
+        } catch (err) {
+          console.error('Infinite scroll: fetch failed', err);
+          clearSentinel();
+          // Restore pagination as fallback on error
+          if (pagination) pagination.style.display = '';
+        } finally {
+          isLoading = false;
+        }
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) loadMore();
+        },
+        { rootMargin: '400px' }
+      );
+
+      observer.observe(sentinel);
+    }
+  }
+</script>

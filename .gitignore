@@ -25,3 +25,4 @@ Thumbs.db
 
 # Astro cache
 .astro/
+src/data/_stats-cache.json

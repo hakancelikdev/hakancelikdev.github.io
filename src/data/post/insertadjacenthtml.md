@@ -3,8 +3,8 @@ publishDate: 2021-08-01T00:00:00Z
 author: Hakan Çelik
 title: "insertAdjacentHTML"
 excerpt: "Element arabiriminin insertAdjacentHTML() method'u, belirtilen metni ( text ) HTML veya XML olarak parse eder ve sonuçlanan düğümleri belirtilen bir konumdaki ( position ) DOM ağacına ekler. Kullanıld"
-image: https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?auto=format&fit=crop&w=1200&q=80
 category: JavaScript
+image: ~/assets/images/blog/javascript.jpg
 tags:
   - javascript
 ---

@@ -3,8 +3,8 @@ publishDate: 2021-09-29T00:00:00Z
 author: Hakan Çelik
 title: "Görüntü Geçişleri"
 excerpt: "Görüntü geçişlerini ve kenar bulma ve bu fonksiyonlar cv2.Sobel(), cv2.Scharr(), cv2.Laplacian() vb"
-image: https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80
 category: OpenCV
+image: /images/posts/opencv/gradients.jpg
 tags:
   - opencv
   - python
@@ -47,7 +47,7 @@ $$\Delta src = \frac{\partial ^2{src}}{\partial x^2} + \frac{\partial ^2{src}}{\
 her türev Sobel türev yardımıyla bulunur. If ksize = 1 \( ksize 1 ise \) o zaman
 çekirdek aşağıdaki filtreleme için kullanılır:
 
-![](https://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/2e4e208edcbed72b60c09a9e8eb8c00c4b21dbd6.png?style=center)
+![](/images/posts/opencv/math-2e4e.png)
 
 ## Code
 
@@ -77,8 +77,6 @@ plt.show()
 ```
 
 Sonuç:
-
-![Image Gradients](https://opencv-python-tutroals.readthedocs.io/en/latest/_images/gradients.jpg?style=center)
 
 ## Önemli Bir Konu!
 
@@ -117,4 +115,4 @@ plt.show()
 
 Sonucu kontrol edin :
 
-![Double Edges](https://opencv-python-tutroals.readthedocs.io/en/latest/_images/double_edge.jpg?style=center)
+![Double Edges](/images/posts/opencv/double_edge.jpg)

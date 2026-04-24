@@ -2,9 +2,9 @@
 publishDate: 2023-03-16T00:00:00Z
 author: Hakan Çelik
 title: "Run Methods Order In Python"
-excerpt: ""
-image: https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80
+excerpt: "Quick reference: execution order of __prepare__, __new__, __init__, and __call__ in Python metaclasses."
 category: Python
+image: /images/posts/run-methods-order-in-python.png
 tags:
   - python
   - metaclass

@@ -244,6 +244,21 @@ export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFu
 };
 
 /** */
+export const findCategories = async (): Promise<Array<{ slug: string; title: string; count: number }>> => {
+  const posts = await fetchPosts();
+  const map: Record<string, { slug: string; title: string; count: number }> = {};
+  posts.forEach((post) => {
+    if (post.category?.slug) {
+      if (!map[post.category.slug]) {
+        map[post.category.slug] = { slug: post.category.slug, title: post.category.title, count: 0 };
+      }
+      map[post.category.slug].count++;
+    }
+  });
+  return Object.values(map).sort((a, b) => b.count - a.count);
+};
+
+/** */
 export async function getRelatedPosts(originalPost: Post, maxResults: number = 4): Promise<Post[]> {
   const allPosts = await fetchPosts();
   const originalTagsSet = new Set(originalPost.tags ? originalPost.tags.map((tag) => tag.slug) : []);

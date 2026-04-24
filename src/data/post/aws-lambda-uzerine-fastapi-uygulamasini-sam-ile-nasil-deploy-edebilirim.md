@@ -3,8 +3,8 @@ publishDate: 2022-11-15T00:00:00Z
 author: Hakan Çelik
 title: "Aws Lambda Uzerine Fastapi Uygulamasini Sam Ile Nasil Deploy Edebilirim"
 excerpt: "Eğer Serverless uygulamanızı fastapi ile yazdıysanız ve aws lambda kullanarak ayağa kaldırmak istiyorsanız yine aws lambda ya uygun hale getirmeniz gerekiyor, bunun için ihtiyacınız olan kütüphane man"
-image: https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80
 category: Cloud
+image: ~/assets/images/blog/cloud.jpg
 tags:
   - cloud
   - aws

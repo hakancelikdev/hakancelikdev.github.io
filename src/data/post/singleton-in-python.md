@@ -1,10 +1,10 @@
 ---
 publishDate: 2022-12-08T00:00:00Z
 author: Hakan Çelik
-title: "--------"
-excerpt: ""
-image: https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80
+title: "Singleton in Python"
+excerpt: "Implement the Singleton pattern in Python using a metaclass with __call__ and __new__ — two approaches compared."
 category: Python
+image: ~/assets/images/blog/python.jpg
 tags:
   - python
   - metaclass

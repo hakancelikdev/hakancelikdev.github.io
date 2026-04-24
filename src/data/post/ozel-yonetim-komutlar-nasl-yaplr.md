@@ -3,8 +3,8 @@ publishDate: 2022-08-02T00:00:00Z
 author: Hakan Çelik
 title: "Özel Yönetim Komutları Nasıl Yapılır"
 excerpt: "Django'nun bu bölümünü kullanmayan yoktur, django'yu hiç bilmeyenler ve öğrenmeye yeni başlayanlar bile ilk kullandıkları alan burasıdır proje dizininden konsolu açar ve yeni projesini kodlamaya başla"
-image: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80
 category: Django
+image: ~/assets/images/blog/django.jpg
 tags:
   - django
   - python

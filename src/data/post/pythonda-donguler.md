@@ -3,8 +3,8 @@ publishDate: 2021-09-21T00:00:00Z
 author: Hakan Çelik
 title: "Python'da Döngüler"
 excerpt: "olup while döngüsü bir şart ile çalışan döngüdür, tıpkı if, elif veya else gibi while döngüsünün de önemsediği tek şey verilen şartın doğru olup olmadığıdır, eğer doğru ise çalışmaya devam eder, yanlı"
-image: https://images.unsplash.com/photo-1649180556628-9ba704115795?auto=format&fit=crop&w=1200&q=80
 category: Python
+image: ~/assets/images/blog/python.jpg
 tags:
   - python
 ---

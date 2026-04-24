@@ -3,8 +3,8 @@ publishDate: 2022-11-29T00:00:00Z
 author: Hakan Çelik
 title: "Aws Lambda Uzerine Serverless Uygulama Deployu Nasil Yapilir"
 excerpt: "AWS Lambda üzerine serverless uygulama deployu için bir çok seçenek mevcut, bildiklerimi sıralayacak olursak bunlar;"
-image: https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80
 category: Cloud
+image: ~/assets/images/blog/cloud.jpg
 tags:
   - cloud
   - aws

@@ -3,11 +3,13 @@ publishDate: 2021-07-13T00:00:00Z
 author: Hakan Çelik
 title: "Instagram Botu"
 excerpt: "Sınıf yapısını instagram botu yaparak pekiştireceğiz. Sınıf yapısında bulunan @staticmethod decorator'ünü öğreneceğiz. requests kütüphanesini kullanarak güzel bir bot yapacağız."
-image: https://images.unsplash.com/photo-1649180556628-9ba704115795?auto=format&fit=crop&w=1200&q=80
 category: Python
+image: ~/assets/images/blog/python.jpg
 tags:
   - python
 ---
+
+> **⚠️ UYARI (2024):** Bu yazıdaki kod örnekleri artık çalışmamaktadır. Instagram, bu yazıda kullanılan `accounts/login/ajax/` ve benzeri dahili endpoint'leri devre dışı bırakmıştır. Güncel Instagram API entegrasyonu için [Instagram Graph API](https://developers.facebook.com/docs/instagram-api) ve OAuth2 akışını kullanmanız gerekmektedir. Bu yazı yalnızca `@staticmethod`, `requests.Session`, sınıf yapısı ve Python OOP kavramlarını öğrenmek amacıyla tarihi bir referans olarak bırakılmıştır.
 
 # Instagram Botu
 
@@ -92,8 +94,6 @@ kullanarak bu istekleri taklit etmek genel botu bu şekilde yapıyoruz mesela ta
 olayını yapacaksak bir kullanıcı profiline gidip follow tuşuna basıyoruz ve giden
 isteğin adresini bulup post mu get mi yapmış ona bakıyoruz daha sonra da bunu taklit
 ediyoruz.
-
-![](https://www.coogger.com/media/images/instagram-console.jpg)
 
 şimdi yukarda kullanıcı adı ve şifreyi aldık işlem gerçekleşecek adresleride bulduk.
 Şimdi sınıfımınızn diğer fonksiyonlarını yapmaya geçelim bazı yapılmamış fonksiyonlar
@@ -227,7 +227,7 @@ bilgiler işiğinde post isteğimizi yapıyor ve artık login olmuş oluyoruz.
     def logout(self):
         r = self.s.get(self.instagram_logout_url)
         self.isloggedin = False
-    return r
+        return r
 ```
 
 Çıkış yaparken pek birşey yok yine **self.s** i kullanarak çıkış yapmamızı sağlayan
@@ -340,10 +340,6 @@ bu adrese baktıgınızda params sekmesinde form isimleri görünür.
 - "username"
 - "firs_name"
 - "seamless_login_enabled": "1"
-
-**Resimde görünüyor :**
-
-![instagram](https://www.coogger.com/media/images/instagram.jpg)
 
 Bunlar yani geri kalan işlemde yine aynı işlemler login de olduğu gibi.
 

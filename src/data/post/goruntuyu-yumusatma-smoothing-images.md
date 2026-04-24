@@ -3,8 +3,8 @@ publishDate: 2021-12-08T00:00:00Z
 author: Hakan Çelik
 title: "Görüntüyü Yumuşatma - ( Smoothing Images )"
 excerpt: "Çeşitli düşük geçişli filtrelerle görüntüleri bulanıklaştırma Görüntülere özel filitreler uygulamak (2B kıvrım)"
-image: https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80
 category: OpenCV
+image: /images/posts/opencv/filter.jpg
 tags:
   - opencv
   - python
@@ -31,7 +31,7 @@ Bir resim ile çekirdeği \( kernel \) çevirmek, evirmek vs için OpenCV kütü
 `cv2.filter2D()` fonksiyonunu vardır. Örnekte görüldüğü gibi, biz resim üzerinde
 ortalama filtre deniyoruz. 5x5 ortalama bir filtre çekirdeği bu şekilde tanımlanabilir.
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/220e403e44b16ea8e05d350c4ce69e9aedff5bd1.png?style=center)
+![](/images/posts/opencv/math-220e.png)
 
 Yukarıdaki çekirdek ile filtreleme, aşağıdakilerin gerçekleştirilmesine neden olur. Her
 bir pixel, 5x5 bu pixel'in üzerinde ekran ordalıdır, bu pencerenin içine giren bütün
@@ -56,8 +56,6 @@ plt.show()
 
 **Sonuç;**
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/filter.jpg?style=center)
-
 ## Resim Bulanıklaştırma \( Görüntü Yumuşatma \)
 
 Görüntü bulanıklaştırma düşük geçişli filtreler ile resmi evriştirilerek yapılır.Bu
@@ -73,7 +71,7 @@ değiştirir. Bu olay OpenCV de ki `cv2.blur()` ve `cv2.boxFilter()` fonksiyonla
 yapılır.Çekirdek hakkında daha fazla bilgi edinmek için, çekirdeğin genişlik ve
 yüksekliğini belirlemeliyiz 3x3 normalize edilmiş bir kutu filtresi şuna benzer:
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/42f61cdcb41615a23af32b0fd95e674090afdc8d.png?style=center)
+![](/images/posts/opencv/math-42f6.png)
 
 > NOT; Eğer normalize edilmesin istiyorsanız cv2.boxFilter\(normalize = False \) demeniz
 > yeterli oluyor.
@@ -94,7 +92,7 @@ plt.show()
 
 Sonuç;
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/blur.jpg?style=center)
+![](/images/posts/opencv/blur.jpg)
 
 ## 2. Gauss Filtreleme
 
@@ -110,7 +108,7 @@ değiştirerek yapılabilir
 
 `blur = cv2.GaussianBlur(img,(5,5),0)`
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/gaussian.jpg?style=center)
+![](/images/posts/opencv/gaussian.jpg)
 
 ## 3. Medyan \( Ortanca \) Filtreleme
 
@@ -127,7 +125,7 @@ Sonucu kontrol edin:
 
 `median = cv2.medianBlur(img,5)`
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/median.jpg?style=center)
+![](/images/posts/opencv/median.jpg)
 
 ## 4. Bilateral Filtreleme
 
@@ -162,4 +160,4 @@ bilgi için OpenCV dokümanlarına bakın\).
 
 Sonuç;
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/bilateral.jpg?style=center)
+![](/images/posts/opencv/bilateral.jpg)

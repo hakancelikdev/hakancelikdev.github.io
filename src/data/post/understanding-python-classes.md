@@ -3,8 +3,8 @@ publishDate: 2023-03-30T00:00:00Z
 author: Hakan Çelik
 title: "Understanding Python Classes"
 excerpt: "Every object in python has a type, and type(obj) == obj.class"
-image: https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80
 category: Python
+image: /images/posts/understanding-python-classes.png
 tags:
   - python
   - metaclass

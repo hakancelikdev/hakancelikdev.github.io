@@ -3,8 +3,8 @@ publishDate: 2022-06-21T00:00:00Z
 author: Hakan Çelik
 title: "Django'da Sayfalama - Pagination"
 excerpt: "Verilerin çokluğundan doğan bir ihtihaç sayfalama mantığını getirmiştir, bütün veriler tek bir sayfada olmuş olsaydı"
-image: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80
 category: Django
+image: ~/assets/images/blog/django.jpg
 tags:
   - django
   - python

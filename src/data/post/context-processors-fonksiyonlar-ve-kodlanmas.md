@@ -3,8 +3,8 @@ publishDate: 2022-03-15T00:00:00Z
 author: Hakan Çelik
 title: "Context Processors Fonksiyonları Ve Kodlanması"
 excerpt: "context_processors, template render edildiğinde bağlamı doldurmak için kullanılan, çağrılabilir bir python yolu listesidir. Bu çağrılabilirler, _request_ nesnesini argüman olarak alır ve bağlama birle"
-image: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80
 category: Django
+image: ~/assets/images/blog/django.jpg
 tags:
   - django
   - python

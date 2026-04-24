@@ -3,8 +3,8 @@ publishDate: 2021-04-29T00:00:00Z
 author: Hakan Çelik
 title: "Sass Kurulumu ?"
 excerpt: "Kurulum için daha detaylı bilgi : http://sasslang.com/install"
-image: https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1200&q=80
 category: CSS
+image: ~/assets/images/blog/css.jpg
 tags:
   - sass
   - css

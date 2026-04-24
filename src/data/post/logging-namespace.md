@@ -2,9 +2,9 @@
 publishDate: 2022-10-27T00:00:00Z
 author: Hakan Çelik
 title: "Logging Namespace"
-excerpt: ""
-image: https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80
+excerpt: "Log every attribute assignment during class body execution by returning a custom dict from __prepare__."
 category: Python
+image: ~/assets/images/blog/python.jpg
 tags:
   - python
   - metaclass

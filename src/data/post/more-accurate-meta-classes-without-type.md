@@ -2,9 +2,9 @@
 publishDate: 2023-02-16T00:00:00Z
 author: Hakan Çelik
 title: "More Accurate Meta Classes Without Type"
-excerpt: ""
-image: https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80
+excerpt: "A more complete metaclass implementation without inheriting from type, including __call__, __str__, and attribute access."
 category: Python
+image: /images/posts/meta-classes-without-type.png
 tags:
   - python
   - metaclass

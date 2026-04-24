@@ -3,8 +3,8 @@ publishDate: 2021-06-29T00:00:00Z
 author: Hakan Çelik
 title: "Input Fonksiyonu, Özellikleri Ve Detaylı İnceleme"
 excerpt: "Daha önceki içeriklerimde python'da fonksiyonlar konusuna bir giriş yapmış hatta type(), print() gibi işe yarar fonksiyonlarıda anlatmıştım şimdi ise kullanıcılardan bilgi ( girdi ) almamızı sağ"
-image: https://images.unsplash.com/photo-1649180556628-9ba704115795?auto=format&fit=crop&w=1200&q=80
 category: Python
+image: ~/assets/images/blog/python.jpg
 tags:
   - python
 ---

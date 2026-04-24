@@ -3,8 +3,8 @@ publishDate: 2021-11-24T00:00:00Z
 author: Hakan Çelik
 title: "Görüntünün Geometrik Dönüşümleri"
 excerpt: "Çevirme, döndürme ve afin dönüşümü gibi görüntülere farklı geometrik dönüşüm uygulamayı öğreneceğiz. Bu fonksiyonu öğrenceğiz : cv2.getPerspectiveTransform"
-image: https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80
 category: OpenCV
+image: /images/posts/opencv/translation.jpg
 tags:
   - opencv
   - python
@@ -53,12 +53,10 @@ res = cv2.resize(img,(2*width, 2*height), interpolation = cv2.INTER_CUBIC) # yen
 ## Çeviri
 
 Çeviri, cismin bulunduğu konumun değişmesidir. \(x, y\) yönündeki değişimi biliyorsanız,
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/0e83abfc665fcb85f416011f46e40cfc43a29fc8.png)
 olmasına izin verin , dönüşüm matrisi
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/45fa95c4085ad196cc95e3ab4f3488ac3076e758.png)
 yi aşağıdaki gibi oluşturabilirsiniz.
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/22fe551f03b8e94f1a7a75731a660f0163030540.png?style=center)
+![](/images/posts/opencv/math-22fe.png)
 
 `Np.float32` türünde bir **Numpy** dizisi haline getirebilir ve `cv2.warpAffine()`
 fonksiyonuna iletebilirsiniz. \(100,50\) 'lik bir kayma için aşağıdaki örneğe bakın:
@@ -79,23 +77,21 @@ cv2.destroyAllWindows()
 formunda olması gereken çıkış görüntüsünün boyutudur. Genişliği = sütunların sayısını ve
 yüksekliği = satırların sayısını hatırlarsan.
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/translation.jpg?style=center)
-
 ## Rotasyon
 
 Bir görüntünün bir açıyla döndürülmesi,
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/a9cfbeb8ebee1f365919e147a79e242dcb67ee5d.png)
+![](/images/posts/opencv/math-a9cf.png)
 formun dönüşüm matrisi ile sağlanır
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/f3a6bed945808a1f3a9df71b260f68f8e653af95.png?style=center)
+![](/images/posts/opencv/math-f3a6.png)
 
 Ancak OpenCV, ayarlanabilen dönme merkezi ile ölçeklendirilmiş dönüş sağlar; böylece
 istediğiniz herhangi bir konumda döndürebilirsiniz. Modifiye dönüştürme matrisi şu
 şekilde verilir:
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/91ff2b9b1db0760f4764631010749e594cdf5f5f.png?style=center)
+![](/images/posts/opencv/math-91ff.png)
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/math/383c254fc602c57a059a8296357f90fdf421aee7.png?style=center)
+![](/images/posts/opencv/math-383c.png)
 
 Bu dönüşüm matrisini bulmak için, OpenCV bir fonksiyon, `cv2.getRotationMatrix2D`
 sağlar. Aşağıdaki örnekte, görüntüyü herhangi bir ölçeklendirme olmadan merkeze göre 90
@@ -108,7 +104,7 @@ M = cv2.getRotationMatrix2D((cols/2,rows/2),90,1)
 dst = cv2.warpAffine(img,M,(cols,rows))
 ```
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/rotation.jpg?style=center)
+![](/images/posts/opencv/rotation.jpg)
 
 ## Afin Dönüşüm
 
@@ -134,7 +130,7 @@ plt.subplot(122),plt.imshow(dst),plt.title('Output')
 plt.show()
 ```
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/affine.jpg?style=center)
+![](/images/posts/opencv/affine.jpg)
 
 ## Perspektif Dönüşümü
 
@@ -159,4 +155,4 @@ plt.subplot(122),plt.imshow(dst),plt.title('Output')
 plt.show()
 ```
 
-![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/perspective.jpg?style=center)
+![](/images/posts/opencv/perspective.jpg)

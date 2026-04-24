@@ -3,8 +3,8 @@ publishDate: 2023-01-10T00:00:00Z
 author: Hakan Çelik
 title: "Serverless Nedir"
 excerpt: "Serverless Computing, Faas veya (Function As a Service) olarakta bilinir."
-image: https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80
 category: Cloud
+image: /images/posts/server-not-found.png
 tags:
   - cloud
   - aws

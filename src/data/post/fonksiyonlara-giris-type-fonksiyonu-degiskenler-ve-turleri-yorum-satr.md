@@ -3,8 +3,8 @@ publishDate: 2021-06-01T00:00:00Z
 author: Hakan Çelik
 title: "Fonksiyonlara Giriş, Type Fonksiyonu, Değişkenler Ve Türleri, Yorum Satırı"
 excerpt: "Yazılım dillerindeki fonksiyonlar bildiğimiz matematik deki fonksiyonlar ile aynıdır, aslında genel olarak bakıldığında matematik ile yazılım zaten aynı şeydir, bilgisayar denen makinenin bir matemati"
-image: https://images.unsplash.com/photo-1649180556628-9ba704115795?auto=format&fit=crop&w=1200&q=80
 category: Python
+image: ~/assets/images/blog/python.jpg
 tags:
   - python
 ---

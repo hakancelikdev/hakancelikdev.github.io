@@ -3,8 +3,8 @@ publishDate: 2022-07-05T00:00:00Z
 author: Hakan Çelik
 title: "Dumpdata Ve Loaddata Kullanımı"
 excerpt: "Ana kaynak | djangoproject.com/en/2.1/"
-image: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80
 category: Django
+image: ~/assets/images/blog/django.jpg
 tags:
   - django
   - python

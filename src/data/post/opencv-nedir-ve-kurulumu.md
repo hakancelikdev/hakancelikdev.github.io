@@ -3,8 +3,8 @@ publishDate: 2022-02-02T00:00:00Z
 author: Hakan Çelik
 title: "Opencv Nedir Ve Kurulumu"
 excerpt: "Merhaba bu eğitim serisinde OpenCV dökümanlarına bağlı kalarak en baştan en sona doğru adım adım anlatmak amaçlanmıştır"
-image: https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80
 category: OpenCV
+image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv
   - python

@@ -1,10 +1,10 @@
 ---
 publishDate: 2022-12-27T00:00:00Z
 author: Hakan Çelik
-title: "Copy function code"
+title: "Custom Docker Image Kullanarak AWS Lambda Üzerine SAM ile Deploy"
 excerpt: "AWS Lambda üzerine Serverless uygulama deployu yaparken docker image'ı kullanarak deploy etmeyi seçerseniz, aws nin sizin işinizi kolaylaştırması açısından bir tane base image'i bulunmaktadır."
-image: https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80
 category: Cloud
+image: ~/assets/images/blog/cloud.jpg
 tags:
   - cloud
   - aws

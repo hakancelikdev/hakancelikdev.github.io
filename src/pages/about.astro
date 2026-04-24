@@ -5,7 +5,27 @@ import Stats from '~/components/widgets/Stats.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import profileImg from '~/assets/images/profile.png';
+
+async function pypiMonthly(pkg: string): Promise<string> {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      if (attempt > 0) await new Promise((r) => setTimeout(r, 3000 * attempt));
+      const res = await fetch(`https://pypistats.org/api/packages/${pkg}/recent?period=month`);
+      if (res.status === 429) continue;
+      if (!res.ok) return '';
+      const data = await res.json();
+      const n: number = data.data.last_month;
+      if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M/ay`;
+      if (n >= 1_000) return `${Math.round(n / 1000)}K/ay`;
+      return `${n}/ay`;
+    } catch {
+      return '';
+    }
+  }
+  return '';
+}
+
+const unimportMonthly = await pypiMonthly('unimport');
 
 const metadata = {
   title: 'Hakkımda',
@@ -16,16 +36,15 @@ const metadata = {
   <!-- Hero -->
   <Hero
     tagline="Hakkımda"
-    image={{ src: profileImg, alt: 'Hakan Çelik', width: 400, height: 400 }}
   >
     <Fragment slot="title">
       Hakan Çelik
     </Fragment>
 
     <Fragment slot="subtitle">
-      2015'ten beri yazılım geliştiriyorum. Kariyerime Django projeleriyle başladım; zamanla Python
+      2019'dan beri profesyonel olarak yazılım geliştiriyorum. Kariyerime Django projeleriyle başladım; zamanla Python
       ekosistemindeki araçlara, açık kaynağa ve uygulama geliştirmeye yöneldim. Bugün
-      <strong>TrendyolGo</strong>'da Go ile yüksek trafikli mikro servisler geliştirirken,
+      <strong>Trendyol Go by Uber Eats</strong>'te Go ile yüksek trafikli mikro servisler geliştirirken,
       boş zamanlarımda Python linter'ları, iOS uygulamaları ve macOS araçları üretiyorum.
       <br /><br />
       Yazdığım araçlar — <strong>unimport</strong>, <strong>unexport</strong>, <strong>pydbm</strong> —
@@ -38,10 +57,10 @@ const metadata = {
   <Stats
     title="Kısaca"
     stats={[
-      { title: 'Yıl Deneyim', amount: '9+' },
+      { title: 'Yıl Deneyim', amount: '6+' },
       { title: 'Açık Kaynak Proje', amount: '7' },
       { title: 'PyPI Paketi', amount: '4' },
-      { title: 'Uygulama', amount: '3' },
+      { title: 'Unimport İndirme/ay', amount: unimportMonthly || '—' },
     ]}
   />
 
@@ -53,7 +72,7 @@ const metadata = {
     defaultIcon="tabler:point-filled"
     items={[
       { title: 'Python', description: 'AST analizi, libcst, asyncio, Django, FastAPI' },
-      { title: 'Go', description: 'TrendyolGo ile günlük üretim kodu' },
+      { title: 'Go', description: 'Trendyol Go by Uber Eats ile günlük üretim kodu' },
       { title: 'JavaScript / TypeScript', description: 'Electron (SiteSeeker), Astro' },
       { title: 'Swift / iOS', description: 'Vakit, Meld uygulamaları' },
       { title: 'macOS', description: 'SiteSeeker native macOS uygulaması' },
@@ -69,7 +88,7 @@ const metadata = {
     title="Deneyim"
     items={[
       {
-        title: 'Software Engineer <br /><span class="font-normal">TrendyolGo</span> <br /><span class="text-sm font-normal">2023 - Günümüz</span>',
+        title: 'Software Engineer <br /><span class="font-normal">Trendyol Go by Uber Eats</span> <br /><span class="text-sm font-normal">2023 - Günümüz</span>',
         description: 'Go ile mikro servis geliştirme, yüksek trafikli sistemlerde çalışma.',
         icon: 'tabler:briefcase',
       },
@@ -78,13 +97,101 @@ const metadata = {
         description: 'Python backend geliştirme, açık kaynak araç geliştirme.',
         icon: 'tabler:briefcase',
       },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Eğitim -->
+  <Steps
+    title="Eğitim"
+    items={[
       {
-        title: 'Freelance / Bağımsız <br /><span class="text-sm font-normal">2015 - 2020</span>',
-        description: 'Django projeleri, Python araçları, açık kaynak katkılar.',
-        icon: 'tabler:briefcase',
+        title: 'Bilgisayar Mühendisliği <br /><span class="font-normal">Fırat Üniversitesi</span> <br /><span class="text-sm font-normal">2024 - Günümüz</span>',
+        description: 'Lisans eğitimi.',
+        icon: 'tabler:school',
       },
     ]}
     classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Topluluk & Gönüllülük -->
+  <Steps
+    title="Topluluk & Gönüllülük"
+    items={[
+      {
+        title: 'Kurucu <br /><span class="font-normal">Django Türkiye Topluluğu</span> <br /><span class="text-sm font-normal">Temmuz 2018 - Eylül 2022</span>',
+        description: '600+ üyeye ulaşan Django Türkiye topluluğunu kurdum ve yönettim.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Yazılım Topluluğu Kurucusu & Eğitmen <br /><span class="font-normal">Gaziantep Üniversitesi</span> <br /><span class="text-sm font-normal">2020 - 2021</span>',
+        description: '30-40 katılımcıya Açık Kaynak, Linux, Python, Git ve C++ dersleri verdim.',
+        icon: 'tabler:users',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Sertifikalar -->
+  <Steps
+    title="Sertifikalar"
+    items={[
+      {
+        title: 'Getting Started with Google Kubernetes Engine <br /><span class="font-normal">Coursera</span> <br /><span class="text-sm font-normal">Haziran 2021 · Kimlik: TYEJ5FFCWP8F</span>',
+        description: 'Google Cloud tarafından sunulan Kubernetes Engine temelleri sertifikası.',
+        icon: 'tabler:certificate',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Projeler -->
+  <Steps
+    title="Projeler"
+    items={[
+      {
+        title: 'Vakit <br /><span class="text-sm font-normal">Haziran 2025</span>',
+        description: 'Namaz vakti hatırlatıcısı iOS uygulaması. Kuran arama ve paylaşımlı zikir özelliklerine sahip.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'SiteSeeker <br /><span class="text-sm font-normal">Mart 2025</span>',
+        description: 'Tarayıcı geçmişi arama aracı. Native macOS uygulaması.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Unimport <br /><span class="text-sm font-normal">Eylül 2019 - Ocak 2024</span>',
+        description: 'Python kullanılmayan import\'ları tespit eden linter/formatter. 500.000+ indirme.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Pydbm <br /><span class="text-sm font-normal">Kasım 2022 - Ocak 2023</span>',
+        description: 'Python\'ın dbm modülü üzerine inşa edilmiş Pythonik ORM.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Unexport <br /><span class="text-sm font-normal">Şubat 2021 - Ocak 2023</span>',
+        description: 'Python __all__ tanımlarını denetleyen linter.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Coogger <br /><span class="text-sm font-normal">Eylül 2017 - Ağustos 2020</span>',
+        description: 'Teknik dokümantasyon ve bilgi paylaşım platformu.',
+        icon: 'tabler:code',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Diller -->
+  <Features3
+    title="Diller"
+    columns={3}
+    defaultIcon="tabler:language"
+    items={[
+      { title: 'Türkçe', description: 'Anadil' },
+      { title: 'İngilizce', description: 'Profesyonel iş yeterliliği' },
+    ]}
   />
 
   <!-- CTA -->

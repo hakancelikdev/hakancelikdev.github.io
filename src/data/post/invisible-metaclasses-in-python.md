@@ -2,9 +2,9 @@
 publishDate: 2022-12-22T00:00:00Z
 author: Hakan Çelik
 title: "Invisible Metaclasses In Python"
-excerpt: ""
-image: https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80
+excerpt: "Implicit metaclasses in Python — when you don't specify one, type is used invisibly as the default."
 category: Python
+image: ~/assets/images/blog/python.jpg
 tags:
   - python
   - metaclass

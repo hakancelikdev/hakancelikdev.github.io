@@ -3,8 +3,8 @@ publishDate: 2022-07-19T00:00:00Z
 author: Hakan Çelik
 title: "Login, Register ve Logout Sayfalarının Yapımı"
 excerpt: "Bu yazımda sayfaların tasarımı için css yazmak yerine Uikit adında frontend framework'u kullanacağım ve bu yazımda kullandığım kodlar Eatingword adında Django bilgimi taze tutmak ve yeni şeyler öğrenm"
-image: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80
 category: Django
+image: ~/assets/images/blog/django.jpg
 tags:
   - django
   - python
@@ -346,7 +346,7 @@ kullanarak bir tasarım çıkartıyorum, JS, CSS linkleri vs var o kadar.
 
 **templates/include/\_\_form.html**
 
-```
+```django
 <!-- {% comment %}
         {% include 'analyst/include/__form.html' with form_url_name='' form_id="formId" method="post" form=form' %}
     {% endcomment %}
@@ -390,7 +390,7 @@ kullanacağım ortak bir şablondur, uikit'e göre biraz düzenledim.
 
 Kullanımınıda en yukarıya yazmışım
 
-```
+```django
 {% include 'analyst/include/__form.html' with form_url_name='' form_id="formId" method="post" form=form' %}
 ```
 
@@ -401,7 +401,7 @@ form action'ı `form_url_name` ile belirleyebiliyorsunuz.
 
 **templates/registration/register.html**
 
-```
+```django
 {% extends "base.html" %} {% block title %} Register {% endblock title %}
 {% block content %}
   {% include 'include/__form.html' with buttonText="Register" %}
@@ -419,7 +419,7 @@ kısmında eğer hesabı varsa login yapmasını söylemişim.
 
 **templates/registration/login.html**
 
-```
+```django
 {% extends "base.html" %} {% block title %} Login {% endblock title %}
 {% block content %}
   {% include 'include/__form.html' with buttonText="Login" %}
@@ -435,6 +435,6 @@ kısmında eğer hesabı varsa login yapmasını söylemişim.
 
 Login sayfasıda aynı şekilde.
 
-Bu konuda anlatacaklarım bu kadar, anlaşılmayan bir bölüm var ise bana telegramdan
-yazabilirsiniz bende bu yazıyı güncelleyerek o başlığı daha detaycı anlatmaya çalışırım,
+Bu konuda anlatacaklarım bu kadar, anlaşılmayan bir bölüm var ise yorum bırakabilirsiniz,
+bende bu yazıyı güncelleyerek o başlığı daha detaycı anlatmaya çalışırım,
 okuduğunuz için teşekkürler.

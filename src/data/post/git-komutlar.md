@@ -3,8 +3,8 @@ publishDate: 2020-11-01T00:00:00Z
 author: Hakan Çelik
 title: "Git Komutları"
 excerpt: "Git'i kurduk konfigürasyon ayarlarımızı yaptık şimdi git komutlarını öğrenme zamanı geldi."
-image: https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1200&q=80
 category: Git
+image: ~/assets/images/blog/git.jpg
 tags:
   - git
 ---

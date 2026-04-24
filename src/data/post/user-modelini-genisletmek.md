@@ -3,8 +3,8 @@ publishDate: 2022-08-16T00:00:00Z
 author: Hakan Çelik
 title: "User Modelini Genişletmek"
 excerpt: "Merhaba arkadaşlar bildiğiniz gibi django da belirli özelliklere sahip bir user modelimiz var bu model'de isim,soy isim,email,şifre vb bilgiler mevcut bu bilgiler çoğu zaman hayat kurtarsada bazı duru"
-image: https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80
 category: Django
+image: ~/assets/images/blog/django.jpg
 tags:
   - django
   - python

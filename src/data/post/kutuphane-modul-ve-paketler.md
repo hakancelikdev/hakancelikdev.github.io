@@ -3,8 +3,8 @@ publishDate: 2021-08-10T00:00:00Z
 author: Hakan Çelik
 title: "Kütüphane, Modül ve Paketler"
 excerpt: "Pip python için bir paket yöneticisidir."
-image: https://images.unsplash.com/photo-1649180556628-9ba704115795?auto=format&fit=crop&w=1200&q=80
 category: Python
+image: ~/assets/images/blog/python.jpg
 tags:
   - python
 ---

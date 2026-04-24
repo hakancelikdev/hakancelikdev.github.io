@@ -41,7 +41,21 @@ const _image = await findImage(props.src);
 
 let image: ImageType | undefined = undefined;
 
-if (
+if (typeof _image === 'string' && _image.startsWith('/')) {
+  // public/ klasöründeki dosyalar — boyut inference desteklenmiyor, düz img olarak sun
+  image = {
+    src: _image,
+    attributes: {
+      width: props.width ?? undefined,
+      height: props.height ?? undefined,
+      alt: props.alt ?? '',
+      class: props.class,
+      loading: props.loading,
+      decoding: props.decoding,
+      style: props.style,
+    },
+  };
+} else if (
   typeof _image === 'string' &&
   (_image.startsWith('http://') || _image.startsWith('https://')) &&
   isUnpicCompatible(_image)

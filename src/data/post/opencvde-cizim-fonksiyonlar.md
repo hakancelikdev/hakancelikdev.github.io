@@ -3,8 +3,8 @@ publishDate: 2022-03-16T00:00:00Z
 author: Hakan Çelik
 title: "Opencv'de Çizim Fonksiyonları"
 excerpt: "OpenCV ile farklı geometrik şekilleri çizmeyi öğreneçeğiz Bu fonksiyonları öğreneceğiz: cv2.line (), cv2.circle (), cv2.rectangle (), cv2.ellipse (), cv2.putText () vb."
-image: https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80
 category: OpenCV
+image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv
   - python
@@ -123,4 +123,3 @@ cv2.putText(img,'OpenCV',(10,500), font, 4,(255,255,255),2,cv2.LINE_AA)
 
 **Sonuç**
 
-![](https://www.coogger.com/media/images/drawing.jpg)

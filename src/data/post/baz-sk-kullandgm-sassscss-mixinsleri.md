@@ -3,8 +3,8 @@ publishDate: 2021-04-01T00:00:00Z
 author: Hakan Çelik
 title: "Bazı Sık Kullandığım Sass Mixinsleri"
 excerpt: "Öncelikle en sevdiğim sass mixins'inden başlamak istiyorum bu aynı zamanda yazdığım sass/css kodlarını bütün tarayıcılarda uyumlu hale getiriyor ve bir kere yaz bütün tarayıcılarda çalışsın pirensibi"
-image: https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1200&q=80
 category: CSS
+image: ~/assets/images/blog/css.jpg
 tags:
   - sass
   - css

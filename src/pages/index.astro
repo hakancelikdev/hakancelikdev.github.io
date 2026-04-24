@@ -9,6 +9,62 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
 import profileImg from '~/assets/images/profile.png';
 
+// Build-time stats helpers
+async function githubStars(repo: string): Promise<string> {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${repo}`, {
+      headers: { Accept: 'application/vnd.github.v3+json' },
+    });
+    if (!res.ok) return '';
+    const data = await res.json();
+    const n: number = data.stargazers_count;
+    return n >= 1000 ? `${(n / 1000).toFixed(1)}k` : String(n);
+  } catch {
+    return '';
+  }
+}
+
+async function pypiDownloads(pkg: string): Promise<string> {
+  try {
+    const res = await fetch(`https://pypistats.org/api/packages/${pkg}/overall`);
+    if (!res.ok) return '';
+    const data = await res.json();
+    const n: number = data.data
+      .filter((r: { category: string }) => r.category === 'with_mirrors')
+      .reduce((sum: number, r: { downloads: number }) => sum + r.downloads, 0);
+    if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+    if (n >= 1_000) return `${Math.round(n / 1000)}k`;
+    return String(n);
+  } catch {
+    return '';
+  }
+}
+
+function badge(icon: string, value: string, title: string) {
+  if (!value) return '';
+  return `<span title="${title}" class="inline-flex items-center gap-1 text-xs font-medium bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 px-2 py-0.5 rounded-full">${icon} ${value}</span>`;
+}
+
+function statsBadges(stars: string, downloads: string) {
+  const b = [badge('★', stars, 'GitHub Stars'), badge('↓', downloads, 'PyPI Downloads')]
+    .filter(Boolean)
+    .join(' ');
+  return b ? `<span class="flex gap-1.5 mt-2 flex-wrap">${b}</span>` : '';
+}
+
+// Fetch all stats in parallel
+const [
+  unimportStars, unimportDl,
+  unexportStars, unexportDl,
+  pydbmStars,    pydbmDl,
+  defineifStars, defineifDl,
+] = await Promise.all([
+  githubStars('hakancelikdev/unimport'),   pypiDownloads('unimport'),
+  githubStars('hakancelikdev/unexport'),   pypiDownloads('unexport'),
+  githubStars('hakancelikdev/pydbm'),      pypiDownloads('pythonic-dbm'),
+  githubStars('hakancelikdev/defineif'),   pypiDownloads('defineif'),
+]);
+
 const metadata = {
   title: 'Hakan Çelik — Software Engineer',
   ignoreTitleTemplate: true,
@@ -17,7 +73,7 @@ const metadata = {
 
 <Layout metadata={metadata}>
 
-  <!-- Hero ******************* -->
+  <!-- Hero -->
   <Hero
     id="hero"
     actions={[
@@ -31,13 +87,12 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="font-semibold">Software Engineer</span> — Python araçları, iOS/macOS uygulamaları ve
-      açık kaynak yazılımlar geliştiriyorum. TrendyolGo'da yazılım geliştirici olarak çalışıyorum.
-      2015'ten beri yazılım dünyasının içindeyim.
+      <span class="font-semibold">Software Engineer</span> — Python tooling · iOS/macOS apps · Open source.
+      TrendyolGo'da yazılım geliştirici olarak çalışıyorum. 2015'ten beri yazılım dünyasının içindeyim.
     </Fragment>
   </Hero>
 
-  <!-- Uygulamalar ******************* -->
+  <!-- Uygulamalar -->
   <Features2
     id="projects"
     title="Uygulamalar"
@@ -65,11 +120,11 @@ const metadata = {
     ]}
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-indigo-50/50 dark:bg-transparent"></div>
     </Fragment>
   </Features2>
 
-  <!-- Python Araçları ******************* -->
+  <!-- Python Araçları -->
   <Features3
     title="Python Araçları"
     subtitle="Python geliştirici deneyimini iyileştiren açık kaynak araçlar."
@@ -78,43 +133,43 @@ const metadata = {
     items={[
       {
         title: 'unimport',
-        description: 'Kullanılmayan import ifadelerini bulan ve kaldıran linter/formatter. pre-commit hook olarak kullanılabilir.',
+        description: `Kullanılmayan import ifadelerini bulan ve kaldıran linter/formatter. pre-commit hook olarak kullanılabilir.${statsBadges(unimportStars, unimportDl)}`,
         icon: 'tabler:brand-python',
         callToAction: { text: 'unimport.hakancelik.dev', href: 'https://unimport.hakancelik.dev', target: '_blank' },
       },
       {
         title: 'unexport',
-        description: 'Python modüllerindeki __all__ listesini her zaman güncel tutan linter.',
+        description: `Python modüllerindeki __all__ listesini her zaman güncel tutan linter.${statsBadges(unexportStars, unexportDl)}`,
         icon: 'tabler:brand-python',
         callToAction: { text: 'unexport.hakancelik.dev', href: 'https://unexport.hakancelik.dev', target: '_blank' },
       },
       {
         title: 'pydbm',
-        description: "Python'ın dahili dbm modülünü ORM benzeri bir arayüzle kullanan Pythonic wrapper.",
+        description: `Python'ın dahili dbm modülünü ORM benzeri bir arayüzle kullanan Pythonic wrapper.${statsBadges(pydbmStars, pydbmDl)}`,
         icon: 'tabler:database',
         callToAction: { text: 'pydbm.hakancelik.dev', href: 'https://pydbm.hakancelik.dev', target: '_blank' },
       },
       {
         title: 'defineif',
-        description: 'Bir koşul doğruysa metodu tanımla decorator\'u. Basit ama zarif.',
+        description: `Bir koşul doğruysa metodu tanımla decorator'u. Basit ama zarif.${statsBadges(defineifStars, defineifDl)}`,
         icon: 'tabler:code',
         callToAction: { text: 'defineif.hakancelik.dev', href: 'https://defineif.hakancelik.dev', target: '_blank' },
       },
     ]}
   />
 
-  <!-- Blog ******* -->
+  <!-- Blog -->
   <BlogLatestPosts
     id="blog"
     title="Son Yazılar"
     information="Python, Django, Git, OpenCV, Cloud ve daha fazlası üzerine Türkçe yazılar."
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-indigo-50/50 dark:bg-transparent"></div>
     </Fragment>
   </BlogLatestPosts>
 
-  <!-- CTA *** -->
+  <!-- CTA -->
   <CallToAction
     title="GitHub'da takip et"
     subtitle="Açık kaynak projelerime katkıda bulunabilir veya ilham alabilirsin."

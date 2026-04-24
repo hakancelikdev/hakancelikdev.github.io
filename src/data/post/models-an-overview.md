@@ -139,4 +139,4 @@ present tense to express obligation or necessity. For example:
 of these examples, "have to" and "has to" are used to indicate that something is
 required or necessary.
 
-Other resource; https://www.grammarly.com/blog/modal-verbs/
+Daha fazla kaynak: [Modal Verbs — Grammarly Blog](https://www.grammarly.com/blog/modal-verbs/)

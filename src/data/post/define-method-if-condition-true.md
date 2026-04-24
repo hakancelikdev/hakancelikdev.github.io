@@ -2,13 +2,20 @@
 publishDate: 2022-10-13T00:00:00Z
 author: Hakan Çelik
 title: "Define Method If Condition True"
-excerpt: "Define class methods conditionally at class creation time using a custom metaclass and __prepare__ namespace."
+excerpt: "defineif kütüphanesinin implementasyonu: __prepare__ ile özelleştirilmiş namespace, sınıf oluşturulurken boolean koşula göre metodları sessizce tanımlar ya da atlar."
 category: Python
 image: ~/assets/images/blog/python.jpg
 tags:
   - python
   - metaclass
 ---
+
+# Define Method If Condition True
+
+Bu kod, kendi geliştirdiğim [defineif](https://github.com/hakancelikdev/defineif)
+kütüphanesinin çekirdek implementasyonudur. Sınıf gövdesindeki bir metodu yalnızca
+bir koşul `True` olduğunda tanımlamayı sağlar; koşul `False` ise metot sessizce
+atlanır.
 
 ```python
 import inspect
@@ -80,3 +87,52 @@ class Example(metaclass=DefineMeta):
 
 assert Example().foo() is True
 ```
+
+## Nasıl Çalışır?
+
+Mekanizma üç parçadan oluşur:
+
+### 1. `Namespace(dict)` — Özel Namespace
+
+`DefineMeta.__prepare__` standart `dict` yerine `Namespace` döndürür. Sınıf gövdesi
+çalıştırılırken her atama `Namespace.__setitem__` üzerinden geçer.
+
+Bir fonksiyon atanırken (`inspect.isfunction(value)` True) `Namespace.test` listesine
+bakılır:
+- Liste doluysa `test.pop()` ile koşul alınır: `True` ise metot eklenir, `False` ise
+  sessizce atlanır.
+- Liste boşsa koşulsuz eklenir (normal metot tanımı).
+
+### 2. `define_if(condition)` — Koşul Decorator'ı
+
+`@define_if(condition=True)` çağrıldığında `condition` değeri `Namespace.test`
+listesine eklenir ve fonksiyon olduğu gibi döndürülür. Python bu fonksiyonu hemen
+ardından `Namespace.__setitem__`'e atar — bu noktada `test.pop()` koşulu okur.
+
+```
+@define_if(condition=True)   # → test.append(True)
+def foo(self): ...            # → Namespace.__setitem__ → test.pop() is True → eklenir
+
+@define_if(condition=False)  # → test.append(False)
+def foo(self): ...            # → Namespace.__setitem__ → test.pop() is False → atlanır
+```
+
+Sonuç: `foo` adlı slot yalnızca `True` koşullu tanımı tutar.
+
+### 3. `DefineMeta.__call__` — Çift Kullanım
+
+`Defineif` (ve `define_if` kısayolu) iki şekilde çağrılabilir:
+
+- `Defineif()` — `condition` verilmezse `NotSet` varsayılanı tetiklenir,
+  `super().__call__()` çalışır ve normal bir sınıf örneği döner.
+- `Defineif(condition=True)` — `condition` verilirse `cls.define_if(condition)`
+  döndürülür; bu da `@decorator` gibi kullanılabilecek bir callable'dır.
+
+## Sonuç
+
+```python
+assert Example().foo() is True
+```
+
+`condition=True` ile tanımlanan `foo` sınıfta kaldı; `condition=False` ile tanımlanan
+`foo` namespace'e hiç yazılmadı. `Example().foo()` → `True`.

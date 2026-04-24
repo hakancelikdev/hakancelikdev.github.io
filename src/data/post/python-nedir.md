@@ -2,7 +2,7 @@
 publishDate: 2021-08-24T00:00:00Z
 author: Hakan Çelik
 title: "Python Nedir"
-excerpt: "https://www.python.org/doc/essays/blurb/"
+excerpt: "Python; okunabilirliği ön planda tutan, geniş standart kütüphanesiyle hem yeni başlayanlar hem deneyimli geliştiriciler için tercih edilen, genel amaçlı bir programlama dilidir."
 category: Python
 image: ~/assets/images/blog/python.jpg
 tags:
@@ -11,26 +11,69 @@ tags:
 
 # Python Nedir
 
-[https://www.python.org/doc/essays/blurb/](https://www.python.org/doc/essays/blurb/)
+Python, 1991 yılında Guido van Rossum tarafından geliştirilen, açık kaynaklı, genel
+amaçlı bir programlama dilidir. Basit ve okunabilir sözdizimi, geniş standart kütüphanesi
+ve aktif topluluğuyla hem yeni başlayanlar hem de deneyimli geliştiriciler arasında
+dünyanın en popüler programlama dillerinden biri haline gelmiştir.
 
-Python is an interpreted, object-oriented, high-level programming language with dynamic
-semantics. Its high-level built in data structures, combined with dynamic typing and
-dynamic binding, make it very attractive for Rapid Application Development, as well as
-for use as a scripting or glue language to connect existing components together.
-Python's simple, easy to learn syntax emphasizes readability and therefore reduces the
-cost of program maintenance. Python supports modules and packages, which encourages
-program modularity and code reuse. The Python interpreter and the extensive standard
-library are available in source or binary form without charge for all major platforms,
-and can be freely distributed.
+## Temel Özellikler
 
-Often, programmers fall in love with Python because of the increased productivity it
-provides. Since there is no compilation step, the edit-test-debug cycle is incredibly
-fast. Debugging Python programs is easy: a bug or bad input will never cause a
-segmentation fault. Instead, when the interpreter discovers an error, it raises an
-exception. When the program doesn't catch the exception, the interpreter prints a stack
-trace. A source level debugger allows inspection of local and global variables,
-evaluation of arbitrary expressions, setting breakpoints, stepping through the code a
-line at a time, and so on. The debugger is written in Python itself, testifying to
-Python's introspective power. On the other hand, often the quickest way to debug a
-program is to add a few print statements to the source: the fast edit-test-debug cycle
-makes this simple approach very effective.
+**Okunabilir ve sade sözdizimi**
+Python, kodun okunmasını ve yazılmasını kolaylaştıran temiz bir sözdizimi sunar.
+Süslü parantez (`{}`) yerine girinti kullanır; bu hem kodu düzenli tutar hem de takım
+içi iş birliğini kolaylaştırır.
+
+**Yorumlanan (interpreted) bir dil**
+Python kodu derleme adımına gerek kalmadan doğrudan çalıştırılır. Bu sayede
+edit–test–debug döngüsü son derece hızlıdır; hızlı prototipleme ve betik yazımı için
+idealdir.
+
+**Dinamik tipleme**
+Değişkenlerin türünü önceden belirtmeniz gerekmez; Python türü çalışma zamanında
+belirler.
+
+**Zengin standart kütüphane**
+"Batteries included" felsefesiyle ağ, dosya sistemi, veri işleme, test ve daha pek
+çok alan için hazır modüller sunar. Harici bağımlılığa gerek kalmadan çok şey
+yapabilirsiniz.
+
+**Geniş ekosistem**
+[PyPI](https://pypi.org/) üzerinde 500.000'i aşkın üçüncü taraf paket mevcuttur.
+
+## Python Nerelerde Kullanılır?
+
+- **Web geliştirme**: Django, FastAPI, Flask gibi framework'lerle backend uygulamaları
+- **Veri bilimi ve makine öğrenmesi**: NumPy, pandas, scikit-learn, TensorFlow, PyTorch
+- **Otomasyon ve betik yazımı**: Dosya işlemleri, API entegrasyonu, test otomasyonu
+- **Bilimsel hesaplama**: SciPy, SymPy
+- **DevOps / sistem yönetimi**: Ansible, Fabric gibi araçların dili
+
+## İlk Python Programı
+
+Python kuruluysa terminalde `python3` komutuyla etkileşimli kabuk açılır:
+
+```python
+>>> print("Merhaba, Dünya!")
+Merhaba, Dünya!
+```
+
+Ya da `hello.py` adlı bir dosya oluşturup çalıştırabilirsiniz:
+
+```python
+# hello.py
+print("Merhaba, Dünya!")
+```
+
+```bash
+python3 hello.py
+```
+
+## Neden Python Öğrenmeli?
+
+Python, yazılım dünyasına giriş için en iyi kapılardan biridir. Sözdizimi İngilizceye
+yakın olduğundan kavramları anlamak kolaydır. Web'den yapay zekaya, oyundan
+otomasyona geniş bir yelpazede kullanılır ve iş piyasasındaki talebi sürekli
+artmaktadır.
+
+Daha fazla bilgi için [resmi Python dokümantasyonuna](https://docs.python.org/tr/)
+göz atabilirsiniz.

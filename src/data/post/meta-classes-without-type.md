@@ -2,13 +2,21 @@
 publishDate: 2023-01-05T00:00:00Z
 author: Hakan Çelik
 title: "Meta Classes Without Type"
-excerpt: "Build a metaclass without inheriting from type — understand __prepare__, __new__, __init__, and __call__ from scratch."
+excerpt: "type'tan türetmeden bir metaclass yazmak mümkün mü? Evet — ama sonuçta elde ettiğiniz nesne gerçek bir Python sınıfı değil, Meta'nın bir örneğidir."
 category: Python
 image: /images/posts/meta-classes-without-type.png
 tags:
   - python
   - metaclass
 ---
+
+# Meta Classes Without Type
+
+Normalde bir metaclass `type`'tan türetilir. Peki ya türetmezsek ne olur? Python,
+`metaclass=Meta` ifadesiyle `Meta.__prepare__`, `Meta.__new__`, `Meta.__init__` ve
+`Meta.__call__` metodlarını çağırır — `Meta`'nın `type`'tan türeyip türememesi
+fark etmez. Bu yazıda bu protokolü sıfırdan uyguladık ve her metoda gelen tam
+argümanları logladık:
 
 ```python
 class Meta:  # this class is a normal class, Meta = instance of type, Only the Meta class does not contain the properties of the type.  # noqa
@@ -100,3 +108,22 @@ class Example(K, metaclass=Meta):  # Order: Meta.__prepare__, Meta.__new__, Meta
 base = Example(1, 2, c=3)             # Meta.__call__
 base(1, k=1)                          # Meta.__call__
 ```
+
+## Temel Fark
+
+`type`'tan türeyen bir metaclass kullanıldığında `K` gerçek bir Python sınıfıdır —
+`isinstance`, `issubclass` ve diğer protokoller normal çalışır.
+
+Burada ise `K` ve `Example`, `Meta`'nın birer **örneğidir** (instance); gerçek Python
+sınıfları değildir. `type(K)` → `<class '__main__.Meta'>`, `type(Example)` →
+`<class '__main__.Meta'>` döner.
+
+`Example(1, 2, c=3)` çağrısı sınıf örneklemesi değil, `Meta` örneği olan `Example`
+üzerinde `Meta.__call__` çağrısıdır — Python her callable nesneyi böyle ele alır.
+
+## Ne İşe Yarar?
+
+Pratik kullanımı sınırlıdır; asıl değeri eğitimseldir. Python'ın sınıf oluşturma
+protokolünü (`__prepare__` → `__new__` → `__init__`) ve örnek oluşturma protokolünü
+(`__call__` → `__new__` → `__init__`) `type`'ın yardımı olmadan adım adım uygulayarak
+mekanizmayı derinlemesine anlamayı sağlar.

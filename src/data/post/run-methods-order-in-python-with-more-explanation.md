@@ -2,13 +2,19 @@
 publishDate: 2023-03-02T00:00:00Z
 author: Hakan Çelik
 title: "Run Methods Order In Python With More Explanation"
-excerpt: "Step-by-step trace of __prepare__, __new__, __init__, and __call__ execution order in Python metaclasses with full argument logging."
+excerpt: "Metaclass metodlarının tam argüman listesiyle birlikte çalışma sırası. Her metoda hangi değerlerin geldiğini adım adım takip edin."
 category: Python
 image: /images/posts/run-methods-order-in-python.png
 tags:
   - python
   - metaclass
 ---
+
+# Run Methods Order In Python With More Explanation
+
+Önceki yazıda yalnızca metodun adını yazdırdık. Bu sefer her metot aldığı argümanların
+tamamını logluyor; Python'ın hangi değerleri nereye ilettiğini adım adım görmek için
+idealdir. Inline yorumlar her çalışma anındaki gerçek çıktıyı gösteriyor.
 
 ```python
 class Meta(type):
@@ -98,3 +104,17 @@ class Example(Base, metaclass=Meta):
 base = Example(1, 2, c=3)
 base(1, k=1)
 ```
+
+## Dikkat Edilecekler
+
+**`__new__` ve `__init__` argümanları `__call__`'dan gelir.**
+`Meta.__call__` → `Example.__new__` → `Example.__init__` zincirini `super().__call__(*args, **kwargs)`
+sağlar. `args=(1, 2)` ve `kwargs={'c': 3}` bu üç metoda aynı şekilde iletilir.
+
+**`namespace` `__new__`'da dolu, `__prepare__`'de boştur.**
+`__prepare__` çağrıldığında gövde henüz çalıştırılmamıştır; namespace `{}` dönüşür.
+`__new__`'a ulaştığında namespace, `__new__`, `__init__`, `__qualname__` gibi tüm
+tanımları içerir.
+
+**`__init__`'in dönüş değeri `None`'dır.**
+Çıktıda `init=None` görünür; `__init__` bir şey döndürmez, sınıfı yerinde düzenler.

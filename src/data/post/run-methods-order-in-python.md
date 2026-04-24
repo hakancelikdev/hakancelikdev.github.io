@@ -2,13 +2,19 @@
 publishDate: 2023-03-16T00:00:00Z
 author: Hakan Çelik
 title: "Run Methods Order In Python"
-excerpt: "Quick reference: execution order of __prepare__, __new__, __init__, and __call__ in Python metaclasses."
+excerpt: "Python metaclass'larında hangi metot ne zaman çalışır? Sınıf tanımı ve örnek oluşturma sırasındaki __prepare__, __new__, __init__, __call__ çalışma sırası."
 category: Python
 image: /images/posts/run-methods-order-in-python.png
 tags:
   - python
   - metaclass
 ---
+
+# Run Methods Order In Python
+
+Bir metaclass tanımlanırken hangi metodun ne zaman tetiklendiğini anlamak, metaclass
+yazımının en kritik parçasıdır. Aşağıdaki kod her metodun başına `print` ekleyerek
+çalışma sırasını görünür kılar:
 
 ```python
 class Meta(type):
@@ -48,3 +54,34 @@ class Example(Base, metaclass=Meta):  # Order: Meta.__prepare__, Meta.__new__, M
 base = Example()             # Meta.__call__, Example.__new__, Example.__init__
 base()                       # Example.__call__
 ```
+
+## Çalışma Sırası
+
+**Sınıf tanımlanırken** (`class Example(Base, metaclass=Meta):` satırı okunduğunda):
+
+```
+Meta.__prepare__   ← namespace dict'i hazırlanır
+Meta.__new__       ← sınıf nesnesi oluşturulur
+Meta.__init__      ← sınıf nesnesi başlatılır
+```
+
+**Örnek oluşturulurken** (`base = Example()`):
+
+```
+Meta.__call__      ← metaclass'ın __call__'u tetiklenir (super().__call__ çağrılır)
+Example.__new__    ← örnek nesnesi oluşturulur
+Example.__init__   ← örnek nesnesi başlatılır
+```
+
+**Örnek çağrılırken** (`base()`):
+
+```
+Example.__call__   ← nesne callable olduğu için kendi __call__'u tetiklenir
+```
+
+## `__prepare__` Neden `@classmethod`?
+
+`__prepare__` sınıf henüz oluşturulmadan önce çağrılır; dolayısıyla `self` olarak bir
+sınıf örneği alamaz. `@classmethod` ile metaclass'ın kendisini (`mcs`) alır. İnce
+bir ayrıntı: `__prepare__` yorumda belirtildiği gibi sınıf gövdesinde tanımlanamaz —
+sadece metaclass üzerinde çalışır.

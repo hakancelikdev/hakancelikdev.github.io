@@ -2,13 +2,20 @@
 publishDate: 2022-11-10T00:00:00Z
 author: Hakan Çelik
 title: "Modeling a Class with a Metaclass"
-excerpt: "Use a metaclass to model a dataclass-like structure with automatic __slots__ and runtime type validation."
+excerpt: "Metaclass ile dataclass benzeri bir yapı: type annotation'lardan otomatik __slots__ türetme ve __call__'da çalışma zamanı tip doğrulama."
 category: Python
 image: ~/assets/images/blog/python.jpg
 tags:
   - python
   - metaclass
 ---
+
+# Modeling a Class with a Metaclass
+
+Bu örnekte bir metaclass iki şeyi otomatik olarak yapıyor: `__annotations__`'dan
+`__slots__` üretiyor ve örnek oluşturulurken alanların varlığını ve tipini doğruluyor.
+`dataclass` benzeri ama sıfırdan yazılmış, metaclass mekanizmasını açıkça gösteren
+bir yapı:
 
 ```python
 class Meta(type):
@@ -55,3 +62,35 @@ assert account.username == "hakancelik"
 
 # Account(first_name="Hakan", last_name="Çelik", username=1)
 ```
+
+## `Meta.__new__` — Otomatik `__slots__`
+
+`__new__` sınıf oluşturulurken çalışır. `not [base for base in bases if isinstance(base, mcs)]`
+koşulu `BaseModel`'in kendisini atlar (onun hiçbir base'i `Meta` örneği değildir);
+yalnızca alt sınıflar (`Account` gibi) işlenir.
+
+`__annotations__` sözlüğündeki alan adları alınıp `__slots__` olarak atanır:
+
+```python
+namespace["__slots__"] = ("first_name", "last_name", "username")
+```
+
+`__slots__` tanımlandığında Python `__dict__` oluşturmaz — bu bellek tasarrufu sağlar
+ve `account.__dict__ == {}` assertion'ını geçerli kılar.
+
+## `Meta.__call__` — Tip Doğrulama
+
+`Account(...)` çağrısında, `super().__call__()` çağrılmadan önce iki kontrol yapılır:
+
+1. Her zorunlu alan verilmiş mi? (`Missing field`)
+2. Her alanın tipi doğru mu? (`isinstance(value, type)`)
+3. Bilinmeyen bir alan verilmiş mi? (`Unknown field`)
+
+Son satırdaki yorum `Account(username=1)` çağrısının `AssertionError` fırlattığını
+gösteriyor: `username` bir `int`, ama `str` bekleniyor.
+
+## `BaseModel.__init__`
+
+`super().__call__(**kwargs)` sonunda `BaseModel.__init__` çalışır ve doğrulanmış
+`kwargs`'ı `setattr` ile alanlara yazar. `__slots__` tanımlı olduğundan `setattr`
+yalnızca izin verilen alanlara yazar.

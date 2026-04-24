@@ -2,13 +2,19 @@
 publishDate: 2023-02-16T00:00:00Z
 author: Hakan Çelik
 title: "More Accurate Meta Classes Without Type"
-excerpt: "A more complete metaclass implementation without inheriting from type, including __call__, __str__, and attribute access."
+excerpt: "type'tan türetmeyen daha eksiksiz bir metaclass implementasyonu: __call__ ile iki aşamalı yaşam döngüsü, __str__ ve attribute erişiminin namespace'e delegasyonu."
 category: Python
 image: /images/posts/meta-classes-without-type.png
 tags:
   - python
   - metaclass
 ---
+
+# More Accurate Meta Classes Without Type
+
+Önceki yazıda `type`'tan türetmeden temel metaclass protokolünü uyguladık. Bu sefer
+daha eksiksiz bir versiyon: `__call__` iki aşamalı yaşam döngüsünü yönetiyor,
+`__str__` ve tüm attribute/item operasyonları namespace'e delege ediliyor.
 
 ```python
 class Meta:
@@ -101,3 +107,36 @@ klass(deneme=3)
 
 print(klass)
 ```
+
+## İki Aşamalı Yaşam Döngüsü
+
+`Meta` örneği (yani `Klass`) iki farklı şekilde çağrılır; `__call_run` flag'ı bu
+iki aşamayı ayırt eder:
+
+**1. Aşama — `klass = Klass(1, a=1)` (ilk çağrı, `__call_run = False`)**
+
+`Meta.__call__` devreye girer:
+- `__call_run` False olduğu için sınıf gövdesindeki `__new__` ve `__init__`'i çalıştırır
+- `Klass.__new__(self, 1, a=1)` → `return cls` → `obj = Klass`'ın Meta örneği
+- `Klass.__init__(obj, 1, a=1)` → `pass`
+- `__call_run = True` olarak işaretler
+- `obj` döndürülür → `klass = Klass` Meta örneğinin kendisidir
+
+**2. Aşama — `klass(deneme=3)` (sonraki çağrı, `__call_run = True`)**
+
+`Meta.__call__` yeniden devreye girer:
+- `__call_run` True olduğu için `__call__`'u namespace'den alıp çalıştırır
+- `Klass.__call__(self, deneme=3)` → `return self`
+
+**`print(klass)` → `<Klass: Klass>`**
+
+`Meta.__str__` çağrılır; `__call_run = True` olduğundan namespace'deki `__str__`'e
+delege edilir: `Klass.__str__(klass)` → `"<Klass: {}>".format(self.name)` →
+`self.name = "Klass"` (`Meta.__init__`'te saklanmıştı).
+
+## `__prepare__` Neden classmethod Değil?
+
+Bu implementasyonda `__prepare__` sıradan bir fonksiyon olarak tanımlanmış. Python,
+`__prepare__` üzerinde özel bir arama yapar ve bunu doğrudan çağırır; `classmethod`
+olması zorunlu değildir. Sonuç olarak `name` ve `bases` argümanları birinci ve
+ikinci parametreye gelir — `cls/mcs` olmadan.

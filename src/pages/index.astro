@@ -1,0 +1,131 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
+import profileImg from '~/assets/images/profile.png';
+
+const metadata = {
+  title: 'Hakan Çelik — Software Engineer',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Hero ******************* -->
+  <Hero
+    id="hero"
+    actions={[
+      { variant: 'primary', text: 'Projeleri Gör', href: '#projects', icon: 'tabler:rocket' },
+      { text: 'Blog', href: getPermalink('/blog') },
+    ]}
+    image={{ src: profileImg, alt: 'Hakan Çelik', width: 400, height: 400 }}
+  >
+    <Fragment slot="title">
+      Merhaba, ben <span class="text-accent dark:text-white">Hakan Çelik</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="font-semibold">Software Engineer</span> — Python araçları, iOS/macOS uygulamaları ve
+      açık kaynak yazılımlar geliştiriyorum. TrendyolGo'da yazılım geliştirici olarak çalışıyorum.
+      2015'ten beri yazılım dünyasının içindeyim.
+    </Fragment>
+  </Hero>
+
+  <!-- Uygulamalar ******************* -->
+  <Features2
+    id="projects"
+    title="Uygulamalar"
+    subtitle="iOS ve macOS için geliştirdiğim uygulamalar."
+    tagline="Apps"
+    items={[
+      {
+        title: 'Vakit',
+        description: 'Namaz vakti hatırlatıcınız ve kıble. iOS için minimalist, kullanımı kolay bir uygulama.',
+        icon: 'tabler:moon-stars',
+        callToAction: { text: 'vakit.hakancelik.dev', href: 'https://vakit.hakancelik.dev', target: '_blank' },
+      },
+      {
+        title: 'SiteSeeker',
+        description: 'macOS için akıllı tarayıcı geçmişi ve yer imi arama. Tüm tarayıcılarını tek arayüzde ara.',
+        icon: 'tabler:search',
+        callToAction: { text: 'siteseeker.hakancelik.dev', href: 'https://siteseeker.hakancelik.dev', target: '_blank' },
+      },
+      {
+        title: 'Meld',
+        description: 'Minimalist karo birleştirme bulmaca oyunu. Kaydır, birleştir, çöz.',
+        icon: 'tabler:puzzle',
+        callToAction: { text: 'meld.hakancelik.dev', href: 'https://meld.hakancelik.dev', target: '_blank' },
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Python Araçları ******************* -->
+  <Features3
+    title="Python Araçları"
+    subtitle="Python geliştirici deneyimini iyileştiren açık kaynak araçlar."
+    tagline="Open Source"
+    columns={2}
+    items={[
+      {
+        title: 'unimport',
+        description: 'Kullanılmayan import ifadelerini bulan ve kaldıran linter/formatter. pre-commit hook olarak kullanılabilir.',
+        icon: 'tabler:brand-python',
+        callToAction: { text: 'unimport.hakancelik.dev', href: 'https://unimport.hakancelik.dev', target: '_blank' },
+      },
+      {
+        title: 'unexport',
+        description: 'Python modüllerindeki __all__ listesini her zaman güncel tutan linter.',
+        icon: 'tabler:brand-python',
+        callToAction: { text: 'unexport.hakancelik.dev', href: 'https://unexport.hakancelik.dev', target: '_blank' },
+      },
+      {
+        title: 'pydbm',
+        description: "Python'ın dahili dbm modülünü ORM benzeri bir arayüzle kullanan Pythonic wrapper.",
+        icon: 'tabler:database',
+        callToAction: { text: 'pydbm.hakancelik.dev', href: 'https://pydbm.hakancelik.dev', target: '_blank' },
+      },
+      {
+        title: 'defineif',
+        description: 'Bir koşul doğruysa metodu tanımla decorator\'u. Basit ama zarif.',
+        icon: 'tabler:code',
+        callToAction: { text: 'defineif.hakancelik.dev', href: 'https://defineif.hakancelik.dev', target: '_blank' },
+      },
+    ]}
+  />
+
+  <!-- Blog ******* -->
+  <BlogLatestPosts
+    id="blog"
+    title="Son Yazılar"
+    information="Python, Django, Git, OpenCV, Cloud ve daha fazlası üzerine Türkçe yazılar."
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts>
+
+  <!-- CTA *** -->
+  <CallToAction
+    title="GitHub'da takip et"
+    subtitle="Açık kaynak projelerime katkıda bulunabilir veya ilham alabilirsin."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'github.com/hakancelikdev',
+        href: 'https://github.com/hakancelikdev',
+        target: '_blank',
+        icon: 'tabler:brand-github',
+      },
+    ]}
+  />
+</Layout>

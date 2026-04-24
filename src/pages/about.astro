@@ -1,0 +1,104 @@
+---
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import profileImg from '~/assets/images/profile.png';
+
+const metadata = {
+  title: 'Hakkımda',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <Hero
+    tagline="Hakkımda"
+    image={{ src: profileImg, alt: 'Hakan Çelik', width: 400, height: 400 }}
+  >
+    <Fragment slot="title">
+      Hakan Çelik
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Software Engineer — 2015'ten beri yazılım alanındayım. Python ekosisteminde kod kalitesi araçları,
+      iOS/macOS uygulamaları ve açık kaynak yazılımlar geliştiriyorum.
+      Şu an <strong>TrendyolGo</strong>'da çalışıyorum.
+    </Fragment>
+  </Hero>
+
+  <!-- İstatistikler -->
+  <Stats
+    title="Kısaca"
+    stats={[
+      { title: 'Yıl Deneyim', amount: '9+' },
+      { title: 'Açık Kaynak Proje', amount: '7' },
+      { title: 'PyPI Paketi', amount: '4' },
+      { title: 'Uygulama', amount: '3' },
+    ]}
+  />
+
+  <!-- Beceriler -->
+  <Features3
+    title="Teknolojiler"
+    subtitle="Profesyonel olarak kullandığım ve katkı verdiğim teknolojiler."
+    columns={3}
+    defaultIcon="tabler:point-filled"
+    items={[
+      { title: 'Python', description: 'AST analizi, libcst, asyncio, Django, FastAPI' },
+      { title: 'Go', description: 'TrendyolGo ile günlük üretim kodu' },
+      { title: 'JavaScript / TypeScript', description: 'Electron (SiteSeeker), Astro' },
+      { title: 'Swift / iOS', description: 'Vakit, Meld uygulamaları' },
+      { title: 'macOS', description: 'SiteSeeker native macOS uygulaması' },
+      { title: 'DevOps / Cloud', description: 'AWS Lambda, Serverless, Docker' },
+      { title: 'Git', description: 'Conventional commits, pre-commit hooks' },
+      { title: 'OpenCV', description: 'Görüntü işleme projeleri' },
+      { title: 'Açık Kaynak', description: 'Maintainer & contributor' },
+    ]}
+  />
+
+  <!-- Deneyim -->
+  <Steps
+    title="Deneyim"
+    items={[
+      {
+        title: 'Software Engineer <br /><span class="font-normal">TrendyolGo</span> <br /><span class="text-sm font-normal">2023 - Günümüz</span>',
+        description: 'Go ile mikro servis geliştirme, yüksek trafikli sistemlerde çalışma.',
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Software Engineer <br /><span class="font-normal">DeepInfo</span> <br /><span class="text-sm font-normal">2020 - 2023</span>',
+        description: 'Python backend geliştirme, açık kaynak araç geliştirme.',
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Freelance / Bağımsız <br /><span class="text-sm font-normal">2015 - 2020</span>',
+        description: 'Django projeleri, Python araçları, açık kaynak katkılar.',
+        icon: 'tabler:briefcase',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- CTA -->
+  <CallToAction
+    title="İletişime Geç"
+    subtitle="Bir proje fikrin mi var veya sadece merhaba mı demek istiyorsun?"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'hakancelikdev@gmail.com',
+        href: 'mailto:hakancelikdev@gmail.com',
+        icon: 'tabler:mail',
+      },
+      {
+        text: 'GitHub',
+        href: 'https://github.com/hakancelikdev',
+        target: '_blank',
+        icon: 'tabler:brand-github',
+      },
+    ]}
+  />
+</Layout>

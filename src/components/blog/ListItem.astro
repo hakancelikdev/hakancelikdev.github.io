@@ -87,6 +87,25 @@ const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : 
                 <a class="hover:underline" href={getPermalink(post.category.slug, 'category')}>
                   {post.category.title}
                 </a>
+                {post.subcategory && (
+                  <>
+                    {' / '}
+                    <a
+                      class="hover:underline text-primary dark:text-blue-400"
+                      href={`/category/${post.category.slug}/${post.subcategory.slug}`}
+                    >
+                      {post.subcategory.title}
+                    </a>
+                  </>
+                )}
+              </>
+            )
+          }
+          {
+            post.readingTime && (
+              <>
+                {' '}
+                · <span>{post.readingTime} dk</span>
               </>
             )
           }

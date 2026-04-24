@@ -1,0 +1,98 @@
+---
+export interface Props {
+  headings: Array<{ depth: number; text: string }>;
+}
+
+const { headings } = Astro.props;
+---
+
+<nav id="toc" class="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto">
+  <div class="rounded-xl border dark:border-slate-700 overflow-hidden text-sm">
+    <button
+      id="toc-toggle"
+      class="w-full flex items-center justify-between px-4 py-3 font-semibold bg-gray-50 dark:bg-slate-800/60 border-b dark:border-slate-700 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors text-left"
+      aria-expanded="true"
+    >
+      <span>İçindekiler</span>
+      <svg
+        id="toc-chevron"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="w-4 h-4 text-muted transition-transform duration-200"
+      >
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+    <div id="toc-content" class="py-3 px-1">
+      {
+        headings.map((h) => (
+          <a
+            class={`toc-link block px-3 py-1 rounded text-muted dark:text-slate-400 hover:text-primary dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/40 transition-colors leading-snug ${
+              h.depth === 3 ? 'pl-6 text-xs' : 'text-xs font-medium'
+            }`}
+            data-heading-text={h.text}
+            href="#"
+          >
+            {h.text}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</nav>
+
+<script>
+  const toc = document.getElementById('toc');
+  if (toc) {
+    const toggleBtn = document.getElementById('toc-toggle');
+    const tocContent = document.getElementById('toc-content');
+    const chevron = document.getElementById('toc-chevron');
+
+    // Wire up heading links using actual DOM IDs
+    const links = toc.querySelectorAll<HTMLAnchorElement>('.toc-link');
+    links.forEach((link) => {
+      const text = link.dataset.headingText || '';
+      // Find the heading element with matching text content
+      const headings = document.querySelectorAll<HTMLHeadingElement>('h2, h3');
+      for (const heading of headings) {
+        if (heading.textContent?.trim() === text.trim() && heading.id) {
+          link.href = `#${heading.id}`;
+          break;
+        }
+      }
+    });
+
+    // Toggle
+    toggleBtn?.addEventListener('click', () => {
+      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+      if (tocContent) tocContent.style.display = isExpanded ? 'none' : '';
+      if (chevron) chevron.style.transform = isExpanded ? 'rotate(-90deg)' : '';
+    });
+
+    // Active link highlight on scroll
+    const headingEls = document.querySelectorAll<HTMLHeadingElement>('h2[id], h3[id]');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const id = (entry.target as HTMLElement).id;
+            links.forEach((l) => {
+              const active = l.getAttribute('href') === `#${id}`;
+              l.classList.toggle('text-primary', active);
+              l.classList.toggle('dark:text-blue-400', active);
+              l.classList.toggle('font-semibold', active);
+            });
+          }
+        }
+      },
+      { rootMargin: '-10% 0px -80% 0px' }
+    );
+    headingEls.forEach((el) => observer.observe(el));
+  }
+</script>

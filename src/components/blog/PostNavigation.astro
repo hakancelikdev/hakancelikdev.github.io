@@ -1,0 +1,60 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Post } from '~/types';
+import { getPermalink } from '~/utils/permalinks';
+
+export interface Props {
+  prevPost?: Post | null;
+  nextPost?: Post | null;
+}
+
+const { prevPost, nextPost } = Astro.props;
+---
+
+{
+  (prevPost || nextPost) && (
+    <nav class="mx-auto max-w-3xl px-4 sm:px-6 mt-10 border-t dark:border-slate-700 pt-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {prevPost ? (
+          <a
+            href={getPermalink(prevPost.permalink, 'post')}
+            class="group flex items-start gap-3 p-4 rounded-xl border dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-colors"
+          >
+            <Icon
+              name="tabler:arrow-left"
+              class="w-5 h-5 mt-0.5 flex-shrink-0 text-muted group-hover:text-primary transition-colors"
+            />
+            <div class="min-w-0">
+              <p class="text-xs text-muted dark:text-slate-500 mb-1 uppercase tracking-wide font-medium">Önceki</p>
+              <p class="text-sm font-semibold leading-snug line-clamp-2 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors">
+                {prevPost.title}
+              </p>
+            </div>
+          </a>
+        ) : (
+          <div />
+        )}
+
+        {nextPost ? (
+          <a
+            href={getPermalink(nextPost.permalink, 'post')}
+            class="group flex items-start gap-3 p-4 rounded-xl border dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-colors sm:flex-row-reverse sm:text-right"
+          >
+            <Icon
+              name="tabler:arrow-right"
+              class="w-5 h-5 mt-0.5 flex-shrink-0 text-muted group-hover:text-primary transition-colors"
+            />
+            <div class="min-w-0">
+              <p class="text-xs text-muted dark:text-slate-500 mb-1 uppercase tracking-wide font-medium">Sonraki</p>
+              <p class="text-sm font-semibold leading-snug line-clamp-2 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors">
+                {nextPost.title}
+              </p>
+            </div>
+          </a>
+        ) : (
+          <div />
+        )}
+      </div>
+    </nav>
+  )
+}

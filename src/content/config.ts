@@ -58,8 +58,12 @@ const postCollection = defineCollection({
     image: z.string().optional(),
 
     category: z.string().optional(),
+    subcategory: z.string().optional(),
     tags: z.array(z.string()).optional(),
     author: z.string().optional(),
+
+    series: z.string().optional(),
+    seriesIndex: z.number().optional(),
 
     metadata: metadataDefinition(),
   }),

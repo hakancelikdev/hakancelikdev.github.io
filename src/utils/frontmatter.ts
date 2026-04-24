@@ -14,6 +14,22 @@ export const readingTimeRemarkPlugin: RemarkPlugin = () => {
   };
 };
 
+export const headingsRemarkPlugin: RemarkPlugin = () => {
+  return function (tree, file) {
+    const headings: Array<{ depth: number; text: string }> = [];
+
+    visit(tree, 'heading', (node: any) => {
+      if (node.depth >= 2 && node.depth <= 3) {
+        headings.push({ depth: node.depth, text: toString(node) });
+      }
+    });
+
+    if (typeof file?.data?.astro?.frontmatter !== 'undefined') {
+      file.data.astro.frontmatter.headings = headings;
+    }
+  };
+};
+
 export const responsiveTablesRehypePlugin: RehypePlugin = () => {
   return function (tree) {
     if (!tree.children) return;

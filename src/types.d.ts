@@ -25,10 +25,17 @@ export interface Post {
 
   /**  */
   category?: Taxonomy;
+  /** Optional subcategory within the category */
+  subcategory?: Taxonomy;
   /**  */
   tags?: Taxonomy[];
   /**  */
   author?: string;
+
+  /** Series name this post belongs to */
+  series?: string;
+  /** Position of this post within the series (1-based) */
+  seriesIndex?: number;
 
   /**  */
   metadata?: MetaData;
@@ -42,6 +49,9 @@ export interface Post {
 
   /**  */
   readingTime?: number;
+
+  /** Headings extracted at build time for TOC */
+  headings?: Array<{ depth: number; text: string }>;
 }
 
 export interface Taxonomy {

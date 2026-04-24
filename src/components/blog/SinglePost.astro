@@ -4,6 +4,9 @@ import { Icon } from 'astro-icon/components';
 import Image from '~/components/common/Image.astro';
 import PostTags from '~/components/blog/Tags.astro';
 import SocialShare from '~/components/common/SocialShare.astro';
+import PostNavigation from '~/components/blog/PostNavigation.astro';
+import SeriesNavigation from '~/components/blog/SeriesNavigation.astro';
+import TableOfContents from '~/components/blog/TableOfContents.astro';
 
 import { getPermalink } from '~/utils/permalinks';
 import { getFormattedDate } from '~/utils/utils';
@@ -13,20 +16,32 @@ import type { Post } from '~/types';
 export interface Props {
   post: Post;
   url: string | URL;
+  prevPost?: Post | null;
+  nextPost?: Post | null;
+  seriesPosts?: Post[];
 }
 
-const { post, url } = Astro.props;
+const { post, url, prevPost, nextPost, seriesPosts = [] } = Astro.props;
+
+const hasHeadings = Array.isArray(post.headings) && post.headings.length > 0;
+const hasSeries = seriesPosts.length > 1;
 ---
+
+<!-- Reading progress bar -->
+<div
+  id="reading-progress"
+  class="fixed top-0 left-0 z-50 h-0.5 bg-primary transition-none w-0"
+  aria-hidden="true"
+>
+</div>
 
 <section class="py-8 sm:py-16 lg:py-20 mx-auto">
   <article>
     <header
-      class={post.image
-        ? 'intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade'
-        : 'intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade'}
+      class="intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
     >
       <div class="flex justify-between flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
-        <p>
+        <p class="text-sm text-muted dark:text-slate-400">
           <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400" />
           <time datetime={String(post.publishDate)} class="inline-block">{getFormattedDate(post.publishDate)}</time>
           {
@@ -46,13 +61,25 @@ const { post, url } = Astro.props;
                 <a class="hover:underline inline-block" href={getPermalink(post.category.slug, 'category')}>
                   {post.category.title}
                 </a>
+                {post.subcategory && (
+                  <>
+                    {' / '}
+                    <a
+                      class="hover:underline inline-block text-primary dark:text-blue-400"
+                      href={`/category/${post.category.slug}/${post.subcategory.slug}`}
+                    >
+                      {post.subcategory.title}
+                    </a>
+                  </>
+                )}
               </>
             )
           }
           {
             post.readingTime && (
               <>
-                &nbsp;· <span>{post.readingTime}</span> min read
+                {' '}
+                · <span>{post.readingTime} dk okuma</span>
               </>
             )
           }
@@ -85,14 +112,84 @@ const { post, url } = Astro.props;
         )
       }
     </header>
-    <div
-      class="mx-auto px-6 sm:px-6 max-w-3xl prose prose-md lg:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8 prose-headings:scroll-mt-[80px] prose-li:my-0"
-    >
-      <slot />
+
+    <!-- Series navigation -->
+    {hasSeries && <SeriesNavigation post={post} seriesPosts={seriesPosts} />}
+
+    <!-- Content + TOC layout -->
+    <div class="mx-auto px-4 sm:px-6 max-w-6xl">
+      <div class:list={['flex gap-10', { 'lg:grid lg:grid-cols-[1fr_240px]': hasHeadings }]}>
+        <!-- Article content -->
+        <div
+          class="min-w-0 flex-1 prose prose-md lg:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8 prose-headings:scroll-mt-[80px] prose-li:my-0 max-w-3xl"
+          data-pagefind-body
+        >
+          <slot />
+        </div>
+
+        <!-- Table of contents (desktop only) -->
+        {
+          hasHeadings && (
+            <aside class="hidden lg:block w-[240px] flex-shrink-0 mt-8">
+              <TableOfContents headings={post.headings!} />
+            </aside>
+          )
+        }
+      </div>
     </div>
+
+    <!-- Tags + Social Share -->
     <div class="mx-auto px-6 sm:px-6 max-w-3xl mt-8 flex justify-between flex-col sm:flex-row">
       <PostTags tags={post.tags} class="mr-5 rtl:mr-0 rtl:ml-5" />
       <SocialShare url={url} text={post.title} class="mt-5 sm:mt-1 align-middle text-gray-500 dark:text-slate-600" />
     </div>
+
+    <!-- Prev / Next navigation -->
+    <PostNavigation prevPost={prevPost} nextPost={nextPost} />
   </article>
 </section>
+
+<script>
+  // Reading progress bar
+  const progressBar = document.getElementById('reading-progress') as HTMLElement | null;
+  if (progressBar) {
+    const bar = progressBar;
+    function updateProgress() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
+      bar.style.width = `${pct}%`;
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  // Code copy buttons
+  document.querySelectorAll('pre').forEach((pre) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'relative group';
+    pre.parentNode?.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Kopyala';
+    btn.setAttribute('aria-label', 'Kodu kopyala');
+    btn.className =
+      'copy-code-btn absolute top-2 right-2 text-xs bg-gray-700/80 text-gray-200 px-2.5 py-1 rounded-md opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity hover:bg-gray-600/80 focus:outline-none focus:ring-2 focus:ring-gray-400';
+    wrapper.appendChild(btn);
+
+    btn.addEventListener('click', async () => {
+      const code = pre.querySelector('code');
+      const text = code?.textContent || pre.textContent || '';
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = 'Kopyalandı!';
+      } catch {
+        btn.textContent = 'Hata';
+      }
+      setTimeout(() => {
+        btn.textContent = 'Kopyala';
+      }, 2000);
+    });
+  });
+</script>

@@ -1,0 +1,196 @@
+---
+---
+
+<!-- Search trigger button (rendered inline, to be placed in Header) -->
+<button
+  id="search-trigger"
+  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+  aria-label="Ara"
+  title="Ara (Ctrl+K)"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="w-5 h-5"
+  >
+    <circle cx="11" cy="11" r="8"></circle>
+    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</button>
+
+<!-- Search modal -->
+<div
+  id="search-modal"
+  class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Arama"
+>
+  <div class="mx-auto mt-16 max-w-xl px-4">
+    <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl overflow-hidden border dark:border-slate-700">
+      <!-- Input -->
+      <div class="flex items-center gap-2 px-4 border-b dark:border-slate-700">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="w-5 h-5 text-muted flex-shrink-0"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Yazılarda ara..."
+          autocomplete="off"
+          class="flex-1 py-4 px-2 bg-transparent outline-none text-sm text-default placeholder:text-muted dark:text-slate-200 dark:placeholder:text-slate-500"
+        />
+        <button
+          id="search-close"
+          class="text-muted hover:text-default dark:hover:text-slate-200 transition-colors p-1"
+          aria-label="Kapat"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="w-5 h-5"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <!-- Results -->
+      <div id="search-results" class="max-h-80 overflow-y-auto py-2">
+        <p id="search-hint" class="px-4 py-6 text-sm text-center text-muted dark:text-slate-500">
+          Aramak istediğiniz kelimeyi yazın...
+        </p>
+      </div>
+      <!-- Footer -->
+      <div class="px-4 py-2 border-t dark:border-slate-700 flex items-center gap-4 text-xs text-muted dark:text-slate-500">
+        <span>
+          <kbd class="inline-flex items-center px-1.5 py-0.5 rounded border dark:border-slate-600 font-mono text-xs">Esc</kbd>
+          ile kapat
+        </span>
+        <span>
+          <kbd class="inline-flex items-center px-1.5 py-0.5 rounded border dark:border-slate-600 font-mono text-xs">↵</kbd>
+          ile git
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('search-modal');
+  const trigger = document.getElementById('search-trigger');
+  const closeBtn = document.getElementById('search-close');
+  const input = document.getElementById('search-input') as HTMLInputElement | null;
+  const results = document.getElementById('search-results');
+  const hint = document.getElementById('search-hint');
+
+  let pagefind: any = null;
+  let searchTimeout: ReturnType<typeof setTimeout>;
+
+  async function loadPagefind() {
+    if (pagefind) return pagefind;
+    try {
+      // @ts-ignore — pagefind is generated at build time
+      pagefind = await import('/pagefind/pagefind.js');
+      await pagefind.options({ excerptLength: 15 });
+      return pagefind;
+    } catch {
+      return null;
+    }
+  }
+
+  function openModal() {
+    modal?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    input?.focus();
+    loadPagefind();
+  }
+
+  function closeModal() {
+    modal?.classList.add('hidden');
+    document.body.style.overflow = '';
+    if (input) input.value = '';
+    if (results && hint) {
+      results.innerHTML = '';
+      results.appendChild(hint);
+    }
+  }
+
+  trigger?.addEventListener('click', openModal);
+  closeBtn?.addEventListener('click', closeModal);
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      openModal();
+    }
+    if (e.key === 'Escape') closeModal();
+  });
+
+  input?.addEventListener('input', () => {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(async () => {
+      const query = input.value.trim();
+      if (!query) {
+        if (results && hint) {
+          results.innerHTML = '';
+          results.appendChild(hint);
+        }
+        return;
+      }
+
+      const pf = await loadPagefind();
+      if (!pf) {
+        if (results) {
+          results.innerHTML =
+            '<p class="px-4 py-6 text-sm text-center text-muted dark:text-slate-500">Arama indeksi bulunamadı. Lütfen siteyi build edin.</p>';
+        }
+        return;
+      }
+
+      const search = await pf.search(query);
+      if (!results) return;
+
+      if (search.results.length === 0) {
+        results.innerHTML = `<p class="px-4 py-6 text-sm text-center text-muted dark:text-slate-500">"${query}" için sonuç bulunamadı.</p>`;
+        return;
+      }
+
+      const items = await Promise.all(search.results.slice(0, 8).map((r: any) => r.data()));
+      results.innerHTML = items
+        .map(
+          (item: any) => `
+        <a href="${item.url}" class="flex flex-col gap-0.5 px-4 py-3 hover:bg-gray-50 dark:hover:bg-slate-800/60 transition-colors">
+          <span class="text-sm font-semibold text-default dark:text-slate-200 line-clamp-1">${item.meta?.title || item.url}</span>
+          <span class="text-xs text-muted dark:text-slate-400 line-clamp-2">${item.excerpt}</span>
+        </a>
+      `
+        )
+        .join('');
+    }, 200);
+  });
+</script>

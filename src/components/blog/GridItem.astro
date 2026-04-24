@@ -1,6 +1,7 @@
 ---
 import { APP_BLOG } from 'astrowind:config';
 import type { Post } from '~/types';
+import { Icon } from 'astro-icon/components';
 
 import Image from '~/components/common/Image.astro';
 
@@ -67,6 +68,31 @@ const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : 
       )
     }
   </h3>
+
+  <div class="mb-2 text-sm text-muted dark:text-slate-500 flex flex-wrap items-center gap-x-2 gap-y-1">
+    {
+      post.category && (
+        <a
+          href={getPermalink(post.category.slug, 'category')}
+          class="inline-flex items-center gap-1 text-primary dark:text-blue-400 hover:underline font-medium"
+        >
+          <Icon name="tabler:folder" class="w-3.5 h-3.5" />
+          {post.category.title}
+        </a>
+      )
+    }
+    {
+      post.readingTime && (
+        <>
+          {post.category && <span>·</span>}
+          <span class="inline-flex items-center gap-1">
+            <Icon name="tabler:clock" class="w-3.5 h-3.5" />
+            {post.readingTime} dk
+          </span>
+        </>
+      )
+    }
+  </div>
 
   <p class="text-muted dark:text-slate-400 text-lg">{post.excerpt}</p>
 </article>

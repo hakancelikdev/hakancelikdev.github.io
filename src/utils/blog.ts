@@ -52,12 +52,15 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     image,
     tags: rawTags = [],
     category: rawCategory,
+    subcategory: rawSubcategory,
     author,
     draft = false,
     metadata = {},
+    series,
+    seriesIndex,
   } = data;
 
-  const slug = cleanSlug(id); // cleanSlug(rawSlug.split('/').pop());
+  const slug = cleanSlug(id);
   const publishDate = new Date(rawPublishDate);
   const updateDate = rawUpdateDate ? new Date(rawUpdateDate) : undefined;
 
@@ -65,6 +68,13 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     ? {
         slug: cleanSlug(rawCategory),
         title: rawCategory,
+      }
+    : undefined;
+
+  const subcategory = rawSubcategory
+    ? {
+        slug: cleanSlug(rawSubcategory),
+        title: rawSubcategory,
       }
     : undefined;
 
@@ -86,17 +96,21 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     image: image,
 
     category: category,
+    subcategory: subcategory,
     tags: tags,
     author: author,
+
+    series: series,
+    seriesIndex: seriesIndex,
 
     draft: draft,
 
     metadata,
 
     Content: Content,
-    // or 'content' in case you consume from API
 
     readingTime: remarkPluginFrontmatter?.readingTime,
+    headings: remarkPluginFrontmatter?.headings,
   };
 };
 
@@ -173,6 +187,25 @@ export const findLatestPosts = async ({ count }: { count?: number }): Promise<Ar
   return posts ? posts.slice(0, _count) : [];
 };
 
+/** Returns the previous (older) and next (newer) posts relative to the given post. */
+export const findAdjacentPosts = async (post: Post): Promise<{ prev: Post | null; next: Post | null }> => {
+  const posts = await fetchPosts();
+  const index = posts.findIndex((p) => p.slug === post.slug);
+  if (index === -1) return { prev: null, next: null };
+  return {
+    prev: index < posts.length - 1 ? posts[index + 1] : null, // older
+    next: index > 0 ? posts[index - 1] : null, // newer
+  };
+};
+
+/** Returns all posts belonging to the given series, sorted by seriesIndex. */
+export const findPostsBySeries = async (seriesName: string): Promise<Post[]> => {
+  const posts = await fetchPosts();
+  return posts
+    .filter((p) => p.series === seriesName)
+    .sort((a, b) => (a.seriesIndex ?? 0) - (b.seriesIndex ?? 0));
+};
+
 /** */
 export const getStaticPathsBlogList = async ({ paginate }: { paginate: PaginateFunction }) => {
   if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
@@ -218,6 +251,37 @@ export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: Pagin
 };
 
 /** */
+export const getStaticPathsBlogSubcategory = async ({ paginate }: { paginate: PaginateFunction }) => {
+  if (!isBlogEnabled || !isBlogCategoryRouteEnabled) return [];
+
+  const posts = await fetchPosts();
+  const pairs: Record<string, { category: { slug: string; title: string }; subcategory: { slug: string; title: string } }> = {};
+
+  posts.forEach((post) => {
+    if (post.category?.slug && post.subcategory?.slug) {
+      const key = `${post.category.slug}__${post.subcategory.slug}`;
+      pairs[key] = { category: post.category, subcategory: post.subcategory };
+    }
+  });
+
+  return Object.entries(pairs).flatMap(([key, { category, subcategory }]) => {
+    const [categorySlug, subcategorySlug] = key.split('__');
+    return paginate(
+      posts.filter((p) => p.category?.slug === categorySlug && p.subcategory?.slug === subcategorySlug),
+      {
+        params: {
+          blog: CATEGORY_BASE || undefined,
+          category: categorySlug,
+          subcategory: subcategorySlug,
+        },
+        pageSize: blogPostsPerPage,
+        props: { category, subcategory },
+      }
+    );
+  });
+};
+
+/** */
 export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFunction }) => {
   if (!isBlogEnabled || !isBlogTagRouteEnabled) return [];
 
@@ -253,6 +317,24 @@ export const findCategories = async (): Promise<Array<{ slug: string; title: str
         map[post.category.slug] = { slug: post.category.slug, title: post.category.title, count: 0 };
       }
       map[post.category.slug].count++;
+    }
+  });
+  return Object.values(map).sort((a, b) => b.count - a.count);
+};
+
+/** Returns subcategories for a given category slug, sorted by post count. */
+export const findSubcategories = async (
+  categorySlug: string
+): Promise<Array<{ slug: string; title: string; count: number }>> => {
+  const posts = await fetchPosts();
+  const map: Record<string, { slug: string; title: string; count: number }> = {};
+  posts.forEach((post) => {
+    if (post.category?.slug === categorySlug && post.subcategory?.slug) {
+      const key = post.subcategory.slug;
+      if (!map[key]) {
+        map[key] = { slug: key, title: post.subcategory.title, count: 0 };
+      }
+      map[key].count++;
     }
   });
   return Object.values(map).sort((a, b) => b.count - a.count);

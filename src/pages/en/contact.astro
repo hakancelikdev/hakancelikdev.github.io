@@ -1,0 +1,46 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: 'Contact',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText tagline="Contact" title="Hello!" />
+
+  <Features2
+    title="Get in touch"
+    subtitle="For any questions, collaboration proposals, or just to say hello."
+    items={[
+      {
+        title: 'E-mail',
+        description: '<a href="mailto:hakancelikdev@gmail.com" class="text-blue-600 underline">hakancelikdev@gmail.com</a>',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'GitHub',
+        description: '<a href="https://github.com/hakancelikdev" target="_blank" class="text-blue-600 underline">github.com/hakancelikdev</a>',
+        icon: 'tabler:brand-github',
+      },
+      {
+        title: 'Twitter / X',
+        description: '<a href="https://twitter.com/hakancelikdev" target="_blank" class="text-blue-600 underline">@hakancelikdev</a>',
+        icon: 'tabler:brand-x',
+      },
+      {
+        title: 'LinkedIn',
+        description: '<a href="https://www.linkedin.com/in/hakancelikdev" target="_blank" class="text-blue-600 underline">linkedin.com/in/hakancelikdev</a>',
+        icon: 'tabler:brand-linkedin',
+      },
+      {
+        title: 'Telegram',
+        description: '<a href="https://t.me/hakancelikdev" target="_blank" class="text-blue-600 underline">@hakancelikdev</a>',
+        icon: 'tabler:brand-telegram',
+      },
+    ]}
+    columns={3}
+  />
+</Layout>

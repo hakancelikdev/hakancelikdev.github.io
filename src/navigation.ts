@@ -13,7 +13,7 @@ export const getHeaderData = (lang: Lang = 'tr') => ({
     },
     {
       text: lang === 'en' ? 'About' : 'Hakkımda',
-      href: getPermalink('/about'),
+      href: lang === 'en' ? getPermalink('/en/about') : getPermalink('/about'),
     },
   ],
   actions: [
@@ -55,15 +55,15 @@ export const getFooterData = (lang: Lang = 'tr') => ({
     {
       title: lang === 'en' ? 'Other' : 'Diğer',
       links: [
-        { text: lang === 'en' ? 'About' : 'Hakkımda', href: getPermalink('/about') },
+        { text: lang === 'en' ? 'About' : 'Hakkımda', href: lang === 'en' ? getPermalink('/en/about') : getPermalink('/about') },
         { text: lang === 'en' ? 'Contact' : 'İletişim', href: 'mailto:hakancelikdev@gmail.com' },
         { text: 'GitHub', href: 'https://github.com/hakancelikdev' },
       ],
     },
   ],
   secondaryLinks: [
-    { text: lang === 'en' ? 'Privacy' : 'Gizlilik', href: getPermalink('/privacy') },
-    { text: lang === 'en' ? 'Terms' : 'Kullanım Koşulları', href: getPermalink('/terms') },
+    { text: lang === 'en' ? 'Privacy' : 'Gizlilik', href: lang === 'en' ? getPermalink('/en/privacy') : getPermalink('/privacy') },
+    { text: lang === 'en' ? 'Terms' : 'Kullanım Koşulları', href: lang === 'en' ? getPermalink('/en/terms') : getPermalink('/terms') },
   ],
   socialLinks: [
     { ariaLabel: 'X / Twitter', icon: 'tabler:brand-x', href: 'https://twitter.com/hakancelikdev' },

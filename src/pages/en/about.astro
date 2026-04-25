@@ -1,0 +1,252 @@
+---
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+async function pypiMonthly(pkg: string): Promise<string> {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      if (attempt > 0) await new Promise((r) => setTimeout(r, 3000 * attempt));
+      const res = await fetch(`https://pypistats.org/api/packages/${pkg}/recent?period=month`);
+      if (res.status === 429) continue;
+      if (!res.ok) return '';
+      const data = await res.json();
+      const n: number = data.data.last_month;
+      if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M/mo`;
+      if (n >= 1_000) return `${Math.round(n / 1000)}K/mo`;
+      return `${n}/mo`;
+    } catch {
+      return '';
+    }
+  }
+  return '';
+}
+
+const unimportMonthly = await pypiMonthly('unimport');
+
+const metadata = {
+  title: 'About',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <Hero
+    tagline="About"
+  >
+    <Fragment slot="title">
+      Hakan Çelik
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      I have been developing software professionally since 2019. I started my career with Django projects; over time, I turned to tools in the Python ecosystem, open source, and application development.
+      Today, while working as a software developer at <strong>Trendyol Go by Uber Eats</strong>,
+      I produce Python linters, iOS applications, and macOS tools in my spare time.
+      <br /><br />
+      The tools I wrote — <strong>unimport</strong>, <strong>unexport</strong>, <strong>pydbm</strong> —
+      are used by thousands of developers. I love increasing code quality, improving developer experience, and sharing what I have learned.
+    </Fragment>
+  </Hero>
+
+  <!-- Statistics -->
+  <Stats
+    title="In Short"
+    stats={[
+      { title: 'Years of Experience', amount: '6+' },
+      { title: 'Open Source Projects', amount: '7' },
+      { title: 'PyPI Packages', amount: '4' },
+      { title: 'Unimport Downloads/mo', amount: unimportMonthly || '—' },
+    ]}
+  />
+
+  <!-- Skills -->
+  <Features3
+    title="Technologies"
+    subtitle="Technologies I use professionally and contribute to."
+    columns={3}
+    defaultIcon="tabler:point-filled"
+    items={[
+      { title: 'Python', description: 'Django, DRF, FastAPI, asyncio, AST analysis, libcst' },
+      { title: 'Go', description: 'Trendyol Go by Uber Eats' },
+      { title: 'Kotlin', description: 'Trendyol Go by Uber Eats' },
+      { title: 'Java', description: 'Trendyol Go by Uber Eats' },
+      { title: 'Swift', description: 'iOS — Vakit' },
+      { title: 'JavaScript', description: 'Electron (SiteSeeker), Astro, CSS, HTML5' },
+      { title: 'Spring Boot / Spring Framework', description: 'Trendyol Go by Uber Eats' },
+      { title: 'PostgreSQL', description: 'Trendyol Go by Uber Eats, Deepinfo, PRISMA CSI' },
+      { title: 'MongoDB', description: 'Deepinfo' },
+      { title: 'Redis', description: 'Deepinfo' },
+      { title: 'Elasticsearch', description: 'Trendyol Go by Uber Eats, Deepinfo' },
+      { title: 'Couchbase', description: 'Trendyol Go by Uber Eats' },
+      { title: 'Apache Kafka', description: 'Trendyol Go by Uber Eats, Deepinfo' },
+      { title: 'RabbitMQ', description: 'Deepinfo' },
+      { title: 'Celery', description: 'Deepinfo' },
+      { title: 'Docker', description: 'Trendyol Go by Uber Eats, Deepinfo' },
+      { title: 'Kubernetes', description: 'Trendyol Go by Uber Eats, Deepinfo' },
+      { title: 'Google Cloud Platform', description: 'Deepinfo' },
+      { title: 'Jenkins', description: 'Deepinfo' },
+      { title: 'Prometheus & Grafana', description: 'Trendyol Go by Uber Eats, Deepinfo' },
+      { title: 'Kong API Gateway', description: 'Deepinfo' },
+      { title: 'Test-Driven Development', description: 'Trendyol Go by Uber Eats, Deepinfo' },
+      { title: 'Unit / Integration / Load Testing', description: 'Trendyol Go by Uber Eats, Deepinfo' },
+      { title: 'Domain-Driven Design', description: 'Trendyol Go by Uber Eats' },
+      { title: 'Design Patterns', description: 'Trendyol Go by Uber Eats, Deepinfo' },
+      { title: 'REST API / API Development', description: 'Trendyol Go by Uber Eats, Deepinfo, PRISMA CSI' },
+      { title: 'CI/CD', description: 'Trendyol Go by Uber Eats, Deepinfo' },
+      { title: 'Git & GitHub', description: 'Trendyol Go by Uber Eats, Deepinfo, PRISMA CSI' },
+      { title: 'Linux', description: 'Trendyol Go by Uber Eats, Deepinfo' },
+      { title: 'Agile / JIRA', description: 'Trendyol Go by Uber Eats, Deepinfo' },
+    ]}
+  />
+
+  <!-- Experience -->
+  <Steps
+    title="Experience"
+    items={[
+      {
+        title: 'Software Developer <br /><span class="font-normal">Trendyol Go by Uber Eats</span> <br /><span class="text-sm font-normal">November 2024 - Present</span>',
+        description: '',
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Software Developer <br /><span class="font-normal">Deepinfo</span> <br /><span class="text-sm font-normal">November 2020 - November 2024</span>',
+        description: 'Backend development in big data and cybersecurity projects. Used FastAPI, Django, DRF, MongoDB, Celery, Redis, PostgreSQL, RabbitMQ, Kafka, and Elasticsearch. Active contribution to DevOps processes, QA environment management.',
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Software Developer <br /><span class="font-normal">PRISMA CSI</span> <br /><span class="text-sm font-normal">October 2019 - September 2020</span>',
+        description: 'API development with Django Rest Framework for a cybersecurity platform. Created Admin API, performance profiling and improvement. Frontend development with JavaScript and CSS.',
+        icon: 'tabler:briefcase',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Education -->
+  <Steps
+    title="Education"
+    items={[
+      {
+        title: 'Associate Degree, Computer Programming <br /><span class="font-normal">Fırat University</span> <br /><span class="text-sm font-normal">2024</span>',
+        description: '',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Bachelor\'s Degree, Electrical and Electronics Engineering <br /><span class="font-normal">Gaziantep University</span> <br /><span class="text-sm font-normal">2015</span>',
+        description: '',
+        icon: 'tabler:school',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Community & Volunteering -->
+  <Steps
+    title="Community & Volunteering"
+    items={[
+      {
+        title: 'Founder <br /><span class="font-normal">Django Turkey Community</span> <br /><span class="text-sm font-normal">July 2018 - September 2022</span>',
+        description: 'Founded and managed the Django Turkey community, reaching 600+ members.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Software Community Founder & Instructor <br /><span class="font-normal">Gaziantep University</span> <br /><span class="text-sm font-normal">2020 - 2021</span>',
+        description: 'Taught Open Source, Linux, Python, Git, and C++ to 30-40 participants.',
+        icon: 'tabler:users',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Certificates -->
+  <Steps
+    title="Certificates"
+    items={[
+      {
+        title: 'Getting Started with Google Kubernetes Engine <br /><span class="font-normal">Coursera</span> <br /><span class="text-sm font-normal">June 2021 · ID: TYEJ5FFCWP8F</span>',
+        description: 'Kubernetes Engine basics certificate provided by Google Cloud.',
+        icon: 'tabler:certificate',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Projects -->
+  <Steps
+    title="Projects"
+    items={[
+      {
+        title: 'Vakit <br /><span class="text-sm font-normal">June 2025</span>',
+        description: 'Prayer time reminder iOS app. Features Quran search and shared dhikr features.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'SiteSeeker <br /><span class="text-sm font-normal">April 2025</span>',
+        description: 'Browser history search tool. Native macOS application.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Pydbm <br /><span class="text-sm font-normal">November 2022 - January 2023</span>',
+        description: 'Pythonic ORM built on Python\'s dbm module.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Unexport <br /><span class="text-sm font-normal">February 2021 - January 2023</span>',
+        description: 'Linter that audits Python __all__ definitions.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Unimport <br /><span class="text-sm font-normal">September 2019 - January 2024</span>',
+        description: 'Linter/formatter that detects unused Python imports. 500,000+ downloads.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Coogger <br /><span class="text-sm font-normal">September 2017 - August 2020</span>',
+        description: 'Technical documentation and knowledge sharing platform.',
+        icon: 'tabler:code',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Languages -->
+  <Features3
+    title="Languages"
+    columns={3}
+    defaultIcon="tabler:language"
+    items={[
+      { title: 'Turkish', description: 'Native' },
+      { title: 'English', description: 'Professional working proficiency' },
+    ]}
+  />
+
+  <!-- Social Media -->
+  <CallToAction
+    title="Follow Me"
+    subtitle="Stay connected on social media for projects, articles, and updates."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Twitter / X',
+        href: 'https://twitter.com/hakancelikdev',
+        target: '_blank',
+        icon: 'tabler:brand-x',
+      },
+      {
+        text: 'LinkedIn',
+        href: 'https://www.linkedin.com/in/hakancelikdev',
+        target: '_blank',
+        icon: 'tabler:brand-linkedin',
+      },
+      {
+        text: 'GitHub',
+        href: 'https://github.com/hakancelikdev',
+        target: '_blank',
+        icon: 'tabler:brand-github',
+      },
+    ]}
+  />
+</Layout>

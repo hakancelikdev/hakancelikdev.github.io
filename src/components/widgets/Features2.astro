@@ -26,12 +26,10 @@ const {
     columns={columns}
     defaultIcon={defaultIcon}
     classes={{
-      container: 'gap-4 md:gap-6',
+      container: 'gap-6 md:gap-8',
       panel:
-        'rounded-sm shadow-[0_4px_24px_rgba(0,0,0,0.07)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)] backdrop-blur border border-stone-200/60 dark:border-stone-800/60 bg-white dark:bg-stone-900 p-6',
-      // panel:
-      //   "text-center bg-page items-center md:text-left rtl:md:text-right md:items-start p-6 p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-800",
-      icon: 'w-12 h-12 mb-6 text-primary',
+        'group relative rounded-none border-2 border-primary/10 dark:border-primary/5 bg-white dark:bg-stone-900/50 p-8 hover:border-primary/40 dark:hover:border-primary/30 transition-all duration-500 ease-out hover:-translate-y-1',
+      icon: 'w-10 h-10 mb-6 text-primary transition-transform duration-500 group-hover:scale-110',
       ...((classes?.items as Record<string, never>) ?? {}),
     }}
   />

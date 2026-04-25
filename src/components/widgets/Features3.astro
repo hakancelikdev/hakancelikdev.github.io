@@ -36,12 +36,12 @@ const {
   <div aria-hidden="true" class="aspect-w-16 aspect-h-7">
     {
       image && (
-        <div class="w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg">
+        <div class="w-full h-80 object-cover rounded-none mx-auto bg-stone-100 dark:bg-stone-800 shadow-2xl border border-primary/10">
           {typeof image === 'string' ? (
             <Fragment set:html={image} />
           ) : (
             <Image
-              class="w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg"
+              class="w-full h-80 object-cover rounded-none mx-auto"
               width="auto"
               height={320}
               widths={[400, 768]}
@@ -59,11 +59,11 @@ const {
     columns={columns}
     defaultIcon={defaultIcon}
     classes={{
-      container: 'mt-12',
-      panel: 'max-w-full sm:max-w-md',
-      title: 'text-lg font-semibold',
-      description: 'mt-0.5',
-      icon: 'flex-shrink-0 mt-1 text-primary w-6 h-6',
+      container: 'mt-12 gap-y-12 md:gap-y-16',
+      panel: 'max-w-full sm:max-w-md group',
+      title: 'text-2xl font-bold font-heading mb-2 group-hover:text-primary transition-colors duration-300',
+      description: 'text-lg font-light leading-relaxed',
+      icon: 'flex-shrink-0 mt-1 text-primary w-8 h-8 group-hover:scale-110 transition-transform duration-300',
       ...((classes?.items as object) ?? {}),
     }}
   />

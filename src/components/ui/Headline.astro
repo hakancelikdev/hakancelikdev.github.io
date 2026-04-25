@@ -18,18 +18,33 @@ const {
 
 {
   (title || subtitle || tagline) && (
-    <div class={twMerge('mb-8 md:mx-auto md:mb-12 text-center', containerClass)}>
+    <div class={twMerge('mb-12 md:mx-auto md:mb-16 text-center', containerClass)}>
       {tagline && (
-        <p class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase" set:html={tagline} />
+        <div class="mb-4">
+          <span class="font-mono text-[10px] tracking-[0.3em] uppercase text-primary font-semibold border-b border-primary/30 pb-1">
+             <span set:html={tagline} />
+          </span>
+        </div>
       )}
       {title && (
         <h2
-          class={twMerge('font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl', titleClass)}
+          class={twMerge('font-bold leading-[1.1] tracking-tighter font-heading text-heading text-4xl md:text-5xl lg:text-6xl mb-4', titleClass)}
+          style="font-variation-settings: 'opsz' 48, 'wght' 800;"
           set:html={title}
         />
       )}
 
-      {subtitle && <p class={twMerge('mt-4 text-muted', subtitleClass)} set:html={subtitle} />}
+      {subtitle && (
+        <div class="relative max-w-2xl mx-auto">
+           <p class={twMerge('mt-4 text-xl text-muted font-light serif italic leading-relaxed', subtitleClass)} set:html={subtitle} />
+        </div>
+      )}
     </div>
   )
 }
+
+<style>
+  .serif {
+    font-family: var(--aw-font-serif);
+  }
+</style>

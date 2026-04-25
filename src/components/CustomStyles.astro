@@ -14,17 +14,19 @@
     --aw-font-serif: 'Fraunces', ui-serif;
     --aw-font-heading: 'Fraunces', ui-serif;
 
-    /* Warm orange accent */
+    /* Warm orange accent - slightly more vibrant */
     --aw-color-primary: rgb(234 88 12);
     --aw-color-secondary: rgb(194 65 12);
     --aw-color-accent: rgb(249 115 22);
 
-    /* Light mode — warm cream */
+    /* Light mode — warm editorial cream */
     --aw-color-text-heading: rgb(28 25 23);
     --aw-color-text-default: rgb(41 37 36);
-    --aw-color-text-muted: rgb(41 37 36 / 58%);
-    --aw-color-bg-page: rgb(250 247 242);
-    --aw-color-bg-page-dark: rgb(12 10 8);
+    --aw-color-text-muted: rgb(41 37 36 / 62%);
+    --aw-color-bg-page: rgb(252 250 247);
+    
+    /* Grain and texture */
+    --aw-grain-opacity: 0.045;
 
     ::selection {
       background-color: rgb(254 215 170);
@@ -42,15 +44,45 @@
     --aw-color-secondary: rgb(249 115 22);
     --aw-color-accent: rgb(251 146 60);
 
-    /* Dark mode — warm near-black */
+    /* Dark mode — deep carbon */
     --aw-color-text-heading: rgb(250 247 242);
-    --aw-color-text-default: rgb(214 211 208);
-    --aw-color-text-muted: rgb(214 211 208 / 58%);
-    --aw-color-bg-page: rgb(12 10 8);
+    --aw-color-text-default: rgb(212 210 208);
+    --aw-color-text-muted: rgb(212 210 208 / 60%);
+    --aw-color-bg-page: rgb(10 9 8);
+    
+    --aw-grain-opacity: 0.07;
 
     ::selection {
       background-color: rgb(124 45 18);
       color: rgb(254 215 170);
     }
+  }
+
+  /* Core aesthetic enhancements */
+  body {
+    position: relative;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* The Grain Overlay - adds organic texture */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Ffilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: var(--aw-grain-opacity);
+    mix-blend-mode: overlay;
+  }
+
+  /* Fluid typography smoothing */
+  h1, h2, h3, .font-heading {
+    font-variation-settings: "wght" 700, "opsz" 100;
+    letter-spacing: -0.02em;
   }
 </style>

@@ -50,8 +50,23 @@ const canonicalUrl = String(Astro.url);
   </head>
 
   <body class="antialiased text-default bg-page tracking-tight">
+    <!-- Progress bar -->
+    <div id="scroll-progress" class="fixed top-0 left-0 w-0 h-1 bg-primary z-[9999] transition-all duration-150 ease-out"></div>
+
     <slot />
 
     <BasicScripts />
+
+    <script is:inline>
+      document.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        const progress = document.getElementById('scroll-progress');
+        if (progress) {
+          progress.style.width = scrolled + '%';
+        }
+      }, { passive: true });
+    </script>
   </body>
 </html>

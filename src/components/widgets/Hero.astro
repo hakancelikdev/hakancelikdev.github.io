@@ -26,72 +26,76 @@ const {
     </slot>
   </div>
 
-  <!-- Subtle grid pattern overlay -->
-  <div
-    class="absolute inset-0 pointer-events-none hero-grid"
-    aria-hidden="true"
-  ></div>
+  <!-- Sophisticated background patterns -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+    <div class="hero-grid absolute inset-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-page to-page opacity-60"></div>
+  </div>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-    <div class="py-16 md:py-24 lg:py-32">
+    <div class="py-20 md:py-32 lg:py-40">
 
-      <!-- Tagline pill -->
+      <!-- Tagline pill: More industrial look -->
       {tagline && (
-        <div class="mb-8 hero-item" style="--delay: 0s">
-          <span class="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-primary border border-primary/30 bg-primary/[0.06] px-3 py-1.5 rounded-sm">
-            <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block shrink-0"></span>
+        <div class="mb-10 hero-item" style="--delay: 0s">
+          <span class="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.2em] uppercase text-primary border-l-2 border-primary bg-primary/[0.04] px-4 py-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block shrink-0 animate-pulse"></span>
             <span set:html={tagline} />
           </span>
         </div>
       )}
 
-      <!-- Main heading -->
+      <!-- Main heading: Dramatic scale -->
       {title && (
         <h1
-          class="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1.02] tracking-tight mb-5 dark:text-white hero-item"
-          style="--delay: 0.06s; font-variation-settings: 'opsz' 144;"
+          class="font-heading text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] font-bold leading-[0.95] tracking-tighter mb-8 dark:text-white hero-item"
+          style="--delay: 0.1s; font-variation-settings: 'opsz' 144, 'wght' 800;"
           set:html={title}
         />
       )}
 
-      <!-- Accent rule -->
-      {title && (
-        <div class="w-14 h-[3px] rounded-full mb-8 hero-item" style="--delay: 0.12s; background: var(--aw-color-primary);"></div>
-      )}
+      <div class="flex flex-col md:flex-row gap-8 md:gap-16 items-start hero-item" style="--delay: 0.2s">
+        <!-- Accent rule: Vertical in MD+ for asymmetry -->
+        {title && (
+          <div class="hidden md:block w-px h-32 bg-primary/30 shrink-0 mt-2"></div>
+        )}
+        
+        <div class="max-w-2xl">
+          <!-- Subtitle -->
+          {subtitle && (
+            <div class="mb-10">
+              <p class="text-xl md:text-2xl text-muted leading-relaxed font-light italic serif" set:html={subtitle} />
+            </div>
+          )}
 
-      <!-- Subtitle -->
-      {subtitle && (
-        <div class="max-w-xl hero-item" style="--delay: 0.18s">
-          <p class="text-lg md:text-xl text-muted leading-relaxed" set:html={subtitle} />
-        </div>
-      )}
-
-      <!-- CTA buttons -->
-      {actions && (
-        <div class="flex flex-wrap gap-3 mt-10 hero-item" style="--delay: 0.24s">
-          {Array.isArray(actions) ? (
-            actions.map((action) => (
-              <Button {...(action || {})} />
-            ))
-          ) : (
-            <Fragment set:html={actions} />
+          <!-- CTA buttons -->
+          {actions && (
+            <div class="flex flex-wrap gap-4">
+              {Array.isArray(actions) ? (
+                actions.map((action) => (
+                  <Button {...(action || {})} class="rounded-none border-2 hover:bg-primary hover:text-white transition-all duration-300" />
+                ) )
+              ) : (
+                <Fragment set:html={actions} />
+              )}
+            </div>
           )}
         </div>
-      )}
+      </div>
 
-      {content && <Fragment set:html={content} />}
+      {content && <div class="mt-12 hero-item" style="--delay: 0.3s"><Fragment set:html={content} /></div>}
     </div>
 
-    <!-- Optional image -->
+    <!-- Optional image: Refined shadow and border -->
     {image && (
       <div class="intersect-once intersect-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
-        <div class="relative max-w-5xl mx-auto">
+        <div class="relative max-w-5xl mx-auto mb-20 shadow-2xl shadow-primary/10 border border-primary/10">
           {typeof image === 'string' ? (
             <Fragment set:html={image} />
           ) : (
             <Image
-              class="mx-auto rounded-sm w-full"
+              class="mx-auto w-full"
               widths={[400, 768, 1024, 2040]}
               sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
               loading="eager"
@@ -107,19 +111,23 @@ const {
 </section>
 
 <style>
+  .serif {
+    font-family: var(--aw-font-serif);
+  }
+
   /* Staggered entrance for hero elements */
   .hero-item {
-    animation: heroRise 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s) both;
+    animation: heroRise 1.2s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0s) both;
   }
 
   @keyframes heroRise {
     from {
       opacity: 0;
-      transform: translateY(1.25rem);
+      transform: translateY(2rem) skewY(1deg);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) skewY(0deg);
     }
   }
 
@@ -129,14 +137,16 @@ const {
     }
   }
 
-  /* Faint dot-grid pattern: visible but unobtrusive */
+  /* Industrial dot-grid pattern */
   .hero-grid {
-    background-image: radial-gradient(circle, rgb(249 115 22 / 0.12) 1px, transparent 1px);
-    background-size: 40px 40px;
-    mask-image: radial-gradient(ellipse 80% 80% at 10% 50%, black 20%, transparent 100%);
+    background-image: 
+      radial-gradient(circle at 2px 2px, rgb(234 88 12 / 0.15) 1.5px, transparent 0);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 70% 70% at 0% 0%, black 10%, transparent 90%);
   }
 
   .dark .hero-grid {
-    background-image: radial-gradient(circle, rgb(251 146 60 / 0.1) 1px, transparent 1px);
+    background-image: 
+      radial-gradient(circle at 2px 2px, rgb(251 146 60 / 0.12) 1.5px, transparent 0);
   }
 </style>

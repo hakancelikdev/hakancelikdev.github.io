@@ -4,6 +4,7 @@ author: Hakan Çelik
 title: "Aws De Serverless Ve Lambda"
 excerpt: "Lambda, sunucuları yönetmeden kod çalıştırmanıza izin veren bir bilgi işlem hizmetidir."
 category: Cloud
+subcategory: AWS
 image: ~/assets/images/blog/cloud.jpg
 tags:
   - cloud

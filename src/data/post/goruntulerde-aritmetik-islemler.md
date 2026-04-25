@@ -4,6 +4,7 @@ author: Hakan Çelik
 title: "Görüntülerde Aritmetik İşlemler"
 excerpt: "Görüntüler üzerinde toplama, çıkarma, bitdüzeyi işlemleri gibi birkaç aritmetik işlemleri öğreneceğiz. Bu fonksiyonları öğreneceksiniz : cv2.add(), cv2.addWeighted() vb."
 category: OpenCV
+subcategory: Görüntü İşleme
 image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv

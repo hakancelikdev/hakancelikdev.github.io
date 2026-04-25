@@ -4,6 +4,9 @@ author: Hakan Çelik
 title: "Run Methods Order In Python"
 excerpt: "Python metaclass'larında hangi metot ne zaman çalışır? Sınıf tanımı ve örnek oluşturma sırasındaki __prepare__, __new__, __init__, __call__ çalışma sırası."
 category: Python
+subcategory: Metaclass
+series: "Python Metaclass Serisi"
+seriesIndex: 9
 image: /images/posts/run-methods-order-in-python.png
 tags:
   - python

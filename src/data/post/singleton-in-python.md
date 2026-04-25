@@ -4,6 +4,9 @@ author: Hakan Çelik
 title: "Singleton in Python"
 excerpt: "Python'da Singleton desenini metaclass ile uygulamanın iki yolu — ve aralarındaki kritik fark: birinde alt sınıflar ayrı nesne, diğerinde aynı nesne olur."
 category: Python
+subcategory: Metaclass
+series: "Python Metaclass Serisi"
+seriesIndex: 12
 image: ~/assets/images/blog/python.jpg
 tags:
   - python

@@ -4,6 +4,7 @@ author: Hakan Çelik
 title: "Görüntülerle İlgili Temel İşlemler"
 excerpt: "Piksel değerlerine erişme ve bunları değiştirme Resim özelliklerine erişme Resim Bölgesini ( alanını ) Ayarlama (ROI) Görüntüleri Bölme ve Birleştirme"
 category: OpenCV
+subcategory: Temel İşlemler
 image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv

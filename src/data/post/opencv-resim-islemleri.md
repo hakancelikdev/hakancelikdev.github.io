@@ -4,6 +4,7 @@ author: Hakan Çelik
 title: "Opencv Resim Işlemleri"
 excerpt: "Resim dosyasını okumak için cv2.imread() fonksiyon kullanılır ve iki arguman alır."
 category: OpenCV
+subcategory: Temel İşlemler
 image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv

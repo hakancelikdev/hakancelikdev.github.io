@@ -4,6 +4,9 @@ author: Hakan Çelik
 title: "Logging Namespace"
 excerpt: "Metaclass'ın __prepare__ metoduyla sınıf gövdesindeki her atamayı otomatik olarak kayıt altına alın — özelleştirilmiş namespace'in gücünü keşfedin."
 category: Python
+subcategory: Metaclass
+series: "Python Metaclass Serisi"
+seriesIndex: 6
 image: ~/assets/images/blog/python.jpg
 tags:
   - python

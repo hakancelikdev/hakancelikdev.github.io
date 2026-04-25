@@ -4,6 +4,9 @@ author: Hakan Çelik
 title: "Run Methods Order In Python With More Explanation"
 excerpt: "Metaclass metodlarının tam argüman listesiyle birlikte çalışma sırası. Her metoda hangi değerlerin geldiğini adım adım takip edin."
 category: Python
+subcategory: Metaclass
+series: "Python Metaclass Serisi"
+seriesIndex: 10
 image: /images/posts/run-methods-order-in-python.png
 tags:
   - python

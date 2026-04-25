@@ -4,6 +4,7 @@ author: Hakan Çelik
 title: "Görüntüyü Yumuşatma - ( Smoothing Images )"
 excerpt: "Çeşitli düşük geçişli filtrelerle görüntüleri bulanıklaştırma Görüntülere özel filitreler uygulamak (2B kıvrım)"
 category: OpenCV
+subcategory: Görüntü İşleme
 image: /images/posts/opencv/filter.jpg
 tags:
   - opencv

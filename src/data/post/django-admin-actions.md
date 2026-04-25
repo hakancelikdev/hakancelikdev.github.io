@@ -4,6 +4,7 @@ author: Hakan Çelik
 title: "Django Admin Actions"
 excerpt: "Admin action kısaca seçilen nesneler ile toplu iş uygulayabilme olayıdır, seçili bütün kullanıcıları silmek gibi, aşağıda ki resim hangi konudan bahsettiğimizi anlatır niteliktedir."
 category: Django
+subcategory: Admin
 image: /images/posts/admin-actions.png
 tags:
   - django

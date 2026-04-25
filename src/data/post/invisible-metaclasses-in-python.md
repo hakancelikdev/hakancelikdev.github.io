@@ -4,6 +4,9 @@ author: Hakan Çelik
 title: "Invisible Metaclasses In Python"
 excerpt: "Python'da her sınıfın bir metaclass'ı vardır. Açıkça belirtmezseniz type varsayılan olarak devreye girer — görünmez ama her zaman oradadır."
 category: Python
+subcategory: Metaclass
+series: "Python Metaclass Serisi"
+seriesIndex: 3
 image: ~/assets/images/blog/python.jpg
 tags:
   - python

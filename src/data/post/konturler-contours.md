@@ -4,6 +4,7 @@ author: Hakan Çelik
 title: "Konturler ( Contours )"
 excerpt: "Konturlerin ne olduğunu anlayacağız. Konturleri bulmayı ve çizmeyi öğreneceğiz. Bu fonksiyonları öğreneceğiz : cv2.findContours(), cv2.drawContours()"
 category: OpenCV
+subcategory: İleri Konular
 image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv

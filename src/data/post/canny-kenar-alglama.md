@@ -4,6 +4,7 @@ author: Hakan Çelik
 title: "Canny Kenar Algılama"
 excerpt: "Canny kenar algılama kavramı Bunun işlem için OpenCV fonksiyonlarından : cv2.Canny()"
 category: OpenCV
+subcategory: Görüntü İşleme
 image: /images/posts/opencv/nms.jpg
 tags:
   - opencv

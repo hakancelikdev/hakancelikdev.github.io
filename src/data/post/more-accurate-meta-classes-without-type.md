@@ -4,6 +4,9 @@ author: Hakan Çelik
 title: "More Accurate Meta Classes Without Type"
 excerpt: "type'tan türetmeyen daha eksiksiz bir metaclass implementasyonu: __call__ ile iki aşamalı yaşam döngüsü, __str__ ve attribute erişiminin namespace'e delegasyonu."
 category: Python
+subcategory: Metaclass
+series: "Python Metaclass Serisi"
+seriesIndex: 8
 image: /images/posts/meta-classes-without-type.png
 tags:
   - python

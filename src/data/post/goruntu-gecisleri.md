@@ -4,6 +4,7 @@ author: Hakan Çelik
 title: "Görüntü Geçişleri"
 excerpt: "Görüntü geçişlerini ve kenar bulma ve bu fonksiyonlar cv2.Sobel(), cv2.Scharr(), cv2.Laplacian() vb"
 category: OpenCV
+subcategory: Görüntü İşleme
 image: /images/posts/opencv/gradients.jpg
 tags:
   - opencv

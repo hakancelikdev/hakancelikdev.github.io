@@ -4,6 +4,9 @@ author: Hakan Çelik
 title: "Define Method If Condition True"
 excerpt: "defineif kütüphanesinin implementasyonu: __prepare__ ile özelleştirilmiş namespace, sınıf oluşturulurken boolean koşula göre metodları sessizce tanımlar ya da atlar."
 category: Python
+subcategory: Metaclass
+series: "Python Metaclass Serisi"
+seriesIndex: 14
 image: ~/assets/images/blog/python.jpg
 tags:
   - python

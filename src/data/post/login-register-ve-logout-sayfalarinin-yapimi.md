@@ -4,6 +4,7 @@ author: Hakan Çelik
 title: "Login, Register ve Logout Sayfalarının Yapımı"
 excerpt: "Bu yazımda sayfaların tasarımı için css yazmak yerine Uikit adında frontend framework'u kullanacağım ve bu yazımda kullandığım kodlar Eatingword adında Django bilgimi taze tutmak ve yeni şeyler öğrenm"
 category: Django
+subcategory: Kimlik Doğrulama
 image: ~/assets/images/blog/django.jpg
 tags:
   - django

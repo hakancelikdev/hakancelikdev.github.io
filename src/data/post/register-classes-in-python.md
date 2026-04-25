@@ -4,6 +4,9 @@ author: Hakan Çelik
 title: "Register Classes in Python"
 excerpt: "Alt sınıfları otomatik kayıt altına almanın üç yolu: metaclass __new__, __init_subclass__ ve class decorator. Hangi durum için hangisi daha uygun?"
 category: Python
+subcategory: Metaclass
+series: "Python Metaclass Serisi"
+seriesIndex: 11
 image: ~/assets/images/blog/python.jpg
 tags:
   - python

@@ -4,6 +4,9 @@ author: Hakan Çelik
 title: "Understanding Python Classes"
 excerpt: "Python'da her şey nesnedir ve her nesnenin bir tipi vardır — primitifler, fonksiyonlar ve sınıfların kendisi de dahil. type() ve __class__ bu ilişkiyi ortaya çıkarır."
 category: Python
+subcategory: Metaclass
+series: "Python Metaclass Serisi"
+seriesIndex: 1
 image: /images/posts/understanding-python-classes.png
 tags:
   - python

@@ -4,6 +4,7 @@ author: Hakan Çelik
 title: "Morfolojik Dönüşümler"
 excerpt: "Erozyon, Dilatasyon, Açılış, Kapanış gibi farklı morfolojik işlemleri öğreneceğiz. ( Erosion, Dilation, Opening, Closing ) Farklı işlevleri şöyle göreceğiz: cv2.erode(), cv2.dilate(), cv2.morphology"
 category: OpenCV
+subcategory: Görüntü İşleme
 image: /images/posts/opencv/erosion.png
 tags:
   - opencv

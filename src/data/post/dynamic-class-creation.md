@@ -4,6 +4,9 @@ author: Hakan Çelik
 title: "Dynamic Class Creation"
 excerpt: "class Example: ... yazmak ile type('Example', (), {...}) çağırmak tamamen aynı sonucu verir. Python class anahtar kelimesini sahne arkasında type() çağrısına dönüştürür."
 category: Python
+subcategory: Metaclass
+series: "Python Metaclass Serisi"
+seriesIndex: 2
 image: /images/posts/understanding-python-classes.png
 tags:
   - python

@@ -4,6 +4,7 @@ author: Hakan Çelik
 title: "Dumpdata Ve Loaddata Kullanımı"
 excerpt: "Ana kaynak | djangoproject.com/en/2.1/"
 category: Django
+subcategory: Veritabanı
 image: ~/assets/images/blog/django.jpg
 tags:
   - django

@@ -4,6 +4,7 @@ author: Hakan Çelik
 title: "Django'da Clickjack Tuzağının Engeli Ve Kontrolu - Xframeoptionsmiddleware"
 excerpt: "Clickjack nedir ve nasıl korunulur, önlemleri nelerdir gibi daha fazla bilgiye ihtiyaç duyuyorsanız clickjacking adındaki listeme göz atabilirsiniz."
 category: Django
+subcategory: Güvenlik
 image: ~/assets/images/blog/django.jpg
 tags:
   - django

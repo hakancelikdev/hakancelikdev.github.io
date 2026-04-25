@@ -4,6 +4,9 @@ author: Hakan Çelik
 title: "Modeling a Class with a Metaclass"
 excerpt: "Metaclass ile dataclass benzeri bir yapı: type annotation'lardan otomatik __slots__ türetme ve __call__'da çalışma zamanı tip doğrulama."
 category: Python
+subcategory: Metaclass
+series: "Python Metaclass Serisi"
+seriesIndex: 13
 image: ~/assets/images/blog/python.jpg
 tags:
   - python

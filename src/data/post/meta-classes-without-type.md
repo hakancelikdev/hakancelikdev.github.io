@@ -4,6 +4,9 @@ author: Hakan Çelik
 title: "Meta Classes Without Type"
 excerpt: "type'tan türetmeden bir metaclass yazmak mümkün mü? Evet — ama sonuçta elde ettiğiniz nesne gerçek bir Python sınıfı değil, Meta'nın bir örneğidir."
 category: Python
+subcategory: Metaclass
+series: "Python Metaclass Serisi"
+seriesIndex: 7
 image: /images/posts/meta-classes-without-type.png
 tags:
   - python

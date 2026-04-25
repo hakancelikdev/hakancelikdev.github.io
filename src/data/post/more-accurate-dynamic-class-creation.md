@@ -4,6 +4,9 @@ author: Hakan Çelik
 title: "namespace['attr'] = 1"
 excerpt: "Python'ın class ifadesini gerçekten nasıl işlediğini görmek için: type.__prepare__ ile namespace al, exec ile gövdeyi çalıştır, type() ile sınıfı oluştur."
 category: Python
+subcategory: Metaclass
+series: "Python Metaclass Serisi"
+seriesIndex: 5
 image: /images/posts/understanding-python-classes.png
 tags:
   - python

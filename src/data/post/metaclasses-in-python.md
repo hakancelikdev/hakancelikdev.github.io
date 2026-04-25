@@ -4,6 +4,9 @@ author: Hakan Çelik
 title: "Metaclasses In Python"
 excerpt: "Metaclass, örnekleri sınıf olan bir sınıftır. type nasıl int veya str gibi sınıflar üretiyorsa, özel bir metaclass da kendi sınıflarını aynı şekilde üretir."
 category: Python
+subcategory: Metaclass
+series: "Python Metaclass Serisi"
+seriesIndex: 4
 image: /images/posts/understanding-python-classes.png
 tags:
   - python

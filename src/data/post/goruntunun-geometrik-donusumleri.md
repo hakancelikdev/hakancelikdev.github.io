@@ -4,6 +4,7 @@ author: Hakan Çelik
 title: "Görüntünün Geometrik Dönüşümleri"
 excerpt: "Çevirme, döndürme ve afin dönüşümü gibi görüntülere farklı geometrik dönüşüm uygulamayı öğreneceğiz. Bu fonksiyonu öğrenceğiz : cv2.getPerspectiveTransform"
 category: OpenCV
+subcategory: Görüntü İşleme
 image: /images/posts/opencv/translation.jpg
 tags:
   - opencv

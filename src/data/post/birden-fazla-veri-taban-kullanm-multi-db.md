@@ -4,6 +4,7 @@ author: Hakan Çelik
 title: "Birden Fazla Veri Tabanı Kullanımı"
 excerpt: "Birden fazla veri tabanı kullanmak için öncelikle projemizin settings.py dosyasına eklemeler yaparak bu veri tabanlarını tanımlamamız gerekiyor örnek olarak aşağıda bir postgresql ve mysql veri tabanl"
 category: Django
+subcategory: Veritabanı
 image: ~/assets/images/blog/django.jpg
 tags:
   - django

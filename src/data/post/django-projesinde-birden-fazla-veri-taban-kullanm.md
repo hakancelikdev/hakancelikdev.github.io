@@ -4,6 +4,7 @@ author: Hakan Çelik
 title: "Django Projesinde Birden Fazla Veri Tabanı Kullanımı"
 excerpt: "django ile birden fazla veri tabanı kullanımını django ile uygulama oluşturmayı ziyaretçilerin ip adreslerini bulmayı öğreneceğiz from django.db.models import F kullanımını öğreneceğiz."
 category: Django
+subcategory: Veritabanı
 image: ~/assets/images/blog/django.jpg
 tags:
   - django

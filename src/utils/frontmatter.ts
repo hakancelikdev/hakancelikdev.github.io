@@ -18,6 +18,7 @@ export const headingsRemarkPlugin: RemarkPlugin = () => {
   return function (tree, file) {
     const headings: Array<{ depth: number; text: string }> = [];
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     visit(tree, 'heading', (node: any) => {
       if (node.depth >= 2 && node.depth <= 3) {
         headings.push({ depth: node.depth, text: toString(node) });

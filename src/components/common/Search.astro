@@ -104,13 +104,14 @@
   const results = document.getElementById('search-results');
   const hint = document.getElementById('search-hint');
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let pagefind: any = null;
   let searchTimeout: ReturnType<typeof setTimeout>;
 
   async function loadPagefind() {
     if (pagefind) return pagefind;
     try {
-      // @ts-ignore — pagefind is generated at build time
+      // @ts-expect-error — pagefind is generated at build time and not available as a module
       pagefind = await import('/pagefind/pagefind.js');
       await pagefind.options({ excerptLength: 15 });
       return pagefind;
@@ -180,9 +181,11 @@
         return;
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const items = await Promise.all(search.results.slice(0, 8).map((r: any) => r.data()));
       results.innerHTML = items
         .map(
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (item: any) => `
         <a href="${item.url}" class="flex flex-col gap-0.5 px-4 py-3 hover:bg-gray-50 dark:hover:bg-slate-800/60 transition-colors">
           <span class="text-sm font-semibold text-default dark:text-slate-200 line-clamp-1">${item.meta?.title || item.url}</span>

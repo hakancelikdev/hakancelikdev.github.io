@@ -16,23 +16,32 @@ import BasicScripts from '~/components/common/BasicScripts.astro';
 import { ClientRouter } from 'astro:transitions';
 
 import type { MetaData as MetaDataType } from '~/types';
+import { getLangFromUrl, getAlternateUrl } from '~/utils/i18n';
 
 export interface Props {
   metadata?: MetaDataType;
 }
 
 const { metadata = {} } = Astro.props;
-const { language, textDirection } = I18N;
+const { textDirection } = I18N;
+
+const pageLang = getLangFromUrl(Astro.url);
+const alternateUrl = getAlternateUrl(Astro.url);
+const alternateLang = pageLang === 'tr' ? 'en' : 'tr';
+const canonicalUrl = String(Astro.url);
 ---
 
 <!doctype html>
-<html lang={language} dir={textDirection} class="2xl:text-[20px]">
+<html lang={pageLang} dir={textDirection} class="2xl:text-[20px]">
   <head>
     <CommonMeta />
     <Favicons />
     <CustomStyles />
     <ApplyColorMode />
-    <Metadata {...metadata} />
+    <Metadata {...metadata} openGraph={{ locale: pageLang === 'en' ? 'en_US' : 'tr_TR', ...metadata.openGraph }} />
+    <link rel="alternate" hreflang={pageLang} href={canonicalUrl} />
+    <link rel="alternate" hreflang={alternateLang} href={new URL(alternateUrl, Astro.site).toString()} />
+    <link rel="alternate" hreflang="x-default" href={pageLang === 'tr' ? canonicalUrl : new URL(alternateUrl, Astro.site).toString()} />
     <SiteVerification />
     <Analytics />
 

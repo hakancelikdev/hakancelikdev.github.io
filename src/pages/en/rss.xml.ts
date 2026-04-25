@@ -1,22 +1,19 @@
 import { getRssString } from '@astrojs/rss';
 
-import { SITE, METADATA, APP_BLOG } from 'astrowind:config';
-import { fetchTrPosts } from '~/utils/blog';
+import { SITE, APP_BLOG } from 'astrowind:config';
+import { fetchEnPosts } from '~/utils/blog';
 import { getPermalink } from '~/utils/permalinks';
 
 export const GET = async () => {
   if (!APP_BLOG.isEnabled) {
-    return new Response(null, {
-      status: 404,
-      statusText: 'Not found',
-    });
+    return new Response(null, { status: 404, statusText: 'Not found' });
   }
 
-  const posts = await fetchTrPosts();
+  const posts = await fetchEnPosts();
 
   const rss = await getRssString({
-    title: `${SITE.name}’s Blog`,
-    description: METADATA?.description || '',
+    title: `${SITE.name}'s Blog (EN)`,
+    description: 'Articles on Python, Django, OpenCV, Cloud and more.',
     site: import.meta.env.SITE,
 
     items: posts.map((post) => ({
@@ -30,8 +27,6 @@ export const GET = async () => {
   });
 
   return new Response(rss, {
-    headers: {
-      'Content-Type': 'application/xml',
-    },
+    headers: { 'Content-Type': 'application/xml' },
   });
 };

@@ -49,7 +49,6 @@ export const getFooterData = (lang: Lang = 'tr') => ({
       title: lang === 'en' ? 'Content' : 'İçerik',
       links: [
         { text: 'Blog', href: lang === 'en' ? '/en/blog' : getBlogPermalink() },
-        { text: lang === 'en' ? 'Articles (Docs)' : 'Yazılar (Docs)', href: 'https://docs.hakancelik.dev' },
       ],
     },
     {

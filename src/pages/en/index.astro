@@ -1,0 +1,169 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+import fs from 'node:fs';
+import path from 'node:path';
+
+const CACHE_FILE = path.resolve('./src/data/_stats-cache.json');
+
+interface StatsCache {
+  fetchedAt: number;
+  github: Record<string, string>;
+  pypi: Record<string, string>;
+}
+
+function readCache(): StatsCache | null {
+  try {
+    const raw = fs.readFileSync(CACHE_FILE, 'utf-8');
+    return JSON.parse(raw) as StatsCache;
+  } catch { return null; }
+}
+
+function badge(icon: string, value: string, title: string) {
+  if (!value || value === '0') return '';
+  return `<span title="${title}" class="inline-flex items-center gap-1 text-xs font-medium bg-orange-50 dark:bg-orange-950/30 text-orange-700 dark:text-orange-300 px-2 py-0.5 rounded-sm">${icon} ${value}</span>`;
+}
+
+function statsBadges(stars: string, downloads: string) {
+  const b = [badge('★', stars, 'GitHub Stars'), badge('↓', downloads, 'PyPI Downloads')]
+    .filter(Boolean).join(' ');
+  return b ? `<span class="flex gap-1.5 mt-2 flex-wrap">${b}</span>` : '';
+}
+
+const cached = readCache();
+
+const unimportStars  = cached?.github['unimportStars']   ?? '';
+const unexportStars  = cached?.github['unexportStars']   ?? '';
+const pydbmStars     = cached?.github['pydbmStars']      ?? '';
+const defineifStars  = cached?.github['defineifStars']   ?? '';
+const vakitStars     = cached?.github['vakitStars']      ?? '';
+const siteSeekerStars = cached?.github['siteSeekerStars'] ?? '';
+const meldStars      = cached?.github['meldStars']       ?? '';
+const unimportDl     = cached?.pypi['unimport']          ?? '';
+const unexportDl     = cached?.pypi['unexport']          ?? '';
+const pydbmDl        = cached?.pypi['pythonic-dbm']      ?? '';
+const defineifDl     = cached?.pypi['defineif']          ?? '';
+
+const metadata = {
+  title: 'Hakan Çelik — Software Engineer',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+
+  <Hero
+    id="hero"
+    actions={[
+      { variant: 'primary', text: 'View Projects', href: '#projects', icon: 'tabler:rocket' },
+      { text: 'Blog', href: getPermalink('/en/blog') },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_-5%_50%,rgb(234_88_12/0.07),transparent)] dark:bg-[radial-gradient(ellipse_80%_70%_at_-5%_50%,rgb(251_146_60/0.08),transparent)]"></div>
+    </Fragment>
+    <Fragment slot="title">
+      Hi, I'm <span class="text-accent dark:text-white">Hakan Çelik</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      <span class="font-semibold">Software Engineer</span> — Python tooling · iOS/macOS apps · Open source.
+      Working as a software engineer at Trendyol Go by Uber Eats. Building software professionally since 2019.
+    </Fragment>
+  </Hero>
+
+  <Features2
+    id="projects"
+    title="Apps"
+    subtitle="Applications I've built for iOS and macOS."
+    tagline="Apps"
+    items={[
+      {
+        title: 'Vakit',
+        description: `Prayer time reminders and qibla direction. A minimalist, easy-to-use app for iOS.${statsBadges(vakitStars, '')}`,
+        icon: 'tabler:moon-stars',
+        callToAction: { text: 'vakit.hakancelik.dev', href: 'https://vakit.hakancelik.dev', target: '_blank' },
+      },
+      {
+        title: 'SiteSeeker',
+        description: `Smart browser history and bookmark search for macOS. Search all your browsers in one interface.${statsBadges(siteSeekerStars, '')}`,
+        icon: 'tabler:search',
+        callToAction: { text: 'siteseeker.hakancelik.dev', href: 'https://siteseeker.hakancelik.dev', target: '_blank' },
+      },
+      {
+        title: 'Meld',
+        description: `Minimalist tile-merging puzzle game. Slide, merge, solve.${statsBadges(meldStars, '')}`,
+        icon: 'tabler:puzzle',
+        callToAction: { text: 'meld.hakancelik.dev', href: 'https://meld.hakancelik.dev', target: '_blank' },
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-indigo-50/50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <Features3
+    title="Python Tools"
+    subtitle="Open source tools that improve the Python developer experience."
+    tagline="Open Source"
+    columns={2}
+    items={[
+      {
+        title: 'unimport',
+        description: `A linter/formatter that finds and removes unused import statements. Works as a pre-commit hook.${statsBadges(unimportStars, unimportDl)}`,
+        icon: 'tabler:brand-python',
+        callToAction: { text: 'unimport.hakancelik.dev', href: 'https://unimport.hakancelik.dev', target: '_blank' },
+      },
+      {
+        title: 'unexport',
+        description: `A linter that keeps the __all__ list in Python modules always up to date.${statsBadges(unexportStars, unexportDl)}`,
+        icon: 'tabler:brand-python',
+        callToAction: { text: 'unexport.hakancelik.dev', href: 'https://unexport.hakancelik.dev', target: '_blank' },
+      },
+      {
+        title: 'pydbm',
+        description: `A Pythonic ORM-like wrapper around Python's built-in dbm module.${statsBadges(pydbmStars, pydbmDl)}`,
+        icon: 'tabler:database',
+        callToAction: { text: 'pydbm.hakancelik.dev', href: 'https://pydbm.hakancelik.dev', target: '_blank' },
+      },
+      {
+        title: 'defineif',
+        description: `A decorator that defines a method only when a condition is true. Simple but elegant.${statsBadges(defineifStars, defineifDl)}`,
+        icon: 'tabler:code',
+        callToAction: { text: 'defineif.hakancelik.dev', href: 'https://defineif.hakancelik.dev', target: '_blank' },
+      },
+    ]}
+  />
+
+  <BlogLatestPosts
+    id="blog"
+    title="Latest Posts"
+    information="Articles on Python, Django, Git, OpenCV, Cloud and more."
+    lang="en"
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-indigo-50/50 dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts>
+
+  <CallToAction
+    title="Follow on GitHub"
+    subtitle="Contribute to my open source projects or get inspired."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'github.com/hakancelikdev',
+        href: 'https://github.com/hakancelikdev',
+        target: '_blank',
+        icon: 'tabler:brand-github',
+      },
+    ]}
+  />
+</Layout>

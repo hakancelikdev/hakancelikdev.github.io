@@ -60,7 +60,11 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     seriesIndex,
   } = data;
 
-  const slug = cleanSlug(id);
+  // Derive language from path prefix (tr/... or en/...)
+  const lang: 'tr' | 'en' = id.startsWith('en/') ? 'en' : 'tr';
+
+  // Slug is only the filename part (last segment), not the full path
+  const slug = cleanSlug(id.split('/').pop() || id);
   const publishDate = new Date(rawPublishDate);
   const updateDate = rawUpdateDate ? new Date(rawUpdateDate) : undefined;
 
@@ -83,10 +87,15 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     title: tag,
   }));
 
+  // For English posts, prefix permalink with 'en/'
+  const basePermalink = await generatePermalink({ id, slug, publishDate, category: category?.slug });
+  const permalink = lang === 'en' ? `en/${basePermalink}` : basePermalink;
+
   return {
     id: id,
+    lang: lang,
     slug: slug,
-    permalink: await generatePermalink({ id, slug, publishDate, category: category?.slug }),
+    permalink: permalink,
 
     publishDate: publishDate,
     updateDate: updateDate,
@@ -127,6 +136,10 @@ const load = async function (): Promise<Array<Post>> {
 
 let _posts: Array<Post>;
 
+// Cached per-language slices
+let _trPosts: Array<Post>;
+let _enPosts: Array<Post>;
+
 /** */
 export const isBlogEnabled = APP_BLOG.isEnabled;
 export const isRelatedPostsEnabled = APP_BLOG.isRelatedPostsEnabled;
@@ -142,13 +155,30 @@ export const blogTagRobots = APP_BLOG.tag.robots;
 
 export const blogPostsPerPage = APP_BLOG?.postsPerPage;
 
-/** */
+/** Returns all posts (both languages) */
 export const fetchPosts = async (): Promise<Array<Post>> => {
   if (!_posts) {
     _posts = await load();
   }
-
   return _posts;
+};
+
+/** Returns only Turkish posts */
+export const fetchTrPosts = async (): Promise<Array<Post>> => {
+  if (!_trPosts) {
+    const all = await fetchPosts();
+    _trPosts = all.filter((p) => p.lang === 'tr');
+  }
+  return _trPosts;
+};
+
+/** Returns only English posts */
+export const fetchEnPosts = async (): Promise<Array<Post>> => {
+  if (!_enPosts) {
+    const all = await fetchPosts();
+    _enPosts = all.filter((p) => p.lang === 'en');
+  }
+  return _enPosts;
 };
 
 /** */
@@ -179,18 +209,17 @@ export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> =
   }, []);
 };
 
-/** */
-export const findLatestPosts = async ({ count }: { count?: number }): Promise<Array<Post>> => {
+/** Returns latest posts for a given language (defaults to 'tr') */
+export const findLatestPosts = async ({ count, lang = 'tr' }: { count?: number; lang?: 'tr' | 'en' }): Promise<Array<Post>> => {
   const _count = count || 4;
-  const posts = await fetchPosts();
-
+  const posts = lang === 'en' ? await fetchEnPosts() : await fetchTrPosts();
   return posts ? posts.slice(0, _count) : [];
 };
 
-/** Returns the previous (older) and next (newer) posts relative to the given post. */
+/** Returns the previous (older) and next (newer) posts within the same language. */
 export const findAdjacentPosts = async (post: Post): Promise<{ prev: Post | null; next: Post | null }> => {
-  const posts = await fetchPosts();
-  const index = posts.findIndex((p) => p.slug === post.slug);
+  const posts = post.lang === 'en' ? await fetchEnPosts() : await fetchTrPosts();
+  const index = posts.findIndex((p) => p.slug === post.slug && p.lang === post.lang);
   if (index === -1) return { prev: null, next: null };
   return {
     prev: index < posts.length - 1 ? posts[index + 1] : null, // older
@@ -198,24 +227,25 @@ export const findAdjacentPosts = async (post: Post): Promise<{ prev: Post | null
   };
 };
 
-/** Returns all posts belonging to the given series, sorted by seriesIndex. */
-export const findPostsBySeries = async (seriesName: string): Promise<Post[]> => {
-  const posts = await fetchPosts();
+/** Returns all posts belonging to the given series, sorted by seriesIndex (same language). */
+export const findPostsBySeries = async (seriesName: string, lang: 'tr' | 'en' = 'tr'): Promise<Post[]> => {
+  const posts = lang === 'en' ? await fetchEnPosts() : await fetchTrPosts();
   return posts
     .filter((p) => p.series === seriesName)
     .sort((a, b) => (a.seriesIndex ?? 0) - (b.seriesIndex ?? 0));
 };
 
 /** */
-export const getStaticPathsBlogList = async ({ paginate }: { paginate: PaginateFunction }) => {
+export const getStaticPathsBlogList = async ({ paginate, lang = 'tr' }: { paginate: PaginateFunction; lang?: 'tr' | 'en' }) => {
   if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
-  return paginate(await fetchPosts(), {
+  const posts = lang === 'en' ? await fetchEnPosts() : await fetchTrPosts();
+  return paginate(posts, {
     params: { blog: BLOG_BASE || undefined },
     pageSize: blogPostsPerPage,
   });
 };
 
-/** */
+/** Returns static paths for all blog posts (both languages). */
 export const getStaticPathsBlogPost = async () => {
   if (!isBlogEnabled || !isBlogPostRouteEnabled) return [];
   return (await fetchPosts()).flatMap((post) => ({
@@ -227,10 +257,10 @@ export const getStaticPathsBlogPost = async () => {
 };
 
 /** */
-export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: PaginateFunction }) => {
+export const getStaticPathsBlogCategory = async ({ paginate, lang = 'tr' }: { paginate: PaginateFunction; lang?: 'tr' | 'en' }) => {
   if (!isBlogEnabled || !isBlogCategoryRouteEnabled) return [];
 
-  const posts = await fetchPosts();
+  const posts = lang === 'en' ? await fetchEnPosts() : await fetchTrPosts();
   const categories = {};
   posts.map((post) => {
     if (post.category?.slug) {
@@ -251,10 +281,10 @@ export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: Pagin
 };
 
 /** */
-export const getStaticPathsBlogSubcategory = async ({ paginate }: { paginate: PaginateFunction }) => {
+export const getStaticPathsBlogSubcategory = async ({ paginate, lang = 'tr' }: { paginate: PaginateFunction; lang?: 'tr' | 'en' }) => {
   if (!isBlogEnabled || !isBlogCategoryRouteEnabled) return [];
 
-  const posts = await fetchPosts();
+  const posts = lang === 'en' ? await fetchEnPosts() : await fetchTrPosts();
   const pairs: Record<string, { category: { slug: string; title: string }; subcategory: { slug: string; title: string } }> = {};
 
   posts.forEach((post) => {
@@ -282,10 +312,10 @@ export const getStaticPathsBlogSubcategory = async ({ paginate }: { paginate: Pa
 };
 
 /** */
-export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFunction }) => {
+export const getStaticPathsBlogTag = async ({ paginate, lang = 'tr' }: { paginate: PaginateFunction; lang?: 'tr' | 'en' }) => {
   if (!isBlogEnabled || !isBlogTagRouteEnabled) return [];
 
-  const posts = await fetchPosts();
+  const posts = lang === 'en' ? await fetchEnPosts() : await fetchTrPosts();
   const tags = {};
   posts.map((post) => {
     if (Array.isArray(post.tags)) {
@@ -308,8 +338,8 @@ export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFu
 };
 
 /** */
-export const findCategories = async (): Promise<Array<{ slug: string; title: string; count: number }>> => {
-  const posts = await fetchPosts();
+export const findCategories = async (lang: 'tr' | 'en' = 'tr'): Promise<Array<{ slug: string; title: string; count: number }>> => {
+  const posts = lang === 'en' ? await fetchEnPosts() : await fetchTrPosts();
   const map: Record<string, { slug: string; title: string; count: number }> = {};
   posts.forEach((post) => {
     if (post.category?.slug) {
@@ -324,9 +354,10 @@ export const findCategories = async (): Promise<Array<{ slug: string; title: str
 
 /** Returns subcategories for a given category slug, sorted by post count. */
 export const findSubcategories = async (
-  categorySlug: string
+  categorySlug: string,
+  lang: 'tr' | 'en' = 'tr'
 ): Promise<Array<{ slug: string; title: string; count: number }>> => {
-  const posts = await fetchPosts();
+  const posts = lang === 'en' ? await fetchEnPosts() : await fetchTrPosts();
   const map: Record<string, { slug: string; title: string; count: number }> = {};
   posts.forEach((post) => {
     if (post.category?.slug === categorySlug && post.subcategory?.slug) {
@@ -342,7 +373,7 @@ export const findSubcategories = async (
 
 /** */
 export async function getRelatedPosts(originalPost: Post, maxResults: number = 4): Promise<Post[]> {
-  const allPosts = await fetchPosts();
+  const allPosts = originalPost.lang === 'en' ? await fetchEnPosts() : await fetchTrPosts();
   const originalTagsSet = new Set(originalPost.tags ? originalPost.tags.map((tag) => tag.slug) : []);
 
   const postsWithScores = allPosts.reduce((acc: { post: Post; score: number }[], iteratedPost: Post) => {

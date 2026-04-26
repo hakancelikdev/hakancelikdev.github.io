@@ -61,6 +61,8 @@ Eğitim Verisi + Mimari (kaynak kod)
 
 Bir modeli **eğitmek**, onu **derlemek** demektir. Ve eğitim tamamlandığında elimizde kalan şey — tüm bu milyarlarca parametre — derlenmiş bir binary'dir.
 
+Model ağırlıkları belirli bir **mimariye** bağlıdır: kaç katman, kaç attention head, hangi boyut. Aynı `.gguf` dosyasını farklı bir mimariye yükleyemezsiniz — tıpkı x86 için derlenen bir binary'yi ARM işlemcide çalıştıramadığınız gibi.
+
 ---
 
 ## Model Dosyaları: Modern Dönemin Binary Formatları
@@ -131,12 +133,37 @@ Büyük binary her zaman daha iyi program anlamına gelmez. Mimarisi iyi tasarla
 
 ---
 
+## Pratik: Bir Modeli Gerçekten Çalıştırmak
+
+Teoriden çıkıp somutlaşalım. Ollama ile yerel bir model indirip çalıştırmak birkaç komut:
+
+```bash
+# Modeli indir (~4GB — bu sizin "binary"niz)
+ollama pull llama3.2
+
+# Doğrudan sohbet et
+ollama run llama3.2
+
+# Ya da REST API olarak kullan (port 11434)
+curl http://localhost:11434/api/generate -d '{
+  "model": "llama3.2",
+  "prompt": "Merhaba, nasılsın?",
+  "stream": false
+}'
+```
+
+`ollama pull` komutu tam olarak "binary indirme" adımıdır. `ollama run` ise o binary'yi belleğe yükleyip çalıştırmaktır. Arada derleme yok, kaynak kod yok — sadece ağırlıklar ve mimari.
+
+Bu arada: embedding modelleri de birer AI modelidir. `ollama pull nomic-embed-text` dediğinizde indirdiğiniz şey, metni vektöre dönüştürmek için özelleştirilmiş başka bir "binary beyin"dir. Bu konu RAG ile doğrudan bağlantılı — RAG'ın indexleme adımında tam olarak bu embedding modellerini kullanıyorsunuz.
+
+---
+
 ## Sonuç
 
 Bir dahaki sefere Hugging Face'den model indirdiğinizde ya da Ollama ile `ollama pull llama3` yazdığınızda, şunu aklınızda tutun:
 
-> **Milyarlarca sayıdan oluşan, milyonlarca dolarlık hesaplama gücüyle derlenmiş, belirli bir iş için özelleştirilmiş, çalıştırılmaya hazır bir beyin indiriyorsunuz.**
+> **Milyarlarca sayıdan oluşan, milyonlarca dolarlık hesaplama gücüyle derlenen, belirli bir iş için özelleştirilmiş, çalıştırılmaya hazır bir beyin indiriyorsunuz.**
 
-Bu yalnızca bir metafor değil. AI modelleri gerçekten de modern yazılımın en ilginç binary formatlarıdır — sadece CPU talimatları yerine matris operasyonları çalıştırıyorlar.
+AI modelleri gerçekten de modern yazılımın en ilginç binary formatlarıdır — sadece CPU talimatları yerine matris operasyonları çalıştırıyorlar.
 
 Ve bu farkı anlamak, AI'ı hem daha iyi kullanmanızı hem de daha iyi sorgulamanızı sağlar.

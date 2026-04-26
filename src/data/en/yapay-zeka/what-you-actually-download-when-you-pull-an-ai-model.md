@@ -61,6 +61,8 @@ Training Data + Architecture (source code)
 
 **Training a model is compiling it.** And what's left when training finishes — all those billions of parameters — is the compiled binary.
 
+Model weights are bound to a specific **architecture**: layer count, attention heads, hidden dimensions. You can't load a `.gguf` into a model with a different architecture — just like you can't run an x86 binary on an ARM processor.
+
 ---
 
 ## Model Files: The Binary Formats of Our Era
@@ -131,12 +133,37 @@ A larger binary doesn't always mean a better program. A small model trained on h
 
 ---
 
+## Practical: Actually Running a Model
+
+Let's get concrete. Running a model locally with Ollama takes a few commands:
+
+```bash
+# Download the model (~4GB — this is your "binary")
+ollama pull llama3.2
+
+# Chat with it directly
+ollama run llama3.2
+
+# Or use it as a REST API (port 11434)
+curl http://localhost:11434/api/generate -d '{
+  "model": "llama3.2",
+  "prompt": "Hello, how are you?",
+  "stream": false
+}'
+```
+
+`ollama pull` is exactly the "download the binary" step. `ollama run` loads it into memory and executes it. No compilation, no source code — just weights and architecture.
+
+Side note: embedding models are AI models too. When you run `ollama pull nomic-embed-text`, you're downloading another specialized "binary brain" — this one trained to convert text into vectors. That's the embedding model used in RAG's indexing step. Two models, two different jobs, same fundamental nature.
+
+---
+
 ## Conclusion
 
 Next time you run `ollama pull llama3` or download a checkpoint from Hugging Face, keep this in mind:
 
 > **You're downloading a brain compiled from billions of numbers — distilled from millions of dollars of compute, specialized for a task, and ready to run.**
 
-This isn't just a metaphor. AI models genuinely are the most interesting binary format in modern software — they just execute matrix operations instead of CPU instructions.
+AI models are the most interesting binary format in modern software — they just execute matrix operations instead of CPU instructions.
 
-And understanding that distinction makes you both a better user of AI and a sharper critic of it.
+And understanding that makes you both a better user of AI and a sharper critic of it.

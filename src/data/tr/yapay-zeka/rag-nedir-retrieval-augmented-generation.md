@@ -1,5 +1,5 @@
 ---
-publishDate: 2026-04-26T12:00:00Z
+publishDate: 2026-04-26T08:00:00Z
 author: Hakan Çelik
 title: "RAG Nedir? Yapay Zekaya Hafıza Kazandırmanın Yolu"
 excerpt: "RAG öğrenmeden önce AI'a ham context veriyordum ve çok fazla yanlış cevap alıyordum. RAG sonrasında her şey değişti. Cursor ve Claude Code'un proje dizinini nasıl 'anladığını' da meğer bu açıklıyormuş."

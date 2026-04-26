@@ -45,6 +45,15 @@ const canonicalUrl = String(Astro.url);
     <SiteVerification />
     <Analytics />
 
+    <!-- RSS autodiscovery -->
+    {pageLang === 'en'
+      ? <link rel="alternate" type="application/rss+xml" title="Hakan Çelik — Blog (EN)" href="/en/rss.xml" />
+      : <link rel="alternate" type="application/rss+xml" title="Hakan Çelik — Blog" href="/rss.xml" />
+    }
+
+    <!-- Page-specific head elements (JSON-LD, article meta, etc.) -->
+    <slot name="head" />
+
     <!-- Comment the line below to disable View Transitions -->
     <ClientRouter fallback="swap" />
   </head>

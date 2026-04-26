@@ -1,5 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import JsonLd from '~/components/common/JsonLd.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Features2 from '~/components/widgets/Features2.astro';
@@ -54,10 +55,46 @@ const defineifDl     = cached?.pypi['defineif']          ?? '';
 const metadata = {
   title: 'Hakan Çelik — Software Engineer',
   ignoreTitleTemplate: true,
+  description: 'Hakan Çelik — Software Engineer. Python tools, iOS/macOS apps, and open source software blog.',
+  keywords: 'Hakan Celik, Python, software engineer, open source, unimport, unexport, pydbm, iOS, macOS, Django, Go, Trendyol',
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Hakan Çelik',
+  url: 'https://hakancelik.dev/en',
+  description: metadata.description,
+  inLanguage: 'en-US',
+  author: {
+    '@type': 'Person',
+    name: 'Hakan Çelik',
+    url: 'https://hakancelik.dev',
+  },
+};
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Hakan Çelik',
+  url: 'https://hakancelik.dev',
+  jobTitle: 'Software Engineer',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Trendyol Go',
+  },
+  sameAs: [
+    'https://twitter.com/hakancelikdev',
+    'https://github.com/hakancelikdev',
+    'https://www.linkedin.com/in/hakancelikdev',
+  ],
 };
 ---
 
 <Layout metadata={metadata}>
+  <Fragment slot="head">
+    <JsonLd schema={[websiteSchema, personSchema]} />
+  </Fragment>
 
   <Hero
     id="hero"

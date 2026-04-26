@@ -18,6 +18,7 @@ const pageLang = getLangFromUrl(Astro.url);
 ---
 
 <Layout metadata={metadata}>
+  <slot name="head" slot="head" />
   <slot name="announcement">
     <Announcement />
   </slot>

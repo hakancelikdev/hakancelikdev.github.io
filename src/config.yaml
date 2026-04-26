@@ -10,6 +10,7 @@ metadata:
     default: Hakan Çelik
     template: '%s — Hakan Çelik'
   description: "Hakan Çelik — Software Engineer. Python araçları, iOS/macOS uygulamaları ve yazılım üzerine yazılar."
+  keywords: "Hakan Çelik, Python, yazılım mühendisi, software engineer, açık kaynak, open source, unimport, unexport, pydbm, iOS, macOS, Django, hakancelik, vakit, site seeker, meld"
   robots:
     index: true
     follow: true

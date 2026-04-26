@@ -1,5 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import JsonLd from '~/components/common/JsonLd.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Features2 from '~/components/widgets/Features2.astro';
@@ -126,10 +127,53 @@ if (cached) {
 const metadata = {
   title: 'Hakan Çelik — Software Engineer',
   ignoreTitleTemplate: true,
+  description: 'Hakan Çelik — Software Engineer. Python araçları, iOS/macOS uygulamaları ve açık kaynak yazılım üzerine Türkçe blog.',
+  keywords: 'Hakan Çelik, Python, yazılım mühendisi, software engineer, açık kaynak, unimport, unexport, pydbm, iOS, macOS, Django, Go, Trendyol',
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Hakan Çelik',
+  url: 'https://hakancelik.dev',
+  description: metadata.description,
+  inLanguage: 'tr-TR',
+  author: {
+    '@type': 'Person',
+    name: 'Hakan Çelik',
+    url: 'https://hakancelik.dev',
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://hakancelik.dev/blog?q={search_term_string}',
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Hakan Çelik',
+  url: 'https://hakancelik.dev',
+  image: 'https://hakancelik.dev/hakancelik.jpg',
+  jobTitle: 'Software Engineer',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Trendyol Go',
+  },
+  sameAs: [
+    'https://twitter.com/hakancelikdev',
+    'https://github.com/hakancelikdev',
+    'https://www.linkedin.com/in/hakancelikdev',
+  ],
+  knowsAbout: ['Python', 'iOS', 'macOS', 'Django', 'Go', 'OpenCV', 'Açık Kaynak Yazılım'],
 };
 ---
 
 <Layout metadata={metadata}>
+  <Fragment slot="head">
+    <JsonLd schema={[websiteSchema, personSchema]} />
+  </Fragment>
 
   <!-- Hero -->
   <Hero

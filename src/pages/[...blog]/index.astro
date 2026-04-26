@@ -6,6 +6,7 @@ import type { ImageMetadata } from 'astro';
 import Layout from '~/layouts/PageLayout.astro';
 import SinglePost from '~/components/blog/SinglePost.astro';
 import ToBlogLink from '~/components/blog/ToBlogLink.astro';
+import JsonLd from '~/components/common/JsonLd.astro';
 
 import { getCanonical, getPermalink } from '~/utils/permalinks';
 import { getStaticPathsBlogPost, blogPostRobots, findAdjacentPosts, findPostsBySeries } from '~/utils/blog';
@@ -29,10 +30,63 @@ const image = (await findImage(post.image)) as ImageMetadata | string | undefine
 const { prev: prevPost, next: nextPost } = await findAdjacentPosts(post);
 const seriesPosts = post.series ? await findPostsBySeries(post.series) : [];
 
+const postAuthor = post.author || 'Hakan Çelik';
+const postKeywords = [
+  ...(post.tags?.map((t) => t.title) ?? []),
+  ...(post.category ? [post.category.title] : []),
+].join(', ') || undefined;
+
+const imageUrl = image
+  ? typeof image === 'string'
+    ? image
+    : (image as ImageMetadata).src
+  : undefined;
+
+const absoluteImageUrl = imageUrl
+  ? imageUrl.startsWith('http')
+    ? imageUrl
+    : new URL(imageUrl, Astro.site).toString()
+  : undefined;
+
+const blogPostingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.excerpt,
+  url: String(url),
+  datePublished: post.publishDate.toISOString(),
+  dateModified: (post.updateDate ?? post.publishDate).toISOString(),
+  author: {
+    '@type': 'Person',
+    name: postAuthor,
+    url: 'https://hakancelik.dev',
+    sameAs: [
+      'https://twitter.com/hakancelikdev',
+      'https://github.com/hakancelikdev',
+      'https://www.linkedin.com/in/hakancelikdev',
+    ],
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'Hakan Çelik',
+    url: 'https://hakancelik.dev',
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': String(url),
+  },
+  inLanguage: post.lang === 'en' ? 'en-US' : 'tr-TR',
+  ...(absoluteImageUrl ? { image: absoluteImageUrl } : {}),
+  ...(post.category ? { articleSection: post.category.title } : {}),
+  ...(post.tags?.length ? { keywords: post.tags.map((t) => t.title).join(', ') } : {}),
+};
+
 const metadata = merge(
   {
     title: post.title,
     description: post.excerpt,
+    author: postAuthor,
+    keywords: postKeywords,
     robots: {
       index: blogPostRobots?.index,
       follow: blogPostRobots?.follow,
@@ -49,6 +103,14 @@ const metadata = merge(
 ---
 
 <Layout metadata={metadata}>
+  <Fragment slot="head">
+    <JsonLd schema={blogPostingSchema} />
+    <meta property="article:published_time" content={post.publishDate.toISOString()} />
+    <meta property="article:modified_time" content={(post.updateDate ?? post.publishDate).toISOString()} />
+    <meta property="article:author" content={postAuthor} />
+    {post.category && <meta property="article:section" content={post.category.title} />}
+    {post.tags?.map((tag) => <meta property="article:tag" content={tag.title} />)}
+  </Fragment>
   <SinglePost post={{ ...post, image: image }} url={url} prevPost={prevPost} nextPost={nextPost} seriesPosts={seriesPosts}>
     {post.Content ? <post.Content /> : <Fragment set:html={post.content || ''} />}
   </SinglePost>

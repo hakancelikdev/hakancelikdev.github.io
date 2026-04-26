@@ -3,6 +3,7 @@ import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Pagination from '~/components/blog/Pagination.astro';
+import InfiniteScroll from '~/components/blog/InfiniteScroll.astro';
 
 import { blogCategoryRobots, getStaticPathsBlogCategory, findCategories } from '~/utils/blog';
 
@@ -61,6 +62,9 @@ const metadata = {
     </div>
 
     <BlogList posts={page.data} />
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} prevText="Newer" nextText="Older" />
+    <InfiniteScroll nextUrl={page.url.next} />
+    <div id="blog-pagination">
+      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} prevText="Newer" nextText="Older" />
+    </div>
   </section>
 </Layout>

@@ -5,6 +5,7 @@ import { blogCategoryRobots, getStaticPathsBlogCategory, findCategories } from '
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Pagination from '~/components/blog/Pagination.astro';
+import InfiniteScroll from '~/components/blog/InfiniteScroll.astro';
 import { getPermalink } from '~/utils/permalinks';
 
 export const prerender = true;
@@ -79,11 +80,14 @@ const metadata = {
     </div>
 
     <BlogList posts={page.data} />
-    <Pagination
-      prevUrl={page.url.prev}
-      nextUrl={page.url.next}
-      prevText="Daha yeni"
-      nextText="Daha eski"
-    />
+    <InfiniteScroll nextUrl={page.url.next} loadingText="Yükleniyor..." doneText="Tüm yazılar yüklendi." />
+    <div id="blog-pagination">
+      <Pagination
+        prevUrl={page.url.prev}
+        nextUrl={page.url.next}
+        prevText="Daha yeni"
+        nextText="Daha eski"
+      />
+    </div>
   </section>
 </Layout>

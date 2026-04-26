@@ -4,6 +4,7 @@ import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Pagination from '~/components/blog/Pagination.astro';
+import InfiniteScroll from '~/components/blog/InfiniteScroll.astro';
 
 import { blogListRobots, getStaticPathsBlogList, findCategories } from '~/utils/blog';
 import { getPermalink } from '~/utils/permalinks';
@@ -75,14 +76,7 @@ const metadata = {
 
     <BlogList posts={page.data} />
 
-    <!-- Infinite scroll sentinel — hidden when JS loads more posts -->
-    <div
-      id="scroll-sentinel"
-      data-next-url={page.url.next ?? ''}
-      class="flex justify-center py-10"
-    >
-      <!-- spinner shown by JS while loading -->
-    </div>
+    <InfiniteScroll nextUrl={page.url.next} loadingText="Yükleniyor..." doneText="Tüm yazılar yüklendi." />
 
     <!-- Fallback pagination (hidden by JS, accessible without JS) -->
     <div id="blog-pagination">
@@ -95,86 +89,3 @@ const metadata = {
     </div>
   </section>
 </Layout>
-
-<script>
-  const list = document.getElementById('post-list');
-  const sentinel = document.getElementById('scroll-sentinel');
-  const pagination = document.getElementById('blog-pagination');
-
-  if (list && sentinel) {
-    const nextUrlAttr = sentinel.getAttribute('data-next-url');
-    if (!nextUrlAttr) {
-      // No more pages — nothing to do
-    } else {
-      // Hide the fallback pagination nav since JS will handle loading
-      if (pagination) pagination.style.display = 'none';
-
-      let nextUrl: string | null = nextUrlAttr;
-      let isLoading = false;
-
-      const showSpinner = () => {
-        sentinel.innerHTML = `
-          <div class="flex flex-col items-center gap-3">
-            <div class="animate-spin rounded-full h-8 w-8 border-2 border-primary border-t-transparent"></div>
-            <p class="text-sm text-muted dark:text-slate-400">Yükleniyor…</p>
-          </div>`;
-      };
-
-      const clearSentinel = () => {
-        sentinel.innerHTML = '';
-      };
-
-      const loadMore = async () => {
-        if (isLoading || !nextUrl) return;
-        isLoading = true;
-        showSpinner();
-
-        try {
-          const res = await fetch(nextUrl);
-          const html = await res.text();
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, 'text/html');
-
-          // Append new post items into the current list
-          const newItems = doc.querySelectorAll('#post-list li');
-          newItems.forEach((item) => {
-            // Force visibility — intersection animations won't re-fire for injected nodes
-            const article = item.querySelector('article');
-            if (article) {
-              (article as HTMLElement).style.opacity = '1';
-            }
-            list.appendChild(item);
-          });
-
-          // Advance to the next page from the fetched page's sentinel
-          const newSentinel = doc.getElementById('scroll-sentinel');
-          const newNextUrl = newSentinel?.getAttribute('data-next-url') ?? '';
-          nextUrl = newNextUrl || null;
-
-          if (nextUrl) {
-            clearSentinel();
-          } else {
-            observer.disconnect();
-            sentinel.innerHTML = `<p class="text-sm text-muted dark:text-slate-400 py-4">Tüm yazılar yüklendi.</p>`;
-          }
-        } catch (err) {
-          console.error('Infinite scroll: fetch failed', err);
-          clearSentinel();
-          // Restore pagination as fallback on error
-          if (pagination) pagination.style.display = '';
-        } finally {
-          isLoading = false;
-        }
-      };
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) loadMore();
-        },
-        { rootMargin: '400px' }
-      );
-
-      observer.observe(sentinel);
-    }
-  }
-</script>

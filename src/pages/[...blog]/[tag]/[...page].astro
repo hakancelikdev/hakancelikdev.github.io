@@ -6,6 +6,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
+import InfiniteScroll from '~/components/blog/InfiniteScroll.astro';
 
 export const prerender = true;
 
@@ -32,6 +33,9 @@ const metadata = {
   <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
     <Headline>Tag: {tag.title}</Headline>
     <BlogList posts={page.data} />
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+    <InfiniteScroll nextUrl={page.url.next} loadingText="Yükleniyor..." doneText="Tüm yazılar yüklendi." />
+    <div id="blog-pagination">
+      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+    </div>
   </section>
 </Layout>

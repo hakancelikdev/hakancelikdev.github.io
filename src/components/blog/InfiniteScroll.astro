@@ -1,0 +1,102 @@
+---
+export interface Props {
+  nextUrl?: string | null;
+  loadingText?: string;
+  doneText?: string;
+}
+
+const { nextUrl, loadingText = 'Loading...', doneText = 'All posts loaded.' } = Astro.props;
+---
+
+<div
+  id="scroll-sentinel"
+  data-next-url={nextUrl ?? ''}
+  data-loading-text={loadingText}
+  data-done-text={doneText}
+  class="flex justify-center py-10"
+></div>
+
+<script is:inline>
+  const initInfiniteScroll = () => {
+    const list = document.getElementById('post-list');
+    const sentinel = document.getElementById('scroll-sentinel');
+    const pagination = document.getElementById('blog-pagination');
+
+    if (!list || !sentinel || sentinel.dataset.infiniteBound === 'true') return;
+
+    const nextUrlAttr = sentinel.getAttribute('data-next-url');
+    if (!nextUrlAttr) return;
+
+    sentinel.dataset.infiniteBound = 'true';
+    if (pagination) pagination.style.display = 'none';
+
+    let nextPageUrl = nextUrlAttr;
+    let isLoading = false;
+
+    const loadingMessage = sentinel.getAttribute('data-loading-text') || 'Loading...';
+    const doneMessage = sentinel.getAttribute('data-done-text') || 'All posts loaded.';
+
+    const showSpinner = () => {
+      sentinel.innerHTML = `
+        <div class="flex flex-col items-center gap-3">
+          <div class="animate-spin rounded-full h-8 w-8 border-2 border-primary border-t-transparent"></div>
+          <p class="text-sm text-muted dark:text-slate-400">${loadingMessage}</p>
+        </div>`;
+    };
+
+    const clearSentinel = () => {
+      sentinel.innerHTML = '';
+    };
+
+    const loadMore = async () => {
+      if (isLoading || !nextPageUrl) return;
+      isLoading = true;
+      showSpinner();
+
+      try {
+        const response = await fetch(nextPageUrl);
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+
+        const newItems = doc.querySelectorAll('#post-list li');
+        newItems.forEach((item) => {
+          const article = item.querySelector('article');
+          if (article) {
+            article.style.opacity = '1';
+          }
+          list.appendChild(item);
+        });
+
+        const newSentinel = doc.getElementById('scroll-sentinel');
+        const newNextUrl = newSentinel?.getAttribute('data-next-url') ?? '';
+        nextPageUrl = newNextUrl || '';
+
+        if (nextPageUrl) {
+          clearSentinel();
+        } else {
+          observer.disconnect();
+          sentinel.innerHTML = `<p class="text-sm text-muted dark:text-slate-400 py-4">${doneMessage}</p>`;
+        }
+      } catch (error) {
+        console.error('Infinite scroll: fetch failed', error);
+        clearSentinel();
+        if (pagination) pagination.style.display = '';
+      } finally {
+        isLoading = false;
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) loadMore();
+      },
+      { rootMargin: '400px' }
+    );
+
+    observer.observe(sentinel);
+  };
+
+  initInfiniteScroll();
+  document.addEventListener('astro:page-load', initInfiniteScroll);
+</script>

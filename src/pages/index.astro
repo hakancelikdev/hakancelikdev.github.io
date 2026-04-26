@@ -2,12 +2,12 @@
 import Layout from '~/layouts/PageLayout.astro';
 import JsonLd from '~/components/common/JsonLd.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
+import profileHeroImg from '~/assets/images/profile-hero.jpg';
 
 // Build-time stats helpers
 import fs from 'node:fs';
@@ -110,11 +110,13 @@ if (cached) {
     githubStars('hakancelikdev/meld'),
   ]);
 
-  // PyPI: sequential with delay to avoid 429 (rate limit: ~3 req/10s per IP)
-  unimportDl  = await pypiDownloads('unimport');        await sleep(4000);
-  unexportDl  = await pypiDownloads('unexport');        await sleep(4000);
-  pydbmDl     = await pypiDownloads('pythonic-dbm');    await sleep(4000);
-  defineifDl  = await pypiDownloads('defineif');
+  // PyPI: parallel with retry — faster than sequential 4s delays
+  [unimportDl, unexportDl, pydbmDl, defineifDl] = await Promise.all([
+    pypiDownloads('unimport'),
+    pypiDownloads('unexport'),
+    pypiDownloads('pythonic-dbm'),
+    pypiDownloads('defineif'),
+  ]);
 
   writeCache({
     fetchedAt: Date.now(),
@@ -175,27 +177,71 @@ const personSchema = {
     <JsonLd schema={[websiteSchema, personSchema]} />
   </Fragment>
 
-  <!-- Hero -->
-  <Hero
-    id="hero"
-    tagline="Software Engineer & Open Source Enthusiast"
-    actions={[
-      { variant: 'primary', text: 'Projeleri Gör', href: '#projects', icon: 'tabler:rocket' },
-      { text: 'Blog', href: getPermalink('/blog') },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_-5%_50%,rgb(234_88_12/0.07),transparent)] dark:bg-[radial-gradient(ellipse_80%_70%_at_-5%_50%,rgb(251_146_60/0.08),transparent)]"></div>
-    </Fragment>
-    <Fragment slot="title">
-      Merhaba, ben <span class="text-accent dark:text-white">Hakan Çelik</span>
-    </Fragment>
+  <!-- Hero: Split layout -->
+  <section id="hero" class="relative not-prose md:-mt-[76px] overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="hero-grid absolute inset-0"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-page to-page opacity-60"></div>
+    </div>
 
-    <Fragment slot="subtitle">
-      Python araçları, iOS/macOS uygulamaları ve açık kaynak üzerine odaklanan bir <span class="font-semibold">yazılım mühendisi</span>.
-      Trendyol Go'da geliştirici olarak çalışıyorum. 2019'dan beri dijital dünyada iz bırakıyorum.
-    </Fragment>
-  </Hero>
+    <div class="pt-0 md:pt-[76px]"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-16 items-center py-16 md:py-24 lg:py-32">
+
+        <!-- Left: Text -->
+        <div class="order-2 lg:order-1 hero-item" style="--delay: 0.1s">
+          <div class="mb-10">
+            <span class="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.2em] uppercase text-primary border-l-2 border-primary bg-primary/[0.04] px-4 py-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block shrink-0 animate-pulse"></span>
+              Software Engineer & Open Source Enthusiast
+            </span>
+          </div>
+
+          <h1
+            class="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tighter mb-8 dark:text-white"
+            style="font-variation-settings: 'opsz' 144, 'wght' 800;"
+          >
+            Merhaba, ben <span class="text-accent dark:text-white">Hakan Çelik</span>
+          </h1>
+
+          <div class="w-16 h-0.5 bg-primary/40 mb-8"></div>
+
+          <p class="text-xl md:text-2xl text-muted leading-relaxed font-light italic serif mb-10 max-w-lg">
+            Python araçları, iOS/macOS uygulamaları ve açık kaynak üzerine odaklanan bir <span class="font-semibold">yazılım mühendisi</span>.
+            Trendyol Go'da geliştirici olarak çalışıyorum.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="#projects" class="btn btn-primary rounded-none border-2 hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center gap-2">
+              Projeleri Gör
+            </a>
+            <a href={getPermalink('/blog')} class="btn rounded-none border-2 hover:bg-primary hover:text-white transition-all duration-300">
+              Blog
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Photo -->
+        <div class="order-1 lg:order-2 mb-12 lg:mb-0 hero-item" style="--delay: 0.3s">
+          <div class="relative">
+            <div class="absolute -inset-3 border-2 border-primary/10 -z-10 hidden lg:block"></div>
+            <div class="absolute -inset-6 border border-primary/5 -z-20 hidden lg:block"></div>
+            <img
+              src={profileHeroImg.src}
+              alt="Hakan Çelik"
+              width="1920"
+              height="1440"
+              class="w-full shadow-2xl shadow-primary/10"
+              loading="eager"
+            />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- Uygulamalar -->
   <Features2
@@ -207,14 +253,14 @@ const personSchema = {
       {
         title: 'Vakit',
         description: `Namaz vakitleri, Kuran okuma, kıble, zikir sayacı ve daha fazlası — hepsi tek uygulamada. Gizlilik odaklı: konum verilerin cihazında kalır, hesap gerekmez, internet bağlantısı gerekmez. Ücretsiz ve reklamsız.${statsBadges(vakitStars, '')} <br /><br />
-        <a href="https://apps.apple.com/app/id6748356813" target="_blank" class="text-blue-600 underline">İndir (App Store)</a>`,
+        <a href="https://apps.apple.com/app/id6748356813" target="_blank" class="text-primary hover:underline">İndir (App Store)</a>`,
         icon: 'tabler:moon-stars',
         callToAction: { text: 'vakit.hakancelik.dev', href: 'https://vakit.hakancelik.dev', target: '_blank' },
       },
       {
         title: 'SiteSeeker',
         description: `macOS için akıllı tarayıcı geçmişi ve yer imi arama. Tüm tarayıcılarını tek arayüzde ara.${statsBadges(siteSeekerStars, '')} <br /><br />
-        <a href="https://github.com/hakancelikdev/SiteSeeker" target="_blank" class="text-blue-600 underline">Star on GitHub</a>`,
+        <a href="https://github.com/hakancelikdev/SiteSeeker" target="_blank" class="text-primary hover:underline">Star on GitHub</a>`,
         icon: 'tabler:search',
         callToAction: { text: 'siteseeker.hakancelik.dev', href: 'https://siteseeker.hakancelik.dev', target: '_blank' },
       },
@@ -227,7 +273,7 @@ const personSchema = {
     ]}
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-indigo-50/50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-orange-50/30 dark:bg-transparent"></div>
     </Fragment>
   </Features2>
 
@@ -241,28 +287,28 @@ const personSchema = {
       {
         title: 'unimport',
         description: `Kullanılmayan import ifadelerini bulan ve kaldıran linter/formatter. pre-commit hook olarak kullanılabilir.${statsBadges(unimportStars, unimportDl)} <br /><br />
-        <a href="https://github.com/hakancelikdev/unimport" target="_blank" class="text-blue-600 underline">Star on GitHub</a>`,
+        <a href="https://github.com/hakancelikdev/unimport" target="_blank" class="text-primary hover:underline">Star on GitHub</a>`,
         icon: 'tabler:brand-python',
         callToAction: { text: 'unimport.hakancelik.dev', href: 'https://unimport.hakancelik.dev', target: '_blank' },
       },
       {
         title: 'unexport',
         description: `Python modüllerindeki __all__ listesini her zaman güncel tutan linter.${statsBadges(unexportStars, unexportDl)} <br /><br />
-        <a href="https://github.com/hakancelikdev/unexport" target="_blank" class="text-blue-600 underline">Star on GitHub</a>`,
+        <a href="https://github.com/hakancelikdev/unexport" target="_blank" class="text-primary hover:underline">Star on GitHub</a>`,
         icon: 'tabler:brand-python',
         callToAction: { text: 'unexport.hakancelik.dev', href: 'https://unexport.hakancelik.dev', target: '_blank' },
       },
       {
         title: 'pydbm',
         description: `Python'ın dahili dbm modülünü ORM benzeri bir arayüzle kullanan Pythonic wrapper.${statsBadges(pydbmStars, pydbmDl)} <br /><br />
-        <a href="https://github.com/hakancelikdev/pydbm" target="_blank" class="text-blue-600 underline">Star on GitHub</a>`,
+        <a href="https://github.com/hakancelikdev/pydbm" target="_blank" class="text-primary hover:underline">Star on GitHub</a>`,
         icon: 'tabler:database',
         callToAction: { text: 'pydbm.hakancelik.dev', href: 'https://pydbm.hakancelik.dev', target: '_blank' },
       },
       {
         title: 'defineif',
         description: `Bir koşul doğruysa metodu tanımla decorator'u. Basit ama zarif.${statsBadges(defineifStars, defineifDl)} <br /><br />
-        <a href="https://github.com/hakancelikdev/defineif" target="_blank" class="text-blue-600 underline">Star on GitHub</a>`,
+        <a href="https://github.com/hakancelikdev/defineif" target="_blank" class="text-primary hover:underline">Star on GitHub</a>`,
         icon: 'tabler:code',
         callToAction: { text: 'defineif.hakancelik.dev', href: 'https://defineif.hakancelik.dev', target: '_blank' },
       },
@@ -276,7 +322,7 @@ const personSchema = {
     information="Python, Django, Git, OpenCV, Cloud ve daha fazlası üzerine Türkçe yazılar."
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-indigo-50/50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-orange-50/30 dark:bg-transparent"></div>
     </Fragment>
   </BlogLatestPosts>
 
@@ -307,3 +353,42 @@ const personSchema = {
     ]}
   />
 </Layout>
+
+<style>
+  .serif {
+    font-family: var(--aw-font-serif);
+  }
+
+  .hero-item {
+    animation: heroRise 1.2s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0s) both;
+  }
+
+  @keyframes heroRise {
+    from {
+      opacity: 0;
+      transform: translateY(2rem) skewY(1deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) skewY(0deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-item {
+      animation: none;
+    }
+  }
+
+  .hero-grid {
+    background-image:
+      radial-gradient(circle at 2px 2px, rgb(234 88 12 / 0.15) 1.5px, transparent 0);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 70% 70% at 0% 0%, black 10%, transparent 90%);
+  }
+
+  :global(.dark) .hero-grid {
+    background-image:
+      radial-gradient(circle at 2px 2px, rgb(251 146 60 / 0.12) 1.5px, transparent 0);
+  }
+</style>

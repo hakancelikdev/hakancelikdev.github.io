@@ -111,7 +111,7 @@
   async function loadPagefind() {
     if (pagefind) return pagefind;
     try {
-      // @ts-expect-error — pagefind is generated at build time, path kept dynamic to avoid Vite static analysis
+      // @ts-ignore — pagefind is generated at build time, path kept dynamic to avoid Vite static analysis
       const pagefindPath = '/pagefind/' + 'pagefind.js';
       pagefind = await import(/* @vite-ignore */ pagefindPath);
       await pagefind.options({ excerptLength: 15 });

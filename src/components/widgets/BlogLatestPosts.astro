@@ -23,7 +23,7 @@ const {
   linkText = 'View all posts',
   linkUrl = getBlogPermalink(),
   information = await Astro.slots.render('information'),
-  count = 4,
+  count = 6,
   lang = 'tr',
 
   id,
@@ -54,7 +54,7 @@ const posts = APP_BLOG.isEnabled ? await findLatestPosts({ count, lang }) : [];
           </div>
         )}
 
-        {information && <p class="text-muted dark:text-slate-400 lg:text-sm lg:max-w-md" set:html={information} />}
+        {information && <p class="text-muted dark:text-stone-400 lg:text-sm lg:max-w-md" set:html={information} />}
       </div>
 
       <Grid posts={posts} />

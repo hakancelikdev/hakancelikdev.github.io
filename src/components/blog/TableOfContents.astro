@@ -7,10 +7,10 @@ const { headings } = Astro.props;
 ---
 
 <nav id="toc" class="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto">
-  <div class="rounded-xl border dark:border-slate-700 overflow-hidden text-sm">
+  <div class="rounded-xl border dark:border-stone-700 overflow-hidden text-sm">
     <button
       id="toc-toggle"
-      class="w-full flex items-center justify-between px-4 py-3 font-semibold bg-gray-50 dark:bg-slate-800/60 border-b dark:border-slate-700 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors text-left"
+      class="w-full flex items-center justify-between px-4 py-3 font-semibold bg-gray-50 dark:bg-stone-800/60 border-b dark:border-stone-700 hover:bg-gray-100 dark:hover:bg-stone-800 transition-colors text-left"
       aria-expanded="true"
     >
       <span>İçindekiler</span>
@@ -32,7 +32,7 @@ const { headings } = Astro.props;
       {
         headings.map((h) => (
           <a
-            class={`toc-link block px-3 py-1 rounded text-muted dark:text-slate-400 hover:text-primary dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/40 transition-colors leading-snug ${
+            class={`toc-link block px-3 py-1 rounded text-muted dark:text-stone-400 hover:text-primary dark:hover:text-primary hover:bg-gray-50 dark:hover:bg-stone-800/40 transition-colors leading-snug ${
               h.depth === 3 ? 'pl-6 text-xs' : 'text-xs font-medium'
             }`}
             data-heading-text={h.text}
@@ -85,7 +85,7 @@ const { headings } = Astro.props;
             links.forEach((l) => {
               const active = l.getAttribute('href') === `#${id}`;
               l.classList.toggle('text-primary', active);
-              l.classList.toggle('dark:text-blue-400', active);
+              l.classList.toggle('dark:text-primary', active);
               l.classList.toggle('font-semibold', active);
             });
           }

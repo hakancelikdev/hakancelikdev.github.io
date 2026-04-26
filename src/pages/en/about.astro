@@ -1,10 +1,9 @@
 ---
 import Features3 from '~/components/widgets/Features3.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import profileHeroImg from '~/assets/images/profile-hero.jpg';
 
 async function pypiMonthly(pkg: string): Promise<string> {
   for (let attempt = 0; attempt < 3; attempt++) {
@@ -33,75 +32,142 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero -->
-  <Hero
-    tagline="About"
-  >
-    <Fragment slot="title">
-      Hakan Çelik
-    </Fragment>
 
-    <Fragment slot="subtitle">
-      I have been developing software professionally since 2019. I started my career with Django projects; over time, I turned to tools in the Python ecosystem, open source, and application development.
-      Today, while working as a software developer at <strong>Trendyol Go by Uber Eats</strong>,
-      I produce Python linters, iOS applications, and macOS tools in my spare time.
-      <br /><br />
-      The tools I wrote — <strong>unimport</strong>, <strong>unexport</strong>, <strong>pydbm</strong> —
-      are used by thousands of developers. I love increasing code quality, improving developer experience, and sharing what I have learned.
-    </Fragment>
-  </Hero>
+  <!-- Hero: Cinematic split layout -->
+  <section class="relative not-prose md:-mt-[76px] overflow-hidden">
+    <div class="pt-0 md:pt-[76px]"></div>
 
-  <!-- Statistics -->
-  <Stats
-    title="In Short"
-    stats={[
-      { title: 'Years of Experience', amount: '6+' },
-      { title: 'Open Source Projects', amount: '7' },
-      { title: 'PyPI Packages', amount: '4' },
-      { title: 'Unimport Downloads/mo', amount: unimportMonthly || '—' },
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-16 items-center py-16 md:py-24 lg:py-32">
+
+        <!-- Left: Text -->
+        <div class="order-2 lg:order-1 about-reveal" style="--delay: 0.1s">
+          <p class="font-mono text-[10px] tracking-[0.2em] uppercase text-primary border-l-2 border-primary bg-primary/[0.04] px-4 py-2 inline-flex items-center gap-3 mb-8">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block shrink-0 animate-pulse"></span>
+            About
+          </p>
+
+          <h1
+            class="font-heading text-5xl sm:text-6xl md:text-7xl font-bold leading-[0.95] tracking-tighter mb-8 dark:text-white"
+            style="font-variation-settings: 'opsz' 144, 'wght' 800;"
+          >
+            Hakan Çelik
+          </h1>
+
+          <div class="w-16 h-0.5 bg-primary/40 mb-8"></div>
+
+          <p class="text-lg md:text-xl text-muted leading-relaxed mb-6 max-w-lg" style="font-family: var(--aw-font-serif);">
+            I have been developing software professionally since 2019. I started my career with Django projects; over time, I turned to tools in the Python ecosystem, open source, and application development.
+          </p>
+
+          <p class="text-lg md:text-xl text-muted leading-relaxed max-w-lg" style="font-family: var(--aw-font-serif);">
+            Today, while working as a software developer at <strong class="text-default dark:text-white">Trendyol Go by Uber Eats</strong>,
+            I produce Python linters, iOS applications, and macOS tools in my spare time.
+            The tools I wrote — <strong class="text-default dark:text-white">unimport</strong>, <strong class="text-default dark:text-white">unexport</strong>, <strong class="text-default dark:text-white">pydbm</strong> —
+            are used by thousands of developers.
+          </p>
+        </div>
+
+        <!-- Right: Photo -->
+        <div class="order-1 lg:order-2 mb-12 lg:mb-0 about-reveal" style="--delay: 0.3s">
+          <div class="relative">
+            <div class="absolute -inset-3 border-2 border-primary/10 -z-10 hidden lg:block"></div>
+            <div class="absolute -inset-6 border border-primary/5 -z-20 hidden lg:block"></div>
+
+            <img
+              src={profileHeroImg.src}
+              alt="Hakan Çelik"
+              width="1920"
+              height="1440"
+              class="w-full shadow-2xl shadow-primary/10"
+              loading="eager"
+            />
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats: Horizontal strip -->
+  <section class="relative not-prose border-y border-primary/10 dark:border-stone-800 bg-primary/[0.02] dark:bg-stone-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-primary/10 dark:divide-stone-800">
+        {[
+          { amount: '6+', label: 'Years of Experience' },
+          { amount: '7', label: 'Open Source Projects' },
+          { amount: '4', label: 'PyPI Packages' },
+          { amount: unimportMonthly || '—', label: 'Unimport Downloads/mo' },
+        ].map((stat) => (
+          <div class="py-10 md:py-14 px-4 md:px-8 text-center">
+            <div class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white tracking-tighter mb-2">
+              {stat.amount}
+            </div>
+            <div class="text-xs font-mono uppercase tracking-[0.15em] text-muted">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills: Languages -->
+  <Features3
+    title="Programming Languages"
+    subtitle="Languages I use professionally."
+    columns={3}
+    items={[
+      { title: 'Python', description: 'Django, DRF, FastAPI, asyncio, AST analysis, libcst', icon: 'tabler:brand-python' },
+      { title: 'Go', description: 'Trendyol Go by Uber Eats, Vakit', icon: 'tabler:brand-golang' },
+      { title: 'Kotlin', description: 'Trendyol Go by Uber Eats', icon: 'tabler:brand-kotlin' },
+      { title: 'Java', description: 'Trendyol Go by Uber Eats, Spring Boot', icon: 'tabler:coffee' },
+      { title: 'Swift', description: 'iOS — Vakit, macOS — SiteSeeker', icon: 'tabler:brand-swift' },
+      { title: 'JavaScript', description: 'Electron, Astro, CSS, HTML5', icon: 'tabler:brand-javascript' },
     ]}
   />
 
-  <!-- Skills -->
+  <!-- Skills: Databases & Messaging -->
   <Features3
-    title="Technologies"
-    subtitle="Technologies I use professionally and contribute to."
+    title="Databases & Messaging"
     columns={3}
-    defaultIcon="tabler:point-filled"
     items={[
-      { title: 'Python', description: 'Django, DRF, FastAPI, asyncio, AST analysis, libcst, Trendyol Go by Uber Eats' },
-      { title: 'Go', description: 'Trendyol Go by Uber Eats, Vakit' },
-      { title: 'Kotlin', description: 'Trendyol Go by Uber Eats' },
-      { title: 'Java', description: 'Trendyol Go by Uber Eats' },
-      { title: 'Swift', description: 'iOS — Vakit' },
-      { title: 'JavaScript', description: 'Electron (SiteSeeker), Astro, CSS, HTML5' },
-      { title: 'Spring Boot / Spring Framework', description: 'Trendyol Go by Uber Eats' },
-      { title: 'PostgreSQL', description: 'Trendyol Go by Uber Eats, Deepinfo, PRISMA CSI, Vakit' },
-      { title: 'PostgREST', description: 'Vakit' },
-      { title: 'MongoDB', description: 'Deepinfo' },
-      { title: 'Redis', description: 'Deepinfo, Vakit' },
-      { title: 'Elasticsearch', description: 'Trendyol Go by Uber Eats, Deepinfo' },
-      { title: 'Couchbase', description: 'Trendyol Go by Uber Eats' },
-      { title: 'Apache Kafka', description: 'Trendyol Go by Uber Eats, Deepinfo' },
-      { title: 'RabbitMQ', description: 'Deepinfo' },
-      { title: 'Celery', description: 'Deepinfo' },
-      { title: 'Docker', description: 'Trendyol Go by Uber Eats, Deepinfo, Vakit' },
-      { title: 'Kubernetes', description: 'Trendyol Go by Uber Eats, Deepinfo' },
-      { title: 'kubectl', description: 'Trendyol Go by Uber Eats' },
-      { title: 'Google Cloud Platform', description: 'Deepinfo, Vakit' },
-      { title: 'Jenkins', description: 'Deepinfo' },
-      { title: 'Prometheus & Grafana', description: 'Trendyol Go by Uber Eats, Deepinfo, Vakit' },
-      { title: 'Kong API Gateway', description: 'Deepinfo' },
-      { title: 'Test-Driven Development', description: 'Trendyol Go by Uber Eats, Deepinfo' },
-      { title: 'RFC', description: 'Trendyol Go by Uber Eats' },
-      { title: 'Unit / Integration / Load Testing', description: 'Trendyol Go by Uber Eats, Deepinfo' },
-      { title: 'Domain-Driven Design', description: 'Trendyol Go by Uber Eats, Vakit' },
-      { title: 'Design Patterns', description: 'Trendyol Go by Uber Eats, Deepinfo' },
-      { title: 'REST API / API Development', description: 'Trendyol Go by Uber Eats, Deepinfo, PRISMA CSI' },
-      { title: 'CI/CD', description: 'Trendyol Go by Uber Eats, Deepinfo' },
-      { title: 'Git, GitHub & GitLab', description: 'Trendyol Go by Uber Eats, Deepinfo, PRISMA CSI, Vakit' },
-      { title: 'Linux', description: 'Trendyol Go by Uber Eats, Deepinfo, Vakit' },
-      { title: 'Agile / JIRA', description: 'Trendyol Go by Uber Eats, Deepinfo' },
+      { title: 'PostgreSQL', description: 'Trendyol Go, Deepinfo, PRISMA CSI, Vakit', icon: 'tabler:database' },
+      { title: 'MongoDB', description: 'Deepinfo', icon: 'tabler:database' },
+      { title: 'Redis', description: 'Deepinfo, Vakit', icon: 'tabler:database' },
+      { title: 'Elasticsearch', description: 'Trendyol Go, Deepinfo', icon: 'tabler:search' },
+      { title: 'Couchbase', description: 'Trendyol Go by Uber Eats', icon: 'tabler:database' },
+      { title: 'Apache Kafka', description: 'Trendyol Go, Deepinfo', icon: 'tabler:arrows-exchange' },
+      { title: 'RabbitMQ', description: 'Deepinfo', icon: 'tabler:arrows-exchange' },
+    ]}
+  />
+
+  <!-- Skills: Infrastructure & DevOps -->
+  <Features3
+    title="Infrastructure & DevOps"
+    columns={3}
+    items={[
+      { title: 'Docker', description: 'Trendyol Go, Deepinfo, Vakit', icon: 'tabler:brand-docker' },
+      { title: 'Kubernetes', description: 'Trendyol Go, Deepinfo', icon: 'tabler:hexagons' },
+      { title: 'Google Cloud Platform', description: 'Deepinfo, Vakit', icon: 'tabler:cloud' },
+      { title: 'Prometheus & Grafana', description: 'Trendyol Go, Deepinfo, Vakit', icon: 'tabler:chart-line' },
+      { title: 'CI/CD & Jenkins', description: 'Trendyol Go, Deepinfo', icon: 'tabler:git-merge' },
+      { title: 'Linux', description: 'Trendyol Go, Deepinfo, Vakit', icon: 'tabler:brand-ubuntu' },
+    ]}
+  />
+
+  <!-- Skills: Practices & Methodology -->
+  <Features3
+    title="Practices & Methodology"
+    columns={3}
+    items={[
+      { title: 'Test-Driven Development', description: 'Unit, Integration, Load Testing', icon: 'tabler:test-pipe' },
+      { title: 'Domain-Driven Design', description: 'Trendyol Go, Vakit', icon: 'tabler:layout' },
+      { title: 'REST API Development', description: 'Trendyol Go, Deepinfo, PRISMA CSI', icon: 'tabler:api' },
+      { title: 'Design Patterns', description: 'Trendyol Go, Deepinfo', icon: 'tabler:puzzle' },
+      { title: 'Git & GitHub', description: 'Trendyol Go, Deepinfo, PRISMA CSI, Vakit', icon: 'tabler:brand-git' },
+      { title: 'Agile / Scrum', description: 'Trendyol Go, Deepinfo', icon: 'tabler:clipboard-list' },
     ]}
   />
 
@@ -184,42 +250,42 @@ const metadata = {
       {
         title: 'Vakit <br /><span class="text-sm font-normal">June 2025</span>',
         description: `Prayer times, Quran reading, Qibla finder, Dhikr counter and more — all in one app. Privacy-first: your location stays on-device, no account required, works fully offline. Free and ad-free. <br /><br />
-        <a href="https://vakit.hakancelik.dev" target="_blank" class="text-blue-600 underline">vakit.hakancelik.dev</a> · 
-        <a href="https://apps.apple.com/app/id6748356813" target="_blank" class="text-blue-600 underline">Download (App Store)</a>`,
+        <a href="https://vakit.hakancelik.dev" target="_blank" class="text-primary hover:underline">vakit.hakancelik.dev</a> · 
+        <a href="https://apps.apple.com/app/id6748356813" target="_blank" class="text-primary hover:underline">Download (App Store)</a>`,
         icon: 'tabler:moon-stars',
       },
       {
         title: 'SiteSeeker <br /><span class="text-sm font-normal">April 2025</span>',
         description: `Smart browser history and bookmark search for macOS. Search all your browsers in one interface. <br /><br />
-        <a href="https://siteseeker.hakancelik.dev" target="_blank" class="text-blue-600 underline">siteseeker.hakancelik.dev</a> · 
-        <a href="https://github.com/hakancelikdev/SiteSeeker" target="_blank" class="text-blue-600 underline">Star on GitHub</a>`,
+        <a href="https://siteseeker.hakancelik.dev" target="_blank" class="text-primary hover:underline">siteseeker.hakancelik.dev</a> · 
+        <a href="https://github.com/hakancelikdev/SiteSeeker" target="_blank" class="text-primary hover:underline">Star on GitHub</a>`,
         icon: 'tabler:search',
       },
       {
         title: 'Pydbm <br /><span class="text-sm font-normal">November 2022 - January 2023</span>',
         description: `A Pythonic ORM-like wrapper around Python's built-in dbm module. <br /><br />
-        <a href="https://pydbm.hakancelik.dev" target="_blank" class="text-blue-600 underline">pydbm.hakancelik.dev</a> · 
-        <a href="https://github.com/hakancelikdev/pydbm" target="_blank" class="text-blue-600 underline">Star on GitHub</a>`,
+        <a href="https://pydbm.hakancelik.dev" target="_blank" class="text-primary hover:underline">pydbm.hakancelik.dev</a> · 
+        <a href="https://github.com/hakancelikdev/pydbm" target="_blank" class="text-primary hover:underline">Star on GitHub</a>`,
         icon: 'tabler:database',
       },
       {
         title: 'Unexport <br /><span class="text-sm font-normal">February 2021 - January 2023</span>',
         description: `A linter that keeps the __all__ list in Python modules always up to date. <br /><br />
-        <a href="https://unexport.hakancelik.dev" target="_blank" class="text-blue-600 underline">unexport.hakancelik.dev</a> · 
-        <a href="https://github.com/hakancelikdev/unexport" target="_blank" class="text-blue-600 underline">Star on GitHub</a>`,
+        <a href="https://unexport.hakancelik.dev" target="_blank" class="text-primary hover:underline">unexport.hakancelik.dev</a> · 
+        <a href="https://github.com/hakancelikdev/unexport" target="_blank" class="text-primary hover:underline">Star on GitHub</a>`,
         icon: 'tabler:code',
       },
       {
         title: 'Unimport <br /><span class="text-sm font-normal">September 2019 - January 2024</span>',
         description: `A linter/formatter that finds and removes unused import statements. Works as a pre-commit hook. 500,000+ downloads. <br /><br />
-        <a href="https://unimport.hakancelik.dev" target="_blank" class="text-blue-600 underline">unimport.hakancelik.dev</a> · 
-        <a href="https://github.com/hakancelikdev/unimport" target="_blank" class="text-blue-600 underline">Star on GitHub</a>`,
+        <a href="https://unimport.hakancelik.dev" target="_blank" class="text-primary hover:underline">unimport.hakancelik.dev</a> · 
+        <a href="https://github.com/hakancelikdev/unimport" target="_blank" class="text-primary hover:underline">Star on GitHub</a>`,
         icon: 'tabler:code',
       },
       {
         title: 'Coogger <br /><span class="text-sm font-normal">September 2017 - August 2020</span>',
         description: `Technical documentation and knowledge sharing platform. <br /><br />
-        <a href="https://github.com/hakancelikdev/coogger" target="_blank" class="text-blue-600 underline">Star on GitHub</a>`,
+        <a href="https://github.com/hakancelikdev/coogger" target="_blank" class="text-primary hover:underline">Star on GitHub</a>`,
         icon: 'tabler:code',
       },
     ]}
@@ -264,3 +330,26 @@ const metadata = {
     ]}
   />
 </Layout>
+
+<style>
+  .about-reveal {
+    animation: aboutFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0s) both;
+  }
+
+  @keyframes aboutFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .about-reveal {
+      animation: none;
+    }
+  }
+</style>

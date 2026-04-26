@@ -73,8 +73,8 @@ export const getFooterData = (lang: Lang = 'tr') => ({
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: lang === 'en' ? '/en/rss.xml' : getAsset('/rss.xml') },
   ],
   footNote: lang === 'en'
-    ? `&copy; 2023 - 2026 <a class="text-blue-600 underline dark:text-muted" href="https://hakancelik.dev">Hakan Çelik</a>. All rights reserved.`
-    : `&copy; 2023 - 2026 <a class="text-blue-600 underline dark:text-muted" href="https://hakancelik.dev">Hakan Çelik</a>. Tüm hakları saklıdır.`,
+    ? `&copy; 2023 - ${new Date().getFullYear()} <a class="text-primary hover:underline" href="https://hakancelik.dev">Hakan Çelik</a>. All rights reserved.`
+    : `&copy; 2023 - ${new Date().getFullYear()} <a class="text-primary hover:underline" href="https://hakancelik.dev">Hakan Çelik</a>. Tüm hakları saklıdır.`,
 });
 
 // Backwards-compatible aliases (default TR)

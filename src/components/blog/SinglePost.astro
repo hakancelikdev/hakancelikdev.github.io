@@ -41,7 +41,7 @@ const hasSeries = seriesPosts.length > 1;
       class="intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
     >
       <div class="flex justify-between flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
-        <p class="text-sm text-muted dark:text-slate-400">
+        <p class="text-sm text-muted dark:text-stone-400">
           <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400" />
           <time datetime={String(post.publishDate)} class="inline-block">{getFormattedDate(post.publishDate)}</time>
           {
@@ -65,7 +65,7 @@ const hasSeries = seriesPosts.length > 1;
                   <>
                     {' / '}
                     <a
-                      class="hover:underline inline-block text-primary dark:text-blue-400"
+                      class="hover:underline inline-block text-primary dark:text-primary"
                       href={`/category/${post.category.slug}/${post.subcategory.slug}`}
                     >
                       {post.subcategory.title}
@@ -96,7 +96,7 @@ const hasSeries = seriesPosts.length > 1;
         post.image ? (
           <Image
             src={post.image}
-            class="max-w-full lg:max-w-[900px] mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
+            class="max-w-full lg:max-w-[900px] mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-stone-700"
             widths={[400, 900]}
             sizes="(max-width: 900px) 400px, 900px"
             alt={post?.excerpt || ''}
@@ -107,7 +107,7 @@ const hasSeries = seriesPosts.length > 1;
           />
         ) : (
           <div class="max-w-3xl mx-auto px-4 sm:px-6">
-            <div class="border-t dark:border-slate-700" />
+            <div class="border-t dark:border-stone-700" />
           </div>
         )
       }
@@ -121,7 +121,7 @@ const hasSeries = seriesPosts.length > 1;
       <div class:list={['flex gap-10', { 'lg:grid lg:grid-cols-[1fr_240px]': hasHeadings }]}>
         <!-- Article content -->
         <div
-          class="min-w-0 flex-1 prose prose-md lg:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8 prose-headings:scroll-mt-[80px] prose-li:my-0 max-w-3xl"
+          class="min-w-0 flex-1 prose prose-md lg:prose-xl dark:prose-invert dark:prose-headings:text-stone-200 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-primary prose-img:rounded-md prose-img:shadow-lg mt-8 prose-headings:scroll-mt-[80px] prose-li:my-0 max-w-3xl"
           data-pagefind-body
         >
           <slot />
@@ -141,7 +141,7 @@ const hasSeries = seriesPosts.length > 1;
     <!-- Tags + Social Share -->
     <div class="mx-auto px-6 sm:px-6 max-w-3xl mt-8 flex justify-between flex-col sm:flex-row">
       <PostTags tags={post.tags} class="mr-5 rtl:mr-0 rtl:ml-5" />
-      <SocialShare url={url} text={post.title} class="mt-5 sm:mt-1 align-middle text-gray-500 dark:text-slate-600" />
+      <SocialShare url={url} text={post.title} class="mt-5 sm:mt-1 align-middle text-gray-500 dark:text-stone-600" />
     </div>
 
     <!-- Prev / Next navigation -->

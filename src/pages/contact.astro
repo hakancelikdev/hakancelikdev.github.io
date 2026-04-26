@@ -1,6 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
+import Hero from '~/components/widgets/Hero.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
@@ -9,35 +9,43 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <HeroText tagline="İletişim" title="Merhaba!" />
+  <Hero tagline="İletişim">
+    <Fragment slot="title">
+      Bir fikrin mi var?<br />Konuşalım.
+    </Fragment>
+    <Fragment slot="subtitle">
+      Açık kaynak iş birliği, teknik sorular, proje önerileri veya sadece merhaba demek istiyorsan
+      — en hızlı yol e-posta veya X DM.
+    </Fragment>
+  </Hero>
 
   <Features2
     title="Bana ulaş"
-    subtitle="Her türlü soru, iş birliği teklifi veya sadece merhaba demek için."
+    subtitle="Yanıt süresi genelde 1-2 gün. Açık kaynak konularında GitHub issue tercih ederim."
     items={[
       {
         title: 'E-posta',
-        description: '<a href="mailto:hakancelikdev@gmail.com" class="text-blue-600 underline">hakancelikdev@gmail.com</a>',
+        description: '<a href="mailto:hakancelikdev@gmail.com" class="text-primary hover:underline">hakancelikdev@gmail.com</a>',
         icon: 'tabler:mail',
       },
       {
         title: 'GitHub',
-        description: '<a href="https://github.com/hakancelikdev" target="_blank" class="text-blue-600 underline">github.com/hakancelikdev</a>',
+        description: '<a href="https://github.com/hakancelikdev" target="_blank" class="text-primary hover:underline">github.com/hakancelikdev</a>',
         icon: 'tabler:brand-github',
       },
       {
         title: 'Twitter / X',
-        description: '<a href="https://twitter.com/hakancelikdev" target="_blank" class="text-blue-600 underline">@hakancelikdev</a>',
+        description: '<a href="https://twitter.com/hakancelikdev" target="_blank" class="text-primary hover:underline">@hakancelikdev</a>',
         icon: 'tabler:brand-x',
       },
       {
         title: 'LinkedIn',
-        description: '<a href="https://www.linkedin.com/in/hakancelikdev" target="_blank" class="text-blue-600 underline">linkedin.com/in/hakancelikdev</a>',
+        description: '<a href="https://www.linkedin.com/in/hakancelikdev" target="_blank" class="text-primary hover:underline">linkedin.com/in/hakancelikdev</a>',
         icon: 'tabler:brand-linkedin',
       },
       {
         title: 'Telegram',
-        description: '<a href="https://t.me/hakancelikdev" target="_blank" class="text-blue-600 underline">@hakancelikdev</a>',
+        description: '<a href="https://t.me/hakancelikdev" target="_blank" class="text-primary hover:underline">@hakancelikdev</a>',
         icon: 'tabler:brand-telegram',
       },
     ]}

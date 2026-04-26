@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Image Pyramids"
 excerpt: "We will learn about image pyramids. We will use image pyramids to create a new fruit, 'Orapple', and we will see these functions: cv2.pyrUp(), cv2.pyrDown()"
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 4
 subcategory: Image Processing
 image: /images/posts/opencv/messiup.jpg
 tags:

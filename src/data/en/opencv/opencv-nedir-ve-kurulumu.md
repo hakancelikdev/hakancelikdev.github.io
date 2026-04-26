@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "What Is OpenCV And Installation"
 excerpt: "Hello, in this tutorial series, the aim is to explain everything step by step from the very beginning to the end, following the OpenCV documentation."
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 12
 image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv

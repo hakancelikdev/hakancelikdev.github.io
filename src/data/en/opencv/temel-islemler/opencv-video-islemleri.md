@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "OpenCV Video Operations"
 excerpt: "We will learn how to read videos, how to open and save them. We will learn how to record video with the camera and run it in a window. We will learn these functions: cv2.VideoCapture(), cv2.VideoWriter()"
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 14
 subcategory: Basic Operations
 image: ~/assets/images/blog/opencv.jpg
 tags:

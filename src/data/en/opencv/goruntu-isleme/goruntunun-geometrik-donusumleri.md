@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Geometric Transformations of Images"
 excerpt: "We will learn how to apply different geometric transformations to images such as translation, rotation and affine transformation. We will learn this function: cv2.getPerspectiveTransform"
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 7
 subcategory: Image Processing
 image: /images/posts/opencv/translation.jpg
 tags:

@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Drawing Functions in OpenCV"
 excerpt: "We will learn how to draw different geometric shapes with OpenCV. We will learn these functions: cv2.line(), cv2.circle(), cv2.rectangle(), cv2.ellipse(), cv2.putText(), etc."
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 15
 subcategory: Basic Operations
 image: ~/assets/images/blog/opencv.jpg
 tags:

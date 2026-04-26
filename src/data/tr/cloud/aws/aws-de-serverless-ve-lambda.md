@@ -2,7 +2,7 @@
 publishDate: 2022-11-01T00:00:00Z
 author: Hakan Çelik
 title: "Aws De Serverless Ve Lambda"
-excerpt: "Lambda, sunucuları yönetmeden kod çalıştırmanıza izin veren bir bilgi işlem hizmetidir."
+excerpt: "AWS Lambda ile sunucu kurmadan kod çalıştırmak mümkün — fonksiyonu yazarsınız, AWS tetikleme ve ölçeklemeyi halleder. Lambda'nın nasıl çalıştığını, use-case'leri ve ücretlendirmeyi anlattım."
 category: Cloud
 subcategory: AWS
 image: ~/assets/images/blog/cloud.jpg

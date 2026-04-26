@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Prompt Engineering: How to Actually Talk to AI Models"
 excerpt: "The same model, the same question, worded differently — completely different results. That's not luck. How you frame your prompt directly determines the output you get."
 category: AI
+series: "AI Foundations"
+seriesIndex: 3
 image: ~/assets/images/blog/prompt-engineering.jpg
 tags:
   - artificial-intelligence

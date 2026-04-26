@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Sass Watch, Degişkenler Nesting, Import, Mixin, Include ve Operatorler"
 excerpt: "Merhaba arkadaşlar sass listemde Sass yerine css yapısına daha çok benzediği ve kolay öğrenilmesi açısından daha hızlı olacağını düşündüğüm Scss yapısını ele alarak devam edeceğim, belki ilerleyen zam"
 category: CSS
+series: "Sass/SCSS Serisi"
+seriesIndex: 4
 image: ~/assets/images/blog/css.jpg
 tags:
   - sass

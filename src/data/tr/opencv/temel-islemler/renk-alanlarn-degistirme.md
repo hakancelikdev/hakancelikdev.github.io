@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Renk Alanlarını Değiştirme"
 excerpt: "Bu yazıda, BGR Gray, BGR HSV vb. Gibi görüntüleri bir renk alanından diğerine dönüştürmeyi öğreneceğiz. Buna ek olarak, bir videoda renkli bir nesne çıkarmayı sağlayan bir uygulama oluşturacağız Bu fo"
 category: OpenCV
+series: "OpenCV Serisi"
+seriesIndex: 17
 subcategory: Temel İşlemler
 image: /images/posts/opencv/frame.jpg
 tags:

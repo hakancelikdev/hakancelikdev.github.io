@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Mouse as a Paint Brush"
 excerpt: "We will learn how to handle mouse events in OpenCV. We will learn this function: cv2.setMouseCallback()"
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 1
 subcategory: Advanced Topics
 image: ~/assets/images/blog/opencv.jpg
 tags:

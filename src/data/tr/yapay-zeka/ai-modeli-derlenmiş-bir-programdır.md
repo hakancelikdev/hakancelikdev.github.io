@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Bir AI Modeli İndirdiğinizde Aslında Ne İndiriyorsunuz?"
 excerpt: "AI modelleri birer binary dosyadır. Tıpkı derlenen bir C programı gibi, eğitilmiş bir model de artık kaynak kodundan bağımsız, çalıştırılmaya hazır bir varlıktır. Peki bu ne anlama geliyor?"
 category: Yapay Zeka
+series: "AI Temelleri"
+seriesIndex: 1
 image: ~/assets/images/blog/yapay-zeka.jpg
 tags:
   - yapay-zeka

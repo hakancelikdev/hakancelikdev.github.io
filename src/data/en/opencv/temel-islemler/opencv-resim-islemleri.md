@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "OpenCV Image Operations"
 excerpt: "The cv2.imread() function is used to read an image file and takes two arguments."
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 13
 subcategory: Basic Operations
 image: ~/assets/images/blog/opencv.jpg
 tags:

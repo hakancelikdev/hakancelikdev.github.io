@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "What Is a Token? How AI Models Read Text and Charge You for It"
 excerpt: "AI models don't read text word by word or character by character — they read in tokens. Understanding this one concept explains context limits, pricing, and why models 'forget' things mid-conversation."
 category: AI
+series: "AI Foundations"
+seriesIndex: 2
 image: ~/assets/images/blog/token.jpg
 tags:
   - artificial-intelligence

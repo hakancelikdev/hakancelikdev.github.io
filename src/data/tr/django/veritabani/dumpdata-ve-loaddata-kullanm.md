@@ -2,7 +2,7 @@
 publishDate: 2022-07-05T00:00:00Z
 author: Hakan Çelik
 title: "Dumpdata Ve Loaddata Kullanımı"
-excerpt: "Ana kaynak | djangoproject.com/en/2.1/"
+excerpt: "Django'nun dumpdata komutu veritabanını JSON fixture'a dönüştürür, loaddata ise onu geri yükler. Test verisi yönetimi ve ortamlar arası veri taşıma işlemlerini adım adım anlattım."
 category: Django
 subcategory: Veritabanı
 image: ~/assets/images/blog/django.jpg

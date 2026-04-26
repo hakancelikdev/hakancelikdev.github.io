@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Performance Measurement and Improvement Techniques"
 excerpt: "Hello everyone, in this section we will try to learn how to make the work we do in OpenCV more performant, i.e., faster, etc. As you may already know, when coding with technologies like OpenCV"
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 16
 subcategory: Basic Operations
 image: ~/assets/images/blog/opencv.jpg
 tags:

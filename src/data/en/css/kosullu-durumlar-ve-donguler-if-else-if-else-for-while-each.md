@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Conditionals and Loops: @if, @else if, @else, @for, @while, @each"
 excerpt: "Hello everyone. As you know, when I started the coogger project I also started a new CSS framework called coogger.css. While developing this framework, I use Sass, and over the past week I've been trying to add new features and improve existing ones."
 category: CSS
+series: "Sass/SCSS Series"
+seriesIndex: 2
 image: ~/assets/images/blog/css.jpg
 tags:
   - sass

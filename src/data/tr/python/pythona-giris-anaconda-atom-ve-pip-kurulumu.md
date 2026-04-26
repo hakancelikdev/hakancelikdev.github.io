@@ -2,7 +2,7 @@
 publishDate: 2021-09-07T00:00:00Z
 author: Hakan Çelik
 title: "Python Kurulumu"
-excerpt: "En sonda yaptığımız yüklemeyi şuan için yapmanız gerekmiyor"
+excerpt: "Python öğrenmeye başlamak için doğru geliştirme ortamını kurmak ilk adım. Anaconda, editör ve pip kurulumunu adım adım anlattım — sıfırdan çalışan bir Python ortamı nasıl kurulur."
 category: Python
 image: /images/posts/store.png
 tags:

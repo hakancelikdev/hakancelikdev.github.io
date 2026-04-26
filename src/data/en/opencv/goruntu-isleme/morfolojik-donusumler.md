@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Morphological Transformations"
 excerpt: "We will learn different morphological operations like Erosion, Dilation, Opening, Closing. We will see different functions like: cv2.erode(), cv2.dilate(), cv2.morphologyEx()"
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 11
 subcategory: Image Processing
 image: /images/posts/opencv/erosion.png
 tags:

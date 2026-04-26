@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Image Gradients"
 excerpt: "Image gradients and edge finding with these functions: cv2.Sobel(), cv2.Scharr(), cv2.Laplacian(), etc."
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 3
 subcategory: Image Processing
 image: /images/posts/opencv/gradients.jpg
 tags:

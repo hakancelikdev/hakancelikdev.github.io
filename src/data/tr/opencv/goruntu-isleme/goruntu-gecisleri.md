@@ -2,8 +2,10 @@
 publishDate: 2021-09-29T00:00:00Z
 author: Hakan Çelik
 title: "Görüntü Geçişleri"
-excerpt: "Görüntü geçişlerini ve kenar bulma ve bu fonksiyonlar cv2.Sobel(), cv2.Scharr(), cv2.Laplacian() vb"
+excerpt: "Görüntü türevleri kenar tespitinin matematiksel temelidir. OpenCV'de Sobel, Scharr ve Laplacian filtreleriyle gradyan hesaplamayı ve bunların kenar algılamadaki rolünü anlattım."
 category: OpenCV
+series: "OpenCV Serisi"
+seriesIndex: 3
 subcategory: Görüntü İşleme
 image: /images/posts/opencv/gradients.jpg
 tags:

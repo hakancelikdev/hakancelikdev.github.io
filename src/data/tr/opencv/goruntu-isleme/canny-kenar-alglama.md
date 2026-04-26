@@ -2,8 +2,10 @@
 publishDate: 2021-09-15T00:00:00Z
 author: Hakan Çelik
 title: "Canny Kenar Algılama"
-excerpt: "Canny kenar algılama kavramı Bunun işlem için OpenCV fonksiyonlarından : cv2.Canny()"
+excerpt: "Canny, gürültüyü azaltıp gradyanları hesaplayarak görüntüdeki kenarları hassas biçimde tespit eder. cv2.Canny() fonksiyonunun parametrelerini ve eşik değer seçimini örneklerle anlattım."
 category: OpenCV
+series: "OpenCV Serisi"
+seriesIndex: 2
 subcategory: Görüntü İşleme
 image: /images/posts/opencv/nms.jpg
 tags:

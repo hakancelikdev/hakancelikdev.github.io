@@ -2,8 +2,10 @@
 publishDate: 2021-04-29T00:00:00Z
 author: Hakan Çelik
 title: "Sass Kurulumu ?"
-excerpt: "Kurulum için daha detaylı bilgi : http://sasslang.com/install"
+excerpt: "Sass kurulumu Linux, macOS ve Windows'ta farklı yöntemler gerektiriyor. Ruby gem, Node.js ve standalone seçeneklerini karşılaştırarak hangi yöntemin hangi durumda uygun olduğunu anlattım."
 category: CSS
+series: "Sass/SCSS Serisi"
+seriesIndex: 3
 image: ~/assets/images/blog/css.jpg
 tags:
   - sass

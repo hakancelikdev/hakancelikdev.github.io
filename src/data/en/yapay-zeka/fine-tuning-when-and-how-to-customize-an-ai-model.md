@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Fine-Tuning: When and How to Customize an AI Model"
 excerpt: "Fine-tuning isn't always the answer — most of the time it isn't. But when it is, nothing else comes close. Here's when to use it, when RAG is the better call, and why LoRA changed everything."
 category: AI
+series: "AI Foundations"
+seriesIndex: 5
 image: ~/assets/images/blog/fine-tuning.jpg
 tags:
   - artificial-intelligence

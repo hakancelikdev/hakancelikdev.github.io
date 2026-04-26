@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Token Nedir? AI Modelleri Metni Nasıl Okur ve Nasıl Ücretlendirilir?"
 excerpt: "AI modelleri metni ne kelime ne karakter olarak okur — token adı verilen parçalar halinde okur. Bu farkı anlamak, context limitlerini, fiyatlandırmayı ve modelin 'unutmasını' bir anda açıklıyor."
 category: Yapay Zeka
+series: "AI Temelleri"
+seriesIndex: 2
 image: ~/assets/images/blog/token.jpg
 tags:
   - yapay-zeka

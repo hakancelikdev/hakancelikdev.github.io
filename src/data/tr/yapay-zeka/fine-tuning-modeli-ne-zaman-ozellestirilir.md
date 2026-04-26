@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Fine-Tuning: Bir AI Modelini Ne Zaman ve Nasıl Özelleştirirsiniz?"
 excerpt: "Her AI problemi için fine-tuning şart değil — çoğu zaman gereksiz. Ama gerçekten gerektiği durumlarda nasıl çalıştığını, ne zaman RAG'ı tercih etmeniz gerektiğini ve LoRA'nın neden oyunun kurallarını değiştirdiğini anlattım."
 category: Yapay Zeka
+series: "AI Temelleri"
+seriesIndex: 5
 image: ~/assets/images/blog/fine-tuning.jpg
 tags:
   - yapay-zeka

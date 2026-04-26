@@ -2,8 +2,10 @@
 publishDate: 2022-02-16T00:00:00Z
 author: Hakan Çelik
 title: "Opencv Resim Işlemleri"
-excerpt: "Resim dosyasını okumak için cv2.imread() fonksiyon kullanılır ve iki arguman alır."
+excerpt: "OpenCV ile resim okuma, ekranda gösterme ve diske kaydetme işlemlerinin tamamı birkaç satır kod. cv2.imread(), cv2.imshow() ve cv2.imwrite() fonksiyonlarını örneklerle anlattım."
 category: OpenCV
+series: "OpenCV Serisi"
+seriesIndex: 13
 subcategory: Temel İşlemler
 image: ~/assets/images/blog/opencv.jpg
 tags:

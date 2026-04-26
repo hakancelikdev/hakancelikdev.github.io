@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Bazı Sık Kullandığım Sass Mixinsleri"
 excerpt: "Öncelikle en sevdiğim sass mixins'inden başlamak istiyorum bu aynı zamanda yazdığım sass/css kodlarını bütün tarayıcılarda uyumlu hale getiriyor ve bir kere yaz bütün tarayıcılarda çalışsın pirensibi"
 category: CSS
+series: "Sass/SCSS Serisi"
+seriesIndex: 1
 image: ~/assets/images/blog/css.jpg
 tags:
   - sass

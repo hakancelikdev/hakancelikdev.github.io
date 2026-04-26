@@ -2,7 +2,7 @@
 publishDate: 2021-07-27T00:00:00Z
 author: Hakan Çelik
 title: "İşleçler Ve Print Fonksiyonu"
-excerpt: "İşleçler ( , /, , +, %) print Fonksiyonu (Ekrana yazı yazmamızı sağlayan fonksiyon)"
+excerpt: "Python'da aritmetik, karşılaştırma ve mantıksal işleçler nasıl çalışır? print() fonksiyonunun sep, end ve file parametrelerini ve işleç öncelik kurallarını örneklerle anlattım."
 category: Python
 image: ~/assets/images/blog/python.jpg
 tags:

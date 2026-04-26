@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Basic Operations on Images"
 excerpt: "Accessing and modifying pixel values, Accessing image properties, Setting the Image Region (area) (ROI), Splitting and Merging Images"
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 6
 subcategory: Basic Operations
 image: ~/assets/images/blog/opencv.jpg
 tags:

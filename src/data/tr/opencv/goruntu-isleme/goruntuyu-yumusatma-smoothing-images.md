@@ -2,8 +2,10 @@
 publishDate: 2021-12-08T00:00:00Z
 author: Hakan Çelik
 title: "Görüntüyü Yumuşatma - ( Smoothing Images )"
-excerpt: "Çeşitli düşük geçişli filtrelerle görüntüleri bulanıklaştırma Görüntülere özel filitreler uygulamak (2B kıvrım)"
+excerpt: "Görüntü yumuşatma gürültüyü azaltır ve kenar tespitine zemin hazırlar. Gaussian, Median ve Bilateral filtreler arasındaki farkları ve hangi durumda hangisini kullanacağınızı anlattım."
 category: OpenCV
+series: "OpenCV Serisi"
+seriesIndex: 8
 subcategory: Görüntü İşleme
 image: /images/posts/opencv/filter.jpg
 tags:

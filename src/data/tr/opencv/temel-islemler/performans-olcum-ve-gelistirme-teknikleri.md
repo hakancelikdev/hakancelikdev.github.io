@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Performans Ölçüm Ve Geliştirme Teknikleri"
 excerpt: "Herkese merhaba arkadaşlar bu bölümde opencv'de yaptığımız çalışmaları nasıl daha permormanslı yani daha hızlı vb olayları öğrenmeye çalışacağız.Biliyor olmanız gerektiği gibi opencv gibi teknolojiler"
 category: OpenCV
+series: "OpenCV Serisi"
+seriesIndex: 16
 subcategory: Temel İşlemler
 image: ~/assets/images/blog/opencv.jpg
 tags:

@@ -2,7 +2,7 @@
 publishDate: 2020-11-01T00:00:00Z
 author: Hakan Çelik
 title: "Git Komutları"
-excerpt: "Git'i kurduk konfigürasyon ayarlarımızı yaptık şimdi git komutlarını öğrenme zamanı geldi."
+excerpt: "Git'in günlük kullanımda ihtiyaç duyulan komutları — add, commit, push, pull, branch, merge — nasıl ve ne zaman kullanılır? Her komutun amacını ve pratik kullanımını örneklerle anlattım."
 category: Git
 image: ~/assets/images/blog/git.jpg
 tags:

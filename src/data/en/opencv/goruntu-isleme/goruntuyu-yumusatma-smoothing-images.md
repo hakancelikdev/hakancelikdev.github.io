@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Smoothing Images"
 excerpt: "Blurring images with various low-pass filters. Applying custom filters to images (2D convolution)"
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 8
 subcategory: Image Processing
 image: /images/posts/opencv/filter.jpg
 tags:

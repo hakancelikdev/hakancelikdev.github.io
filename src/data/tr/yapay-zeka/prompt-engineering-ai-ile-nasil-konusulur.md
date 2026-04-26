@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Prompt Engineering: AI ile Doğru Konuşmanın Yolu"
 excerpt: "Aynı modele aynı soruyu farklı şekilde sorduğunuzda tamamen farklı cevaplar alırsınız. Bu bir tesadüf değil — modeli nasıl yönlendirdiğiniz, aldığınız çıktıyı doğrudan belirler."
 category: Yapay Zeka
+series: "AI Temelleri"
+seriesIndex: 3
 image: ~/assets/images/blog/prompt-engineering.jpg
 tags:
   - yapay-zeka

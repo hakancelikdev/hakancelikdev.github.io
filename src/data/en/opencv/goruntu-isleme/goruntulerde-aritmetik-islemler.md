@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Arithmetic Operations on Images"
 excerpt: "We will learn several arithmetic operations on images, such as addition, subtraction, and bitwise operations. You will learn these functions: cv2.add(), cv2.addWeighted(), etc."
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 5
 subcategory: Image Processing
 image: ~/assets/images/blog/opencv.jpg
 tags:

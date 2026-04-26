@@ -2,8 +2,10 @@
 publishDate: 2022-02-02T00:00:00Z
 author: Hakan Çelik
 title: "Opencv Nedir Ve Kurulumu"
-excerpt: "Merhaba bu eğitim serisinde OpenCV dökümanlarına bağlı kalarak en baştan en sona doğru adım adım anlatmak amaçlanmıştır"
+excerpt: "OpenCV, bilgisayarlı görme için en yaygın kullanılan açık kaynak kütüphanedir. Resim işleme, video analizi ve nesne tespiti konularını sıfırdan anlatan bu seri için kurulum adımlarını anlattım."
 category: OpenCV
+series: "OpenCV Serisi"
+seriesIndex: 12
 image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv

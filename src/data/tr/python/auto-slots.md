@@ -2,7 +2,7 @@
 publishDate: 2022-09-29T00:00:00Z
 author: Hakan Çelik
 title: "Auto Slots"
-excerpt: "Automatically generate __slots__ from __init__ parameters using a metaclass and co_names."
+excerpt: "__slots__ belleği optimize eder ama her sınıfa elle eklemek zahmetlidir. Metaclass ve co_names kullanarak __init__ parametrelerinden otomatik __slots__ üreten bir yaklaşımı anlattım."
 category: Python
 image: ~/assets/images/blog/python.jpg
 tags:

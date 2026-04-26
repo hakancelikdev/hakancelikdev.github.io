@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Image Thresholding"
 excerpt: "In this article we will learn simple thresholding, adaptive thresholding, and Otsu's thresholding, and we will learn these functions: cv2.threshold, cv2.adaptiveThreshold"
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 19
 subcategory: Image Processing
 image: https://github.com/abidrahmank/OpenCV2-Python-Tutorials/raw/master/source/py_tutorials/py_imgproc/py_thresholding/images/threshold.jpg
 tags:

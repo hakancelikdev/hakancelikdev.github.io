@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "What Is RAG? Giving AI a Memory It Can Actually Use"
 excerpt: "Before I learned about RAG, I was dumping raw context into AI prompts and getting flooded with false positives. RAG changed everything. And it turns out Cursor and Claude Code use it too — that indexing progress bar isn't just for show."
 category: AI
+series: "AI Foundations"
+seriesIndex: 4
 image: ~/assets/images/blog/rag.jpg
 tags:
   - artificial-intelligence

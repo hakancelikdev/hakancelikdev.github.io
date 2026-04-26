@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "What Is Sass and Scss?"
 excerpt: "Syntactically awesome stylesheets"
 category: CSS
+series: "Sass/SCSS Series"
+seriesIndex: 5
 image: ~/assets/images/blog/css.jpg
 tags:
   - sass

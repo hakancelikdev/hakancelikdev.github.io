@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "AI Agents: Models That Use Tools and Make Their Own Decisions"
 excerpt: "A language model takes a question and returns an answer. An AI agent takes a goal, makes a plan, uses tools, and produces a result. That difference turns AI from a chatbot into a collaborator."
 category: AI
+series: "AI Foundations"
+seriesIndex: 7
 image: ~/assets/images/blog/ai-agents.jpg
 tags:
   - artificial-intelligence
@@ -158,13 +160,11 @@ while True:
 
 ---
 
-## Claude Code Is an Agent
+## Why Coding Assistants Behave Like Agents
 
-Claude Code — the tool writing this post — is exactly an AI agent.
+Modern coding assistants work with tools such as file reading, code editing, terminal execution, file discovery, and content search. Given a goal, they decide which tool to use first, evaluate intermediate results, and update their plan as they go.
 
-It has access to tools: read files, write code, run terminal commands, search by glob pattern, grep for content. When given a task, it autonomously decides which tools to use in what order, evaluates results, and updates its plan.
-
-This is what I described in the [RAG post](/what-is-rag-giving-ai-a-memory) as Claude Code's "dynamic exploration" approach — instead of pre-indexing, it investigates live on each query using its tool suite.
+This also aligns with the "dynamic exploration" idea from the [RAG post](/what-is-rag-giving-ai-a-memory): instead of a single fixed step, the system iteratively retrieves the right context when needed.
 
 ---
 

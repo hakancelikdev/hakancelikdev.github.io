@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Opencv'de Çizim Fonksiyonları"
 excerpt: "OpenCV ile farklı geometrik şekilleri çizmeyi öğreneçeğiz Bu fonksiyonları öğreneceğiz: cv2.line (), cv2.circle (), cv2.rectangle (), cv2.ellipse (), cv2.putText () vb."
 category: OpenCV
+series: "OpenCV Serisi"
+seriesIndex: 15
 subcategory: Temel İşlemler
 image: ~/assets/images/blog/opencv.jpg
 tags:

@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Changing Color Spaces"
 excerpt: "In this article, we will learn how to convert images from one color space to another, such as BGR to Gray, BGR to HSV, etc. In addition, we will create an application that allows extracting a colored object in a video. We will learn these fun"
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 17
 subcategory: Basic Operations
 image: /images/posts/opencv/frame.jpg
 tags:

@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Trackbar as a Color Palette"
 excerpt: "We will learn how to bind a Trackbar to OpenCV windows. We will learn these functions: cv2.getTrackbarPos(), cv2.createTrackbar(), etc."
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 18
 subcategory: Advanced Topics
 image: ~/assets/images/blog/opencv.jpg
 tags:

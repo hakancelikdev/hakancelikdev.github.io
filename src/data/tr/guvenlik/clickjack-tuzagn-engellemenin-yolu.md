@@ -2,7 +2,7 @@
 publishDate: 2022-05-01T00:00:00Z
 author: Hakan Çelik
 title: "Clickjack Tuzagını Engellemenin Yolu"
-excerpt: "Araştırdığım zaman bu açığın bir kaç satır javascript kodu ile de engellenebildiğini ve sağlıklı olmadığını okudum."
+excerpt: "Clickjacking'e karşı JavaScript tabanlı frame busting çözümleri neden yetersiz kalır? X-Frame-Options ve Content-Security-Policy header'larıyla bu saldırıyı doğru şekilde nasıl engellersiniz, anlattım."
 category: Güvenlik
 image: ~/assets/images/blog/guvenlik.jpg
 tags:

@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Contours"
 excerpt: "We will understand what contours are. We will learn to find and draw contours. We will learn these functions: cv2.findContours(), cv2.drawContours()"
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 10
 subcategory: Advanced Topics
 image: ~/assets/images/blog/opencv.jpg
 tags:

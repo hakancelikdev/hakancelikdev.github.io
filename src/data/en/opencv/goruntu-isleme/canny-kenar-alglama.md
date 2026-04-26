@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Canny Edge Detection"
 excerpt: "The concept of Canny edge detection. OpenCV function for this operation: cv2.Canny()"
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 2
 subcategory: Image Processing
 image: /images/posts/opencv/nms.jpg
 tags:

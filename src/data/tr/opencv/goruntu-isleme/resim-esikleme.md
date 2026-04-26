@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Resim Eşikleme"
 excerpt: "Bu yazımızda basit eşikleme ( thresholding ) uyarlanabilir eşik ve otsu'nun eşiğini öğreneceğiz ve bu fonksiyonları öğreneceğiz, cv2.threshold, cv2.adaptiveThreshold"
 category: OpenCV
+series: "OpenCV Serisi"
+seriesIndex: 19
 subcategory: Görüntü İşleme
 image: https://github.com/abidrahmank/OpenCV2-Python-Tutorials/raw/master/source/py_tutorials/py_imgproc/py_thresholding/images/threshold.jpg
 tags:

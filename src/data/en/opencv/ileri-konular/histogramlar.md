@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Histograms"
 excerpt: "( Histograms 1: Find, Plot, Analyze ) ### Goals"
 category: OpenCV
+series: "OpenCV Series"
+seriesIndex: 9
 subcategory: Advanced Topics
 image: /images/posts/opencv/histogram_matplotlib.jpg
 tags:

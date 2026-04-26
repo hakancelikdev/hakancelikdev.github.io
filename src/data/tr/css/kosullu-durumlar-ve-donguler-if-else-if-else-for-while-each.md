@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Koşul Durumları ve Döngüler"
 excerpt: "Merhaba arkadaşlar bildiğiniz gibi coogger projesine başladığımda yeni bir css fremework'u olan coogger.css projesinede başlamıştım, bu fremework'u geliştirirken sass kullanıyorum ve son 1 haftadır ye"
 category: CSS
+series: "Sass/SCSS Serisi"
+seriesIndex: 2
 image: ~/assets/images/blog/css.jpg
 tags:
   - sass

@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Sass Installation?"
 excerpt: "For more detailed installation info: http://sass-lang.com/install"
 category: CSS
+series: "Sass/SCSS Series"
+seriesIndex: 3
 image: ~/assets/images/blog/css.jpg
 tags:
   - sass

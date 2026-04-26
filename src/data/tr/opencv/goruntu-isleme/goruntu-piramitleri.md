@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Görüntü Piramitleri"
 excerpt: "Görüntü piramitlerini öğreneceğiz Biz görüntü piramitleri yeni bir meyve oluşturmak için kullanacağız, 'Orapple” ve bu fonksiyonları göreceğiz: cv2.pyrUp(), cv2.pyridge()"
 category: OpenCV
+series: "OpenCV Serisi"
+seriesIndex: 4
 subcategory: Görüntü İşleme
 image: /images/posts/opencv/messiup.jpg
 tags:

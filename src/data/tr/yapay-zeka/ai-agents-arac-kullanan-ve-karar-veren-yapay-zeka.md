@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "AI Agents: Araç Kullanan ve Kendi Kararlarını Veren Yapay Zeka"
 excerpt: "Bir dil modeli soru sorar, cevap alırsın. Bir AI agent ise hedef alır, plan yapar, araç kullanır ve sonuç üretir. Bu fark, AI'ı bir chatbot'tan bir iş ortağına dönüştürür."
 category: Yapay Zeka
+series: "AI Temelleri"
+seriesIndex: 7
 image: ~/assets/images/blog/ai-agents.jpg
 tags:
   - yapay-zeka
@@ -161,13 +163,11 @@ while True:
 
 ---
 
-## Claude Code Bir Agent'tır
+## Kod Asistanları Neden Agent Gibi Davranır?
 
-Claude Code — bu yazıyı yazan araç — tam olarak bir AI agent'tır.
+Modern kod asistanları dosya okuma, kod yazma, terminal komutu çalıştırma, dosya arama ve içerik tarama gibi araçlara erişerek çalışır. Bir görev aldıklarında hangi aracı hangi sırayla kullanacaklarına karar verir, ara sonuçları değerlendirir ve planlarını günceller.
 
-Dosya okuma, kod yazma, terminal komutu çalıştırma, glob ile dosya arama, grep ile içerik tarama gibi araçlara erişimi var. Bir görev aldığında kendi başına hangi araçları hangi sırayla kullanacağına karar veriyor, sonuçları değerlendiriyor, planını güncelliyor.
-
-Bu, [RAG](/rag-nedir-retrieval-augmented-generation) yazısında bahsettiğim Claude Code'un "dinamik araştırma" yaklaşımının ta kendisi — önceden indexlemek yerine, her soruda canlı araştırma yapmak.
+Bu yaklaşım, [RAG](/rag-nedir-retrieval-augmented-generation) yazısında anlattığım "dinamik araştırma" fikriyle de örtüşür: sabit bir tek adım yerine, ihtiyaç oldukça ilgili bilgiye gidip geri dönmek.
 
 ---
 

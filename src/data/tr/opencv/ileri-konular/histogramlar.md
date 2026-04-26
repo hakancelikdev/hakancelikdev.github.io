@@ -2,8 +2,10 @@
 publishDate: 2021-12-22T00:00:00Z
 author: Hakan Çelik
 title: "Histogramlar"
-excerpt: "( Histograms 1 : Find, Plot, Analyze ) ### Hedefler"
+excerpt: "Histogram, bir görüntüdeki piksel yoğunluk dağılımını gösterir. OpenCV ile histogram hesaplama, çizme, eşitleme ve kontrast iyileştirme tekniklerini örneklerle anlattım."
 category: OpenCV
+series: "OpenCV Serisi"
+seriesIndex: 9
 subcategory: İleri Konular
 image: /images/posts/opencv/histogram_matplotlib.jpg
 tags:

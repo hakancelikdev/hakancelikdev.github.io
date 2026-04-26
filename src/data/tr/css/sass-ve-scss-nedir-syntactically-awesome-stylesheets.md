@@ -2,8 +2,10 @@
 publishDate: 2021-05-27T00:00:00Z
 author: Hakan Çelik
 title: "Sass ve Scss Nedir ?"
-excerpt: "Syntactically awesome stylesheets"
+excerpt: "Sass, CSS'e değişken, döngü ve mixin gibi programlama kavramları katan bir ön işlemcidir. SCSS ile Sass sözdizimi arasındaki farkı ve neden kullanmanız gerektiğini anlattım."
 category: CSS
+series: "Sass/SCSS Serisi"
+seriesIndex: 5
 image: ~/assets/images/blog/css.jpg
 tags:
   - sass

@@ -2,7 +2,7 @@
 publishDate: 2022-06-21T00:00:00Z
 author: Hakan Çelik
 title: "Django'da Sayfalama - Pagination"
-excerpt: "Verilerin çokluğundan doğan bir ihtihaç sayfalama mantığını getirmiştir, bütün veriler tek bir sayfada olmuş olsaydı"
+excerpt: "Binlerce kayıt tek sayfada yüklenmek yerine sayfalara bölünür. Django'nun Paginator sınıfıyla hem function-based hem de class-based view'larda sayfalama nasıl yapılır, örneklerle anlattım."
 category: Django
 image: ~/assets/images/blog/django.jpg
 tags:

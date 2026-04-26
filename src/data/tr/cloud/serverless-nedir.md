@@ -2,7 +2,7 @@
 publishDate: 2023-01-10T00:00:00Z
 author: Hakan Çelik
 title: "Serverless Nedir"
-excerpt: "Serverless Computing, Faas veya (Function As a Service) olarakta bilinir."
+excerpt: "Serverless'ta sunucu yönetimi yok — sadece kodu yazarsınız, cloud provider çalıştırır ve ölçeklendirir. FaaS ile geleneksel hosting arasındaki farkları ve ne zaman tercih edilmesi gerektiğini anlattım."
 category: Cloud
 image: /images/posts/server-not-found.png
 tags:

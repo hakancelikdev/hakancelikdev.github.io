@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Sass Watch, Variables, Nesting, Import, Mixin, Include and Operators"
 excerpt: "Hello everyone. In my Sass series, I'll be continuing with the Scss structure instead of Sass, as I think it is more similar to CSS and easier to learn quickly."
 category: CSS
+series: "Sass/SCSS Series"
+seriesIndex: 4
 image: ~/assets/images/blog/css.jpg
 tags:
   - sass

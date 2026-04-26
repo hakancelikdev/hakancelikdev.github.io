@@ -2,7 +2,7 @@
 publishDate: 2021-08-10T00:00:00Z
 author: Hakan Çelik
 title: "Kütüphane, Modül ve Paketler"
-excerpt: "Pip python için bir paket yöneticisidir."
+excerpt: "Python'da modül, paket ve kütüphane kavramları sık karıştırılır. Pip ile paket yönetimi, import mekanizması ve kendi modülünüzü nasıl oluşturacağınızı örneklerle anlattım."
 category: Python
 image: ~/assets/images/blog/python.jpg
 tags:

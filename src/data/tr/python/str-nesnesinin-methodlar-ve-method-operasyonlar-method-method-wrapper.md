@@ -2,7 +2,7 @@
 publishDate: 2021-10-19T00:00:00Z
 author: Hakan Çelik
 title: "String Nesnesinin Methodları ve Method Operasyonları"
-excerpt: "Method Operasyonları = Method Wrapper"
+excerpt: "Python'da string metodları arka planda birer method wrapper olarak çalışır. upper(), split(), replace() gibi metodların nasıl çalıştığını ve method operasyonlarını örneklerle anlattım."
 category: Python
 image: ~/assets/images/blog/python.jpg
 tags:

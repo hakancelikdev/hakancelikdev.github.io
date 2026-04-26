@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Some Sass Mixins I Use Frequently"
 excerpt: "First, I want to start with my favorite Sass mixin — it makes the Sass/CSS code I write compatible with all browsers and lets me follow the principle of write once, run in all browsers."
 category: CSS
+series: "Sass/SCSS Series"
+seriesIndex: 1
 image: ~/assets/images/blog/css.jpg
 tags:
   - sass

@@ -4,6 +4,8 @@ author: Hakan Çelik
 title: "Opencv Video Işlemleri"
 excerpt: "Video okumayı öğreneceğiz, video ları açmayı ve kayıte etmeyi Kamera ile video kaydı ve pencerede çalıştırmayı öğreneceğiz Bu fonksiyonları öğreneceğiz : cv2.VideoCapture(), cv2.VideoWriter()"
 category: OpenCV
+series: "OpenCV Serisi"
+seriesIndex: 14
 subcategory: Temel İşlemler
 image: ~/assets/images/blog/opencv.jpg
 tags:

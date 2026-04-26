@@ -1,5 +1,5 @@
 ---
-publishDate: 2026-04-26T00:00:00Z
+publishDate: 2026-04-26T10:00:00Z
 author: Hakan Çelik
 title: "Bir AI Modeli İndirdiğinizde Aslında Ne İndiriyorsunuz?"
 excerpt: "AI modelleri birer binary dosyadır. Tıpkı derlenen bir C programı gibi, eğitilmiş bir model de artık kaynak kodundan bağımsız, çalıştırılmaya hazır bir varlıktır. Peki bu ne anlama geliyor?"

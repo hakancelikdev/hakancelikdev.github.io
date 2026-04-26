@@ -1,5 +1,5 @@
 ---
-publishDate: 2026-04-26T00:00:00Z
+publishDate: 2026-04-26T10:00:00Z
 author: Hakan Çelik
 title: "What You Actually Download When You Pull an AI Model"
 excerpt: "AI models are compiled binaries. Just like a compiled C program, a trained model is an artifact that stands independent of its source — a ready-to-execute brain specialized for a task. Here's what that really means."

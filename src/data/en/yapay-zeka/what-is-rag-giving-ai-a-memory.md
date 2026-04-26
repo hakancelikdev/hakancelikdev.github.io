@@ -1,5 +1,5 @@
 ---
-publishDate: 2026-04-26T00:00:00Z
+publishDate: 2026-04-26T12:00:00Z
 author: Hakan Çelik
 title: "What Is RAG? Giving AI a Memory It Can Actually Use"
 excerpt: "Before I learned about RAG, I was dumping raw context into AI prompts and getting flooded with false positives. RAG changed everything. And it turns out Cursor and Claude Code use it too — that indexing progress bar isn't just for show."

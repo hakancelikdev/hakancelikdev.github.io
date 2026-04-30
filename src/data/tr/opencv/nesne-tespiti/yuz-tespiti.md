@@ -7,7 +7,7 @@ category: OpenCV
 series: "OpenCV Serisi"
 seriesIndex: 59
 subcategory: Nesne Tespiti
-image: /images/posts/opencv/haar_features.jpg
+image: /images/posts/opencv/messi_face.jpg
 tags:
   - opencv
   - python

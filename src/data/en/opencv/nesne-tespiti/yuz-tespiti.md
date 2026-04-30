@@ -7,7 +7,7 @@ category: OpenCV
 series: "OpenCV Series"
 seriesIndex: 59
 subcategory: Object Detection
-image: /images/posts/opencv/haar_features.jpg
+image: /images/posts/opencv/messi_face.jpg
 tags:
   - opencv
   - python

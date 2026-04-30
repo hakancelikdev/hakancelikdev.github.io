@@ -7,7 +7,7 @@ category: OpenCV
 series: "OpenCV Series"
 seriesIndex: 62
 subcategory: Setup
-image: /images/posts/opencv/opencv-icon.jpg
+image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv
   - python

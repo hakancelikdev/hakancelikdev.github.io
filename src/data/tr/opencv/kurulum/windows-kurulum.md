@@ -7,7 +7,7 @@ category: OpenCV
 series: "OpenCV Serisi"
 seriesIndex: 63
 subcategory: Kurulum
-image: /images/posts/opencv/opencv-icon.jpg
+image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv
   - python

@@ -7,7 +7,7 @@ category: OpenCV
 series: "OpenCV Series"
 seriesIndex: 64
 subcategory: Python Bindings
-image: /images/posts/opencv/opencv-icon.jpg
+image: ~/assets/images/blog/opencv.jpg
 tags:
   - opencv
   - python

@@ -162,3 +162,7 @@ array([[0, 0, 1, 0, 0],
        [0, 0, 1, 0, 0],
        [0, 0, 1, 0, 0]], dtype=uint8)
 ```
+
+---
+
+**Kaynak:** [OpenCV Python Tutorials — Orijinal Döküman](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_imgproc/py_morphological_ops/py_morphological_ops.markdown)

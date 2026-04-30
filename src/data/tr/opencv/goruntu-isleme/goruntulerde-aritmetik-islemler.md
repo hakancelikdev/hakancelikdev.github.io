@@ -124,3 +124,6 @@ cv2.destroyAllWindows()
 Aşağıdaki sonuca bakın, Sol resim imal ettiğimiz maskeyi gösterir, Sağ görüntü ise sen
 son oluşan sonucu gösterir.
 
+---
+
+**Kaynak:** [OpenCV Python Tutorials — Orijinal Döküman](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_core/py_image_arithmetics/py_image_arithmetics.markdown)

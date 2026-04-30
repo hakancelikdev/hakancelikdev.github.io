@@ -115,3 +115,7 @@ plt.show()
 #### Sonuç;
 
 ![](/images/posts/opencv/canny1.jpg)
+
+---
+
+**Kaynak:** [OpenCV Python Tutorials — Orijinal Döküman](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_imgproc/py_canny/py_canny.markdown)

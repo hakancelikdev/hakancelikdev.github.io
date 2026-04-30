@@ -126,3 +126,7 @@ while(1):
 
 cv2.destroyAllWindows()
 ```
+
+---
+
+**Source:** [OpenCV Python Tutorials — Original Documentation](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_gui/py_mouse_handling/py_mouse_handling.markdown)

@@ -85,3 +85,6 @@ cv2.destroyAllWindows()
 
 Ekran görüntüsü ;
 
+---
+
+**Kaynak:** [OpenCV Python Tutorials — Orijinal Döküman](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_gui/py_trackbar/py_trackbar.markdown)

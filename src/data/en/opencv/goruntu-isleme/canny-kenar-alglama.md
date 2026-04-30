@@ -114,3 +114,7 @@ plt.show()
 #### Result;
 
 ![](/images/posts/opencv/canny1.jpg)
+
+---
+
+**Source:** [OpenCV Python Tutorials — Original Documentation](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_imgproc/py_canny/py_canny.markdown)

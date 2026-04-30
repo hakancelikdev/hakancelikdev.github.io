@@ -159,3 +159,7 @@ plt.show()
 ```
 
 ![](/images/posts/opencv/perspective.jpg)
+
+---
+
+**Kaynak:** [OpenCV Python Tutorials — Orijinal Döküman](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_imgproc/py_geometric_transformations/py_geometric_transformations.markdown)

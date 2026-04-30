@@ -180,3 +180,7 @@ cap.release()
 out.release()
 cv2.destroyAllWindows()
 ```
+
+---
+
+**Kaynak:** [OpenCV Python Tutorials — Orijinal Döküman](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_gui/py_video_display/py_video_display.markdown)

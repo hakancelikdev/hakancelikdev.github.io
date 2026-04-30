@@ -109,3 +109,7 @@ Out[8]: False # kapalı şuan
 In [9]: %timeit res = cv2.medianBlur(img,49)
 10 loops, best of 3: 64.1 ms per loop # ve 64.1 saniye , yani optimizasyon iyidir onu sevin
 ```
+
+---
+
+**Kaynak:** [OpenCV Python Tutorials — Orijinal Döküman](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_core/py_optimization/py_optimization.markdown)

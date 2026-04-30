@@ -157,3 +157,7 @@ visit OpenCV docs\).
 Result;
 
 ![](/images/posts/opencv/bilateral.jpg)
+
+---
+
+**Source:** [OpenCV Python Tutorials — Original Documentation](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_imgproc/py_filtering/py_filtering.markdown)

@@ -127,3 +127,7 @@ plt.show()
 ```
 
 It will look like this.
+
+---
+
+**Source:** [OpenCV Python Tutorials — Original Documentation](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_gui/py_image_display/py_image_display.markdown)

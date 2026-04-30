@@ -123,3 +123,7 @@ cv2.destroyAllWindows()
 
 See the result below. The left image shows the mask we created. The right image shows
 the final result.
+
+---
+
+**Source:** [OpenCV Python Tutorials — Original Documentation](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_core/py_image_arithmetics/py_image_arithmetics.markdown)

@@ -84,3 +84,7 @@ cv2.destroyAllWindows()
 ```
 
 Screenshot;
+
+---
+
+**Source:** [OpenCV Python Tutorials — Original Documentation](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_gui/py_trackbar/py_trackbar.markdown)

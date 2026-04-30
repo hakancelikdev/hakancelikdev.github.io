@@ -174,3 +174,7 @@ cap.release()
 out.release()
 cv2.destroyAllWindows()
 ```
+
+---
+
+**Source:** [OpenCV Python Tutorials — Original Documentation](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_gui/py_video_display/py_video_display.markdown)

@@ -176,3 +176,7 @@ plt.show()
 ```
 
 ![](https://github.com/abidrahmank/OpenCV2-Python-Tutorials/raw/master/source/py_tutorials/py_imgproc/py_thresholding/images/otsu.jpg?style=center)
+
+---
+
+**Source:** [OpenCV Python Tutorials — Original Documentation](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_imgproc/py_thresholding/py_thresholding.markdown)

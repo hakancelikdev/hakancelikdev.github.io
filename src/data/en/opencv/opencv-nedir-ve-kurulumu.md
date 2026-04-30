@@ -40,3 +40,7 @@ very beginning to the end, following the OpenCV documentation.
   first with apt-get install python3-pip.
 - pip3 install matplotlib or apt-get install python3-matplotlib.
 - apt-get install python-OpenCV.
+
+---
+
+**Source:** [OpenCV Python Tutorials — Original Documentation](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_setup/py_intro/py_intro.markdown)

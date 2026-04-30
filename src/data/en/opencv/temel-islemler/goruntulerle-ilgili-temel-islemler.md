@@ -212,3 +212,7 @@ plt.show()
 
 See the result below \( The image is displayed with **matplotlib**, so RED and BLUE
 channels are swapped \):
+
+---
+
+**Source:** [OpenCV Python Tutorials — Original Documentation](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_core/py_basic_ops/py_basic_ops.markdown)

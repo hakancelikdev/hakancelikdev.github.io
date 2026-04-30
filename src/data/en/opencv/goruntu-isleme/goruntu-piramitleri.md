@@ -148,3 +148,7 @@ cv2.imwrite('Direct_blending.jpg',real)
 ### Additional resource:
 
 [Image Blending](http://pages.cs.wisc.edu/~csverma/CS766_09/ImageMosaic/imagemosaic.html)
+
+---
+
+**Source:** [OpenCV Python Tutorials — Original Documentation](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_imgproc/py_pyramids/py_pyramids.markdown)

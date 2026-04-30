@@ -164,3 +164,7 @@ bilgi için OpenCV dokümanlarına bakın\).
 Sonuç;
 
 ![](/images/posts/opencv/bilateral.jpg)
+
+---
+
+**Kaynak:** [OpenCV Python Tutorials — Orijinal Döküman](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_imgproc/py_filtering/py_filtering.markdown)

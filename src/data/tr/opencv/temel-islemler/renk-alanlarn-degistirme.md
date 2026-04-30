@@ -105,3 +105,7 @@ terminalinde aşağıdaki komutları yazmanız yeterli olacaktır.
 >>> print(hsv_green)
 [[[ 60 255 255]]]
 ```
+
+---
+
+**Kaynak:** [OpenCV Python Tutorials — Orijinal Döküman](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_imgproc/py_colorspaces/py_colorspaces.markdown)

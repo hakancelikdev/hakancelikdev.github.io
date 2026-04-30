@@ -212,3 +212,6 @@ plt.show()
 Aşağıdaki sonuca bakın, \( Resim **matplotlib** ile gösterilir, böylece KIRMIZI ve
 MAVİ'ler değiş tokuş olur \);
 
+---
+
+**Kaynak:** [OpenCV Python Tutorials — Orijinal Döküman](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_core/py_basic_ops/py_basic_ops.markdown)

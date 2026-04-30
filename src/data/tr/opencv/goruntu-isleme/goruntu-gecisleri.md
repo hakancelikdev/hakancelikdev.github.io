@@ -119,3 +119,7 @@ plt.show()
 Sonucu kontrol edin :
 
 ![Double Edges](/images/posts/opencv/double_edge.jpg)
+
+---
+
+**Kaynak:** [OpenCV Python Tutorials — Orijinal Döküman](https://github.com/opencv/opencv/blob/4.x/doc/py_tutorials/py_imgproc/py_gradients/py_gradients.markdown)

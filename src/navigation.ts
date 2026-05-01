@@ -12,6 +12,10 @@ export const getHeaderData = (lang: Lang = 'tr') => ({
       href: lang === 'en' ? '/en/blog' : getBlogPermalink(),
     },
     {
+      text: lang === 'en' ? 'Series' : 'Seriler',
+      href: lang === 'en' ? '/en/series' : '/seriler',
+    },
+    {
       text: lang === 'en' ? 'About' : 'Hakkımda',
       href: lang === 'en' ? getPermalink('/en/about') : getPermalink('/about'),
     },
@@ -49,6 +53,7 @@ export const getFooterData = (lang: Lang = 'tr') => ({
       title: lang === 'en' ? 'Content' : 'İçerik',
       links: [
         { text: 'Blog', href: lang === 'en' ? '/en/blog' : getBlogPermalink() },
+        { text: lang === 'en' ? 'Series' : 'Seriler', href: lang === 'en' ? '/en/series' : '/seriler' },
       ],
     },
     {

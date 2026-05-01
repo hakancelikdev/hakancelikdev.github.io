@@ -9,15 +9,26 @@ export interface Props {
 }
 
 const { post, seriesPosts } = Astro.props;
+const currentIndex = seriesPosts.findIndex((p) => p.slug === post.slug);
+const currentNumber = currentIndex >= 0 ? currentIndex + 1 : '?';
 ---
 
 <div class="mx-auto max-w-3xl px-4 sm:px-6 mb-8">
-  <div class="rounded-xl border dark:border-stone-700 overflow-hidden">
-    <div class="px-4 py-3 bg-gray-50 dark:bg-stone-800/60 flex items-center gap-2 border-b dark:border-stone-700">
+  <details class="rounded-xl border dark:border-stone-700 overflow-hidden group">
+    <summary
+      class="px-4 py-3 bg-gray-50 dark:bg-stone-800/60 flex items-center gap-2 cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden hover:bg-gray-100 dark:hover:bg-stone-800 transition-colors"
+    >
       <Icon name="tabler:list-numbers" class="w-4 h-4 text-primary flex-shrink-0" />
-      <span class="text-sm font-semibold">Seri: {post.series}</span>
-      <span class="ml-auto text-xs text-muted dark:text-stone-500">{seriesPosts.length} yazı</span>
-    </div>
+      <span class="text-sm font-semibold">{post.series}</span>
+      <span class="ml-auto flex items-center gap-2 text-xs text-muted dark:text-stone-500">
+        <span class="font-medium text-primary">{currentNumber}/{seriesPosts.length}</span>
+        <Icon
+          name="tabler:chevron-down"
+          class="w-4 h-4 transition-transform duration-200 group-open:rotate-180"
+        />
+      </span>
+    </summary>
+
     <ol class="divide-y dark:divide-stone-700/60">
       {
         seriesPosts.map((p) => {
@@ -46,5 +57,5 @@ const { post, seriesPosts } = Astro.props;
         })
       }
     </ol>
-  </div>
+  </details>
 </div>

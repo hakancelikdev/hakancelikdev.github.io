@@ -235,6 +235,31 @@ export const findPostsBySeries = async (seriesName: string, lang: 'tr' | 'en' = 
     .sort((a, b) => (a.seriesIndex ?? 0) - (b.seriesIndex ?? 0));
 };
 
+export interface SeriesSummary {
+  name: string;
+  count: number;
+  firstPost: Post;
+  category?: Post['category'];
+}
+
+/** Returns all unique series with metadata, sorted by post count descending. */
+export const findAllSeries = async (lang: 'tr' | 'en' = 'tr'): Promise<SeriesSummary[]> => {
+  const posts = lang === 'en' ? await fetchEnPosts() : await fetchTrPosts();
+  const map = new Map<string, Post[]>();
+  for (const post of posts) {
+    if (post.series) {
+      const existing = map.get(post.series) ?? [];
+      map.set(post.series, [...existing, post]);
+    }
+  }
+  return Array.from(map.entries())
+    .map(([name, seriesPosts]) => {
+      const sorted = seriesPosts.sort((a, b) => (a.seriesIndex ?? 0) - (b.seriesIndex ?? 0));
+      return { name, count: sorted.length, firstPost: sorted[0], category: sorted[0].category };
+    })
+    .sort((a, b) => b.count - a.count);
+};
+
 /** */
 export const getStaticPathsBlogList = async ({ paginate, lang = 'tr' }: { paginate: PaginateFunction; lang?: 'tr' | 'en' }) => {
   if (!isBlogEnabled || !isBlogListRouteEnabled) return [];

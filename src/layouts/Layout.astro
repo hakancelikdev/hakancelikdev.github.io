@@ -10,6 +10,7 @@ import ApplyColorMode from '~/components/common/ApplyColorMode.astro';
 import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
+import AdSense from '~/components/common/AdSense.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
 
 // Comment the line below to disable View Transitions
@@ -44,6 +45,7 @@ const canonicalUrl = String(Astro.url);
     <link rel="alternate" hreflang="x-default" href={pageLang === 'tr' ? canonicalUrl : new URL(alternateUrl, Astro.site).toString()} />
     <SiteVerification />
     <Analytics />
+    <AdSense />
 
     <!-- RSS autodiscovery -->
     {pageLang === 'en'

@@ -1,0 +1,31 @@
+---
+export interface Props {
+  slot: string;
+  format?: string;
+  style?: string;
+  fullWidthResponsive?: boolean;
+}
+
+const { slot, format = 'auto', style = 'display:block', fullWidthResponsive = true } = Astro.props;
+---
+
+<ins
+  class="adsbygoogle"
+  style={style}
+  data-ad-client="ca-pub-2744131111608992"
+  data-ad-slot={slot}
+  data-ad-format={format || undefined}
+  data-full-width-responsive={fullWidthResponsive ? 'true' : undefined}
+></ins>
+<script>
+  function pushAds() {
+    const w = window as typeof window & { adsbygoogle: object[] };
+    w.adsbygoogle = w.adsbygoogle || [];
+    document.querySelectorAll('.adsbygoogle:not([data-adsbygoogle-status])').forEach(() => {
+      try {
+        w.adsbygoogle.push({});
+      } catch {}
+    });
+  }
+  pushAds();
+</script>

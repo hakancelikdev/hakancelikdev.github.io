@@ -1,5 +1,6 @@
 import { z, defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { LANGS } from '~/utils/i18n';
 
 const metadataDefinition = () =>
   z
@@ -49,7 +50,7 @@ const metadataDefinition = () =>
     .optional();
 
 const postCollection = defineCollection({
-  loader: glob({ pattern: ['tr/**/*.md', 'tr/**/*.mdx', 'en/**/*.md', 'en/**/*.mdx'], base: 'src/data' }),
+  loader: glob({ pattern: LANGS.flatMap((l) => [`${l}/**/*.md`, `${l}/**/*.mdx`]), base: 'src/data' }),
   schema: z.object({
     publishDate: z.date().optional(),
     updateDate: z.date().optional(),

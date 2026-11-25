@@ -149,17 +149,42 @@ const others = (alternates ?? fallback).filter((a) => a.lang !== currentLang);
         <div class="flex items-center">
           <Search />
           {
-            others.map((a) => (
+            others.length === 1 ? (
               <a
-                href={a.url}
-                hreflang={LANG_INFO[a.lang].htmlLang}
-                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-xs font-semibold p-2 inline-flex items-center tracking-wide uppercase"
-                aria-label={LANG_INFO[a.lang].name}
-                title={LANG_INFO[a.lang].name}
+                href={others[0].url}
+                hreflang={LANG_INFO[others[0].lang].htmlLang}
+                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-xs font-semibold p-2.5 inline-flex items-center tracking-wide uppercase"
+                aria-label={LANG_INFO[others[0].lang].name}
+                title={LANG_INFO[others[0].lang].name}
               >
-                {a.lang}
+                {others[0].lang}
               </a>
-            ))
+            ) : (
+              <details class="relative">
+                <summary
+                  class="list-none cursor-pointer text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-xs font-semibold p-2.5 inline-flex items-center gap-1 tracking-wide uppercase"
+                  aria-label={LANG_INFO[currentLang].name}
+                >
+                  <Icon name="tabler:world" class="w-5 h-5" />
+                  {currentLang}
+                </summary>
+                <ul class="absolute end-0 bottom-full md:bottom-auto md:top-full mt-1 mb-1 z-50 min-w-44 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow-lg py-1 text-sm">
+                  {others.map((a) => (
+                    <li>
+                      <a
+                        href={a.url}
+                        hreflang={LANG_INFO[a.lang].htmlLang}
+                        lang={LANG_INFO[a.lang].htmlLang}
+                        dir={LANG_INFO[a.lang].dir}
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                      >
+                        {LANG_INFO[a.lang].name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            )
           }
           {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block" />}
           {

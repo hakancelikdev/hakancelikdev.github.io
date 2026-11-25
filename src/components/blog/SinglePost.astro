@@ -141,7 +141,7 @@ const showAds = !post.tags?.some((t) => t.slug === 'vakit');
         {
           hasHeadings && (
             <aside class="hidden lg:block w-[300px] flex-shrink-0 mt-8">
-              <TableOfContents headings={post.headings!} />
+              <TableOfContents headings={post.headings!} lang={post.lang} />
               {showAds && (
                 <div class="mt-6">
                   <AdUnit

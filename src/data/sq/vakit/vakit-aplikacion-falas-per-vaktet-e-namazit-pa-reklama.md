@@ -22,6 +22,20 @@ Vakit është një aplikacion që e ndërtova për vaktet e namazit dhe ezanin �
   <a class="inline-block rounded-full bg-primary text-white px-5 py-2 font-semibold text-center" href="https://play.google.com/store/apps/details?id=com.hakancelikdev.vakit&referrer=utm_source%3Dvakit-site%26utm_medium%3Dweb%26utm_campaign%3Dblog-vakit-sq-top">Google Play</a>
 </div>
 
+## Si filloi Vakit
+
+Letra që i pret të gjithë kur e hapin aplikacionin për herë të parë tregon si filloi:
+
+> Esselamu alejkum, unë jam Hakani.
+>
+> Sa herë që më shihte, nëna ime më thoshte: "Më instalo në telefon një aplikacion për kohët e namazit." Çdo herë instaloja një tjetër, dhe asnjë nuk e kënaqte: reklama kur shihte kohën e namazit, ekrane abonimi kur lexonte Kuranin, llogari të detyrueshme…
+>
+> Kështu nisi Vakit: desha që të ishte ashtu si duhet të jetë një aplikacion ibadeti. E zhvilloj vetëm prej 1 viti 4 muajsh, duke dëgjuar çdo koment. Nuk vendosa reklama, nuk kyça asnjë funksion dhe nuk të pyes kush je. Për tani shpenzimet i mbuloj vetë.
+>
+> E bëj këtë me qëllimin të jem ndër "ata që besuan dhe bënë vepra të mira…" (El-Bekare, 277). Ibadeti është e drejtë e gjithkujt, dhe ndihmësi i tij duhet të jetë po ashtu. Nëse Vakit të vlen edhe ty, mund të ndihmosh ta mbash gjallë duke e mbështetur sa të duash.
+>
+> — Hakan
+
 ## Pse edhe një aplikacion namazi?
 
 Aplikacione namazi ka me qindra. E megjithatë, pothuajse në të gjitha ndeshesha vazhdimisht me të njëjtat probleme:

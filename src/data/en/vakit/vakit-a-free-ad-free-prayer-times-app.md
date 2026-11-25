@@ -22,6 +22,20 @@ Vakit is an app I built for prayer times and the adhan — with the Quran, the Q
   <a class="inline-block rounded-full bg-primary text-white px-5 py-2 font-semibold text-center" href="https://play.google.com/store/apps/details?id=com.hakancelikdev.vakit&referrer=utm_source%3Dvakit-site%26utm_medium%3Dweb%26utm_campaign%3Dblog-vakit-en-top">Google Play</a>
 </div>
 
+## How Vakit started
+
+The letter that greets everyone who opens the app for the first time tells how it began:
+
+> Assalamu alaikum, I'm Hakan.
+>
+> Every time my mother saw me, she would say, "Install a prayer times app on my phone." Each time I installed a different one, and she was never happy with any of them: ads while checking prayer times, subscription screens while reading the Quran, mandatory accounts…
+>
+> That's how Vakit began; I wanted it to be what a worship app should be. I've been building it alone for 1 year 4 months, listening to every piece of feedback. I haven't added ads, I haven't locked any feature, and I don't ask who you are. For now, I cover the costs myself.
+>
+> I do this with the intention of being among "those who believe and do good deeds…" (Al-Baqarah 2:277). Worship is everyone's right, and so should be its companion. If Vakit is useful to you too, you can share in keeping it alive by supporting it as much as you like.
+>
+> — Hakan
+
 ## Why another prayer app?
 
 There are hundreds of prayer apps. Yet in almost all of them I kept running into the same problems:

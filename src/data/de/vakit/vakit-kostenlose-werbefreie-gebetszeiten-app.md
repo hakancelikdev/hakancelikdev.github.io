@@ -22,6 +22,20 @@ Vakit ist eine App, die ich für Gebetszeiten und den Adhan gebaut habe – mit 
   <a class="inline-block rounded-full bg-primary text-white px-5 py-2 font-semibold text-center" href="https://play.google.com/store/apps/details?id=com.hakancelikdev.vakit&referrer=utm_source%3Dvakit-site%26utm_medium%3Dweb%26utm_campaign%3Dblog-vakit-de-top">Google Play</a>
 </div>
 
+## Wie Vakit begann
+
+Der Brief, der alle beim ersten Öffnen der App begrüßt, erzählt, wie es angefangen hat:
+
+> Assalamu alaikum, ich bin Hakan.
+>
+> Jedes Mal, wenn meine Mutter mich sah, sagte sie: "Installier mir eine Gebetszeiten-App." Jedes Mal installierte ich eine andere, und mit keiner war sie zufrieden: Werbung beim Blick auf die Gebetszeit, Abo-Bildschirme beim Lesen des Korans, Pflichtkonten …
+>
+> So begann Vakit: Ich wollte, dass es so ist, wie eine Gebets-App sein sollte. Ich entwickle es seit 1 Jahr 4 Monaten allein und höre auf jede Rückmeldung. Ich habe keine Werbung eingebaut, keine Funktion gesperrt, und ich frage nicht, wer du bist. Die Kosten trage ich vorerst selbst.
+>
+> Ich tue das mit der Absicht, zu denen zu gehören, die "glauben und das Rechte tun …" (Al-Baqara 2:277). Gottesdienst ist das Recht aller, und sein Begleiter sollte es auch sein. Wenn Vakit auch dir nützt, kannst du mit einer Unterstützung, so viel du möchtest, dazu beitragen, dass es weiterlebt.
+>
+> — Hakan
+
 ## Warum noch eine Gebets-App?
 
 Es gibt Hunderte Gebets-Apps. Und doch bin ich in fast allen auf dieselben Probleme gestoßen:

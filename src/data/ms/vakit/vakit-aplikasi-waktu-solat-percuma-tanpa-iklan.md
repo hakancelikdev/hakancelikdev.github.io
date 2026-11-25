@@ -22,6 +22,20 @@ Vakit ialah aplikasi yang saya bina untuk waktu solat dan azan — bersama Al-Qu
   <a class="inline-block rounded-full bg-primary text-white px-5 py-2 font-semibold text-center" href="https://play.google.com/store/apps/details?id=com.hakancelikdev.vakit&referrer=utm_source%3Dvakit-site%26utm_medium%3Dweb%26utm_campaign%3Dblog-vakit-ms-top">Google Play</a>
 </div>
 
+## Bagaimana Vakit bermula
+
+Surat yang menyambut setiap orang ketika kali pertama membuka aplikasi ini menceritakan bagaimana ia bermula:
+
+> Assalamualaikum, saya Hakan.
+>
+> Setiap kali ibu saya melihat saya, dia akan berkata, "Pasangkan aplikasi waktu solat di telefon saya." Setiap kali saya pasang yang berbeza, dan tiada satu pun yang memuaskannya: iklan ketika melihat waktu solat, skrin langganan ketika membaca al-Quran, akaun wajib…
+>
+> Begitulah Vakit bermula: saya mahu ia menjadi aplikasi ibadah sebagaimana sepatutnya. Saya membangunkannya seorang diri 1 tahun 4 bulan, mendengar setiap maklum balas. Saya tidak meletakkan iklan, tidak mengunci sebarang ciri, dan tidak bertanya siapa anda. Buat masa ini, kosnya saya tanggung sendiri.
+>
+> Saya melakukannya dengan niat menjadi antara "orang-orang yang beriman dan beramal soleh…" (Al-Baqarah: 277). Ibadah ialah hak semua orang, begitu juga pembantunya. Jika Vakit turut bermanfaat kepada anda, anda boleh membantu memastikannya terus hidup dengan menyokongnya sebanyak yang anda mahu.
+>
+> — Hakan
+
 ## Mengapa satu lagi aplikasi solat?
 
 Aplikasi solat ada beratus-ratus. Namun dalam hampir semuanya, saya terus berdepan dengan masalah yang sama:

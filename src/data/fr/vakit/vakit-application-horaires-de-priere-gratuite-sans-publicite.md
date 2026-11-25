@@ -22,6 +22,20 @@ Vakit est une application que j'ai créée pour les horaires de prière et l'adh
   <a class="inline-block rounded-full bg-primary text-white px-5 py-2 font-semibold text-center" href="https://play.google.com/store/apps/details?id=com.hakancelikdev.vakit&referrer=utm_source%3Dvakit-site%26utm_medium%3Dweb%26utm_campaign%3Dblog-vakit-fr-top">Google Play</a>
 </div>
 
+## Comment Vakit est né
+
+La lettre qui accueille chacun à la première ouverture de l'app raconte comment tout a commencé :
+
+> Assalamu alaykum, je suis Hakan.
+>
+> Chaque fois que ma mère me voyait, elle me disait : « Installe-moi une application d'heures de prière. » À chaque fois, j'en installais une autre, et aucune ne lui plaisait : des publicités en consultant l'heure de la prière, des écrans d'abonnement en lisant le Coran, des comptes obligatoires…
+>
+> C'est ainsi qu'est né Vakit : je voulais qu'il soit ce qu'une application d'adoration devrait être. Je le développe seul depuis 1 an 4 mois, à l'écoute de chaque retour. Je n'ai mis aucune publicité, je n'ai verrouillé aucune fonction et je ne te demande pas qui tu es. Pour l'instant, je couvre les frais moi-même.
+>
+> Je le fais avec l'intention d'être de « ceux qui ont la foi, ont fait de bonnes œuvres… » (Al-Baqara 2:277). L'adoration est le droit de chacun, et son compagnon devrait l'être aussi. Si Vakit t'est utile à toi aussi, tu peux contribuer à le faire vivre en le soutenant autant que tu le souhaites.
+>
+> — Hakan
+
 ## Pourquoi encore une application de prière ?
 
 Il existe des centaines d'applications de prière. Pourtant, dans presque toutes, je retombais sur les mêmes problèmes :

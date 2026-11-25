@@ -22,6 +22,20 @@ Vakit namaz vaxtları və azan üçün hazırladığım bir tətbiqdir — Quran
   <a class="inline-block rounded-full bg-primary text-white px-5 py-2 font-semibold text-center" href="https://play.google.com/store/apps/details?id=com.hakancelikdev.vakit&referrer=utm_source%3Dvakit-site%26utm_medium%3Dweb%26utm_campaign%3Dblog-vakit-az-top">Google Play</a>
 </div>
 
+## Vakit necə başladı
+
+Tətbiqi ilk dəfə açan hər kəsi qarşılayan məktub onun necə başladığını danışır:
+
+> Əssəlamu aleykum, mən Hakanam.
+>
+> Anam məni hər görəndə "telefonuma bir namaz vaxtı tətbiqi yüklə" deyirdi. Hər dəfə başqasını yükləyirdim, heç birindən razı qalmırdı: namaz vaxtına baxanda çıxan reklamlar, Quran oxuyanda açılan abunə ekranları, məcburi hesablar…
+>
+> Vakit belə başladı: ibadət tətbiqi necə olmalıdırsa, elə olmasını istədim. 1 il 4 aydır gələn hər rəyi dinləyərək onu təkbaşına hazırlayıram. Reklam qoymadım, heç bir funksiyanı kilidləmədim, kim olduğunuzu soruşmuram. Xərcləri hələlik özüm qarşılayıram.
+>
+> Bu işi "iman edib saleh əməllər işləyən…" (Bəqərə, 277) kimi olmaq niyyəti ilə görürəm. İbadət hamının haqqıdır; onun köməkçisi də elə olmalıdır. Vakit sizə də faydalıdırsa, istədiyiniz qədər dəstək olaraq onun yaşamasına ortaq ola bilərsiniz.
+>
+> — Hakan
+
 ## Niyə daha bir namaz tətbiqi?
 
 Yüzlərlə namaz tətbiqi var. Amma demək olar ki, hamısında eyni problemlərlə qarşılaşırdım:

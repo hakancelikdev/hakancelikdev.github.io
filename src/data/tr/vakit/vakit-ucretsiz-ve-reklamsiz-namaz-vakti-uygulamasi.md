@@ -22,6 +22,20 @@ Vakit, namaz vakitleri ve ezan için yaptığım bir uygulama: Kur'an, kıble, z
   <a class="inline-block rounded-full bg-primary text-white px-5 py-2 font-semibold text-center" href="https://play.google.com/store/apps/details?id=com.hakancelikdev.vakit&referrer=utm_source%3Dvakit-site%26utm_medium%3Dweb%26utm_campaign%3Dblog-vakit-tr-top">Google Play</a>
 </div>
 
+## Vakit nasıl başladı
+
+Uygulamayı ilk açan herkesi karşılayan mektup, Vakit'in nasıl başladığını anlatıyor:
+
+> Selamün aleyküm, ben Hakan.
+>
+> Annem beni her gördüğünde "telefonuma bir namaz vakti uygulaması yükle" derdi. Her seferinde başka birini yükledim, hiçbirinden memnun kalmadı: namaz vaktine bakarken çıkan reklamlar, Kur'an okurken açılan abonelik ekranları, zorunlu hesaplar…
+>
+> Vakit böyle başladı; ibadet uygulaması nasıl olmalıysa öyle olsun istedim. 1 yıl 4 aydır, gelen her geri bildirimi dinleyerek tek başıma geliştiriyorum. Reklam koymadım, hiçbir özelliği kilitlemedim, kimliğinizi sormuyorum. Giderleri şimdilik kendim karşılıyorum.
+>
+> Bu işi, "iman edip dünya ve âhiret için yararlı şeyler yapanlar…" (Bakara, 277) âyetindeki gibi olmaya niyet ederek yapıyorum. İbadet herkesin hakkı; yardımcısı da öyle olmalı. Vakit size de yararsa, dilediğiniz kadar destek olarak onun yaşamasına ortak olabilirsiniz.
+>
+> — Hakan
+
 ## Neden bir namaz uygulaması daha?
 
 Mağazada yüzlerce namaz uygulaması var. Ama hemen hepsinde aynı sorunlarla karşılaşıyordum:

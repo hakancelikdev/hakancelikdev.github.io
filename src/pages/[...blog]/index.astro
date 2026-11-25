@@ -31,16 +31,10 @@ const { prev: prevPost, next: nextPost } = await findAdjacentPosts(post);
 const seriesPosts = post.series ? await findPostsBySeries(post.series) : [];
 
 const postAuthor = post.author || 'Hakan Çelik';
-const postKeywords = [
-  ...(post.tags?.map((t) => t.title) ?? []),
-  ...(post.category ? [post.category.title] : []),
-].join(', ') || undefined;
+const postKeywords =
+  [...(post.tags?.map((t) => t.title) ?? []), ...(post.category ? [post.category.title] : [])].join(', ') || undefined;
 
-const imageUrl = image
-  ? typeof image === 'string'
-    ? image
-    : (image as ImageMetadata).src
-  : undefined;
+const imageUrl = image ? (typeof image === 'string' ? image : (image as ImageMetadata).src) : undefined;
 
 const absoluteImageUrl = imageUrl
   ? imageUrl.startsWith('http')
@@ -102,7 +96,7 @@ const metadata = merge(
 ) as MetaData;
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} ads={!post.tags?.some((t) => t.slug === 'vakit')}>
   <Fragment slot="head">
     <JsonLd schema={blogPostingSchema} />
     <meta property="article:published_time" content={post.publishDate.toISOString()} />
@@ -111,7 +105,13 @@ const metadata = merge(
     {post.category && <meta property="article:section" content={post.category.title} />}
     {post.tags?.map((tag) => <meta property="article:tag" content={tag.title} />)}
   </Fragment>
-  <SinglePost post={{ ...post, image: image }} url={url} prevPost={prevPost} nextPost={nextPost} seriesPosts={seriesPosts}>
+  <SinglePost
+    post={{ ...post, image: image }}
+    url={url}
+    prevPost={prevPost}
+    nextPost={nextPost}
+    seriesPosts={seriesPosts}
+  >
     {post.Content ? <post.Content /> : <Fragment set:html={post.content || ''} />}
   </SinglePost>
   <ToBlogLink />

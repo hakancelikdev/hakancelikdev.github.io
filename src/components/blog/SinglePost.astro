@@ -26,21 +26,17 @@ const { post, url, prevPost, nextPost, seriesPosts = [] } = Astro.props;
 
 const hasHeadings = Array.isArray(post.headings) && post.headings.length > 0;
 const hasSeries = seriesPosts.length > 1;
+// Posts about Vakit carry no ads: the app's own promise is "completely ad-free".
+const showAds = !post.tags?.some((t) => t.slug === 'vakit');
 ---
 
 <!-- Reading progress bar -->
-<div
-  id="reading-progress"
-  class="fixed top-0 left-0 z-50 h-0.5 bg-primary transition-none w-0"
-  aria-hidden="true"
->
+<div id="reading-progress" class="fixed top-0 left-0 z-50 h-0.5 bg-primary transition-none w-0" aria-hidden="true">
 </div>
 
 <section class="py-8 sm:py-16 lg:py-20 mx-auto">
   <article>
-    <header
-      class="intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-    >
+    <header class="intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
       <div class="flex justify-between flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
         <p class="text-sm text-muted dark:text-stone-400">
           <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400" />
@@ -115,9 +111,13 @@ const hasSeries = seriesPosts.length > 1;
     </header>
 
     <!-- Yazı üstü reklam -->
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 my-4">
-      <AdUnit slot="8160654092" />
-    </div>
+    {
+      showAds && (
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 my-4">
+          <AdUnit slot="8160654092" />
+        </div>
+      )
+    }
 
     <!-- Series navigation -->
     {hasSeries && <SeriesNavigation post={post} seriesPosts={seriesPosts} />}
@@ -138,14 +138,16 @@ const hasSeries = seriesPosts.length > 1;
           hasHeadings && (
             <aside class="hidden lg:block w-[300px] flex-shrink-0 mt-8">
               <TableOfContents headings={post.headings!} />
-              <div class="mt-6">
-                <AdUnit
-                  slot="1576950942"
-                  style="display:inline-block;width:300px;height:250px"
-                  format=""
-                  fullWidthResponsive={false}
-                />
-              </div>
+              {showAds && (
+                <div class="mt-6">
+                  <AdUnit
+                    slot="1576950942"
+                    style="display:inline-block;width:300px;height:250px"
+                    format=""
+                    fullWidthResponsive={false}
+                  />
+                </div>
+              )}
             </aside>
           )
         }
@@ -159,9 +161,13 @@ const hasSeries = seriesPosts.length > 1;
     </div>
 
     <!-- Yazı altı reklam -->
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 my-8">
-      <AdUnit slot="8160654092" />
-    </div>
+    {
+      showAds && (
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 my-8">
+          <AdUnit slot="8160654092" />
+        </div>
+      )
+    }
 
     <!-- Prev / Next navigation -->
     <PostNavigation prevPost={prevPost} nextPost={nextPost} />

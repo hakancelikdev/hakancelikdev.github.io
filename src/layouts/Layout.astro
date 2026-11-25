@@ -21,9 +21,11 @@ import { getLangFromUrl, getAlternateUrl } from '~/utils/i18n';
 
 export interface Props {
   metadata?: MetaDataType;
+  /** false: no AdSense script at all (no auto ads either). */
+  ads?: boolean;
 }
 
-const { metadata = {} } = Astro.props;
+const { metadata = {}, ads = true } = Astro.props;
 const { textDirection } = I18N;
 
 const pageLang = getLangFromUrl(Astro.url);
@@ -35,22 +37,29 @@ const canonicalUrl = String(Astro.url);
 <!doctype html>
 <html lang={pageLang} dir={textDirection} class="2xl:text-[20px]">
   <head>
-    <CommonMeta />
+    <CommonMeta ads={ads} />
     <Favicons />
     <CustomStyles />
     <ApplyColorMode />
     <Metadata {...metadata} openGraph={{ locale: pageLang === 'en' ? 'en_US' : 'tr_TR', ...metadata.openGraph }} />
     <link rel="alternate" hreflang={pageLang} href={canonicalUrl} />
     <link rel="alternate" hreflang={alternateLang} href={new URL(alternateUrl, Astro.site).toString()} />
-    <link rel="alternate" hreflang="x-default" href={pageLang === 'tr' ? canonicalUrl : new URL(alternateUrl, Astro.site).toString()} />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={pageLang === 'tr' ? canonicalUrl : new URL(alternateUrl, Astro.site).toString()}
+    />
     <SiteVerification />
     <Analytics />
-    <AdSense />
+    {ads && <AdSense />}
 
     <!-- RSS autodiscovery -->
-    {pageLang === 'en'
-      ? <link rel="alternate" type="application/rss+xml" title="Hakan Çelik — Blog (EN)" href="/en/rss.xml" />
-      : <link rel="alternate" type="application/rss+xml" title="Hakan Çelik — Blog" href="/rss.xml" />
+    {
+      pageLang === 'en' ? (
+        <link rel="alternate" type="application/rss+xml" title="Hakan Çelik — Blog (EN)" href="/en/rss.xml" />
+      ) : (
+        <link rel="alternate" type="application/rss+xml" title="Hakan Çelik — Blog" href="/rss.xml" />
+      )
     }
 
     <!-- Page-specific head elements (JSON-LD, article meta, etc.) -->
@@ -62,22 +71,30 @@ const canonicalUrl = String(Astro.url);
 
   <body class="antialiased text-default bg-page tracking-tight">
     <!-- Progress bar -->
-    <div id="scroll-progress" class="fixed top-0 left-0 w-0 h-1 bg-primary z-[9999] transition-all duration-150 ease-out"></div>
+    <div
+      id="scroll-progress"
+      class="fixed top-0 left-0 w-0 h-1 bg-primary z-[9999] transition-all duration-150 ease-out"
+    >
+    </div>
 
     <slot />
 
     <BasicScripts />
 
     <script is:inline>
-      document.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        const progress = document.getElementById('scroll-progress');
-        if (progress) {
-          progress.style.width = scrolled + '%';
-        }
-      }, { passive: true });
+      document.addEventListener(
+        'scroll',
+        () => {
+          const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+          const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const scrolled = (winScroll / height) * 100;
+          const progress = document.getElementById('scroll-progress');
+          if (progress) {
+            progress.style.width = scrolled + '%';
+          }
+        },
+        { passive: true }
+      );
     </script>
   </body>
 </html>

@@ -11,13 +11,14 @@ import type { MetaData } from '~/types';
 
 export interface Props {
   metadata?: MetaData;
+  ads?: boolean;
 }
 
-const { metadata } = Astro.props;
+const { metadata, ads = true } = Astro.props;
 const pageLang = getLangFromUrl(Astro.url);
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} ads={ads}>
   <slot name="head" slot="head" />
   <slot name="announcement">
     <Announcement />

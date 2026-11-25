@@ -5,7 +5,7 @@ import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 import Button from '~/components/ui/Button.astro';
 import Search from '~/components/common/Search.astro';
-import { getAlternateUrl, getLangFromUrl } from '~/utils/i18n';
+import { getAlternateUrl, getLangFromUrl, LANG_INFO, type Alternate } from '~/utils/i18n';
 
 import { getHomePermalink } from '~/utils/permalinks';
 import { trimSlash, getAsset } from '~/utils/permalinks';
@@ -32,6 +32,8 @@ export interface Props {
   showToggleTheme?: boolean;
   showRssFeed?: boolean;
   position?: string;
+  /** Every language of this page (posts); default: the tr/en twin. */
+  alternates?: Alternate[];
 }
 
 const {
@@ -44,12 +46,15 @@ const {
   showToggleTheme = false,
   showRssFeed = false,
   position = 'center',
+  alternates,
 } = Astro.props;
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 const currentLang = getLangFromUrl(Astro.url);
-const alternateUrl = getAlternateUrl(Astro.url);
-const alternateLang = currentLang === 'tr' ? 'EN' : 'TR';
+// Without a real twin, the switch goes to the other language's home page.
+const otherLang = currentLang === 'tr' ? 'en' : 'tr';
+const fallback = [{ lang: otherLang, url: getAlternateUrl(Astro.url) ?? (otherLang === 'en' ? '/en' : '/') }];
+const others = (alternates ?? fallback).filter((a) => a.lang !== currentLang);
 ---
 
 <header
@@ -143,14 +148,19 @@ const alternateLang = currentLang === 'tr' ? 'EN' : 'TR';
       <div class="items-center flex justify-between w-full md:w-auto">
         <div class="flex items-center">
           <Search />
-          <a
-            href={alternateUrl}
-            class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-xs font-semibold p-2.5 inline-flex items-center tracking-wide"
-            aria-label={`Switch to ${alternateLang}`}
-            title={`Switch to ${alternateLang}`}
-          >
-            {alternateLang}
-          </a>
+          {
+            others.map((a) => (
+              <a
+                href={a.url}
+                hreflang={LANG_INFO[a.lang].htmlLang}
+                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-xs font-semibold p-2 inline-flex items-center tracking-wide uppercase"
+                aria-label={LANG_INFO[a.lang].name}
+                title={LANG_INFO[a.lang].name}
+              >
+                {a.lang}
+              </a>
+            ))
+          }
           {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block" />}
           {
             showRssFeed && (

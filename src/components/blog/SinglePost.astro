@@ -10,7 +10,7 @@ import SeriesNavigation from '~/components/blog/SeriesNavigation.astro';
 import TableOfContents from '~/components/blog/TableOfContents.astro';
 
 import { getPermalink } from '~/utils/permalinks';
-import { getFormattedDate } from '~/utils/utils';
+import { formatDate, useTranslations } from '~/utils/i18n';
 
 import type { Post } from '~/types';
 
@@ -40,7 +40,8 @@ const showAds = !post.tags?.some((t) => t.slug === 'vakit');
       <div class="flex justify-between flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
         <p class="text-sm text-muted dark:text-stone-400">
           <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400" />
-          <time datetime={String(post.publishDate)} class="inline-block">{getFormattedDate(post.publishDate)}</time>
+          <time datetime={String(post.publishDate)} class="inline-block">{formatDate(post.publishDate, post.lang)}</time
+          >
           {
             post.author && (
               <>
@@ -76,7 +77,10 @@ const showAds = !post.tags?.some((t) => t.slug === 'vakit');
             post.readingTime && (
               <>
                 {' '}
-                · <span>{post.readingTime} dk okuma</span>
+                ·{' '}
+                <span>
+                  {post.readingTime} {useTranslations(post.lang)('blog.readingTime')}
+                </span>
               </>
             )
           }

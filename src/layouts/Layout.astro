@@ -1,8 +1,6 @@
 ---
 import '~/assets/styles/tailwind.css';
 
-import { I18N } from 'astrowind:config';
-
 import CommonMeta from '~/components/common/CommonMeta.astro';
 import Favicons from '~/components/Favicons.astro';
 import CustomStyles from '~/components/CustomStyles.astro';
@@ -17,45 +15,51 @@ import BasicScripts from '~/components/common/BasicScripts.astro';
 import { ClientRouter } from 'astro:transitions';
 
 import type { MetaData as MetaDataType } from '~/types';
-import { getLangFromUrl, getAlternateUrl } from '~/utils/i18n';
+import { getLangFromUrl, getAlternateUrl, LANG_INFO, type Alternate } from '~/utils/i18n';
 
 export interface Props {
   metadata?: MetaDataType;
   /** false: no AdSense script at all (no auto ads either). */
   ads?: boolean;
+  /** Every language of this page, itself included (posts: findTranslations). Default: the tr/en twin. */
+  alternates?: Alternate[];
 }
 
-const { metadata = {}, ads = true } = Astro.props;
-const { textDirection } = I18N;
-
 const pageLang = getLangFromUrl(Astro.url);
-const alternateUrl = getAlternateUrl(Astro.url);
-const alternateLang = pageLang === 'tr' ? 'en' : 'tr';
-const canonicalUrl = String(Astro.url);
+const twin = getAlternateUrl(Astro.url);
+const {
+  metadata = {},
+  ads = true,
+  alternates = [
+    { lang: pageLang, url: Astro.url.pathname },
+    ...(twin ? [{ lang: pageLang === 'tr' ? 'en' : 'tr', url: twin }] : []),
+  ],
+} = Astro.props;
+const textDirection = LANG_INFO[pageLang].dir;
+const xDefault = alternates.find((a) => a.lang === 'en') ?? alternates.find((a) => a.lang === 'tr') ?? alternates[0];
 ---
 
 <!doctype html>
-<html lang={pageLang} dir={textDirection} class="2xl:text-[20px]">
+<html lang={LANG_INFO[pageLang].htmlLang} dir={textDirection} class="2xl:text-[20px]">
   <head>
     <CommonMeta ads={ads} />
     <Favicons />
     <CustomStyles />
     <ApplyColorMode />
-    <Metadata {...metadata} openGraph={{ locale: pageLang === 'en' ? 'en_US' : 'tr_TR', ...metadata.openGraph }} />
-    <link rel="alternate" hreflang={pageLang} href={canonicalUrl} />
-    <link rel="alternate" hreflang={alternateLang} href={new URL(alternateUrl, Astro.site).toString()} />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href={pageLang === 'tr' ? canonicalUrl : new URL(alternateUrl, Astro.site).toString()}
-    />
+    <Metadata {...metadata} openGraph={{ locale: LANG_INFO[pageLang].og, ...metadata.openGraph }} />
+    {
+      alternates.map((a) => (
+        <link rel="alternate" hreflang={LANG_INFO[a.lang].htmlLang} href={new URL(a.url, Astro.site).toString()} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={new URL(xDefault.url, Astro.site).toString()} />
     <SiteVerification />
     <Analytics />
     {ads && <AdSense />}
 
     <!-- RSS autodiscovery -->
     {
-      pageLang === 'en' ? (
+      pageLang !== 'tr' ? (
         <link rel="alternate" type="application/rss+xml" title="Hakan Çelik — Blog (EN)" href="/en/rss.xml" />
       ) : (
         <link rel="alternate" type="application/rss+xml" title="Hakan Çelik — Blog" href="/rss.xml" />

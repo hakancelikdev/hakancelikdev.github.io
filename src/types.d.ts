@@ -6,7 +6,8 @@ export interface Post {
   id: string;
 
   /** Language of the post: tr (Turkish) or en (English) */
-  lang: 'tr' | 'en';
+  lang: import('~/utils/i18n').Lang;
+  translationKey?: string;
 
   /** A post's unique slug – part of the post's URL based on its name, i.e. a post called "My Sample Page" has a slug "my-sample-page". */
   slug: string;

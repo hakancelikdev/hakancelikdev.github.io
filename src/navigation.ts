@@ -1,7 +1,9 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
-import type { Lang } from './utils/i18n';
+import { siteLang, type Lang } from './utils/i18n';
 
-export const getHeaderData = (lang: Lang = 'tr') => ({
+export const getHeaderData = (pageLang: Lang = 'tr') => buildHeaderData(siteLang(pageLang));
+
+const buildHeaderData = (lang: 'tr' | 'en') => ({
   links: [
     {
       text: lang === 'en' ? 'Projects' : 'Projeler',
@@ -30,7 +32,9 @@ export const getHeaderData = (lang: Lang = 'tr') => ({
   ],
 });
 
-export const getFooterData = (lang: Lang = 'tr') => ({
+export const getFooterData = (pageLang: Lang = 'tr') => buildFooterData(siteLang(pageLang));
+
+const buildFooterData = (lang: 'tr' | 'en') => ({
   links: [
     {
       title: lang === 'en' ? 'Python Tools' : 'Python Araçları',
@@ -59,15 +63,24 @@ export const getFooterData = (lang: Lang = 'tr') => ({
     {
       title: lang === 'en' ? 'Other' : 'Diğer',
       links: [
-        { text: lang === 'en' ? 'About' : 'Hakkımda', href: lang === 'en' ? getPermalink('/en/about') : getPermalink('/about') },
+        {
+          text: lang === 'en' ? 'About' : 'Hakkımda',
+          href: lang === 'en' ? getPermalink('/en/about') : getPermalink('/about'),
+        },
         { text: lang === 'en' ? 'Contact' : 'İletişim', href: 'mailto:hakancelikdev@gmail.com' },
         { text: 'GitHub', href: 'https://github.com/hakancelikdev' },
       ],
     },
   ],
   secondaryLinks: [
-    { text: lang === 'en' ? 'Privacy' : 'Gizlilik', href: lang === 'en' ? getPermalink('/en/privacy') : getPermalink('/privacy') },
-    { text: lang === 'en' ? 'Terms' : 'Kullanım Koşulları', href: lang === 'en' ? getPermalink('/en/terms') : getPermalink('/terms') },
+    {
+      text: lang === 'en' ? 'Privacy' : 'Gizlilik',
+      href: lang === 'en' ? getPermalink('/en/privacy') : getPermalink('/privacy'),
+    },
+    {
+      text: lang === 'en' ? 'Terms' : 'Kullanım Koşulları',
+      href: lang === 'en' ? getPermalink('/en/terms') : getPermalink('/terms'),
+    },
   ],
   socialLinks: [
     { ariaLabel: 'X / Twitter', icon: 'tabler:brand-x', href: 'https://twitter.com/hakancelikdev' },
@@ -77,9 +90,10 @@ export const getFooterData = (lang: Lang = 'tr') => ({
     { ariaLabel: lang === 'en' ? 'E-mail' : 'E-posta', icon: 'tabler:mail', href: 'mailto:hakancelikdev@gmail.com' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: lang === 'en' ? '/en/rss.xml' : getAsset('/rss.xml') },
   ],
-  footNote: lang === 'en'
-    ? `&copy; 2023 - ${new Date().getFullYear()} <a class="text-primary hover:underline" href="https://hakancelik.dev">Hakan Çelik</a>. All rights reserved.`
-    : `&copy; 2023 - ${new Date().getFullYear()} <a class="text-primary hover:underline" href="https://hakancelik.dev">Hakan Çelik</a>. Tüm hakları saklıdır.`,
+  footNote:
+    lang === 'en'
+      ? `&copy; 2023 - ${new Date().getFullYear()} <a class="text-primary hover:underline" href="https://hakancelik.dev">Hakan Çelik</a>. All rights reserved.`
+      : `&copy; 2023 - ${new Date().getFullYear()} <a class="text-primary hover:underline" href="https://hakancelik.dev">Hakan Çelik</a>. Tüm hakları saklıdır.`,
 });
 
 // Backwards-compatible aliases (default TR)

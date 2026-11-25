@@ -1,6 +1,7 @@
 ---
 publishDate: 2026-11-25T18:00:00Z
 author: Hakan Çelik
+translationKey: vakit-intro
 title: "Vakit: A Free, Ad-Free Prayer Times App — Why I Built It and What's Inside"
 excerpt: 'Prayer times, adhan, Qibla and the Quran — with no ads, no paywall, no account, and working offline. Why I built Vakit, how it differs from other prayer apps, and what it does.'
 category: Vakit

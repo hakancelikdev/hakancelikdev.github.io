@@ -8,23 +8,25 @@ import { getHeaderData, getFooterData } from '~/navigation';
 import { getLangFromUrl } from '~/utils/i18n';
 
 import type { MetaData } from '~/types';
+import type { Alternate } from '~/utils/i18n';
 
 export interface Props {
   metadata?: MetaData;
   ads?: boolean;
+  alternates?: Alternate[];
 }
 
-const { metadata, ads = true } = Astro.props;
+const { metadata, ads = true, alternates } = Astro.props;
 const pageLang = getLangFromUrl(Astro.url);
 ---
 
-<Layout metadata={metadata} ads={ads}>
+<Layout metadata={metadata} ads={ads} alternates={alternates}>
   <slot name="head" slot="head" />
   <slot name="announcement">
     <Announcement />
   </slot>
   <slot name="header">
-    <Header {...getHeaderData(pageLang)} isSticky showRssFeed showToggleTheme />
+    <Header {...getHeaderData(pageLang)} alternates={alternates} isSticky showRssFeed showToggleTheme />
   </slot>
   <main>
     <slot />

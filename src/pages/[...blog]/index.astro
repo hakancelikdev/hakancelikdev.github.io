@@ -9,7 +9,14 @@ import ToBlogLink from '~/components/blog/ToBlogLink.astro';
 import JsonLd from '~/components/common/JsonLd.astro';
 
 import { getCanonical, getPermalink } from '~/utils/permalinks';
-import { getStaticPathsBlogPost, blogPostRobots, findAdjacentPosts, findPostsBySeries } from '~/utils/blog';
+import {
+  getStaticPathsBlogPost,
+  blogPostRobots,
+  findAdjacentPosts,
+  findPostsBySeries,
+  findTranslations,
+} from '~/utils/blog';
+import { LANG_INFO } from '~/utils/i18n';
 import { findImage } from '~/utils/images';
 import type { MetaData } from '~/types';
 import RelatedPosts from '~/components/blog/RelatedPosts.astro';
@@ -29,6 +36,10 @@ const image = (await findImage(post.image)) as ImageMetadata | string | undefine
 
 const { prev: prevPost, next: nextPost } = await findAdjacentPosts(post);
 const seriesPosts = post.series ? await findPostsBySeries(post.series) : [];
+const alternates = [post, ...(await findTranslations(post))].map((p) => ({
+  lang: p.lang,
+  url: getPermalink(p.permalink, 'post'),
+}));
 
 const postAuthor = post.author || 'Hakan Çelik';
 const postKeywords =
@@ -69,7 +80,7 @@ const blogPostingSchema = {
     '@type': 'WebPage',
     '@id': String(url),
   },
-  inLanguage: post.lang === 'en' ? 'en-US' : 'tr-TR',
+  inLanguage: LANG_INFO[post.lang].htmlLang,
   ...(absoluteImageUrl ? { image: absoluteImageUrl } : {}),
   ...(post.category ? { articleSection: post.category.title } : {}),
   ...(post.tags?.length ? { keywords: post.tags.map((t) => t.title).join(', ') } : {}),
@@ -96,7 +107,7 @@ const metadata = merge(
 ) as MetaData;
 ---
 
-<Layout metadata={metadata} ads={!post.tags?.some((t) => t.slug === 'vakit')}>
+<Layout metadata={metadata} ads={!post.tags?.some((t) => t.slug === 'vakit')} alternates={alternates}>
   <Fragment slot="head">
     <JsonLd schema={blogPostingSchema} />
     <meta property="article:published_time" content={post.publishDate.toISOString()} />

@@ -65,6 +65,8 @@ const postCollection = defineCollection({
     author: z.string().optional(),
 
     series: z.string().optional(),
+    /** Same value on every translation of a post — links them (hreflang, language menu). */
+    translationKey: z.string().optional(),
     seriesIndex: z.number().optional(),
 
     metadata: metadataDefinition(),

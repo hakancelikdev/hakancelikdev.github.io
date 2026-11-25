@@ -1,6 +1,7 @@
 ---
 publishDate: 2026-10-30T09:33:00Z
 author: Hakan Çelik
+translationKey: vakit-voice-farm
 title: "Yapay Zeka Ses Çiftliği ile 17 Dilde Sesli Meal Üretimi Nasıl Yaptım"
 excerpt: "Tek bir bilgisayarda aylar sürecek 17 dilde 54 meallik ses üretimini, gönüllülerin bilgisayarlarından kurduğum bir ağa dağıttım. Mimari, kalite kontrolü ve güvenlik."
 category: Yapay Zeka

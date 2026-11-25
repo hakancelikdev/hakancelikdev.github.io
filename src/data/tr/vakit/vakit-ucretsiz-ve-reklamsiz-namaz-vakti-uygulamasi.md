@@ -1,6 +1,7 @@
 ---
 publishDate: 2026-11-25T18:00:00Z
 author: Hakan Çelik
+translationKey: vakit-intro
 title: 'Vakit: Ücretsiz ve Reklamsız Bir Namaz Vakti Uygulaması — Neden Yaptım, İçinde Ne Var'
 excerpt: "Namaz vakitleri, ezan, kıble ve Kur'an; reklamsız, paywall'sız, hesap istemeden ve internetsiz. Vakit'i neden yaptığımı, diğer uygulamalardan farkını ve içinde neler olduğunu anlatıyorum."
 category: Vakit

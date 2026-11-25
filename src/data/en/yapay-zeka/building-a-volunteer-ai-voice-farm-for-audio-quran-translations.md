@@ -1,6 +1,7 @@
 ---
 publishDate: 2026-10-30T09:33:00Z
 author: Hakan Çelik
+translationKey: vakit-voice-farm
 title: "How I Built a Volunteer AI Voice Farm to Narrate Quran Translations in 17 Languages"
 excerpt: "Generating 54 audio translations in 17 languages would take months on one machine. I spread the work across volunteers' computers. Here is the architecture, the quality checks, and the security model."
 category: AI

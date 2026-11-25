@@ -16,7 +16,7 @@ import {
   findPostsBySeries,
   findTranslations,
 } from '~/utils/blog';
-import { LANG_INFO } from '~/utils/i18n';
+import { LANG_INFO, LANGS } from '~/utils/i18n';
 import { findImage } from '~/utils/images';
 import type { MetaData } from '~/types';
 import RelatedPosts from '~/components/blog/RelatedPosts.astro';
@@ -36,10 +36,12 @@ const image = (await findImage(post.image)) as ImageMetadata | string | undefine
 
 const { prev: prevPost, next: nextPost } = await findAdjacentPosts(post);
 const seriesPosts = post.series ? await findPostsBySeries(post.series) : [];
-const alternates = [post, ...(await findTranslations(post))].map((p) => ({
-  lang: p.lang,
-  url: getPermalink(p.permalink, 'post'),
-}));
+const alternates = [post, ...(await findTranslations(post))]
+  .sort((a, b) => LANGS.indexOf(a.lang) - LANGS.indexOf(b.lang))
+  .map((p) => ({
+    lang: p.lang,
+    url: getPermalink(p.permalink, 'post'),
+  }));
 
 const postAuthor = post.author || 'Hakan Çelik';
 const postKeywords =

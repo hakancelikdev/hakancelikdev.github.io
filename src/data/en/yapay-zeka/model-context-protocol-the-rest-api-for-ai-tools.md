@@ -93,6 +93,7 @@ Three layers:
 An MCP server can expose three things:
 
 ### 1. Tools
+
 Functions the model can invoke. May have side effects.
 
 ```
@@ -105,6 +106,7 @@ send_email(to, subject, body)
 Same concept as [function calling](/ai-agents-models-that-use-tools-and-make-decisions) — wrapped in a standard protocol.
 
 ### 2. Resources
+
 Read-only data. Provides context to the model, like documents in [RAG](/what-is-rag-giving-ai-a-memory).
 
 ```
@@ -114,6 +116,7 @@ github://repos/user/repo/README.md
 ```
 
 ### 3. Prompts
+
 Reusable prompt templates. The host can surface these to users.
 
 ```
@@ -178,14 +181,14 @@ Save the file, restart Claude Desktop — Claude now has access to `get_weather`
 
 The ecosystem is growing fast. Servers from Anthropic and the community:
 
-| Server | What It Does |
-|--------|----------|
-| `@modelcontextprotocol/server-filesystem` | Local file read/write |
-| `@modelcontextprotocol/server-github` | Repos, issues, PRs |
-| `@modelcontextprotocol/server-postgres` | Database queries |
-| `@modelcontextprotocol/server-fetch` | Fetch web content |
-| `@modelcontextprotocol/server-memory` | Persistent knowledge storage |
-| `@modelcontextprotocol/server-brave-search` | Web search |
+| Server                                      | What It Does                 |
+| ------------------------------------------- | ---------------------------- |
+| `@modelcontextprotocol/server-filesystem`   | Local file read/write        |
+| `@modelcontextprotocol/server-github`       | Repos, issues, PRs           |
+| `@modelcontextprotocol/server-postgres`     | Database queries             |
+| `@modelcontextprotocol/server-fetch`        | Fetch web content            |
+| `@modelcontextprotocol/server-memory`       | Persistent knowledge storage |
+| `@modelcontextprotocol/server-brave-search` | Web search                   |
 
 Adding them to Claude Desktop is a one-line config:
 

@@ -182,5 +182,3 @@ site.register(Blogviews, ViewsAdmin)
 ```
 
 ## sonuç ?
-
-

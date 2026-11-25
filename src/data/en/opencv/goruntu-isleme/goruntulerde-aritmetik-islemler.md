@@ -78,7 +78,6 @@ cv2.destroyAllWindows()
 
 **result;**
 
-
 ## Bitwise Operations
 
 This includes bitwise **AND**, **OR**, **NOT**, and **XOR** operations. They will be

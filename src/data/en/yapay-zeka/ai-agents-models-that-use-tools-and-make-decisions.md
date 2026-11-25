@@ -56,6 +56,7 @@ Every AI agent has three core parts:
 ### 2. Tools
 
 Functions that do what the model alone can't:
+
 - Web search
 - Code execution
 - File read/write

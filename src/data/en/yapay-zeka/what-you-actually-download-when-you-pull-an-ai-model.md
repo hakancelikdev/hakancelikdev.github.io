@@ -54,12 +54,12 @@ Training Data + Architecture (source code)
   Model Weights (binary)
 ```
 
-| Traditional Software | AI Model |
-|---|---|
-| Source code (`.c`, `.go`) | Training data + architecture code |
-| Compiler (`gcc`, `rustc`) | Training loop (gradient descent) |
-| Binary / Executable | Model weights (`.gguf`, `.safetensors`) |
-| CPU/GPU instructions | Matrix multiplications, activation functions |
+| Traditional Software      | AI Model                                     |
+| ------------------------- | -------------------------------------------- |
+| Source code (`.c`, `.go`) | Training data + architecture code            |
+| Compiler (`gcc`, `rustc`) | Training loop (gradient descent)             |
+| Binary / Executable       | Model weights (`.gguf`, `.safetensors`)      |
+| CPU/GPU instructions      | Matrix multiplications, activation functions |
 
 **Training a model is compiling it.** And what's left when training finishes — all those billions of parameters — is the compiled binary.
 

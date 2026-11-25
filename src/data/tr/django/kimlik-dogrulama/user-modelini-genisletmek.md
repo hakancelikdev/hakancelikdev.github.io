@@ -177,8 +177,8 @@ Burada tema içinde **request.user.userprofile.pp** bu kod ile gelen kullanıcı
 resmini gösterdik False ise klasik resmi gösterdik
 
 ```markup
-takip   
-takipçi  
+takip
+takipçi
 ```
 
 ### Signals

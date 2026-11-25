@@ -93,6 +93,7 @@ Bir araç MCP server olarak yazıldığında — Claude Desktop, Claude Code, Cu
 MCP server üç şeyi expose edebilir:
 
 ### 1. Tools (Araçlar)
+
 Model'in çağırabileceği fonksiyonlar. Yan etkileri olabilir.
 
 ```
@@ -105,6 +106,7 @@ send_email(to, subject, body)
 [Function calling](/ai-agents-arac-kullanan-ve-karar-veren-yapay-zeka) ile aynı kavram — sadece standart bir protokolle sarmalanmış.
 
 ### 2. Resources (Kaynaklar)
+
 Salt okunur veri. Model'e bağlam sağlar, [RAG](/rag-nedir-retrieval-augmented-generation)'taki döküman gibi.
 
 ```
@@ -114,6 +116,7 @@ github://repos/hakancelik/unimport/README.md
 ```
 
 ### 3. Prompts (Şablonlar)
+
 Yeniden kullanılabilir prompt şablonları. Host bunları kullanıcıya sunabilir.
 
 ```
@@ -178,14 +181,14 @@ Kaydedip Claude Desktop'ı yeniden başlatınca, Claude artık `get_weather` ara
 
 Ekosistem hızla büyüyor. Anthropic ve topluluk tarafından yazılmış server'lar:
 
-| Server | Ne Yapar |
-|--------|----------|
-| `@modelcontextprotocol/server-filesystem` | Yerel dosya okuma/yazma |
-| `@modelcontextprotocol/server-github` | Repo, issue, PR yönetimi |
-| `@modelcontextprotocol/server-postgres` | Veritabanı sorguları |
-| `@modelcontextprotocol/server-fetch` | Web içeriği çekme |
-| `@modelcontextprotocol/server-memory` | Kalıcı bilgi saklama |
-| `@modelcontextprotocol/server-brave-search` | Web araması |
+| Server                                      | Ne Yapar                 |
+| ------------------------------------------- | ------------------------ |
+| `@modelcontextprotocol/server-filesystem`   | Yerel dosya okuma/yazma  |
+| `@modelcontextprotocol/server-github`       | Repo, issue, PR yönetimi |
+| `@modelcontextprotocol/server-postgres`     | Veritabanı sorguları     |
+| `@modelcontextprotocol/server-fetch`        | Web içeriği çekme        |
+| `@modelcontextprotocol/server-memory`       | Kalıcı bilgi saklama     |
+| `@modelcontextprotocol/server-brave-search` | Web araması              |
 
 Bunları Claude Desktop'a eklemek bir config satırı:
 

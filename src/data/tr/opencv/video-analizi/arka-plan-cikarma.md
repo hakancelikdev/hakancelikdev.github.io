@@ -28,6 +28,7 @@ Bu bölümde:
 Arka plan çıkarma, video gözetlemesinde yaygın ve kritik bir görevdir. Çoğu zaman hareketli nesnelerin olduğunu bildirmeniz gerekir. Genellikle, statik kamerayla alınan bir videonun arka planı sabittir. Bu nedenle arka plan modelini tahmin etmek ve ardından gelen kareleri bu arka plan modeline kıyasla kontrol ederek hareketli nesneleri tespit etmek mantıklıdır.
 
 Arka plan modelini oluşturmak kolay değildir:
+
 - Aydınlatma değişimleri
 - Gölgeler
 - Arka plan nesnelerinin hareketi (yavaş hareket eden nesneler, yapraklar vs.)

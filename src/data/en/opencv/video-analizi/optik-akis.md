@@ -29,6 +29,7 @@ In this chapter,
 Optical flow is the pattern of apparent motion of image objects between two consecutive frames caused by the movement of object or camera.
 
 It assumes:
+
 1. Pixel intensities do not change between consecutive frames.
 2. Neighbouring pixels have similar motion (neighbourhood constraint).
 

@@ -35,78 +35,94 @@ const {
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
     <div class="py-20 md:py-32 lg:py-40">
-
       <!-- Tagline pill: More industrial look -->
-      {tagline && (
-        <div class="mb-10 hero-item" style="--delay: 0s">
-          <span class="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.2em] uppercase text-primary border-l-2 border-primary bg-primary/[0.04] px-4 py-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block shrink-0 animate-pulse"></span>
-            <span set:html={tagline} />
-          </span>
-        </div>
-      )}
+      {
+        tagline && (
+          <div class="mb-10 hero-item" style="--delay: 0s">
+            <span class="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.2em] uppercase text-primary border-l-2 border-primary bg-primary/[0.04] px-4 py-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block shrink-0 animate-pulse" />
+              <span set:html={tagline} />
+            </span>
+          </div>
+        )
+      }
 
       <!-- Main heading: Dramatic scale -->
-      {title && (
-        <h1
-          class="font-heading text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] font-bold leading-[0.95] tracking-tighter mb-8 dark:text-white hero-item"
-          style="--delay: 0.1s; font-variation-settings: 'opsz' 144, 'wght' 800;"
-          set:html={title}
-        />
-      )}
+      {
+        title && (
+          <h1
+            class="font-heading text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] font-bold leading-[0.95] tracking-tighter mb-8 dark:text-white hero-item"
+            style="--delay: 0.1s; font-variation-settings: 'opsz' 144, 'wght' 800;"
+            set:html={title}
+          />
+        )
+      }
 
       <div class="flex flex-col md:flex-row gap-8 md:gap-16 items-start hero-item" style="--delay: 0.2s">
         <!-- Accent rule: Vertical in MD+ for asymmetry -->
-        {title && (
-          <div class="hidden md:block w-px h-32 bg-primary/30 shrink-0 mt-2"></div>
-        )}
-        
+        {title && <div class="hidden md:block w-px h-32 bg-primary/30 shrink-0 mt-2" />}
+
         <div class="max-w-2xl">
           <!-- Subtitle -->
-          {subtitle && (
-            <div class="mb-10">
-              <p class="text-xl md:text-2xl text-muted leading-relaxed font-light italic serif" set:html={subtitle} />
-            </div>
-          )}
+          {
+            subtitle && (
+              <div class="mb-10">
+                <p class="text-xl md:text-2xl text-muted leading-relaxed font-light italic serif" set:html={subtitle} />
+              </div>
+            )
+          }
 
           <!-- CTA buttons -->
-          {actions && (
-            <div class="flex flex-wrap gap-4">
-              {Array.isArray(actions) ? (
-                actions.map((action) => (
-                  <Button {...(action || {})} class="rounded-none border-2 hover:bg-primary hover:text-white transition-all duration-300" />
-                ) )
-              ) : (
-                <Fragment set:html={actions} />
-              )}
-            </div>
-          )}
+          {
+            actions && (
+              <div class="flex flex-wrap gap-4">
+                {Array.isArray(actions) ? (
+                  actions.map((action) => (
+                    <Button
+                      {...(action || {})}
+                      class="rounded-none border-2 hover:bg-primary hover:text-white transition-all duration-300"
+                    />
+                  ))
+                ) : (
+                  <Fragment set:html={actions} />
+                )}
+              </div>
+            )
+          }
         </div>
       </div>
 
-      {content && <div class="mt-12 hero-item" style="--delay: 0.3s"><Fragment set:html={content} /></div>}
+      {
+        content && (
+          <div class="mt-12 hero-item" style="--delay: 0.3s">
+            <Fragment set:html={content} />
+          </div>
+        )
+      }
     </div>
 
     <!-- Optional image: Refined shadow and border -->
-    {image && (
-      <div class="intersect-once intersect-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
-        <div class="relative max-w-5xl mx-auto mb-20 shadow-2xl shadow-primary/10 border border-primary/10">
-          {typeof image === 'string' ? (
-            <Fragment set:html={image} />
-          ) : (
-            <Image
-              class="mx-auto w-full"
-              widths={[400, 768, 1024, 2040]}
-              sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-              loading="eager"
-              width={1024}
-              height={576}
-              {...image}
-            />
-          )}
+    {
+      image && (
+        <div class="intersect-once intersect-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+          <div class="relative max-w-5xl mx-auto mb-20 shadow-2xl shadow-primary/10 border border-primary/10">
+            {typeof image === 'string' ? (
+              <Fragment set:html={image} />
+            ) : (
+              <Image
+                class="mx-auto w-full"
+                widths={[400, 768, 1024, 2040]}
+                sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                loading="eager"
+                width={1024}
+                height={576}
+                {...image}
+              />
+            )}
+          </div>
         </div>
-      </div>
-    )}
+      )
+    }
   </div>
 </section>
 
@@ -139,14 +155,12 @@ const {
 
   /* Industrial dot-grid pattern */
   .hero-grid {
-    background-image: 
-      radial-gradient(circle at 2px 2px, rgb(234 88 12 / 0.15) 1.5px, transparent 0);
+    background-image: radial-gradient(circle at 2px 2px, rgb(234 88 12 / 0.15) 1.5px, transparent 0);
     background-size: 48px 48px;
     mask-image: radial-gradient(ellipse 70% 70% at 0% 0%, black 10%, transparent 90%);
   }
 
   .dark .hero-grid {
-    background-image: 
-      radial-gradient(circle at 2px 2px, rgb(251 146 60 / 0.12) 1.5px, transparent 0);
+    background-image: radial-gradient(circle at 2px 2px, rgb(251 146 60 / 0.12) 1.5px, transparent 0);
   }
 </style>

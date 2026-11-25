@@ -152,7 +152,7 @@ Our template will look like this:
             <a class="step-links-a" href="?page=">back</a>
         {% endif %}
         <span class="current">
-             | 
+             |
         </span> {% if blog.has_next %}
     <a class="step-links-a" href="?page=">next</a> {% endif %}
     </span>
@@ -226,7 +226,7 @@ We include paginator.html inside blogs.html.
             <a class="step-links-a" href="?page=">back</a>
         {% endif %}
         <span class="current">
-             | 
+             |
         </span> {% if blog.has_next %}
     <a class="step-links-a" href="?page=">next</a> {% endif %}
     </span>

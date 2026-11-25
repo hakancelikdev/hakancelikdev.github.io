@@ -14,7 +14,7 @@ Read all `.md` files under `src/data/tr/` (frontmatter only: `title`, `category`
 - Find any posts that cover the same or closely related topic.
 - If a **very similar post already exists**, stop and inform the user:
   > "A post on this topic already exists: **[Title]** (`/slug`). Do you still want to write a new one, or would you prefer to update the existing post?"
-  Wait for their answer before proceeding.
+  > Wait for their answer before proceeding.
 - If **related posts exist** (not duplicates), keep them as cross-link candidates.
 
 ## Step 2 — Critique the User's Ideas
@@ -32,13 +32,13 @@ Keep this section concise — 3 to 5 bullet points. Don't rewrite the post here;
 
 Pick the narrative style that best fits the topic and its likely audience. Use only one dominant style per post.
 
-| Style | Best for | Signal |
-|---|---|---|
-| **"Aha moment" first-person** | Conceptual insights, mental model shifts | User says "I realized…", "I didn't know…" |
-| **Problem → Solution** | Tools, frameworks, techniques | User describes a pain point that was solved |
-| **How it actually works** | Internals, under-the-hood mechanics | Topic is widely used but poorly understood |
-| **Step-by-step practical** | Tutorials, setup guides, workflows | Topic requires a sequence of actions |
-| **Comparison / contrast** | Choosing between options | Topic involves trade-offs |
+| Style                         | Best for                                 | Signal                                      |
+| ----------------------------- | ---------------------------------------- | ------------------------------------------- |
+| **"Aha moment" first-person** | Conceptual insights, mental model shifts | User says "I realized…", "I didn't know…"   |
+| **Problem → Solution**        | Tools, frameworks, techniques            | User describes a pain point that was solved |
+| **How it actually works**     | Internals, under-the-hood mechanics      | Topic is widely used but poorly understood  |
+| **Step-by-step practical**    | Tutorials, setup guides, workflows       | Topic requires a sequence of actions        |
+| **Comparison / contrast**     | Choosing between options                 | Topic involves trade-offs                   |
 
 State which style you're using and why, then write in that style consistently.
 
@@ -84,6 +84,7 @@ tags:
 ```
 
 Writing rules:
+
 - Open with the insight or problem — don't warm up slowly
 - Use concrete examples, code blocks, tables, or ASCII diagrams wherever they help
 - Cross-link to related posts naturally: `[post title](/slug)` — only where it flows organically, never forced

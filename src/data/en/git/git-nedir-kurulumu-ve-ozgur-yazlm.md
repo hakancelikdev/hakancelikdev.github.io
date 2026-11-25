@@ -61,7 +61,6 @@ data, 87.2% of developers use Git, making it the most widely used VCS.
   notice a bug or something missing. So you take a backup somewhere to not lose the old
   project files and continue with the other one. This keeps going, and by the end of the
   day your working directory might look like this:
-
   - This is the final one
   - This time it's definitely done
   - All bugs fixed, process complete

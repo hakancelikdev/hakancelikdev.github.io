@@ -177,5 +177,3 @@ site.register(Blogviews, ViewsAdmin)
 ```
 
 ## Result?
-
-

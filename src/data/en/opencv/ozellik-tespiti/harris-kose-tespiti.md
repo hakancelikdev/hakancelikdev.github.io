@@ -48,6 +48,7 @@ Then comes the main part. After this, they created a score, basically an equatio
 **R = det(M) - k(trace(M))²**
 
 where:
+
 - det(M) = λ₁λ₂
 - trace(M) = λ₁ + λ₂
 - λ₁ and λ₂ are the eigenvalues of M

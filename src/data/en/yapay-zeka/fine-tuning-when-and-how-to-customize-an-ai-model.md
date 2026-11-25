@@ -47,15 +47,16 @@ Using the compilation analogy from the [AI model post](/what-you-actually-downlo
 
 Getting this decision right saves significant time and money.
 
-| Question | Fine-Tuning | RAG |
-|---|---|---|
-| Want to add new **knowledge** to the model? | ✗ Weak | ✓ Strong |
-| Want to change the model's **behavior or tone**? | ✓ Strong | ✗ Weak |
-| Does data update frequently? | ✗ Retrain each time | ✓ Just update the index |
-| Should responses cite sources? | ✗ Hard | ✓ Natural |
-| Working with a limited budget? | ✗ Expensive | ✓ Cheap |
+| Question                                         | Fine-Tuning         | RAG                     |
+| ------------------------------------------------ | ------------------- | ----------------------- |
+| Want to add new **knowledge** to the model?      | ✗ Weak              | ✓ Strong                |
+| Want to change the model's **behavior or tone**? | ✓ Strong            | ✗ Weak                  |
+| Does data update frequently?                     | ✗ Retrain each time | ✓ Just update the index |
+| Should responses cite sources?                   | ✗ Hard              | ✓ Natural               |
+| Working with a limited budget?                   | ✗ Expensive         | ✓ Cheap                 |
 
 **In practice:**
+
 - Q&A over internal company documents → **RAG**
 - Every response must follow a specific brand voice → **Fine-tuning**
 - Model should naturally use domain-specific terminology → **Fine-tuning**
@@ -94,13 +95,13 @@ Effective Weight (W + AB)
 
 The results:
 
-| | Full Fine-Tuning | LoRA |
-|---|---|---|
-| Parameters trained | ~100% | ~0.1–1% |
-| VRAM required | Very high | Low |
-| Training time | Long | Short |
-| Quality gap | Reference | Typically 90–95% of full |
-| Multiple tasks | Separate model per task | One model + multiple adapters |
+|                    | Full Fine-Tuning        | LoRA                          |
+| ------------------ | ----------------------- | ----------------------------- |
+| Parameters trained | ~100%                   | ~0.1–1%                       |
+| VRAM required      | Very high               | Low                           |
+| Training time      | Long                    | Short                         |
+| Quality gap        | Reference               | Typically 90–95% of full      |
+| Multiple tasks     | Separate model per task | One model + multiple adapters |
 
 **QLoRA** combines LoRA with quantization — adding LoRA adapters to a 4-bit quantized model. This makes it possible to fine-tune 7B–13B models on consumer GPUs with 16–24GB VRAM.
 

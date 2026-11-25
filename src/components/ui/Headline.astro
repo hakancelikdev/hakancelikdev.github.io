@@ -22,13 +22,16 @@ const {
       {tagline && (
         <div class="mb-4">
           <span class="font-mono text-[10px] tracking-[0.3em] uppercase text-primary font-semibold border-b border-primary/30 pb-1">
-             <span set:html={tagline} />
+            <span set:html={tagline} />
           </span>
         </div>
       )}
       {title && (
         <h2
-          class={twMerge('font-bold leading-[1.1] tracking-tighter font-heading text-heading text-4xl md:text-5xl lg:text-6xl mb-4', titleClass)}
+          class={twMerge(
+            'font-bold leading-[1.1] tracking-tighter font-heading text-heading text-4xl md:text-5xl lg:text-6xl mb-4',
+            titleClass
+          )}
           style="font-variation-settings: 'opsz' 48, 'wght' 800;"
           set:html={title}
         />
@@ -36,7 +39,10 @@ const {
 
       {subtitle && (
         <div class="relative max-w-2xl mx-auto">
-           <p class={twMerge('mt-4 text-xl text-muted font-light serif italic leading-relaxed', subtitleClass)} set:html={subtitle} />
+          <p
+            class={twMerge('mt-4 text-xl text-muted font-light serif italic leading-relaxed', subtitleClass)}
+            set:html={subtitle}
+          />
         </div>
       )}
     </div>

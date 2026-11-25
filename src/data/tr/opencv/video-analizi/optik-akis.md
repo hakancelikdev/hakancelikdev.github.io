@@ -29,6 +29,7 @@ Bu bölümde:
 Optik akış, görüntüdeki nesnelerin ardışık kareler arasındaki görünür hareketi ifade eder. Bu, görüntü yüzeyindeki parlaklık desenlerinin görünür hareketinin 2B vektör alanıdır. Nesne hareketi veya kamera hareketi tarafından oluşturulur.
 
 Şu varsayımları yapar:
+
 1. Birbirini takip eden kareler arasında piksellerin yoğunluğu değişmez.
 2. Komşu pikseller benzer harekete sahiptir (komşuluk kısıtlaması).
 

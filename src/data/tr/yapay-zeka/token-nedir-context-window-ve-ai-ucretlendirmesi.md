@@ -60,6 +60,7 @@ for metin in metinler:
 ```
 
 Çıktı yaklaşık şöyle olacak:
+
 ```
  5 token | Hello, how are you?
  7 token | Merhaba, nasılsın?
@@ -75,12 +76,12 @@ Aynı anlama gelen Türkçe cümle, İngilizce'ye göre %30-50 daha fazla token 
 
 Her modelin bir **context window** sınırı vardır — modelin aynı anda görebileceği maksimum token sayısı.
 
-| Model | Context Window |
-|---|---|
-| GPT-3.5 Turbo | 16.000 token |
-| GPT-4o | 128.000 token |
-| Claude Sonnet 4.5 | 200.000 token |
-| Llama 3.1 70B | 128.000 token |
+| Model             | Context Window |
+| ----------------- | -------------- |
+| GPT-3.5 Turbo     | 16.000 token   |
+| GPT-4o            | 128.000 token  |
+| Claude Sonnet 4.5 | 200.000 token  |
+| Llama 3.1 70B     | 128.000 token  |
 
 Bu sınır, sadece senin mesajın için değil. **Konuşmanın tamamı** bu havuzdan beslenir:
 
@@ -110,12 +111,12 @@ Output token neden daha pahalı? Çünkü her output token üretmek için model 
 
 Nisan 2026 itibarıyla örnek fiyatlar (1 milyon token başına USD):
 
-| Model | Input | Output |
-|---|---|---|
-| GPT-4o | $2.50 | $10.00 |
+| Model             | Input | Output |
+| ----------------- | ----- | ------ |
+| GPT-4o            | $2.50 | $10.00 |
 | Claude Sonnet 4.5 | $3.00 | $15.00 |
-| GPT-4o mini | $0.15 | $0.60 |
-| Claude Haiku 4.5 | $0.80 | $4.00 |
+| GPT-4o mini       | $0.15 | $0.60  |
+| Claude Haiku 4.5  | $0.80 | $4.00  |
 
 1 milyon token yaklaşık 750.000 kelime — yani birkaç roman. Tek bir API çağrısı için bu miktara ulaşmak zor, ama binlerce kullanıcısı olan bir uygulama için bu rakamlar çok hızlı birikir.
 
@@ -132,11 +133,11 @@ Anthropic ve OpenAI, sık tekrarlanan uzun promptlar için **prompt caching** su
 
 [RAG kurulumunda](/rag-nedir-retrieval-augmented-generation) embedding modeli kullandım — metin vektöre dönüştüren model. Bunlar da token bazlı fiyatlandırılır ama büyük dil modellerine kıyasla çok daha ucuzdur:
 
-| Model | Fiyat (1M token) |
-|---|---|
-| text-embedding-3-small | $0.02 |
-| text-embedding-3-large | $0.13 |
-| Claude Sonnet 4.5 (input) | $3.00 |
+| Model                     | Fiyat (1M token) |
+| ------------------------- | ---------------- |
+| text-embedding-3-small    | $0.02            |
+| text-embedding-3-large    | $0.13            |
+| Claude Sonnet 4.5 (input) | $3.00            |
 
 Binlerce dokümanı indexlemek, tek bir GPT-4 konuşmasından bile ucuz olabilir.
 

@@ -137,7 +137,6 @@ Burada topu seçip resmin başka bir bölgesine kopyalayacağım:
 >>> img[273:333, 100:160] = ball
 ```
 
-
 ## Görüntü Kanallarının Ayrılması ve Birleştirilmesi
 
 Gerektiğinde bir görüntünün B, G,R kanalları, tek tek düzlemlerine ayrılabilir. Sonra,

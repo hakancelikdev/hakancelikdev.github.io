@@ -107,11 +107,11 @@ return the same instance.
 
 ## Critical Difference
 
-| | Approach 1 | Approach 2 |
-|---|---|---|
-| `Example is Example2` | `False` — different classes | `True` — same object |
-| `Example() is Example2()` | `False` — different instances | `True` — same instance |
-| Use case | Separate singleton per class | Single singleton for the whole hierarchy |
+|                           | Approach 1                    | Approach 2                               |
+| ------------------------- | ----------------------------- | ---------------------------------------- |
+| `Example is Example2`     | `False` — different classes   | `True` — same object                     |
+| `Example() is Example2()` | `False` — different instances | `True` — same instance                   |
+| Use case                  | Separate singleton per class  | Single singleton for the whole hierarchy |
 
 For most Singleton needs, Approach 1 gives the expected behavior. Approach 2 is
 a great example for understanding the `__new__` mechanism of metaclasses.

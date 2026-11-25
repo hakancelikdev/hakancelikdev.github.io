@@ -41,7 +41,9 @@ const metadata = {
         class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 hover:text-primary dark:hover:text-indigo-300 transition-colors"
       >
         All
-        <span class="bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-slate-400 text-xs px-1.5 py-0.5 rounded-full">{totalAll}</span>
+        <span class="bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-slate-400 text-xs px-1.5 py-0.5 rounded-full"
+          >{totalAll}</span
+        >
       </a>
       {
         categories.map((cat) => {
@@ -52,7 +54,9 @@ const metadata = {
               class={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${isActive ? 'bg-primary text-white hover:opacity-90' : 'bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 hover:text-primary dark:hover:text-indigo-300'}`}
             >
               {cat.title}
-              <span class={`text-xs px-1.5 py-0.5 rounded-full ${isActive ? 'bg-white/20 text-white' : 'bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-slate-400'}`}>
+              <span
+                class={`text-xs px-1.5 py-0.5 rounded-full ${isActive ? 'bg-white/20 text-white' : 'bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-slate-400'}`}
+              >
                 {cat.count}
               </span>
             </a>

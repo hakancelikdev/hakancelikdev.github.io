@@ -106,11 +106,11 @@ Dolayısıyla `Example()` ve `Example2()` de aynı örneği döndürür.
 
 ## Kritik Fark
 
-| | Yöntem 1 | Yöntem 2 |
-|---|---|---|
-| `Example is Example2` | `False` — farklı sınıflar | `True` — aynı nesne |
-| `Example() is Example2()` | `False` — farklı örnekler | `True` — aynı örnek |
-| Kullanım amacı | Her sınıf için ayrı singleton | Tüm hiyerarşi için tek singleton |
+|                           | Yöntem 1                      | Yöntem 2                         |
+| ------------------------- | ----------------------------- | -------------------------------- |
+| `Example is Example2`     | `False` — farklı sınıflar     | `True` — aynı nesne              |
+| `Example() is Example2()` | `False` — farklı örnekler     | `True` — aynı örnek              |
+| Kullanım amacı            | Her sınıf için ayrı singleton | Tüm hiyerarşi için tek singleton |
 
 Çoğu Singleton ihtiyacı için Yöntem 1 beklenen davranışı verir. Yöntem 2 ise
 metaclass'ın `__new__` mekanizmasını anlamak için güzel bir örnektir.

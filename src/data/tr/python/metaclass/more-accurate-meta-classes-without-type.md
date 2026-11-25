@@ -119,6 +119,7 @@ iki aşamayı ayırt eder:
 **1. Aşama — `klass = Klass(1, a=1)` (ilk çağrı, `__call_run = False`)**
 
 `Meta.__call__` devreye girer:
+
 - `__call_run` False olduğu için sınıf gövdesindeki `__new__` ve `__init__`'i çalıştırır
 - `Klass.__new__(self, 1, a=1)` → `return cls` → `obj = Klass`'ın Meta örneği
 - `Klass.__init__(obj, 1, a=1)` → `pass`
@@ -128,6 +129,7 @@ iki aşamayı ayırt eder:
 **2. Aşama — `klass(deneme=3)` (sonraki çağrı, `__call_run = True`)**
 
 `Meta.__call__` yeniden devreye girer:
+
 - `__call_run` True olduğu için `__call__`'u namespace'den alıp çalıştırır
 - `Klass.__call__(self, deneme=3)` → `return self`
 

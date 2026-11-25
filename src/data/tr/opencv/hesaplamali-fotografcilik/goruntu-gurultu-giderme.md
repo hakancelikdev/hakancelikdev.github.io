@@ -45,6 +45,7 @@ OpenCV bu tekniğin dört çeşidini sağlar:
 4. **cv.fastNlMeansDenoisingColoredMulti()** — yukarıdakiyle aynı, renkli görüntüler için
 
 Ortak parametreler:
+
 - **h**: Filtre gücünü belirler. Yüksek h değeri gürültüyü daha iyi giderir ama görüntü detaylarını da kaybeder (10 iyidir)
 - **hForColorComponents**: Yalnızca renkli görüntüler için h ile aynı (genellikle h ile aynı)
 - **templateWindowSize**: Tek sayı olmalı (7 önerilir)

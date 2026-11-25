@@ -110,7 +110,6 @@ coordinates in the contour array \(drawn in blue color\). First image shows poin
 with `cv2.CHAIN_APPROX_NONE` \(734 points\) and second image shows the one with
 `cv2.CHAIN_APPROX_SIMPLE` \(only 4 points\). See, how much memory it saves!!!
 
-
 ## Contour Features
 
 ### Goals

@@ -34,7 +34,7 @@ Consider an example image below:
 
 ![Contour hierarchy example](/images/posts/opencv/hierarchy.png)
 
-In this image, there are a few shapes which I have numbered from **0-5**. *2 and 2a* denotes the external and internal contours of the outermost box.
+In this image, there are a few shapes which I have numbered from **0-5**. _2 and 2a_ denotes the external and internal contours of the outermost box.
 
 Here, contours 0,1,2 are **external or outermost**. They are in **hierarchy-0** or simply they are in **same hierarchy level**.
 

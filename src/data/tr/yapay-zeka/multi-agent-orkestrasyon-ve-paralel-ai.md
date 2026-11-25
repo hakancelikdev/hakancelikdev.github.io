@@ -62,11 +62,11 @@ Her subagent **temiz bir context window'la başlar**. Bu hem token [maliyetini](
 
 Multi-agent tasarımın en kritik kararı bu:
 
-| Görev yapısı | Yaklaşım | Neden |
-|---|---|---|
-| Görevler birbirinden bağımsız | **Paralel** | Aynı anda çalışırlar, toplam süre en uzun görev kadardır |
-| Görev B, Görev A'nın çıktısına ihtiyaç duyuyor | **Sıralı** | B, A bitmeden başlayamaz |
-| Bazı görevler bağımsız, bazıları bağımlı | **Karma** | Bağımsızları paralel, bağımlıları sıralı çalıştır |
+| Görev yapısı                                   | Yaklaşım    | Neden                                                    |
+| ---------------------------------------------- | ----------- | -------------------------------------------------------- |
+| Görevler birbirinden bağımsız                  | **Paralel** | Aynı anda çalışırlar, toplam süre en uzun görev kadardır |
+| Görev B, Görev A'nın çıktısına ihtiyaç duyuyor | **Sıralı**  | B, A bitmeden başlayamaz                                 |
+| Bazı görevler bağımsız, bazıları bağımlı       | **Karma**   | Bağımsızları paralel, bağımlıları sıralı çalıştır        |
 
 Örnekler:
 
@@ -186,11 +186,13 @@ Her adım bir öncekinin çıktısını context olarak alır. Subagent'lar birbi
 Her subagent sıfırdan başlar. Bu bir özellik, bug değil.
 
 **Avantajları:**
+
 - Her subagent kendi uzmanlık alanına odaklanır, başka görevlerin gürültüsünü taşımaz
 - Token maliyeti düşer — tüm konuşma geçmişini her subagent'a göndermek zorunda değilsin
 - Farklı subagent'lar farklı system prompt'larla özelleştirilebilir
 
 **Dikkat edilmesi gereken:**
+
 - Subagent'lar birbirinin yaptığını görmez — orkestratör bilgiyi doğru aktarmalı
 - Sıralı pipeline'larda önceki adımın çıktısı açıkça geçirilmeli
 
@@ -218,12 +220,12 @@ Bağımsız araştırma görevlerini paralel subagent'lara devretmek, uzun bir o
 
 ## Ne Zaman Multi-Agent Kullanmalı?
 
-| Kullan | Kullanma |
-|--------|----------|
-| Codebase tek context'e sığmıyor | Görev basit ve tek adımlı |
-| Bağımsız görevler paralel çalışabilir | Koordinasyon maliyeti paralelizmden fazla |
-| Farklı "uzmanlık" gerektiren alt görevler var | Subagent'lar arasında çok fazla veri geçişi gerekiyor |
-| Uzun oturumda context dolmasını önlemek istiyorsun | Hata toleransı kritikse (zincirleme hata riski) |
+| Kullan                                             | Kullanma                                              |
+| -------------------------------------------------- | ----------------------------------------------------- |
+| Codebase tek context'e sığmıyor                    | Görev basit ve tek adımlı                             |
+| Bağımsız görevler paralel çalışabilir              | Koordinasyon maliyeti paralelizmden fazla             |
+| Farklı "uzmanlık" gerektiren alt görevler var      | Subagent'lar arasında çok fazla veri geçişi gerekiyor |
+| Uzun oturumda context dolmasını önlemek istiyorsun | Hata toleransı kritikse (zincirleme hata riski)       |
 
 ---
 

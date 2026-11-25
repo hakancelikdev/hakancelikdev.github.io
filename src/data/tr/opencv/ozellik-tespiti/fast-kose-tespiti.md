@@ -42,6 +42,7 @@ Buna çözüm olarak, Edward Rosten ve Tom Drummond tarafından 2006'da yayınla
 5. Çok sayıda köşe olmayan adayı dışlamak için bir **yüksek hızlı test** önerildi: Yalnızca 1, 9, 5 ve 13 konumlarındaki dört piksel inceleniyor. p bir köşeyse, bunların en az üçü Ip + t'den daha parlak veya Ip − t'den daha koyu olmalıdır.
 
 Dedektörün çeşitli zayıflıkları vardır:
+
 - n < 12 için fazla aday reddetmiyor
 - Piksel seçimi optimal değil
 - Bitişik konumlarda birden fazla özellik tespit edilir

@@ -54,12 +54,12 @@ Eğitim Verisi + Mimari (kaynak kod)
   Model Ağırlıkları (binary)
 ```
 
-| Geleneksel Yazılım | AI Modeli |
-|---|---|
-| Kaynak kod (`.c`, `.go`) | Eğitim verisi + mimari kodu |
-| Derleyici (`gcc`, `rustc`) | Eğitim döngüsü (gradient descent) |
-| Binary / Executable | Model ağırlıkları (`.gguf`, `.safetensors`) |
-| CPU/GPU talimatları | Matris çarpımları, aktivasyon fonksiyonları |
+| Geleneksel Yazılım         | AI Modeli                                   |
+| -------------------------- | ------------------------------------------- |
+| Kaynak kod (`.c`, `.go`)   | Eğitim verisi + mimari kodu                 |
+| Derleyici (`gcc`, `rustc`) | Eğitim döngüsü (gradient descent)           |
+| Binary / Executable        | Model ağırlıkları (`.gguf`, `.safetensors`) |
+| CPU/GPU talimatları        | Matris çarpımları, aktivasyon fonksiyonları |
 
 Bir modeli **eğitmek**, onu **derlemek** demektir. Ve eğitim tamamlandığında elimizde kalan şey — tüm bu milyarlarca parametre — derlenmiş bir binary'dir.
 

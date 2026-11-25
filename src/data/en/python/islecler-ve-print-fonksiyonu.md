@@ -123,11 +123,11 @@ True
 True
 ```
 
-|     |                                            |
-| :-- | :----------------------------------------- |
-| and | and                                        |
-| not | not, no, none — negation-type meanings     |
-| or  | or                                         |
+|     |                                        |
+| :-- | :------------------------------------- |
+| and | and                                    |
+| not | not, no, none — negation-type meanings |
+| or  | or                                     |
 
 ```python
 test_val = "01234"
@@ -141,16 +141,16 @@ Up to now we've only been using a single assignment sign: **=**, the assignment 
 that assigns data to a variable. Below is a table of all assignment operators — examine
 them and then we'll do a few examples.
 
-|       |                                             |
-| :---- | :------------------------------------------ |
-| =     | Assignment operator                         |
-| +=    | Add-and-assign operator                     |
-| -=    | Subtract-and-assign operator                |
-| /=    | Divide-and-assign operator                  |
-| \*=   | Multiply-and-assign operator                |
-| %=    | Modular-divide-and-assign operator          |
-| \*\*= | Exponentiate-and-assign operator            |
-| //=   | Floor-divide-and-assign operator            |
+|       |                                    |
+| :---- | :--------------------------------- |
+| =     | Assignment operator                |
+| +=    | Add-and-assign operator            |
+| -=    | Subtract-and-assign operator       |
+| /=    | Divide-and-assign operator         |
+| \*=   | Multiply-and-assign operator       |
+| %=    | Modular-divide-and-assign operator |
+| \*\*= | Exponentiate-and-assign operator   |
+| //=   | Floor-divide-and-assign operator   |
 
 ```python
 >>> a = 5
@@ -167,10 +167,10 @@ them and then we'll do a few examples.
 The purpose of this operator is to let us query whether a value exists inside another
 value.
 
-|        |                          |
-| :----- | :----------------------- |
-| in     | Membership operator      |
-| not in | Non-membership operator  |
+|        |                         |
+| :----- | :---------------------- |
+| in     | Membership operator     |
+| not in | Non-membership operator |
 
 ```python
 >>> "1234" in "01234" # the left value is found inside the right value, so it returns True; is 1234 in 01234?
@@ -185,10 +185,10 @@ Every object in Python has an identity number. This identity number essentially 
 address of that object in memory. We can find the id information of objects using the
 built-in **id()** function.
 
-|        |                                  |
-| :----- | :------------------------------- |
-| id\(\) | Function that returns the id     |
-| is     | Identity operator                |
+|        |                              |
+| :----- | :--------------------------- |
+| id\(\) | Function that returns the id |
+| is     | Identity operator            |
 
 ```python
 >>> a = 2.5

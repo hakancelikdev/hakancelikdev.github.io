@@ -77,7 +77,6 @@ cv2.destroyAllWindows()
 
 **sonuç ;**
 
-
 ## Bitwise Operations \( Bit düzeyi işlemleri \)
 
 Bu bitwise **AND**, **OR**, **NOT** ve **XOR** işlemlerini içerir. Resmin herhangi bir

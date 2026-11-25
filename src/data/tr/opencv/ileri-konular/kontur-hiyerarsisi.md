@@ -34,7 +34,7 @@ Aşağıdaki örnek görüntüyü ele alalım:
 
 ![Kontur hiyerarşisi örneği](/images/posts/opencv/hierarchy.png)
 
-Bu görüntüde **0-5** arasında numaralandırdığım birkaç şekil vardır. *2 ve 2a*, en dıştaki kutunun dış ve iç konturlarını belirtir.
+Bu görüntüde **0-5** arasında numaralandırdığım birkaç şekil vardır. _2 ve 2a_, en dıştaki kutunun dış ve iç konturlarını belirtir.
 
 Burada kontur 0, 1, 2 **dış veya en dışta** bulunanlardır. Bunlar **hiyerarşi-0**'da veya aynı hiyerarşi seviyesindedir.
 

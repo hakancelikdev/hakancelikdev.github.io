@@ -13,6 +13,7 @@ npm run fix        # Auto-fix ESLint and Prettier issues
 ```
 
 Individual check commands:
+
 ```bash
 npm run check:astro     # Astro/TypeScript type checking
 npm run check:eslint    # ESLint validation

@@ -120,6 +120,7 @@ A `Meta` instance (i.e., `Klass`) is called in two different ways; the
 **Phase 1 — `klass = Klass(1, a=1)` (first call, `__call_run = False`)**
 
 `Meta.__call__` takes over:
+
 - Because `__call_run` is False, it runs `__new__` and `__init__` from the class body
 - `Klass.__new__(self, 1, a=1)` → `return cls` → `obj = Klass`'s Meta instance
 - `Klass.__init__(obj, 1, a=1)` → `pass`
@@ -129,6 +130,7 @@ A `Meta` instance (i.e., `Klass`) is called in two different ways; the
 **Phase 2 — `klass(deneme=3)` (subsequent call, `__call_run = True`)**
 
 `Meta.__call__` takes over again:
+
 - Because `__call_run` is True, it fetches `__call__` from the namespace and runs it
 - `Klass.__call__(self, deneme=3)` → `return self`
 

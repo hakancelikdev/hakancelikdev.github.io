@@ -32,17 +32,17 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-
   <!-- Hero: Cinematic split layout -->
   <section class="relative not-prose md:-mt-[76px] overflow-hidden">
     <div class="pt-0 md:pt-[76px]"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-16 items-center py-16 md:py-24 lg:py-32">
-
         <!-- Left: Text -->
         <div class="order-2 lg:order-1 about-reveal" style="--delay: 0.1s">
-          <p class="font-mono text-[10px] tracking-[0.2em] uppercase text-primary border-l-2 border-primary bg-primary/[0.04] px-4 py-2 inline-flex items-center gap-3 mb-8">
+          <p
+            class="font-mono text-[10px] tracking-[0.2em] uppercase text-primary border-l-2 border-primary bg-primary/[0.04] px-4 py-2 inline-flex items-center gap-3 mb-8"
+          >
             <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block shrink-0 animate-pulse"></span>
             Hakkımda
           </p>
@@ -56,16 +56,20 @@ const metadata = {
 
           <div class="w-16 h-0.5 bg-primary/40 mb-8"></div>
 
-          <p class="text-lg md:text-xl text-muted leading-relaxed mb-6 max-w-lg" style="font-family: var(--aw-font-serif);">
-            2019'dan beri profesyonel olarak yazılım geliştiriyorum. Kariyerime Django projeleriyle başladım; zamanla Python
-            ekosistemindeki araçlara, açık kaynağa ve uygulama geliştirmeye yöneldim.
+          <p
+            class="text-lg md:text-xl text-muted leading-relaxed mb-6 max-w-lg"
+            style="font-family: var(--aw-font-serif);"
+          >
+            2019'dan beri profesyonel olarak yazılım geliştiriyorum. Kariyerime Django projeleriyle başladım; zamanla
+            Python ekosistemindeki araçlara, açık kaynağa ve uygulama geliştirmeye yöneldim.
           </p>
 
           <p class="text-lg md:text-xl text-muted leading-relaxed max-w-lg" style="font-family: var(--aw-font-serif);">
-            Bugün <strong class="text-default dark:text-white">Trendyol Go by Uber Eats</strong>'te yazılım geliştirici olarak çalışırken,
-            boş zamanlarımda Python linter'ları, iOS uygulamaları ve macOS araçları üretiyorum.
-            Yazdığım araçlar — <strong class="text-default dark:text-white">unimport</strong>, <strong class="text-default dark:text-white">unexport</strong>, <strong class="text-default dark:text-white">pydbm</strong> —
-            binlerce geliştirici tarafından kullanılıyor.
+            Bugün <strong class="text-default dark:text-white">Trendyol Go by Uber Eats</strong>'te yazılım geliştirici
+            olarak çalışırken, boş zamanlarımda Python linter'ları, iOS uygulamaları ve macOS araçları üretiyorum.
+            Yazdığım araçlar — <strong class="text-default dark:text-white">unimport</strong>, <strong
+              class="text-default dark:text-white">unexport</strong
+            >, <strong class="text-default dark:text-white">pydbm</strong> — binlerce geliştirici tarafından kullanılıyor.
           </p>
         </div>
 
@@ -84,33 +88,33 @@ const metadata = {
               class="w-full shadow-2xl shadow-primary/10"
               loading="eager"
             />
-
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- Stats: Horizontal strip -->
-  <section class="relative not-prose border-y border-primary/10 dark:border-stone-800 bg-primary/[0.02] dark:bg-stone-900/30">
+  <section
+    class="relative not-prose border-y border-primary/10 dark:border-stone-800 bg-primary/[0.02] dark:bg-stone-900/30"
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-primary/10 dark:divide-stone-800">
-        {[
-          { amount: '6+', label: 'Yıl Deneyim' },
-          { amount: '7', label: 'Açık Kaynak Proje' },
-          { amount: '4', label: 'PyPI Paketi' },
-          { amount: unimportMonthly || '—', label: 'Unimport İndirme/ay' },
-        ].map((stat) => (
-          <div class="py-10 md:py-14 px-4 md:px-8 text-center">
-            <div class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white tracking-tighter mb-2">
-              {stat.amount}
+        {
+          [
+            { amount: '6+', label: 'Yıl Deneyim' },
+            { amount: '7', label: 'Açık Kaynak Proje' },
+            { amount: '4', label: 'PyPI Paketi' },
+            { amount: unimportMonthly || '—', label: 'Unimport İndirme/ay' },
+          ].map((stat) => (
+            <div class="py-10 md:py-14 px-4 md:px-8 text-center">
+              <div class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white tracking-tighter mb-2">
+                {stat.amount}
+              </div>
+              <div class="text-xs font-mono uppercase tracking-[0.15em] text-muted">{stat.label}</div>
             </div>
-            <div class="text-xs font-mono uppercase tracking-[0.15em] text-muted">
-              {stat.label}
-            </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>
@@ -121,7 +125,11 @@ const metadata = {
     subtitle="Profesyonel olarak kullandığım diller."
     columns={3}
     items={[
-      { title: 'Python', description: 'Django, DRF, FastAPI, asyncio, AST analizi, libcst', icon: 'tabler:brand-python' },
+      {
+        title: 'Python',
+        description: 'Django, DRF, FastAPI, asyncio, AST analizi, libcst',
+        icon: 'tabler:brand-python',
+      },
       { title: 'Go', description: 'Trendyol Go by Uber Eats, Vakit', icon: 'tabler:brand-golang' },
       { title: 'Kotlin', description: 'Trendyol Go by Uber Eats', icon: 'tabler:brand-kotlin' },
       { title: 'Java', description: 'Trendyol Go by Uber Eats, Spring Boot', icon: 'tabler:coffee' },
@@ -178,18 +186,23 @@ const metadata = {
     title="Deneyim"
     items={[
       {
-        title: 'Software Developer <br /><span class="font-normal">Trendyol Go by Uber Eats</span> <br /><span class="text-sm font-normal">Kasım 2024 - Günümüz</span>',
+        title:
+          'Software Developer <br /><span class="font-normal">Trendyol Go by Uber Eats</span> <br /><span class="text-sm font-normal">Kasım 2024 - Günümüz</span>',
         description: '',
         icon: 'tabler:briefcase',
       },
       {
-        title: 'Software Developer <br /><span class="font-normal">Deepinfo</span> <br /><span class="text-sm font-normal">Kasım 2020 - Kasım 2024</span>',
-        description: 'Büyük veri ve siber güvenlik projelerinde backend geliştirme. FastAPI, Django, DRF, MongoDB, Celery, Redis, PostgreSQL, RabbitMQ, Kafka ve Elasticsearch kullandım. DevOps süreçlerine aktif katkı, QA ortamı yönetimi.',
+        title:
+          'Software Developer <br /><span class="font-normal">Deepinfo</span> <br /><span class="text-sm font-normal">Kasım 2020 - Kasım 2024</span>',
+        description:
+          'Büyük veri ve siber güvenlik projelerinde backend geliştirme. FastAPI, Django, DRF, MongoDB, Celery, Redis, PostgreSQL, RabbitMQ, Kafka ve Elasticsearch kullandım. DevOps süreçlerine aktif katkı, QA ortamı yönetimi.',
         icon: 'tabler:briefcase',
       },
       {
-        title: 'Software Developer <br /><span class="font-normal">PRISMA CSI</span> <br /><span class="text-sm font-normal">Ekim 2019 - Eylül 2020</span>',
-        description: 'Siber güvenlik platformu için Django Rest Framework ile API geliştirme. Admin API oluşturma, performans profilleme ve iyileştirme. JavaScript ve CSS ile frontend geliştirme.',
+        title:
+          'Software Developer <br /><span class="font-normal">PRISMA CSI</span> <br /><span class="text-sm font-normal">Ekim 2019 - Eylül 2020</span>',
+        description:
+          'Siber güvenlik platformu için Django Rest Framework ile API geliştirme. Admin API oluşturma, performans profilleme ve iyileştirme. JavaScript ve CSS ile frontend geliştirme.',
         icon: 'tabler:briefcase',
       },
     ]}
@@ -201,12 +214,14 @@ const metadata = {
     title="Eğitim"
     items={[
       {
-        title: 'Ön Lisans, Bilgisayar Programcılığı <br /><span class="font-normal">Fırat Üniversitesi</span> <br /><span class="text-sm font-normal">2024</span>',
+        title:
+          'Ön Lisans, Bilgisayar Programcılığı <br /><span class="font-normal">Fırat Üniversitesi</span> <br /><span class="text-sm font-normal">2024</span>',
         description: '',
         icon: 'tabler:school',
       },
       {
-        title: 'Lisans, Elektrik-Elektronik Mühendisliği <br /><span class="font-normal">Gaziantep Üniversitesi</span> <br /><span class="text-sm font-normal">2015</span>',
+        title:
+          'Lisans, Elektrik-Elektronik Mühendisliği <br /><span class="font-normal">Gaziantep Üniversitesi</span> <br /><span class="text-sm font-normal">2015</span>',
         description: '',
         icon: 'tabler:school',
       },
@@ -219,12 +234,14 @@ const metadata = {
     title="Topluluk & Gönüllülük"
     items={[
       {
-        title: 'Kurucu <br /><span class="font-normal">Django Türkiye Topluluğu</span> <br /><span class="text-sm font-normal">Temmuz 2018 - Eylül 2022</span>',
+        title:
+          'Kurucu <br /><span class="font-normal">Django Türkiye Topluluğu</span> <br /><span class="text-sm font-normal">Temmuz 2018 - Eylül 2022</span>',
         description: '600+ üyeye ulaşan Django Türkiye topluluğunu kurdum ve yönettim.',
         icon: 'tabler:users',
       },
       {
-        title: 'Yazılım Topluluğu Kurucusu & Eğitmen <br /><span class="font-normal">Gaziantep Üniversitesi</span> <br /><span class="text-sm font-normal">2020 - 2021</span>',
+        title:
+          'Yazılım Topluluğu Kurucusu & Eğitmen <br /><span class="font-normal">Gaziantep Üniversitesi</span> <br /><span class="text-sm font-normal">2020 - 2021</span>',
         description: '30-40 katılımcıya Açık Kaynak, Linux, Python, Git ve C++ dersleri verdim.',
         icon: 'tabler:users',
       },
@@ -237,7 +254,8 @@ const metadata = {
     title="Sertifikalar"
     items={[
       {
-        title: 'Getting Started with Google Kubernetes Engine <br /><span class="font-normal">Coursera</span> <br /><span class="text-sm font-normal">Haziran 2021 · Kimlik: TYEJ5FFCWP8F</span>',
+        title:
+          'Getting Started with Google Kubernetes Engine <br /><span class="font-normal">Coursera</span> <br /><span class="text-sm font-normal">Haziran 2021 · Kimlik: TYEJ5FFCWP8F</span>',
         description: 'Google Cloud tarafından sunulan Kubernetes Engine temelleri sertifikası.',
         icon: 'tabler:certificate',
       },

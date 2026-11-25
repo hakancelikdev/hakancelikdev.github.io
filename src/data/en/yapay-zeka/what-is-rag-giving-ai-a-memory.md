@@ -126,6 +126,7 @@ PROMPT = system_prompt + entire_document_text + question
 ```
 
 **Problems:**
+
 - Fills up the context window (even GPT-4 has limits)
 - AI hallucinates from irrelevant text passages
 - Cost goes up (more tokens = more money)
@@ -139,6 +140,7 @@ PROMPT = system_prompt + relevant_chunks + question
 ```
 
 **Results:**
+
 - Context window used efficiently
 - AI sees only what's relevant to the question
 - Hallucinations drop dramatically
@@ -153,6 +155,7 @@ One day I was poking around Cursor's settings. There's a section called "Codebas
 Turns out it was **exactly the RAG indexing step**.
 
 **Cursor** applies classic RAG when it opens your project:
+
 1. Splits all your source files into small chunks
 2. Runs each chunk through an embedding model
 3. Stores the vectors in a local database
@@ -234,6 +237,7 @@ Basic RAG is a solid starting point, but real-world pipelines usually add two mo
 Pure semantic search doesn't always win. For a query like "Django 4.2 release notes," exact keyword matching will outperform meaning-based similarity.
 
 **Hybrid search** combines both:
+
 - **BM25** (keyword search) — strong for exact terms, names, and code identifiers
 - **Semantic search** — strong for paraphrases and conceptual queries
 - Scores are merged and ranked together
@@ -248,7 +252,7 @@ The initial retrieval is fast but coarse. A **reranker** takes those results and
 Vector DB → Top 20 chunks → Reranker → Best 5 chunks → LLM
 ```
 
-Reranker models (Cohere Rerank, `cross-encoder/ms-marco-MiniLM-L-6-v2`) evaluate the question and each chunk *together*, making them far more precise than vector similarity alone. The pattern is: retrieve → rerank → generate.
+Reranker models (Cohere Rerank, `cross-encoder/ms-marco-MiniLM-L-6-v2`) evaluate the question and each chunk _together_, making them far more precise than vector similarity alone. The pattern is: retrieve → rerank → generate.
 
 ---
 
@@ -256,12 +260,12 @@ Reranker models (Cohere Rerank, `cross-encoder/ms-marco-MiniLM-L-6-v2`) evaluate
 
 These two are frequently confused:
 
-| | RAG | Fine-tuning |
-|---|---|---|
-| **What it does** | Injects relevant data at query time | Updates the model's weights |
-| **Can data be updated?** | Yes, easily | No, requires retraining |
-| **Cost** | Low (just indexing) | High (GPU time, engineering) |
-| **Use when** | External knowledge base, document search | Custom tone/behavior, domain specialization |
+|                          | RAG                                      | Fine-tuning                                 |
+| ------------------------ | ---------------------------------------- | ------------------------------------------- |
+| **What it does**         | Injects relevant data at query time      | Updates the model's weights                 |
+| **Can data be updated?** | Yes, easily                              | No, requires retraining                     |
+| **Cost**                 | Low (just indexing)                      | High (GPU time, engineering)                |
+| **Use when**             | External knowledge base, document search | Custom tone/behavior, domain specialization |
 
 In most applications, RAG should be tried **before** fine-tuning. The root cause of most "bad AI answers" isn't that the model isn't smart enough — it's that the model doesn't have access to the right information.
 

@@ -30,12 +30,18 @@ function readCache(): StatsCache | null {
     const raw = fs.readFileSync(CACHE_FILE, 'utf-8');
     const cache: StatsCache = JSON.parse(raw);
     if (Date.now() - cache.fetchedAt < CACHE_TTL_MS) return cache;
-  } catch { /* no cache or invalid */ }
+  } catch {
+    /* no cache or invalid */
+  }
   return null;
 }
 
 function writeCache(cache: StatsCache) {
-  try { fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2)); } catch { /* ignore write errors */ }
+  try {
+    fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2));
+  } catch {
+    /* ignore write errors */
+  }
 }
 
 async function githubStars(repo: string): Promise<string> {
@@ -77,9 +83,7 @@ function badge(icon: string, value: string, title: string) {
 }
 
 function statsBadges(stars: string, downloads: string) {
-  const b = [badge('★', stars, 'GitHub Stars'), badge('↓', downloads, 'PyPI Downloads')]
-    .filter(Boolean)
-    .join(' ');
+  const b = [badge('★', stars, 'GitHub Stars'), badge('↓', downloads, 'PyPI Downloads')].filter(Boolean).join(' ');
   return b ? `<span class="flex gap-1.5 mt-2 flex-wrap">${b}</span>` : '';
 }
 
@@ -91,24 +95,32 @@ let vakitStars: string, siteSeekerStars: string, meldStars: string;
 let unimportDl: string, unexportDl: string, pydbmDl: string, defineifDl: string;
 
 if (cached) {
-  ({ unimportStars = '', unexportStars = '', pydbmStars = '', defineifStars = '',
-     vakitStars = '', siteSeekerStars = '', meldStars = '' } = cached.github as Record<string, string>);
-  unimportDl  = cached.pypi['unimport']      ?? '';
-  unexportDl  = cached.pypi['unexport']      ?? '';
-  pydbmDl     = cached.pypi['pythonic-dbm']  ?? '';
-  defineifDl  = cached.pypi['defineif']      ?? '';
+  ({
+    unimportStars = '',
+    unexportStars = '',
+    pydbmStars = '',
+    defineifStars = '',
+    vakitStars = '',
+    siteSeekerStars = '',
+    meldStars = '',
+  } = cached.github as Record<string, string>);
+  unimportDl = cached.pypi['unimport'] ?? '';
+  unexportDl = cached.pypi['unexport'] ?? '';
+  pydbmDl = cached.pypi['pythonic-dbm'] ?? '';
+  defineifDl = cached.pypi['defineif'] ?? '';
 } else {
   // GitHub: parallel (different host, no rate limit issue)
-  [unimportStars, unexportStars, pydbmStars, defineifStars,
-   vakitStars, siteSeekerStars, meldStars] = await Promise.all([
-    githubStars('hakancelikdev/unimport'),
-    githubStars('hakancelikdev/unexport'),
-    githubStars('hakancelikdev/pydbm'),
-    githubStars('hakancelikdev/defineif'),
-    githubStars('hakancelikdev/vakit'),
-    githubStars('hakancelikdev/SiteSeeker'),
-    githubStars('hakancelikdev/meld'),
-  ]);
+  [unimportStars, unexportStars, pydbmStars, defineifStars, vakitStars, siteSeekerStars, meldStars] = await Promise.all(
+    [
+      githubStars('hakancelikdev/unimport'),
+      githubStars('hakancelikdev/unexport'),
+      githubStars('hakancelikdev/pydbm'),
+      githubStars('hakancelikdev/defineif'),
+      githubStars('hakancelikdev/vakit'),
+      githubStars('hakancelikdev/SiteSeeker'),
+      githubStars('hakancelikdev/meld'),
+    ]
+  );
 
   // PyPI: parallel with retry — faster than sequential 4s delays
   [unimportDl, unexportDl, pydbmDl, defineifDl] = await Promise.all([
@@ -120,8 +132,7 @@ if (cached) {
 
   writeCache({
     fetchedAt: Date.now(),
-    github: { unimportStars, unexportStars, pydbmStars, defineifStars,
-              vakitStars, siteSeekerStars, meldStars },
+    github: { unimportStars, unexportStars, pydbmStars, defineifStars, vakitStars, siteSeekerStars, meldStars },
     pypi: { unimport: unimportDl, unexport: unexportDl, 'pythonic-dbm': pydbmDl, defineif: defineifDl },
   });
 }
@@ -129,8 +140,10 @@ if (cached) {
 const metadata = {
   title: 'Hakan Çelik — Software Engineer',
   ignoreTitleTemplate: true,
-  description: 'Hakan Çelik — Software Engineer. Python araçları, iOS/macOS uygulamaları ve açık kaynak yazılım üzerine Türkçe blog.',
-  keywords: 'Hakan Çelik, Python, yazılım mühendisi, software engineer, açık kaynak, unimport, unexport, pydbm, iOS, macOS, Django, Go, Trendyol',
+  description:
+    'Hakan Çelik — Software Engineer. Python araçları, iOS/macOS uygulamaları ve açık kaynak yazılım üzerine Türkçe blog.',
+  keywords:
+    'Hakan Çelik, Python, yazılım mühendisi, software engineer, açık kaynak, unimport, unexport, pydbm, iOS, macOS, Django, Go, Trendyol',
 };
 
 const websiteSchema = {
@@ -189,11 +202,12 @@ const personSchema = {
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-16 items-center py-16 md:py-24 lg:py-32">
-
         <!-- Left: Text -->
         <div class="order-2 lg:order-1 hero-item" style="--delay: 0.1s">
           <div class="mb-10">
-            <span class="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.2em] uppercase text-primary border-l-2 border-primary bg-primary/[0.04] px-4 py-2">
+            <span
+              class="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.2em] uppercase text-primary border-l-2 border-primary bg-primary/[0.04] px-4 py-2"
+            >
               <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block shrink-0 animate-pulse"></span>
               Software Engineer & Open Source Enthusiast
             </span>
@@ -209,15 +223,22 @@ const personSchema = {
           <div class="w-16 h-0.5 bg-primary/40 mb-8"></div>
 
           <p class="text-xl md:text-2xl text-muted leading-relaxed font-light italic serif mb-10 max-w-lg">
-            Python araçları, iOS/macOS uygulamaları ve açık kaynak üzerine odaklanan bir <span class="font-semibold">yazılım mühendisi</span>.
-            Trendyol Go'da geliştirici olarak çalışıyorum.
+            Python araçları, iOS/macOS uygulamaları ve açık kaynak üzerine odaklanan bir <span class="font-semibold"
+              >yazılım mühendisi</span
+            >. Trendyol Go'da geliştirici olarak çalışıyorum.
           </p>
 
           <div class="flex flex-wrap gap-4">
-            <a href="#projects" class="btn btn-primary rounded-none border-2 hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center gap-2">
+            <a
+              href="#projects"
+              class="btn btn-primary rounded-none border-2 hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center gap-2"
+            >
               Projeleri Gör
             </a>
-            <a href={getPermalink('/blog')} class="btn rounded-none border-2 hover:bg-primary hover:text-white transition-all duration-300">
+            <a
+              href={getPermalink('/blog')}
+              class="btn rounded-none border-2 hover:bg-primary hover:text-white transition-all duration-300"
+            >
               Blog
             </a>
           </div>
@@ -238,7 +259,6 @@ const personSchema = {
             />
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -262,7 +282,11 @@ const personSchema = {
         description: `macOS için akıllı tarayıcı geçmişi ve yer imi arama. Tüm tarayıcılarını tek arayüzde ara.${statsBadges(siteSeekerStars, '')} <br /><br />
         <a href="https://github.com/hakancelikdev/SiteSeeker" target="_blank" class="text-primary hover:underline">Star on GitHub</a>`,
         icon: 'tabler:search',
-        callToAction: { text: 'siteseeker.hakancelik.dev', href: 'https://siteseeker.hakancelik.dev', target: '_blank' },
+        callToAction: {
+          text: 'siteseeker.hakancelik.dev',
+          href: 'https://siteseeker.hakancelik.dev',
+          target: '_blank',
+        },
       },
       {
         title: 'Meld',
@@ -381,14 +405,12 @@ const personSchema = {
   }
 
   .hero-grid {
-    background-image:
-      radial-gradient(circle at 2px 2px, rgb(234 88 12 / 0.15) 1.5px, transparent 0);
+    background-image: radial-gradient(circle at 2px 2px, rgb(234 88 12 / 0.15) 1.5px, transparent 0);
     background-size: 48px 48px;
     mask-image: radial-gradient(ellipse 70% 70% at 0% 0%, black 10%, transparent 90%);
   }
 
   :global(.dark) .hero-grid {
-    background-image:
-      radial-gradient(circle at 2px 2px, rgb(251 146 60 / 0.12) 1.5px, transparent 0);
+    background-image: radial-gradient(circle at 2px 2px, rgb(251 146 60 / 0.12) 1.5px, transparent 0);
   }
 </style>

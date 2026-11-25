@@ -19,12 +19,14 @@ tags:
 İki farklı prompt deneyin:
 
 **Prompt A:**
+
 ```
 Özgeçmişimi düzelt.
 [özgeçmiş metni]
 ```
 
 **Prompt B:**
+
 ```
 Kıdemli bir İK uzmanısın. Aşağıdaki özgeçmişi, teknoloji sektöründe
 yazılım mühendisi pozisyonuna başvuran biri için güçlendir.
@@ -178,6 +180,7 @@ Sistem promptu [token](/token-nedir-context-window-ve-ai-ucretlendirmesi) tüket
 ## Sık Yapılan Hatalar
 
 **1. Çok geniş, çok belirsiz sormak**
+
 ```
 ❌ "Bana iş fikirlerinden bahset"
 ✅ "İstanbul'da, 50.000₺ başlangıç bütçesiyle,

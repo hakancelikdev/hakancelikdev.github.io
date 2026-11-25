@@ -28,10 +28,11 @@ In this chapter:
 Brute-Force matcher is simple. It takes the descriptor of one feature in first set and is matched with all other features in second set using some distance calculation. And the closest one is returned.
 
 For BF matcher, first we have to create the BFMatcher object using **cv.BFMatcher()**. It takes two optional params:
+
 - **normType** — specifies the distance measurement to be used. By default, it is cv.NORM_L2. For binary string based descriptors like ORB, BRIEF, BRISK etc, cv.NORM_HAMMING should be used.
 - **crossCheck** — if True, Matcher returns only those matches that are consistent in both directions. It is a good alternative to ratio test proposed by D.Lowe in SIFT paper.
 
-Two important methods are *BFMatcher.match()* and *BFMatcher.knnMatch()*. **cv.drawMatches()** helps us to draw the matches.
+Two important methods are _BFMatcher.match()_ and _BFMatcher.knnMatch()_. **cv.drawMatches()** helps us to draw the matches.
 
 ### Brute-Force Matching with ORB Descriptors
 

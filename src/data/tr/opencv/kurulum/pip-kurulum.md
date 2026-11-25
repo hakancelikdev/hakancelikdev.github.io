@@ -87,13 +87,16 @@ Her ortama **yalnızca birini** kurun.
 **pip kaynaktan derlemeye çalışıyor**
 Belirtiler: çok uzun derleme adımı, CMake hataları, derleyici hataları.
 Çözümler:
+
 - Derleme araçlarını güncelleyin: `python -m pip install --upgrade pip setuptools wheel`
 - Python sürümünüzün seçilen paket tarafından desteklendiğinden emin olun.
 
 **"No matching distribution found" veya "Unsupported wheel"**
+
 - Python sürümünüzü doğrulayın (`python -V`). Güncel bir Python (3.10–3.12) kullanarak temiz bir sanal ortam oluşturun.
 
 **IDE'de import çalışıyor, terminalde çalışmıyor (veya tam tersi)**
+
 - IDE farklı bir yorumlayıcı kullanıyor. IDE'nin yorumlayıcı ayarlarında aynı ortamı seçin.
 
 ---

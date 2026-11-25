@@ -62,11 +62,11 @@ Every subagent **starts with a clean context window**. This keeps [token costs](
 
 The most important design decision in multi-agent systems:
 
-| Task structure | Approach | Why |
-|---|---|---|
-| Tasks are independent | **Parallel** | They run simultaneously; total time = slowest task |
-| Task B needs Task A's output | **Sequential** | B can't start until A finishes |
-| Mix of independent and dependent | **Hybrid** | Parallelize the independent, sequence the dependent |
+| Task structure                   | Approach       | Why                                                 |
+| -------------------------------- | -------------- | --------------------------------------------------- |
+| Tasks are independent            | **Parallel**   | They run simultaneously; total time = slowest task  |
+| Task B needs Task A's output     | **Sequential** | B can't start until A finishes                      |
+| Mix of independent and dependent | **Hybrid**     | Parallelize the independent, sequence the dependent |
 
 Examples:
 
@@ -186,11 +186,13 @@ Each step takes the previous step's output as context. Subagents never see each 
 Every subagent starts fresh. This is a feature, not a limitation.
 
 **Advantages:**
+
 - Each subagent focuses on its domain without carrying noise from other tasks
 - Token costs drop — you don't send the full conversation history to every subagent
 - Different subagents can have different system prompts tailored to their specialty
 
 **Watch out for:**
+
 - Subagents can't see each other's work — the orchestrator must explicitly pass information
 - In sequential pipelines, previous outputs must be clearly handed over
 
@@ -218,11 +220,11 @@ Delegating independent research tasks to parallel subagents is the most effectiv
 
 ## When to Use Multi-Agent
 
-| Use it | Skip it |
-|--------|---------|
-| Codebase doesn't fit in a single context | Task is simple and single-step |
-| Independent tasks can run in parallel | Coordination overhead exceeds parallelism benefit |
-| Sub-tasks require different "expertise" | Too much data needs to pass between subagents |
+| Use it                                       | Skip it                                              |
+| -------------------------------------------- | ---------------------------------------------------- |
+| Codebase doesn't fit in a single context     | Task is simple and single-step                       |
+| Independent tasks can run in parallel        | Coordination overhead exceeds parallelism benefit    |
+| Sub-tasks require different "expertise"      | Too much data needs to pass between subagents        |
 | Preventing context overflow in long sessions | Error tolerance is critical (cascading failure risk) |
 
 ---

@@ -60,6 +60,7 @@ for text in texts:
 ```
 
 Output will look roughly like:
+
 ```
  5 tokens | Hello, how are you?
  7 tokens | Merhaba, nasılsın?
@@ -75,12 +76,12 @@ The Turkish sentences consume 30–50% more tokens than their English equivalent
 
 Every model has a **context window** — the maximum number of tokens it can hold in view at once.
 
-| Model | Context Window |
-|---|---|
-| GPT-3.5 Turbo | 16,000 tokens |
-| GPT-4o | 128,000 tokens |
+| Model             | Context Window |
+| ----------------- | -------------- |
+| GPT-3.5 Turbo     | 16,000 tokens  |
+| GPT-4o            | 128,000 tokens |
 | Claude Sonnet 4.5 | 200,000 tokens |
-| Llama 3.1 70B | 128,000 tokens |
+| Llama 3.1 70B     | 128,000 tokens |
 
 This limit doesn't apply only to your message. The **entire conversation** draws from this pool:
 
@@ -110,12 +111,12 @@ Output tokens cost more because generating each one requires active computation 
 
 Example prices as of April 2026 (per million tokens, USD):
 
-| Model | Input | Output |
-|---|---|---|
-| GPT-4o | $2.50 | $10.00 |
+| Model             | Input | Output |
+| ----------------- | ----- | ------ |
+| GPT-4o            | $2.50 | $10.00 |
 | Claude Sonnet 4.5 | $3.00 | $15.00 |
-| GPT-4o mini | $0.15 | $0.60 |
-| Claude Haiku 4.5 | $0.80 | $4.00 |
+| GPT-4o mini       | $0.15 | $0.60  |
+| Claude Haiku 4.5  | $0.80 | $4.00  |
 
 One million tokens is roughly 750,000 words — several novels. Hard to hit in a single call, but easy to accumulate across thousands of users in a production application.
 
@@ -132,11 +133,11 @@ Anthropic and OpenAI both offer **prompt caching** for repeated long prompts. If
 
 When [building a RAG pipeline](/what-is-rag-giving-ai-a-memory), you use an embedding model to convert text into vectors. These are also token-priced, but far cheaper than large language models:
 
-| Model | Price (per 1M tokens) |
-|---|---|
-| text-embedding-3-small | $0.02 |
-| text-embedding-3-large | $0.13 |
-| Claude Sonnet 4.5 (input) | $3.00 |
+| Model                     | Price (per 1M tokens) |
+| ------------------------- | --------------------- |
+| text-embedding-3-small    | $0.02                 |
+| text-embedding-3-large    | $0.13                 |
+| Claude Sonnet 4.5 (input) | $3.00                 |
 
 Indexing thousands of documents with embeddings can cost less than a single GPT-4 conversation.
 

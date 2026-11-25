@@ -103,6 +103,7 @@ the class body is being executed, every assignment passes through
 
 When a function is being assigned (`inspect.isfunction(value)` is True), the
 `Namespace.test` list is checked:
+
 - If the list is non-empty, the condition is retrieved with `test.pop()`: if `True`
   the method is added; if `False` it is silently skipped.
 - If the list is empty, it is added unconditionally (normal method definition).

@@ -138,7 +138,6 @@ Here I will select the ball and copy it to another region in the image:
 >>> img[273:333, 100:160] = ball
 ```
 
-
 ## Splitting and Merging Image Channels
 
 The B, G, R channels of an image can be split into their individual planes when needed.

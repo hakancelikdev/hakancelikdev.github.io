@@ -19,12 +19,14 @@ tags:
 Try these two prompts:
 
 **Prompt A:**
+
 ```
 Fix my resume.
 [resume text]
 ```
 
 **Prompt B:**
+
 ```
 You're a senior HR professional specializing in tech hiring.
 Strengthen the resume below for a software engineering role.
@@ -174,6 +176,7 @@ The system prompt consumes [tokens](/what-is-a-token-how-ai-models-read-text-and
 ## Common Mistakes
 
 **1. Too vague, too broad**
+
 ```
 ❌ "Tell me about business ideas"
 ✅ "Suggest 5 e-commerce business ideas that a single person

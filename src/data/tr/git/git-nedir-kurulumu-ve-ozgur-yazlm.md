@@ -65,7 +65,6 @@ yapıyor.
   veya eksik bir şey fark ediyorsunuz sonra eski proje dosyalarını kaybetmemek için bir
   yere yedeğini alıyorsunuz ve diğeri ile devam ediyorsunuz ve bu devam ediyor günün
   sonunda elinizde şöyle bir çalışma dizini olabilir.
-
   - Bu son
   - Bu sefer kesin bitti
   - Bütün hatalar giderildi işlem bitti

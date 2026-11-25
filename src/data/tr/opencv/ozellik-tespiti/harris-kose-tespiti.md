@@ -48,6 +48,7 @@ Ardından bir pencerenin köşe içerip içermediğini belirleyen bir skor denkl
 **R = det(M) - k(trace(M))²**
 
 burada:
+
 - det(M) = λ₁λ₂
 - trace(M) = λ₁ + λ₂
 - λ₁ ve λ₂, M'nin özdegerleridir

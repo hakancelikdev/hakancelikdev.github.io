@@ -126,6 +126,7 @@ PROMPT = sistem_promptu + tüm_doküman_metni + soru
 ```
 
 **Sorunlar:**
+
 - Context window'u dolduruyor (GPT-4'te bile limit var)
 - AI alakasız metinlerden "halüsinasyon" üretiyor
 - Maliyet artıyor (daha fazla token = daha fazla para)
@@ -139,6 +140,7 @@ PROMPT = sistem_promptu + alakali_parca + soru
 ```
 
 **Sonuçlar:**
+
 - Context window verimli kullanılıyor
 - AI sadece konuyla ilgili bilgiyi görüyor
 - Hallucination dramatik biçimde düşüyor
@@ -153,11 +155,13 @@ Bir gün Cursor'un ayarlarına baktım. "Codebase indexing" diye bir bölüm var
 Meğer bu tam olarak **RAG indexleme adımıydı**.
 
 **Cursor** projenizi açtığında klasik RAG uygular:
+
 1. Tüm kaynak dosyalarınızı küçük parçalara böler
 2. Her parçayı bir embedding modelinden geçirir
 3. Vektörleri local bir veritabanında saklar
 
 Siz `@codebase` yazıp bir soru sorduğunuzda:
+
 1. Sorunuzu embede eder
 2. En alakalı kod parçalarını bulur
 3. Bunları GPT-4 / Claude'a gönderir
@@ -235,6 +239,7 @@ Temel RAG iyi bir başlangıç noktası, ama gerçek projelerde iki önemli adı
 Salt semantic search her zaman yeterli değildir. "Django 4.2 release notes" gibi spesifik bir sorgu için kelime eşleşmesi, anlam benzerliğinden daha doğru sonuç verir.
 
 **Hybrid search** ikisini birleştirir:
+
 - **BM25** (keyword search) — tam kelime eşleşmesi, isimlere ve kodlara güçlü
 - **Semantic search** — anlam yakınlığı, parafrazlara güçlü
 - İkisinin skorları birleştirilerek sıralanır
@@ -257,12 +262,12 @@ Reranker modeller (Cohere Rerank, `cross-encoder/ms-marco-MiniLM-L-6-v2`) soruyu
 
 Bu iki kavram sıkça karıştırılır:
 
-| | RAG | Fine-tuning |
-|---|---|---|
-| **Ne yapar?** | Sorguda alakalı veri ekler | Modelin ağırlıklarını günceller |
-| **Veri güncellenebilir mi?** | Evet, kolayca | Hayır, yeniden eğitim gerekir |
-| **Maliyet** | Düşük (sadece indexleme) | Yüksek (GPU, zaman) |
-| **Ne zaman kullanılır?** | Dış bilgi tabanı, doküman arama | Özel ton/davranış, alan uzmanlığı |
+|                              | RAG                             | Fine-tuning                       |
+| ---------------------------- | ------------------------------- | --------------------------------- |
+| **Ne yapar?**                | Sorguda alakalı veri ekler      | Modelin ağırlıklarını günceller   |
+| **Veri güncellenebilir mi?** | Evet, kolayca                   | Hayır, yeniden eğitim gerekir     |
+| **Maliyet**                  | Düşük (sadece indexleme)        | Yüksek (GPU, zaman)               |
+| **Ne zaman kullanılır?**     | Dış bilgi tabanı, doküman arama | Özel ton/davranış, alan uzmanlığı |
 
 Çoğu uygulamada RAG, fine-tuning'den **önce** denenmelidir. Sorunun çoğu aslında "modelin yeterince akıllı olmaması" değil, "modelin doğru bilgiye erişememesidir."
 

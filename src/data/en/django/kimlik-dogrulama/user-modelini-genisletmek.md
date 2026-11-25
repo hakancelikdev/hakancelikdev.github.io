@@ -172,8 +172,8 @@ incoming user (i.e., `request.user`) has uploaded a profile picture. If True, we
 their own picture; if False, we show the default picture.
 
 ```markup
-following   
-followers  
+following
+followers
 ```
 
 ### Signals

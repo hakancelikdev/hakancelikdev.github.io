@@ -160,7 +160,7 @@ template' ımız de şu şekilde olacak
             <a class="step-links-a" href="?page=">geri</a>
         {% endif %}
         <span class="current">
-             | 
+             |
         </span> {% if blog.has_next %}
     <a class="step-links-a" href="?page=">ileri</a> {% endif %}
     </span>
@@ -236,7 +236,7 @@ blogs.html içinde paginator.html ı dahil ediyoruz
             <a class="step-links-a" href="?page=">geri</a>
         {% endif %}
         <span class="current">
-             | 
+             |
         </span> {% if blog.has_next %}
     <a class="step-links-a" href="?page=">ileri</a> {% endif %}
     </span>

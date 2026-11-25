@@ -102,6 +102,7 @@ Mekanizma üç parçadan oluşur:
 
 Bir fonksiyon atanırken (`inspect.isfunction(value)` True) `Namespace.test` listesine
 bakılır:
+
 - Liste doluysa `test.pop()` ile koşul alınır: `True` ise metot eklenir, `False` ise
   sessizce atlanır.
 - Liste boşsa koşulsuz eklenir (normal metot tanımı).

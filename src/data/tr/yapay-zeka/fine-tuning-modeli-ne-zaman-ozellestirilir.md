@@ -47,15 +47,16 @@ Genel Model (milyarlarca parametre, genel bilgi)
 
 Bu soruyu doğru cevaplamak, hem zaman hem para tasarrufu sağlar.
 
-| Soru | Fine-Tuning | RAG |
-|---|---|---|
-| Modele yeni **bilgi** mi katmak istiyorsun? | ✗ Zayıf | ✓ Güçlü |
-| Modele yeni **davranış/ton** mı öğretmek istiyorsun? | ✓ Güçlü | ✗ Zayıf |
-| Veriler sık güncelleniyor mu? | ✗ Her güncellemede yeniden eğitim | ✓ Index güncelleme yeterli |
-| Yanıtlar kaynaklara referans vermeli mi? | ✗ Zor | ✓ Doğal |
-| Bütçe kısıtlı mı? | ✗ Pahalı | ✓ Ucuz |
+| Soru                                                 | Fine-Tuning                       | RAG                        |
+| ---------------------------------------------------- | --------------------------------- | -------------------------- |
+| Modele yeni **bilgi** mi katmak istiyorsun?          | ✗ Zayıf                           | ✓ Güçlü                    |
+| Modele yeni **davranış/ton** mı öğretmek istiyorsun? | ✓ Güçlü                           | ✗ Zayıf                    |
+| Veriler sık güncelleniyor mu?                        | ✗ Her güncellemede yeniden eğitim | ✓ Index güncelleme yeterli |
+| Yanıtlar kaynaklara referans vermeli mi?             | ✗ Zor                             | ✓ Doğal                    |
+| Bütçe kısıtlı mı?                                    | ✗ Pahalı                          | ✓ Ucuz                     |
 
 **Pratikte:**
+
 - Kendi şirket dokümanlarınıza dayalı soru-cevap sistemi → **RAG**
 - Modelin her zaman belirli bir yazı stiliyle yanıt vermesi → **Fine-tuning**
 - Özel bir alan terminolojisini doğal kullanması → **Fine-tuning**
@@ -94,13 +95,13 @@ Efektif Ağırlık (W + AB)
 
 Sonuç:
 
-| | Full Fine-Tuning | LoRA |
-|---|---|---|
-| Eğitilen parametre | ~100% | ~0.1-1% |
-| VRAM ihtiyacı | Çok yüksek | Düşük |
-| Eğitim süresi | Uzun | Kısa |
-| Kalite farkı | Referans | Genellikle %90-95 kalitede |
-| Birden fazla görev | Ayrı model | Tek model + birden fazla adaptör |
+|                    | Full Fine-Tuning | LoRA                             |
+| ------------------ | ---------------- | -------------------------------- |
+| Eğitilen parametre | ~100%            | ~0.1-1%                          |
+| VRAM ihtiyacı      | Çok yüksek       | Düşük                            |
+| Eğitim süresi      | Uzun             | Kısa                             |
+| Kalite farkı       | Referans         | Genellikle %90-95 kalitede       |
+| Birden fazla görev | Ayrı model       | Tek model + birden fazla adaptör |
 
 **QLoRA** ise LoRA'yı kuantizasyonla birleştirir — 4-bit kuantize edilmiş modele LoRA adaptörü ekler. Tüketici GPU'ları (16-24GB VRAM) ile 7B-13B modelleri fine-tune etmek mümkün hale gelir.
 

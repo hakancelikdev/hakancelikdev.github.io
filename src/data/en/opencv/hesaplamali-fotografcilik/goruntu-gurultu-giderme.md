@@ -43,6 +43,7 @@ OpenCV provides four variations of this technique:
 4. **cv.fastNlMeansDenoisingColoredMulti()** — same as above, but for color images
 
 Common arguments:
+
 - **h**: parameter deciding filter strength. Higher h value removes noise better, but removes details too. (10 is ok)
 - **hForColorComponents**: same as h, but for color images only. (normally same as h)
 - **templateWindowSize**: should be odd. (recommended 7)

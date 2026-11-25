@@ -27,6 +27,7 @@ In this chapter,
 Background subtraction is a major preprocessing step in many vision-based applications. For example, a customer counter using a static camera, or a traffic analysis system. In all these cases, you first need to extract the person or vehicles alone. Background subtraction achieves this by creating a model of the background.
 
 OpenCV has implemented three such algorithms, among which we will talk about two:
+
 - **MOG2** (Gaussian Mixture-based Background/Foreground Segmentation Algorithm)
 - **KNN** (K-Nearest Neigbours based Background/Foreground Segmentation)
 

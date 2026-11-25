@@ -42,7 +42,6 @@ sağlanmaktadır.
 Aşağıda Cambridge color websitesinden bir görsel var ve daha fazla bilgi için siteyi
 ziyaret etmenizi tavsiye ederim.
 
-
 Görseli ve onun histogramını görebilirsiniz \( hatırlayın histgoram **grayscale**
 görsel, renk olmandan çizilir \).
 

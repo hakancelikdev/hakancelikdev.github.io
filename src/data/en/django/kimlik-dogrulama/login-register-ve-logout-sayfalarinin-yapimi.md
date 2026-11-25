@@ -349,9 +349,9 @@ It also has JS and CSS links, and that's about it.
  -->
 {% with button_id=form_id|add:'Button'|default:'formSubmitButton' %}
 <form {% if url_name %}action="{% url form_url_name %}" {% endif %} method="" id="" class="uk-form-horizontal">
-  
+
   {% if method|lower != "get" %} {% csrf_token %} {% endif %}
-   {% for hidden_field in form.hidden_fields %} 
+   {% for hidden_field in form.hidden_fields %}
    {% endfor %} {% for field in form.visible_fields %}
   <div class="field" id="group_">
     {% if field.errors %}
@@ -362,20 +362,20 @@ It also has JS and CSS links, and that's about it.
     </ol>
     {% endif %}
     <label class="{% for class in field.field.widget.label_classes %}{% endfor %}" for="">
-      
+
     </label>
     <div class="uk-inline">
       {% if field.field.widget.uk_icon %}
       <span class="uk-form-icon" uk-icon=""></span>
-      {% endif %} 
+      {% endif %}
     </div>
     <small class="uk-text-meta uk-text-background" id="Help">
-    
+
     </small>
   </div>
   {% endfor %}
   <button id="" type="submit" class="uk-button uk-button-primary">
-    
+
   </button>
 </form>
 {% endwith %}

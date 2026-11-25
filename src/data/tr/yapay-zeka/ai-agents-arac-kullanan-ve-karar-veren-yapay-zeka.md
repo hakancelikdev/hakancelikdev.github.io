@@ -56,6 +56,7 @@ Her AI agent üç temel parçadan oluşur:
 ### 2. Araçlar (Tools)
 
 Modelin yapamayacağı şeyleri yapan fonksiyonlar:
+
 - Web araması
 - Kod çalıştırma
 - Dosya okuma/yazma

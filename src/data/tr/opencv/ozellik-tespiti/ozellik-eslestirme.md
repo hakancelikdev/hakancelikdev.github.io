@@ -28,6 +28,7 @@ Bu bölümde:
 Kaba Kuvvet eşleştiricisi basittir. İlk setin bir özelliğinin tanımlayıcısını alır ve bazı mesafe hesaplamaları kullanarak ikinci setteki diğer tüm özelliklerle eşleştirir. En yakın olan döndürülür.
 
 BF eşleştiricisi için, **cv.BFMatcher()** kullanarak BFMatcher nesnesi oluşturulmalıdır. İki isteğe bağlı parametre alır:
+
 - **normType** — mesafe ölçümünü belirtir. Varsayılan cv.NORM_L2'dir (SIFT, SURF için iyidir). ORB, BRIEF, BRISK gibi ikili dize tabanlı tanımlayıcılar için Hamming mesafesini kullanan cv.NORM_HAMMING kullanılmalıdır.
 - **crossCheck** — True ise yalnızca çapraz eşleşmeleri döndürür; bu, SIFT makalesindeki oran testinin iyi bir alternatifidir.
 
@@ -72,6 +73,7 @@ plt.imshow(img3), plt.show()
 ### DMatch Nesnesi Nedir?
 
 `matches = bf.match(des1, des2)` satırının sonucu bir DMatch nesneleri listesidir. Bu DMatch nesnesi şu özelliklere sahiptir:
+
 - **DMatch.distance** — Tanımlayıcılar arasındaki mesafe. Düşük olan daha iyidir.
 - **DMatch.trainIdx** — Eğitim tanımlayıcılarındaki tanımlayıcı indeksi
 - **DMatch.queryIdx** — Sorgu tanımlayıcılarındaki tanımlayıcı indeksi

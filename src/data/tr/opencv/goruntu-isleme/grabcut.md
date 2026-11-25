@@ -27,7 +27,7 @@ Bu bölümde:
 
 GrabCut algoritması, Microsoft Research Cambridge'den Carsten Rother, Vladimir Kolmogorov ve Andrew Blake tarafından ["GrabCut": iterative graph cut kullanarak etkileşimli ön plan çıkarma](http://dl.acm.org/citation.cfm?id=1015720) adlı makalede tasarlanmıştır. Minimal kullanıcı etkileşimiyle ön plan çıkarma için bir algoritma gerekiyordu ve sonuç GrabCut oldu.
 
-Kullanıcı açısından nasıl çalışır? Başlangıçta kullanıcı, ön plan bölgesinin etrafına bir dikdörtgen çizer (ön plan bölgesi tamamen dikdörtgenin içinde olmalıdır). Ardından algoritma, en iyi sonucu elde etmek için bunu yinelemeli olarak segmentler. Tamam. Ancak bazı durumlarda segmentasyon iyi olmayabilir; örneğin bazı ön plan bölgelerini arka plan olarak, bazı arka plan bölgelerini ön plan olarak işaretlemiş olabilir. Bu durumda kullanıcının bazı ince düzenlemeler yapması gerekir. Hatalı sonuçların olduğu görüntü üzerinde çizgiler çizmeniz yeterlidir. Bu çizgiler temelde şunu söyler: *"Hey, bu bölge ön plan olmalı, arka plan olarak işaretledin, bir sonraki iterasyonda düzelt"* ya da tam tersi. Bir sonraki iterasyonda daha iyi sonuçlar alırsınız.
+Kullanıcı açısından nasıl çalışır? Başlangıçta kullanıcı, ön plan bölgesinin etrafına bir dikdörtgen çizer (ön plan bölgesi tamamen dikdörtgenin içinde olmalıdır). Ardından algoritma, en iyi sonucu elde etmek için bunu yinelemeli olarak segmentler. Tamam. Ancak bazı durumlarda segmentasyon iyi olmayabilir; örneğin bazı ön plan bölgelerini arka plan olarak, bazı arka plan bölgelerini ön plan olarak işaretlemiş olabilir. Bu durumda kullanıcının bazı ince düzenlemeler yapması gerekir. Hatalı sonuçların olduğu görüntü üzerinde çizgiler çizmeniz yeterlidir. Bu çizgiler temelde şunu söyler: _"Hey, bu bölge ön plan olmalı, arka plan olarak işaretledin, bir sonraki iterasyonda düzelt"_ ya da tam tersi. Bir sonraki iterasyonda daha iyi sonuçlar alırsınız.
 
 Aşağıdaki görüntüye bakın. İlk olarak oyuncu ve top mavi bir dikdörtgenin içine alınır. Ardından beyaz çizgilerle (ön planı gösteren) ve siyah çizgilerle (arka planı gösteren) bazı son düzenlemeler yapılır. Ve güzel bir sonuç elde edilir:
 
@@ -86,7 +86,7 @@ Sonuçlara bakın:
 
 ![GrabCut dikdörtgen modu](/images/posts/opencv/grabcut_rect.jpg)
 
-Messi'nin saçları gitti. *Kim Messi'yi saçsız sever?* Geri getirmemiz gerekiyor. Yani orada 1-piksel (kesin ön plan) ile ince bir dokunuş yapacağız. Aynı zamanda resme giren zemin ve logo gibi istemediğimiz kısımlar da var. Onları kaldırmamız gerekiyor, bunlar için 0-piksel (kesin arka plan) dokunuşu yapıyoruz:
+Messi'nin saçları gitti. _Kim Messi'yi saçsız sever?_ Geri getirmemiz gerekiyor. Yani orada 1-piksel (kesin ön plan) ile ince bir dokunuş yapacağız. Aynı zamanda resme giren zemin ve logo gibi istemediğimiz kısımlar da var. Onları kaldırmamız gerekiyor, bunlar için 0-piksel (kesin arka plan) dokunuşu yapıyoruz:
 
 ```python
 # newmask el ile etiketlediğim maske görüntüsüdür

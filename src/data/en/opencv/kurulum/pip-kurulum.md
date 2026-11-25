@@ -87,13 +87,16 @@ Install exactly **one** of these per environment.
 **Pip is trying to build from source**
 Symptoms: very long build step, CMake errors, compiler errors.
 Fixes:
+
 - Upgrade build tooling: `python -m pip install --upgrade pip setuptools wheel`
 - Ensure your Python version is supported by the chosen package.
 
 **"No matching distribution found" or "Unsupported wheel"**
+
 - Confirm your Python version (`python -V`). Create a fresh virtual environment with a mainstream Python (3.10–3.12) and reinstall.
 
 **Import works in terminal but fails in IDE**
+
 - The IDE is using a different interpreter. Select the **same** environment inside your IDE's interpreter settings.
 
 ---

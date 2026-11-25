@@ -36,12 +36,9 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-
     <!-- Header -->
     <header class="mb-10 md:mb-14 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading">
-        Blog
-      </h1>
+      <h1 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading">Blog</h1>
       <p class="mt-3 text-xl text-muted dark:text-slate-400">
         Python, Django, Go, OpenCV, Cloud ve daha fazlası üzerine yazılar.
       </p>
@@ -58,20 +55,22 @@ const metadata = {
         Tümü
         <span class="bg-white/20 text-white text-xs px-1.5 py-0.5 rounded-full">{page.total}</span>
       </a>
-      {categories.map((cat) => (
-        <a
-          href={getPermalink(cat.slug, 'category')}
-          class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium
+      {
+        categories.map((cat) => (
+          <a
+            href={getPermalink(cat.slug, 'category')}
+            class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium
                  bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300
                  hover:bg-indigo-100 dark:hover:bg-indigo-900/40 hover:text-primary dark:hover:text-indigo-300
                  transition-colors"
-        >
-          {cat.title}
-          <span class="bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-slate-400 text-xs px-1.5 py-0.5 rounded-full">
-            {cat.count}
-          </span>
-        </a>
-      ))}
+          >
+            {cat.title}
+            <span class="bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-slate-400 text-xs px-1.5 py-0.5 rounded-full">
+              {cat.count}
+            </span>
+          </a>
+        ))
+      }
     </div>
 
     <BlogList posts={page.data} />
@@ -80,12 +79,7 @@ const metadata = {
 
     <!-- Fallback pagination (hidden by JS, accessible without JS) -->
     <div id="blog-pagination">
-      <Pagination
-        prevUrl={page.url.prev}
-        nextUrl={page.url.next}
-        prevText="Daha yeni"
-        nextText="Daha eski"
-      />
+      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} prevText="Daha yeni" nextText="Daha eski" />
     </div>
   </section>
 </Layout>

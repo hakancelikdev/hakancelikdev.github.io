@@ -112,7 +112,6 @@ ettiğim noktaları \( points \) gösteriyor. `CHAIN_APPROX_NONE` \(734 nokta \(
 \)\) ve İkinci resim, `cv2.CHAIN_APPROX_SIMPLE` \(yalnızca 4 nokta\) içeren bir resim
 gösterir. Bu şekilde hafızadan kazanmış oluyoruz.
 
-
 ## Kontur Özellikleri
 
 ### Hedefler

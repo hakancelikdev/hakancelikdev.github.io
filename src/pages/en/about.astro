@@ -32,17 +32,17 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-
   <!-- Hero: Cinematic split layout -->
   <section class="relative not-prose md:-mt-[76px] overflow-hidden">
     <div class="pt-0 md:pt-[76px]"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-16 items-center py-16 md:py-24 lg:py-32">
-
         <!-- Left: Text -->
         <div class="order-2 lg:order-1 about-reveal" style="--delay: 0.1s">
-          <p class="font-mono text-[10px] tracking-[0.2em] uppercase text-primary border-l-2 border-primary bg-primary/[0.04] px-4 py-2 inline-flex items-center gap-3 mb-8">
+          <p
+            class="font-mono text-[10px] tracking-[0.2em] uppercase text-primary border-l-2 border-primary bg-primary/[0.04] px-4 py-2 inline-flex items-center gap-3 mb-8"
+          >
             <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block shrink-0 animate-pulse"></span>
             About
           </p>
@@ -56,15 +56,22 @@ const metadata = {
 
           <div class="w-16 h-0.5 bg-primary/40 mb-8"></div>
 
-          <p class="text-lg md:text-xl text-muted leading-relaxed mb-6 max-w-lg" style="font-family: var(--aw-font-serif);">
-            I have been developing software professionally since 2019. I started my career with Django projects; over time, I turned to tools in the Python ecosystem, open source, and application development.
+          <p
+            class="text-lg md:text-xl text-muted leading-relaxed mb-6 max-w-lg"
+            style="font-family: var(--aw-font-serif);"
+          >
+            I have been developing software professionally since 2019. I started my career with Django projects; over
+            time, I turned to tools in the Python ecosystem, open source, and application development.
           </p>
 
           <p class="text-lg md:text-xl text-muted leading-relaxed max-w-lg" style="font-family: var(--aw-font-serif);">
-            Today, while working as a software developer at <strong class="text-default dark:text-white">Trendyol Go by Uber Eats</strong>,
-            I produce Python linters, iOS applications, and macOS tools in my spare time.
-            The tools I wrote — <strong class="text-default dark:text-white">unimport</strong>, <strong class="text-default dark:text-white">unexport</strong>, <strong class="text-default dark:text-white">pydbm</strong> —
-            are used by thousands of developers.
+            Today, while working as a software developer at <strong class="text-default dark:text-white"
+              >Trendyol Go by Uber Eats</strong
+            >, I produce Python linters, iOS applications, and macOS tools in my spare time. The tools I wrote — <strong
+              class="text-default dark:text-white">unimport</strong
+            >, <strong class="text-default dark:text-white">unexport</strong>, <strong
+              class="text-default dark:text-white">pydbm</strong
+            > — are used by thousands of developers.
           </p>
         </div>
 
@@ -82,33 +89,33 @@ const metadata = {
               class="w-full shadow-2xl shadow-primary/10"
               loading="eager"
             />
-
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- Stats: Horizontal strip -->
-  <section class="relative not-prose border-y border-primary/10 dark:border-stone-800 bg-primary/[0.02] dark:bg-stone-900/30">
+  <section
+    class="relative not-prose border-y border-primary/10 dark:border-stone-800 bg-primary/[0.02] dark:bg-stone-900/30"
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-primary/10 dark:divide-stone-800">
-        {[
-          { amount: '6+', label: 'Years of Experience' },
-          { amount: '7', label: 'Open Source Projects' },
-          { amount: '4', label: 'PyPI Packages' },
-          { amount: unimportMonthly || '—', label: 'Unimport Downloads/mo' },
-        ].map((stat) => (
-          <div class="py-10 md:py-14 px-4 md:px-8 text-center">
-            <div class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white tracking-tighter mb-2">
-              {stat.amount}
+        {
+          [
+            { amount: '6+', label: 'Years of Experience' },
+            { amount: '7', label: 'Open Source Projects' },
+            { amount: '4', label: 'PyPI Packages' },
+            { amount: unimportMonthly || '—', label: 'Unimport Downloads/mo' },
+          ].map((stat) => (
+            <div class="py-10 md:py-14 px-4 md:px-8 text-center">
+              <div class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white tracking-tighter mb-2">
+                {stat.amount}
+              </div>
+              <div class="text-xs font-mono uppercase tracking-[0.15em] text-muted">{stat.label}</div>
             </div>
-            <div class="text-xs font-mono uppercase tracking-[0.15em] text-muted">
-              {stat.label}
-            </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>
@@ -119,7 +126,11 @@ const metadata = {
     subtitle="Languages I use professionally."
     columns={3}
     items={[
-      { title: 'Python', description: 'Django, DRF, FastAPI, asyncio, AST analysis, libcst', icon: 'tabler:brand-python' },
+      {
+        title: 'Python',
+        description: 'Django, DRF, FastAPI, asyncio, AST analysis, libcst',
+        icon: 'tabler:brand-python',
+      },
       { title: 'Go', description: 'Trendyol Go by Uber Eats, Vakit', icon: 'tabler:brand-golang' },
       { title: 'Kotlin', description: 'Trendyol Go by Uber Eats', icon: 'tabler:brand-kotlin' },
       { title: 'Java', description: 'Trendyol Go by Uber Eats, Spring Boot', icon: 'tabler:coffee' },
@@ -176,18 +187,23 @@ const metadata = {
     title="Experience"
     items={[
       {
-        title: 'Software Developer <br /><span class="font-normal">Trendyol Go by Uber Eats</span> <br /><span class="text-sm font-normal">November 2024 - Present</span>',
+        title:
+          'Software Developer <br /><span class="font-normal">Trendyol Go by Uber Eats</span> <br /><span class="text-sm font-normal">November 2024 - Present</span>',
         description: '',
         icon: 'tabler:briefcase',
       },
       {
-        title: 'Software Developer <br /><span class="font-normal">Deepinfo</span> <br /><span class="text-sm font-normal">November 2020 - November 2024</span>',
-        description: 'Backend development in big data and cybersecurity projects. Used FastAPI, Django, DRF, MongoDB, Celery, Redis, PostgreSQL, RabbitMQ, Kafka, and Elasticsearch. Active contribution to DevOps processes, QA environment management.',
+        title:
+          'Software Developer <br /><span class="font-normal">Deepinfo</span> <br /><span class="text-sm font-normal">November 2020 - November 2024</span>',
+        description:
+          'Backend development in big data and cybersecurity projects. Used FastAPI, Django, DRF, MongoDB, Celery, Redis, PostgreSQL, RabbitMQ, Kafka, and Elasticsearch. Active contribution to DevOps processes, QA environment management.',
         icon: 'tabler:briefcase',
       },
       {
-        title: 'Software Developer <br /><span class="font-normal">PRISMA CSI</span> <br /><span class="text-sm font-normal">October 2019 - September 2020</span>',
-        description: 'API development with Django Rest Framework for a cybersecurity platform. Created Admin API, performance profiling and improvement. Frontend development with JavaScript and CSS.',
+        title:
+          'Software Developer <br /><span class="font-normal">PRISMA CSI</span> <br /><span class="text-sm font-normal">October 2019 - September 2020</span>',
+        description:
+          'API development with Django Rest Framework for a cybersecurity platform. Created Admin API, performance profiling and improvement. Frontend development with JavaScript and CSS.',
         icon: 'tabler:briefcase',
       },
     ]}
@@ -199,12 +215,14 @@ const metadata = {
     title="Education"
     items={[
       {
-        title: 'Associate Degree, Computer Programming <br /><span class="font-normal">Fırat University</span> <br /><span class="text-sm font-normal">2024</span>',
+        title:
+          'Associate Degree, Computer Programming <br /><span class="font-normal">Fırat University</span> <br /><span class="text-sm font-normal">2024</span>',
         description: '',
         icon: 'tabler:school',
       },
       {
-        title: 'Bachelor\'s Degree, Electrical and Electronics Engineering <br /><span class="font-normal">Gaziantep University</span> <br /><span class="text-sm font-normal">2015</span>',
+        title:
+          'Bachelor\'s Degree, Electrical and Electronics Engineering <br /><span class="font-normal">Gaziantep University</span> <br /><span class="text-sm font-normal">2015</span>',
         description: '',
         icon: 'tabler:school',
       },
@@ -217,12 +235,14 @@ const metadata = {
     title="Community & Volunteering"
     items={[
       {
-        title: 'Founder <br /><span class="font-normal">Django Turkey Community</span> <br /><span class="text-sm font-normal">July 2018 - September 2022</span>',
+        title:
+          'Founder <br /><span class="font-normal">Django Turkey Community</span> <br /><span class="text-sm font-normal">July 2018 - September 2022</span>',
         description: 'Founded and managed the Django Turkey community, reaching 600+ members.',
         icon: 'tabler:users',
       },
       {
-        title: 'Software Community Founder & Instructor <br /><span class="font-normal">Gaziantep University</span> <br /><span class="text-sm font-normal">2020 - 2021</span>',
+        title:
+          'Software Community Founder & Instructor <br /><span class="font-normal">Gaziantep University</span> <br /><span class="text-sm font-normal">2020 - 2021</span>',
         description: 'Taught Open Source, Linux, Python, Git, and C++ to 30-40 participants.',
         icon: 'tabler:users',
       },
@@ -235,7 +255,8 @@ const metadata = {
     title="Certificates"
     items={[
       {
-        title: 'Getting Started with Google Kubernetes Engine <br /><span class="font-normal">Coursera</span> <br /><span class="text-sm font-normal">June 2021 · ID: TYEJ5FFCWP8F</span>',
+        title:
+          'Getting Started with Google Kubernetes Engine <br /><span class="font-normal">Coursera</span> <br /><span class="text-sm font-normal">June 2021 · ID: TYEJ5FFCWP8F</span>',
         description: 'Kubernetes Engine basics certificate provided by Google Cloud.',
         icon: 'tabler:certificate',
       },

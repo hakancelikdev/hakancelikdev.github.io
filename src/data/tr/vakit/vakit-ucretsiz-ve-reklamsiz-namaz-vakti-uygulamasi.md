@@ -1,7 +1,7 @@
 ---
 publishDate: 2026-11-25T18:00:00Z
 author: Hakan Çelik
-title: "Vakit: Ücretsiz ve Reklamsız Bir Namaz Vakti Uygulaması — Neden Yaptım, İçinde Ne Var"
+title: 'Vakit: Ücretsiz ve Reklamsız Bir Namaz Vakti Uygulaması — Neden Yaptım, İçinde Ne Var'
 excerpt: "Namaz vakitleri, ezan, kıble ve Kur'an; reklamsız, paywall'sız, hesap istemeden ve internetsiz. Vakit'i neden yaptığımı, diğer uygulamalardan farkını ve içinde neler olduğunu anlatıyorum."
 category: Vakit
 image: ~/assets/images/blog/vakit-tanitim.jpg
@@ -94,14 +94,14 @@ Vakit'i yazarken her kararı on ilkeye dayandırdım. Uygulamanın içinde de, s
 
 ## Diğer uygulamalar ve Vakit
 
-| | Çoğu namaz uygulaması | Vakit |
-|---|---|---|
-| Reklam | Dini içeriğin yanında kumar ve uygunsuz reklamlar | Tamamen reklamsız; isteğe bağlısı da yok |
-| Maliyet | Paywall, abonelik, "premium" seviyeler | Ücretsiz; seviye yok, upsell yok |
-| İnternet | Temel özellikler internet ister | Vakitler, bildirimler, kıble ve zikir ilk açılıştan internetsiz |
-| Kilit ekranı | Widget'lar güncellemelerde bozulur | Live Activity, Dynamic Island, StandBy |
-| Doğruluk | Yaz/kış saati hataları, sınırlı hesaplama | 12 yöntem, zaman dilimi bilinci, seyahat algılama |
-| Cihazlar | Yalnız telefon | iPhone, iPad, Apple Watch, Mac, Android |
+|              | Çoğu namaz uygulaması                             | Vakit                                                           |
+| ------------ | ------------------------------------------------- | --------------------------------------------------------------- |
+| Reklam       | Dini içeriğin yanında kumar ve uygunsuz reklamlar | Tamamen reklamsız; isteğe bağlısı da yok                        |
+| Maliyet      | Paywall, abonelik, "premium" seviyeler            | Ücretsiz; seviye yok, upsell yok                                |
+| İnternet     | Temel özellikler internet ister                   | Vakitler, bildirimler, kıble ve zikir ilk açılıştan internetsiz |
+| Kilit ekranı | Widget'lar güncellemelerde bozulur                | Live Activity, Dynamic Island, StandBy                          |
+| Doğruluk     | Yaz/kış saati hataları, sınırlı hesaplama         | 12 yöntem, zaman dilimi bilinci, seyahat algılama               |
+| Cihazlar     | Yalnız telefon                                    | iPhone, iPad, Apple Watch, Mac, Android                         |
 
 ## Verilerin bir emanet
 

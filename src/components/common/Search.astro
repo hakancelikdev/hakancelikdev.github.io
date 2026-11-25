@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <!-- Search trigger button (rendered inline, to be placed in Header) -->
@@ -82,13 +83,19 @@
         </p>
       </div>
       <!-- Footer -->
-      <div class="px-4 py-2 border-t dark:border-slate-700 flex items-center gap-4 text-xs text-muted dark:text-slate-500">
+      <div
+        class="px-4 py-2 border-t dark:border-slate-700 flex items-center gap-4 text-xs text-muted dark:text-slate-500"
+      >
         <span>
-          <kbd class="inline-flex items-center px-1.5 py-0.5 rounded border dark:border-slate-600 font-mono text-xs">Esc</kbd>
+          <kbd class="inline-flex items-center px-1.5 py-0.5 rounded border dark:border-slate-600 font-mono text-xs"
+            >Esc</kbd
+          >
           ile kapat
         </span>
         <span>
-          <kbd class="inline-flex items-center px-1.5 py-0.5 rounded border dark:border-slate-600 font-mono text-xs">↵</kbd>
+          <kbd class="inline-flex items-center px-1.5 py-0.5 rounded border dark:border-slate-600 font-mono text-xs"
+            >↵</kbd
+          >
           ile git
         </span>
       </div>
@@ -111,7 +118,7 @@
   async function loadPagefind() {
     if (pagefind) return pagefind;
     try {
-      // @ts-ignore — pagefind is generated at build time, path kept dynamic to avoid Vite static analysis
+      // pagefind is generated at build time, path kept dynamic to avoid Vite static analysis
       const pagefindPath = '/pagefind/' + 'pagefind.js';
       pagefind = await import(/* @vite-ignore */ pagefindPath);
       await pagefind.options({ excerptLength: 15 });

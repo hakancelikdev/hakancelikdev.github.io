@@ -2,7 +2,7 @@
 publishDate: 2026-11-25T18:00:00Z
 author: Hakan Çelik
 title: "Vakit: A Free, Ad-Free Prayer Times App — Why I Built It and What's Inside"
-excerpt: "Prayer times, adhan, Qibla and the Quran — with no ads, no paywall, no account, and working offline. Why I built Vakit, how it differs from other prayer apps, and what it does."
+excerpt: 'Prayer times, adhan, Qibla and the Quran — with no ads, no paywall, no account, and working offline. Why I built Vakit, how it differs from other prayer apps, and what it does.'
 category: Vakit
 image: ~/assets/images/blog/vakit-intro.jpg
 tags:
@@ -94,14 +94,14 @@ Every decision in Vakit rests on ten principles. They live in the app and on the
 
 ## Other apps and Vakit
 
-| | Most prayer apps | Vakit |
-|---|---|---|
-| Ads | Gambling and inappropriate ads next to religious content | Completely ad-free; not even optional ones |
-| Cost | Paywalls, subscriptions, "premium" tiers | Free; no tiers, no upsell |
-| Internet | Basic features need a connection | Prayer times, notifications, Qibla and dhikr offline from the first launch |
-| Lock Screen | Widgets break with iOS updates | Live Activity, Dynamic Island, StandBy |
-| Accuracy | Daylight-saving errors, limited methods | 12 methods, time-zone aware, travel detection |
-| Devices | Phone only | iPhone, iPad, Apple Watch, Mac, Android |
+|             | Most prayer apps                                         | Vakit                                                                      |
+| ----------- | -------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Ads         | Gambling and inappropriate ads next to religious content | Completely ad-free; not even optional ones                                 |
+| Cost        | Paywalls, subscriptions, "premium" tiers                 | Free; no tiers, no upsell                                                  |
+| Internet    | Basic features need a connection                         | Prayer times, notifications, Qibla and dhikr offline from the first launch |
+| Lock Screen | Widgets break with iOS updates                           | Live Activity, Dynamic Island, StandBy                                     |
+| Accuracy    | Daylight-saving errors, limited methods                  | 12 methods, time-zone aware, travel detection                              |
+| Devices     | Phone only                                               | iPhone, iPad, Apple Watch, Mac, Android                                    |
 
 ## Your data is a trust
 
